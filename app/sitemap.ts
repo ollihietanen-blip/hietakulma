@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/puutalot',
     '/puuelementit',
-    '/puuristikot',
+    '/kattoristikot',
     '/kohteet',
     '/tarina',
     '/tietopankki',

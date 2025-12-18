@@ -2,6 +2,8 @@ import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
+import StoryBlock from '@/components/sections/StoryBlock';
+import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
   title: 'Puuelementit - Hietakulma Oy',
@@ -58,31 +60,42 @@ export default function PuuelementitPage() {
             toimittamiesi piirrustusten mukaan. Rasiat ja putkitukset voidaan asentaa joko elementin
             sisä- tai ulkopuolelle.
           </p>
-          <div className="bg-gray-100 p-6 rounded-lg">
-            <h3 className="font-semibold mb-4">VERHOUSVAIHTOEHDOT</h3>
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
-              <li>Vaakapanelointi</li>
-              <li>Pystypanelointi</li>
-              <li>Pysty-vaaka-pystypanelointi</li>
-              <li>Lomalaudoitus</li>
-              <li>Rapattu pinnoite</li>
-            </ul>
+          <div className="mt-8">
+            <h3 className="font-bold text-2xl mb-8">VERHOUSVAIHTOEHDOT</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg' },
+                { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg' },
+                { name: 'Pysty-vaaka-pystypanelointi', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg' },
+                { name: 'Lomalaudoitus', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg' },
+                { name: 'Rapattu pinnoite', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg' },
+              ].map((option) => (
+                <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="relative h-48">
+                    <Image
+                      src={option.image}
+                      alt={option.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <p className="font-semibold text-text">{option.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
 
-      <Section background="gray">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-4">Hietakulman tarina</h2>
-          <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            Hietakulma Oy on kankaanpääläinen perheyritys, joka on erikoistunut
-            puuelementtitalojen ja kattoristikoiden tuotantoon.
-          </p>
-          <Button href="/tarina" variant="primary">
-            TUTUSTU TARINAAMME
-          </Button>
-        </div>
-      </Section>
+      <StoryBlock
+        title={homepageContent.story.title}
+        description={homepageContent.story.description}
+        ctaText={homepageContent.story.ctaText}
+        ctaLink={homepageContent.story.ctaLink}
+      />
     </>
   );
 }

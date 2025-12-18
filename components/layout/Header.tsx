@@ -7,7 +7,7 @@ const navItems = [
   { label: 'Tarina', href: '/tarina' },
   { label: 'Puutalot', href: '/puutalot' },
   { label: 'Puuelementit', href: '/puuelementit' },
-  { label: 'Puuristikot', href: '/puuristikot' },
+  { label: 'Kattoristikot', href: '/kattoristikot' },
   { label: 'Kohteet', href: '/kohteet' },
   { label: 'Tietopankki', href: '/tietopankki' },
 ];

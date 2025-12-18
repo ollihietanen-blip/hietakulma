@@ -4,8 +4,7 @@ export const homepageContent = {
   hero: {
     title: 'Seinät ja katot\narjen suojaksi',
     subtitle: 'Hietakulman arjenkestävät puutalot, -elementit ja -ristikot suunnitellaan ja rakennetaan Kankaanpäässä yli 30 vuoden kokemuksella.',
-    backgroundImage:
-      'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
+    backgroundImage: '/Puuelementit_hero.png',
     ctaText: 'LUE LISÄÄ',
     ctaLink: '/puutalot',
   },
@@ -74,7 +73,7 @@ export const homepageContent = {
     {
       id: 'puutalot',
       title: 'Puutalot',
-      description: 'Puutalot aina omakoti-, pari- ja rivitaloista useamman kohteen alueiksi saakka.',
+      description: 'Puutaloratkaisuja omakoti-, pari- ja rivitalokohteisiin sekä useamman rakennuksen kokonaisuuksiin.',
       image:
         'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
       link: '/puutalot',
@@ -82,19 +81,19 @@ export const homepageContent = {
     {
       id: 'puuelementit',
       title: 'Puuelementit',
-      description: 'Puuelementeistä rakentaminen on nykyaikainen ja kustannustehokas toteutustapa',
+      description: 'Seinä- ja runkoelementtejä tehokkaaseen ja hallittuun puurakentamiseen.',
       image:
         'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
       link: '/puuelementit',
     },
     {
       id: 'puuristikot',
-      title: 'Puuristikot',
+      title: 'Kattoristikot',
       description:
-        'Sertifioituja ja CE-laatuvarmistettuja kattoristikoita valmiiden mallien tai pelkkien mittatietojen pohjalta',
+        'CE-merkityt kattoristikot vakioratkaisuina tai kohdekohtaisesti mitoitettuna.',
       image:
         'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
-      link: '/puuristikot',
+      link: '/kattoristikot',
     },
   ] as Product[],
 };

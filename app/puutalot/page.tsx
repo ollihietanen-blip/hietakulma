@@ -2,6 +2,9 @@ import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
+import ProcessFlow from '@/components/sections/ProcessFlow';
+import StoryBlock from '@/components/sections/StoryBlock';
+import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
   title: 'Puutalot - Hietakulma Oy',
@@ -46,30 +49,48 @@ export default function PuutalotPage() {
               kanssa takaa sen, että lopputuloksena syntyy puutalo, joka kestää niin aikaa kuin
               arkeakin.
             </p>
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <h3 className="font-semibold mb-2">PROSESSIKAAVIO</h3>
-              <p className="text-sm text-gray-600">
-                Suunnittelu → Valmistus → Toimitus → Asennus
-              </p>
-            </div>
           </div>
         </div>
       </Section>
 
-      <Section background="gray">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-4">Hietakulman tarina</h2>
-          <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-            Hietakulma Oy on kankaanpääläinen perheyritys, joka on erikoistunut
-            puuelementtitalojen ja kattoristikoiden tuotantoon. Suunnittelemme, valmistamme ja
-            toimitamme puutaloja ja kattoristikoita sekä yritys- että yksityisasiakkaillemme
-            ympäri Suomen.
-          </p>
-          <Button href="/tarina" variant="primary">
-            TUTUSTU TARINAAMME
-          </Button>
-        </div>
+      <Section background="white">
+        <ProcessFlow
+          steps={[
+            {
+              number: 1,
+              title: 'TONTTI JA LUONNOS',
+              description: 'Tontin valinta ja alustavat suunnitelmat.',
+            },
+            {
+              number: 2,
+              title: 'SUUNNITTELU JA LUVAT',
+              description: 'Arkkitehti- ja rakennesuunnittelu sekä lupaprosessi.',
+            },
+            {
+              number: 3,
+              title: 'BUDJETOINTI',
+              description: 'Kustannuslaskenta ja rahoitusratkaisut.',
+            },
+            {
+              number: 4,
+              title: 'VALMISTUS',
+              description: 'Elementtien valmistus tehtaalla ja asennus.',
+            },
+            {
+              number: 5,
+              title: 'LUOVUTUS',
+              description: 'Kohteen luovutus ja myynnin tuki.',
+            },
+          ]}
+        />
       </Section>
+
+      <StoryBlock
+        title={homepageContent.story.title}
+        description={homepageContent.story.description}
+        ctaText={homepageContent.story.ctaText}
+        ctaLink={homepageContent.story.ctaLink}
+      />
     </>
   );
 }
