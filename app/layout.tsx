@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-work-sans",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -32,10 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fi">
-      <body>
+    <html lang="fi" className={workSans.variable}>
+      <body className={workSans.className}>
         <Header />
-        <main className="pt-16">{children}</main>
+        <main style={{ paddingTop: '72px' }}>{children}</main>
         <Footer />
       </body>
     </html>

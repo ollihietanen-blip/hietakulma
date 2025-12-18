@@ -17,8 +17,8 @@ export default function Section({
 }: SectionProps) {
   const backgrounds = {
     white: 'bg-white',
-    gray: 'bg-gray-50',
-    dark: 'bg-gray-900 text-white',
+    gray: 'bg-muted',
+    dark: 'bg-dark text-white',
   };
 
   return (

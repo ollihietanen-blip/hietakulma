@@ -17,7 +17,7 @@ export default function Hero({
   ctaLink,
 }: HeroProps) {
   return (
-    <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center">
+    <section className="relative w-full flex items-center justify-center hero-section">
       {backgroundImage && (
         <div className="absolute inset-0 z-0">
           <Image
@@ -28,23 +28,24 @@ export default function Hero({
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+          <div className="absolute inset-0 bg-black" style={{ opacity: 0.45 }} />
         </div>
       )}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fadeIn">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight whitespace-pre-line">
+        <h1 className="font-extrabold text-white mb-6 leading-tight whitespace-pre-line" style={{ lineHeight: '1.05', fontWeight: 900, color: '#F8E0C7' }}>
           {title}
         </h1>
         {subtitle && (
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white mb-8 max-w-2xl mx-auto leading-relaxed ingress">
             {subtitle}
           </p>
         )}
         {ctaText && ctaLink && (
           <Button
             href={ctaLink}
-            variant="primary"
-            className="bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-4 shadow-lg hover:shadow-xl transition-all"
+            variant="outline"
+            className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 transition-all"
+            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box', paddingLeft: '100px', paddingRight: '100px' }}
           >
             {ctaText}
           </Button>
