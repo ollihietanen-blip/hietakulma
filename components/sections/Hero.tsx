@@ -44,7 +44,7 @@ export default function Hero({
           <Button
             href="/kohteet"
             variant="outline"
-            className="border-2 text-white hover:bg-white/10 px-6 py-3 transition-all"
+            className="border-2 text-white px-6 py-3 transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             KOHTEEMME
@@ -52,7 +52,7 @@ export default function Hero({
           <Button
             href="/tarina"
             variant="outline"
-            className="border-2 text-white hover:bg-white/10 px-6 py-3 transition-all"
+            className="border-2 text-white px-6 py-3 transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             TARINAMME
@@ -60,7 +60,7 @@ export default function Hero({
           <Button
             href="#tuotteemme"
             variant="outline"
-            className="border-2 text-white hover:bg-white/10 px-6 py-3 transition-all"
+            className="border-2 text-white px-6 py-3 transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             TUOTTEEMME
