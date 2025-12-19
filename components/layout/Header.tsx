@@ -20,7 +20,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full relative">
           {/* Logo - centered on mobile, left on desktop */}
-          <Link href="/" className="md:mr-0 text-xl sm:text-2xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0">
+          <Link href="/" className="md:mr-0 text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0">
             HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA
           </Link>
 
