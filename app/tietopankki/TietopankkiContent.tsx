@@ -116,7 +116,7 @@ export default function TietopankkiContent() {
     }
 
     return filtered;
-  }, [searchQuery, sortBy, selectedCategories.join(',')]);
+  }, [searchQuery, sortBy, selectedCategories]);
 
   const toggleCategory = (category: string) => {
     setSelectedCategories((prev) => {
@@ -174,10 +174,10 @@ export default function TietopankkiContent() {
               placeholder="Hae dokumentteja..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-3 pl-12 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-blue transition-colors"
+              className="w-full px-4 py-4 pl-12 pr-4 text-lg border-2 border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue focus:border-blue transition-all bg-white text-gray-900 placeholder-gray-500 shadow-sm"
             />
             <svg
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -187,14 +187,14 @@ export default function TietopankkiContent() {
           </div>
 
           {/* Filter Controls */}
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="space-y-4">
             {/* Category Filters */}
             <div className="flex flex-wrap gap-2">
               {Object.entries(categories).map(([key, label]) => (
                 <button
                   key={key}
                   onClick={() => toggleCategory(key)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                     selectedCategories.includes(key)
                       ? 'bg-blue text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -206,15 +206,12 @@ export default function TietopankkiContent() {
             </div>
 
             {/* Sort Dropdown */}
-            <div className="ml-auto flex items-center gap-2">
-              <label htmlFor="sort" className="text-sm text-gray-600 font-medium whitespace-nowrap">
-                Järjestä:
-              </label>
+            <div className="flex items-center gap-2">
               <select
                 id="sort"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="px-4 py-2 pr-10 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue focus:border-blue transition-all bg-white text-gray-900 cursor-pointer min-w-[160px]"
+                className="px-4 py-2 pr-10 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue focus:border-blue transition-all bg-white text-gray-900 cursor-pointer min-w-[200px]"
                 style={{
                   appearance: 'none',
                   backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
@@ -223,8 +220,8 @@ export default function TietopankkiContent() {
                   backgroundSize: '12px 8px',
                 } as React.CSSProperties}
               >
-                <option value="alphabetical">Aakkosjärjestys</option>
-                <option value="category">Kategoria</option>
+                <option value="alphabetical">Järjestä: Aakkosjärjestys</option>
+                <option value="category">Järjestä: Kategoria</option>
               </select>
             </div>
           </div>

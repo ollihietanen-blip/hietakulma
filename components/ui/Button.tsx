@@ -9,6 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   style?: React.CSSProperties;
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   onClick,
   type,
   style,
+  disabled,
 }: ButtonProps) {
   const baseStyles =
     'inline-flex items-center justify-center px-6 text-base font-medium transition-all duration-200';
@@ -50,7 +52,13 @@ export default function Button({
   }
 
   return (
-    <button type={type || 'button'} onClick={onClick} className={combinedClassName} style={defaultStyle}>
+    <button 
+      type={type || 'button'} 
+      onClick={onClick} 
+      className={combinedClassName} 
+      style={defaultStyle}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

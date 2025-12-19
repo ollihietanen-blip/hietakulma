@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/Hero';
 import TietopankkiContent from './TietopankkiContent';
+import { requireAuth } from '@/lib/auth';
 
 export const metadata = {
   title: 'Tietopankki - Hietakulma Oy',
@@ -7,7 +8,9 @@ export const metadata = {
     'Lataa ohjeet, detaljit ja rakenneratkaisut Hietakulman puuelementeillä ja kattoristikoilla toteutettuun rakentamiseen.',
 };
 
-export default function TietopankkiPage() {
+export default async function TietopankkiPage() {
+  await requireAuth();
+
   return (
     <>
       <Hero

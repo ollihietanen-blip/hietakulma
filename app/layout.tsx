@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { Providers } from "./providers";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -42,9 +43,11 @@ export default function RootLayout({
   return (
     <html lang="fi" className={workSans.variable}>
       <body className={workSans.className}>
-        <Header />
-        <main style={{ paddingTop: '72px' }}>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main style={{ paddingTop: '72px' }}>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
