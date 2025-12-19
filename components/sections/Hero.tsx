@@ -31,20 +31,20 @@ export default function Hero({
           <div className="absolute inset-0 bg-black" style={{ opacity: 0.45 }} />
         </div>
       )}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fadeIn">
-        <h1 className="font-extrabold text-white mb-6 leading-tight whitespace-pre-line" style={{ lineHeight: '1.05', fontWeight: 900, color: '#F8E0C7' }}>
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto animate-fadeIn py-12 sm:py-16 md:py-20">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight whitespace-pre-line" style={{ lineHeight: '1.05', fontWeight: 900, color: '#F8E0C7' }}>
           {title}
         </h1>
         {subtitle && (
-          <p className="text-white mb-8 max-w-2xl mx-auto leading-relaxed ingress">
+          <p className="text-white mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base md:text-lg ingress px-2">
             {subtitle}
           </p>
         )}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8">
           <Button
             href="/kohteet"
             variant="outline"
-            className="border-2 text-white px-6 py-3 transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-full sm:w-auto"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             KOHTEEMME
@@ -52,7 +52,7 @@ export default function Hero({
           <Button
             href="/tarina"
             variant="outline"
-            className="border-2 text-white px-6 py-3 transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-full sm:w-auto"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             TARINAMME
@@ -60,7 +60,7 @@ export default function Hero({
           <Button
             href="#tuotteemme"
             variant="outline"
-            className="border-2 text-white px-6 py-3 transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-full sm:w-auto"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             TUOTTEEMME

@@ -23,10 +23,10 @@ export default function ProcessFlow({
   return (
     <div className="py-12">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-text" style={{ lineHeight: '1.1' }}>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 text-text" style={{ lineHeight: '1.1' }}>
           {title}
         </h2>
-        {subtitle && <p className="text-lg text-gray-600">{subtitle}</p>}
+        {subtitle && <p className="text-base sm:text-lg text-gray-600">{subtitle}</p>}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-2 max-w-6xl mx-auto">
@@ -34,7 +34,7 @@ export default function ProcessFlow({
           <div key={step.number} className="flex flex-col items-center group relative">
             {/* Ympyrä - samalla rivillä kaikille */}
             <div
-              className="w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer flex-shrink-0"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer flex-shrink-0"
               style={{
                 backgroundColor: '#F8E0C7',
                 transition: 'background-color 0.3s ease, color 0.3s ease',
@@ -51,7 +51,7 @@ export default function ProcessFlow({
               }}
             >
               <span
-                className="text-4xl md:text-5xl font-black"
+                className="text-3xl sm:text-4xl md:text-5xl font-black"
                 style={{ color: 'var(--text)', transition: 'color 0.3s ease' }}
               >
                 {step.number}

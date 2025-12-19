@@ -77,6 +77,13 @@ h2 {
 @media (max-width: 768px) {
   .hero-section {
     height: 60vh;
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    height: 55vh;
     min-height: 400px;
   }
 }

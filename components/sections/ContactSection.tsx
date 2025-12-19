@@ -31,22 +31,22 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 md:py-32" style={{ backgroundColor: 'var(--dark)' }}>
+    <section className="py-12 sm:py-16 md:py-24 lg:py-32" style={{ backgroundColor: 'var(--dark)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="font-extrabold mb-6 text-white" style={{ color: 'var(--sand)', lineHeight: '1.1' }}>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="mb-6 md:mb-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 text-white" style={{ color: 'var(--sand)', lineHeight: '1.1' }}>
               Ota yhteyttä
             </h2>
           </div>
-          <div className="max-w-lg">
+          <div className="max-w-lg mx-auto md:mx-0">
             {submitted ? (
-              <div className="bg-green-500/20 border border-green-500 text-green-200 p-4 rounded" style={{ borderRadius: '8px' }}>
+              <div className="bg-green-500/20 border border-green-500 text-green-200 p-4 rounded text-sm sm:text-base" style={{ borderRadius: '8px' }}>
                 <p>Viesti lähetetty onnistuneesti! Otamme yhteyttä pian.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-white text-sm mb-2">
                       Nimi (etunimi) *
@@ -58,7 +58,7 @@ export default function ContactSection() {
                       required
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded text-text focus:outline-none focus:ring-2 focus:ring-blue"
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
                       style={{ borderRadius: '8px', height: '44px' }}
                       placeholder="Etunimi"
                     />
@@ -74,7 +74,7 @@ export default function ContactSection() {
                       required
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded text-text focus:outline-none focus:ring-2 focus:ring-blue"
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
                       style={{ borderRadius: '8px', height: '44px' }}
                       placeholder="Sukunimi"
                     />
@@ -91,10 +91,10 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded text-text focus:outline-none focus:ring-2 focus:ring-blue"
-                    style={{ borderRadius: '8px', height: '44px' }}
-                    placeholder="sähköposti@esimerkki.fi"
-                  />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      style={{ borderRadius: '8px', height: '44px' }}
+                      placeholder="sähköposti@esimerkki.fi"
+                    />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-white text-sm mb-2">
@@ -107,10 +107,10 @@ export default function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded text-text focus:outline-none focus:ring-2 focus:ring-blue"
-                    style={{ borderRadius: '8px', height: '44px' }}
-                    placeholder="040 123 4567"
-                  />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      style={{ borderRadius: '8px', height: '44px' }}
+                      placeholder="040 123 4567"
+                    />
                 </div>
                 <div>
                   <label htmlFor="company" className="block text-white text-sm mb-2">
@@ -122,10 +122,10 @@ export default function ContactSection() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded text-text focus:outline-none focus:ring-2 focus:ring-blue"
-                    style={{ borderRadius: '8px', height: '44px' }}
-                    placeholder="Yrityksen nimi"
-                  />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      style={{ borderRadius: '8px', height: '44px' }}
+                      placeholder="Yrityksen nimi"
+                    />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-white text-sm mb-2">
@@ -138,20 +138,20 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded text-text focus:outline-none focus:ring-2 focus:ring-blue resize-none"
-                    style={{ borderRadius: '8px' }}
-                    placeholder="Kirjoita viestisi tähän..."
-                  />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue resize-none"
+                      style={{ borderRadius: '8px' }}
+                      placeholder="Kirjoita viestisi tähän..."
+                    />
                 </div>
                 <div className="text-center">
                   <Button
                     type="submit"
                     variant="outline"
-                    className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 transition-all"
-                    style={{ borderColor: 'white', borderRadius: '8px', height: '48px' }}
-                  >
-                    LÄHETÄ
-                  </Button>
+                    className="border-2 border-white text-white hover:bg-white/10 px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base transition-all w-full sm:w-auto"
+                      style={{ borderColor: 'white', borderRadius: '8px', height: '48px' }}
+                    >
+                      LÄHETÄ
+                    </Button>
                 </div>
               </form>
             )}

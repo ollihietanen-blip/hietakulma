@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="mb-16">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <div className="text-center md:text-left">
-                <h2 className="text-3xl font-bold text-white mb-8">Ota yhteyttä</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Ota yhteyttä</h2>
                 <div className="space-y-2 text-sm text-white">
                   <p>Puh. 02 573 0300</p>
                   <p>talotehdas@hietakulma.fi</p>
@@ -173,7 +173,7 @@ export default function Footer() {
           <div className="w-full h-px mb-12" style={{ backgroundColor: 'var(--blue)' }}></div>
 
           <div className="text-center mb-12">
-            <Link href="/" className="text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans">
+            <Link href="/" className="text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans">
               HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA
             </Link>
           </div>
