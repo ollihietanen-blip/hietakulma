@@ -44,7 +44,7 @@ export default function Hero({
           <Button
             href="/kohteet"
             variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-auto sm:w-auto max-w-[280px] sm:max-w-none"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px]"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             KOHTEEMME
@@ -52,7 +52,7 @@ export default function Hero({
           <Button
             href="/tarina"
             variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-auto sm:w-auto max-w-[280px] sm:max-w-none"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px]"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             TARINAMME
@@ -60,7 +60,7 @@ export default function Hero({
           <Button
             href="#tuotteemme"
             variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-auto sm:w-auto max-w-[280px] sm:max-w-none"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all hover:scale-105 hover:shadow-lg hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px]"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             TUOTTEEMME
