@@ -19,8 +19,8 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 shadow-sm" style={{ height: '72px', backgroundColor: 'var(--dark)' }}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full relative">
-          {/* Logo - left */}
-          <Link href="/" className="text-xl sm:text-2xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans">
+          {/* Logo - centered on mobile, left on desktop */}
+          <Link href="/" className="md:mr-0 text-xl sm:text-2xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0">
             HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA
           </Link>
 
@@ -62,7 +62,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white ml-auto"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
