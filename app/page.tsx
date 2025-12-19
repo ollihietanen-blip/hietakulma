@@ -40,7 +40,7 @@ export default function Home() {
       />
 
       {/* Tuotteemme */}
-      <Section background="sand">
+      <Section background="sand" id="tuotteemme">
         <div className="text-center mb-12">
           <h2 className="font-extrabold mb-12 text-text" style={{ lineHeight: '1.1' }}>
             Tuotteemme

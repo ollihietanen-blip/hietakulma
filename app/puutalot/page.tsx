@@ -24,25 +24,27 @@ export default function PuutalotPage() {
       />
 
       <Section background="white" id="content">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-96 rounded-lg overflow-hidden">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-6 text-center" style={{ lineHeight: '1.2' }}>
+            Suunnitelmasta valmiiksi kohteeksi
+          </h2>
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
             <Image
               src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
               alt="Puutalot"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 800px"
             />
           </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Suunnitelmasta valmiiksi kohteeksi</h2>
-            <p className="text-lg text-gray-700 mb-4">
+          <div className="space-y-4">
+            <p className="text-lg text-gray-700">
               Ymmärrämme alustavia suunnitelmia yhtä luontevasti kuin valmiita
               rakennuspiirrustuksiakin. Suunnittelupöydällä ideasi jäsentyvät oivaltaviksi
               pohjaratkaisuiksi ja tyyllikkäiksi kohteiksi nykyaikaista ja toimintavarmaa
               talotekniikkaa unohtamatta.
             </p>
-            <p className="text-lg text-gray-700 mb-6">
+            <p className="text-lg text-gray-700">
               Tämän lisäksi tunnemme rakennustyömaat kuin oman tehtaamme ja kykenemme siksi
               ottamaan työmaatyöskentelyn realiteetit huomioon niin suunnittelu- kuin
               tuotantovaiheessakin. Ammattimainen yhteistyö rakentajien ja urakoitsijoiden

@@ -44,7 +44,7 @@ export default function Footer() {
                 <h2 className="text-3xl font-bold text-white mb-8">Ota yhteyttä</h2>
                 <div className="space-y-2 text-sm text-white">
                   <p>Puh. 02 573 0300</p>
-                  <p>talztehdas@hietakulma.fi</p>
+                  <p>talotehdas@hietakulma.fi</p>
                   <p>ristikkotehdas@hietakulma.fi</p>
                   <p>Koskenojankatu 11</p>
                   <p>38700 Kankaanpää</p>

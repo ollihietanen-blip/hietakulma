@@ -21,7 +21,7 @@ export default function StoryBlock({ title, description, ctaText, ctaLink }: Sto
           href={ctaLink}
           variant="outline"
           className="border-2 border-text text-text hover:bg-text hover:text-white px-8 py-3 transition-all"
-          style={{ borderColor: 'var(--text)', borderRadius: '8px' }}
+          style={{ borderColor: 'var(--text)', borderRadius: '0' }}
         >
           {ctaText}
         </Button>
