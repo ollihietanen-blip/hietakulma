@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { Product } from '@/types/content';
@@ -14,17 +17,21 @@ export default function ProductCircles({ products }: ProductCirclesProps) {
       {products.map((product, index) => (
         <ScrollReveal key={product.id} delay={index * 0.15} direction="up">
           <div className="text-center">
-            <div
-              className="mx-auto mb-4 sm:mb-6 rounded-full flex items-center justify-center product-circle"
-              style={{ backgroundColor: 'var(--dark)' }}
+            <motion.a
+              href={product.link}
+              className="group mx-auto mb-4 sm:mb-6 rounded-full flex items-center justify-center product-circle cursor-pointer"
+              style={{ backgroundColor: 'var(--dark)', display: 'flex' }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
             >
               <span
-                className="font-black product-letter"
+                className="font-black product-letter transition-colors duration-300 group-hover:text-white"
                 style={{ color: 'var(--blue)', fontWeight: 900 }}
               >
                 {letters[index]}
               </span>
-            </div>
+            </motion.a>
             <p className="text-text mb-4 sm:mb-6 text-sm md:text-base leading-relaxed px-2" style={{ minHeight: '60px' }}>
               {product.description}
             </p>
