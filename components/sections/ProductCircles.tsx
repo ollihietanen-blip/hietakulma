@@ -11,39 +11,51 @@ interface ProductCirclesProps {
 
 function HouseIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(2, 2) scale(0.8)">
-        <path d="M3 36L50 3L97 36V87H3V36Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M20 87V50H80V87" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <rect x="38" y="62" width="24" height="25" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M85 12V28" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      </g>
+    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Katto */}
+      <path d="M50 12L8 50H92L50 12Z" stroke="currentColor" strokeWidth="3.5" strokeLinejoin="round" />
+      {/* Piippu */}
+      <path d="M68 42V22H76V36" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Seinät */}
+      <path d="M16 50V90H84V50" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Ovi */}
+      <rect x="38" y="64" width="24" height="26" rx="1" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+      {/* Vasen ikkuna */}
+      <rect x="22" y="58" width="12" height="12" rx="1" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      {/* Oikea ikkuna */}
+      <rect x="66" y="58" width="12" height="12" rx="1" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function ElementIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 100 95" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(0, 5) scale(0.9)">
-        <path d="M5 65L85 85L95 75L15 55L5 65Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M5 75L85 95L95 85L15 65L5 75Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M25 5L85 20V75L25 60V5Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <rect x="45" y="25" width="25" height="30" transform="skewY(15)" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      </g>
+    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Seinäelementin etupinta */}
+      <path d="M10 30L10 92L58 92L58 30Z" stroke="currentColor" strokeWidth="3.5" strokeLinejoin="round" />
+      {/* Yläsärmä – syvyys */}
+      <path d="M10 30L34 14L82 14L58 30" stroke="currentColor" strokeWidth="3.5" strokeLinejoin="round" />
+      {/* Oikea särmä – syvyys */}
+      <path d="M58 30L82 14L82 76L58 92" stroke="currentColor" strokeWidth="3.5" strokeLinejoin="round" />
+      {/* Ikkuna-aukko etupinnassa */}
+      <rect x="23" y="50" width="22" height="20" rx="1" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
     </svg>
   );
 }
 
 function TrussIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 110 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(0, 0) scale(0.9)">
-        <path d="M5 55L55 5L105 55H5Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M55 5V55" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M30 30L55 55L80 30" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        <path d="M5 55H105" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-      </g>
+    <svg className={className} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Pääkolmio */}
+      <path d="M50 18L8 78H92L50 18Z" stroke="currentColor" strokeWidth="3.5" strokeLinejoin="round" />
+      {/* Alapaarre */}
+      <line x1="8" y1="78" x2="92" y2="78" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+      {/* Harjapilari */}
+      <line x1="50" y1="18" x2="50" y2="78" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      {/* V-tuet */}
+      <path d="M29 48L50 78L71 48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* Vaakatuki */}
+      <line x1="29" y1="48" x2="71" y2="48" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
     </svg>
   );
 }
