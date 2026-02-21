@@ -3,6 +3,7 @@ import Section from '@/components/sections/Section';
 import ReferenceGrid from '@/components/sections/ReferenceGrid';
 import StoryBlock from '@/components/sections/StoryBlock';
 import ProductCircles from '@/components/sections/ProductCircles';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 
 import { homepageContent } from '@/lib/content/homepage';
 
@@ -20,15 +21,19 @@ export default function Home() {
 
       {/* Talosta kodiksi */}
       <Section background="white">
-        <div className="text-center mb-12">
-          <h2 className="font-extrabold mb-6 text-text" style={{ lineHeight: '1.1' }}>
-            {homepageContent.projects.title}
-          </h2>
-          <p className="text-text max-w-2xl mx-auto ingress">
-            {homepageContent.projects.description}
-          </p>
-        </div>
-        <ReferenceGrid images={homepageContent.projects.images} />
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <h2 className="font-extrabold mb-6 text-text" style={{ lineHeight: '1.1' }}>
+              {homepageContent.projects.title}
+            </h2>
+            <p className="text-text max-w-2xl mx-auto ingress">
+              {homepageContent.projects.description}
+            </p>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <ReferenceGrid images={homepageContent.projects.images} />
+        </ScrollReveal>
       </Section>
 
       {/* Hietakulman tarina */}
@@ -41,11 +46,13 @@ export default function Home() {
 
       {/* Tuotteemme */}
       <Section background="sand" id="tuotteemme">
-        <div className="text-center mb-12">
-          <h2 className="font-extrabold mb-12 text-text" style={{ lineHeight: '1.1' }}>
-            Tuotteemme
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <h2 className="font-extrabold mb-12 text-text" style={{ lineHeight: '1.1' }}>
+              Tuotteemme
+            </h2>
+          </div>
+        </ScrollReveal>
         <ProductCircles products={homepageContent.products} />
       </Section>
     </>
