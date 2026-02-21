@@ -11,56 +11,39 @@ interface ProductCirclesProps {
 
 function HouseIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Harjakatto */}
-      <polygon points="40,8 8,35 72,35" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" fill="none" />
-      {/* Seinät */}
-      <rect x="14" y="35" width="52" height="37" stroke="currentColor" strokeWidth="3" fill="none" />
-      {/* Ovi */}
-      <rect x="32" y="48" width="16" height="24" stroke="currentColor" strokeWidth="2.5" fill="none" />
-      {/* Ikkunat */}
-      <rect x="20" y="42" width="10" height="10" stroke="currentColor" strokeWidth="2" fill="none" />
-      <rect x="50" y="42" width="10" height="10" stroke="currentColor" strokeWidth="2" fill="none" />
+    <svg className={className} viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(2, 2) scale(0.8)">
+        <path d="M3 36L50 3L97 36V87H3V36Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M20 87V50H80V87" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <rect x="38" y="62" width="24" height="25" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M85 12V28" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
     </svg>
   );
 }
 
 function ElementIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Pinotut puuelementit / seinäelementit */}
-      {/* Alin elementti */}
-      <rect x="10" y="56" width="60" height="14" rx="2" stroke="currentColor" strokeWidth="3" fill="none" />
-      <line x1="30" y1="56" x2="30" y2="70" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="50" y1="56" x2="50" y2="70" stroke="currentColor" strokeWidth="1.5" />
-      {/* Keskimmäinen elementti */}
-      <rect x="10" y="38" width="60" height="14" rx="2" stroke="currentColor" strokeWidth="3" fill="none" />
-      <line x1="25" y1="38" x2="25" y2="52" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="40" y1="38" x2="40" y2="52" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="55" y1="38" x2="55" y2="52" stroke="currentColor" strokeWidth="1.5" />
-      {/* Ylin elementti */}
-      <rect x="10" y="20" width="60" height="14" rx="2" stroke="currentColor" strokeWidth="3" fill="none" />
-      <line x1="30" y1="20" x2="30" y2="34" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="50" y1="20" x2="50" y2="34" stroke="currentColor" strokeWidth="1.5" />
+    <svg className={className} viewBox="0 0 100 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(0, 5) scale(0.9)">
+        <path d="M5 65L85 85L95 75L15 55L5 65Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M5 75L85 95L95 85L15 65L5 75Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M25 5L85 20V75L25 60V5Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <rect x="45" y="25" width="25" height="30" transform="skewY(15)" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </g>
     </svg>
   );
 }
 
 function TrussIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Kattoristikon ulkomuoto - kolmio */}
-      <polygon points="40,10 6,62 74,62" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" fill="none" />
-      {/* Alapalkki */}
-      <line x1="6" y1="62" x2="74" y2="62" stroke="currentColor" strokeWidth="3" />
-      {/* Pystytuki keskellä */}
-      <line x1="40" y1="10" x2="40" y2="62" stroke="currentColor" strokeWidth="2.5" />
-      {/* Vinotuki vasen */}
-      <line x1="23" y1="36" x2="23" y2="62" stroke="currentColor" strokeWidth="2" />
-      {/* Vinotuki oikea */}
-      <line x1="57" y1="36" x2="57" y2="62" stroke="currentColor" strokeWidth="2" />
-      {/* Vaakatuki */}
-      <line x1="23" y1="36" x2="57" y2="36" stroke="currentColor" strokeWidth="2" />
+    <svg className={className} viewBox="0 0 110 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(0, 0) scale(0.9)">
+        <path d="M5 55L55 5L105 55H5Z" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M55 5V55" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M30 30L55 55L80 30" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M5 55H105" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
     </svg>
   );
 }
