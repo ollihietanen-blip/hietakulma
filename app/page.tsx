@@ -3,7 +3,7 @@ import Section from '@/components/sections/Section';
 import ReferenceGrid from '@/components/sections/ReferenceGrid';
 import StoryBlock from '@/components/sections/StoryBlock';
 import ProductCircles from '@/components/sections/ProductCircles';
-import ContactSection from '@/components/sections/ContactSection';
+
 import { homepageContent } from '@/lib/content/homepage';
 
 export default function Home() {
@@ -48,9 +48,6 @@ export default function Home() {
         </div>
         <ProductCircles products={homepageContent.products} />
       </Section>
-
-      {/* Ota yhteyttä */}
-      <ContactSection />
     </>
   );
 }
