@@ -23,7 +23,6 @@ export default function ProductCircles({ products }: ProductCirclesProps) {
               {letters[index]}
             </span>
           </div>
-          <h3 className="text-xl font-bold mb-2 text-text">{product.title}</h3>
           <p className="text-text mb-4 sm:mb-6 text-sm md:text-base leading-relaxed px-2" style={{ minHeight: '60px' }}>
             {product.description}
           </p>

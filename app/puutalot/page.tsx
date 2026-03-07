@@ -7,10 +7,9 @@ import StoryBlock from '@/components/sections/StoryBlock';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Puutalot elementeistä | Hietakulma Oy',
+  title: 'Puutalot - Hietakulma Oy',
   description:
-    'Puuelementtiset rivi-, pari- ja omakotitalot. Suunnittelemme ja valmistamme puutaloja Kankaanpäässä yli 30 vuoden kokemuksella.',
-  keywords: ['puutalot', 'puutalo elementeistä', 'puutalovalmistaja', 'rivitalot', 'paritalot'],
+    'Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka.',
 };
 
 export default function PuutalotPage() {
@@ -20,10 +19,8 @@ export default function PuutalotPage() {
         title="Puutalot kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
         backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
-        buttons={[
-          { label: 'PYYDÄ TARJOUS', href: '/ota-yhteytta' },
-          { label: 'KATSO KOHTEET', href: '/kohteet' },
-        ]}
+        ctaText="LUE LISÄÄ"
+        ctaLink="#content"
       />
 
       <Section background="white" id="content">
@@ -34,7 +31,7 @@ export default function PuutalotPage() {
           <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
             <Image
               src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
-              alt="Hietakulman puutalo rakenteilla, elementtirunko"
+              alt="Puutalot"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 800px"

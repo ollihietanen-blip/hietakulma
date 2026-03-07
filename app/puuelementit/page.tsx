@@ -6,10 +6,9 @@ import StoryBlock from '@/components/sections/StoryBlock';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Puuelementit | Hietakulma Oy - Seinä- ja runkoelementit',
+  title: 'Puuelementit - Hietakulma Oy',
   description:
-    'Puuelementit tehokkaaseen puurakentamiseen. Seinä-, runko- ja väliseinäelementtejä sähkövalmiina tai ulkoverhoiltuna.',
-  keywords: ['puuelementit', 'seinäelementit', 'puurakentaminen', 'sähkövalmiit elementit'],
+    'Puuelementeistä rakentaminen on nykyaikainen ja kustannustehokas toteutustapa.',
 };
 
 export default function PuuelementitPage() {
@@ -19,10 +18,8 @@ export default function PuuelementitPage() {
         title="Puuelementit kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
         backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
-        buttons={[
-          { label: 'PYYDÄ TARJOUS', href: '/ota-yhteytta' },
-          { label: 'KATSO KOHTEET', href: '/kohteet' },
-        ]}
+        ctaText="LUE LISÄÄ"
+        ctaLink="#content"
       />
 
       <Section background="white" id="content">
@@ -44,7 +41,7 @@ export default function PuuelementitPage() {
           <div className="relative h-96 rounded-lg overflow-hidden">
             <Image
               src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
-              alt="Puuelementtien valmistus Hietakulman tehtaalla"
+              alt="Puuelementit"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

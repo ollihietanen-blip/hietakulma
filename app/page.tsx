@@ -14,11 +14,8 @@ export default function Home() {
         title={homepageContent.hero.title}
         subtitle={homepageContent.hero.subtitle}
         backgroundImage={homepageContent.hero.backgroundImage}
-        buttons={[
-          { label: 'KOHTEEMME', href: '/kohteet' },
-          { label: 'TARINAMME', href: '/tarina' },
-          { label: 'TUOTTEEMME', href: '#tuotteemme' },
-        ]}
+        ctaText={homepageContent.hero.ctaText}
+        ctaLink={homepageContent.hero.ctaLink}
       />
 
       {/* Talosta kodiksi */}

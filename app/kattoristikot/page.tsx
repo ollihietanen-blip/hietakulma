@@ -4,10 +4,9 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 
 export const metadata = {
-  title: 'Kattoristikot | Hietakulma Oy - CE-merkityt NR-ristikot',
+  title: 'Kattoristikot - Hietakulma Oy',
   description:
-    'CE-merkityt kattoristikot ja NR-ristikot. Sertifioituja ristikoita vakiomalleista tai mittatietojen mukaan Kankaanpäässä.',
-  keywords: ['kattoristikot', 'NR-ristikot', 'CE-merkityt ristikot', 'harjaristikko', 'saksiristikko'],
+    'Valmistamme sertifioituja NR-ristikoita valmiiden mallien tai pelkkien mittatietojen pohjalta.',
 };
 
 export default function KattoristikotPage() {
@@ -28,10 +27,8 @@ export default function KattoristikotPage() {
         title="Kattoristikot kokemuksella"
         subtitle="Valmistamme sertifioituja NR-ristikoita valmiiden mallien tai pelkkien mittatietojen pohjalta. CE-laatuvarmistettu tuotanto ja vuosikymmenten kokemus takaavat kestävän ja laadukkaan lopputuloksen."
         backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
-        buttons={[
-          { label: 'PYYDÄ TARJOUS', href: '/ota-yhteytta' },
-          { label: 'KATSO KOHTEET', href: '/kohteet' },
-        ]}
+        ctaText="LUE LISÄÄ"
+        ctaLink="#content"
       />
 
       <Section background="white" id="content">
@@ -61,7 +58,7 @@ export default function KattoristikotPage() {
           <div className="relative h-96 rounded-lg overflow-hidden">
             <Image
               src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
-              alt="Kattoristikoiden valmistus Hietakulman tehtaalla Kankaanpäässä"
+              alt="Kattoristikot"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

@@ -5,10 +5,9 @@ import Button from '@/components/ui/Button';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Kohteet | Hietakulma Oy - Referenssit ja toteutetut puutalot',
+  title: 'Kohteet - Hietakulma Oy',
   description:
-    'Tutustu Hietakulman toteuttamiin puutalokohteisiin. Rivi-, pari- ja omakotitaloja ympäri Suomen.',
-  keywords: ['puutalot referenssit', 'rakennuskohteet', 'puutalot'],
+    'Toteutamme rivi-, pari- ja omakotitalot yhteistyössä ammattirakentajien kanssa.',
 };
 
 export default function KohteetPage() {
@@ -18,7 +17,6 @@ export default function KohteetPage() {
         title="Talosta kodiksi"
         subtitle="Toteutamme rivi-, pari- ja omakotitalot yhteistyössä ammattirakentajien kanssa yksittäisistä kohteista aina useamman kohteen alueiksi saakka. Kaikkia kohteita yhdistää asiakaslähtöinen suunnittelu ja kustannustehokas tuotanto – me teemme taloja joihin on helppoa asettua kodiksi."
         backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
-        buttons={[]}
       />
 
       <Section background="white">

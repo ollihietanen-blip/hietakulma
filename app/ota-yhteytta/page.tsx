@@ -4,9 +4,8 @@ import Image from 'next/image';
 import { contactPersons, billingInfo } from '@/lib/content/contacts';
 
 export const metadata = {
-  title: 'Ota yhteyttä | Hietakulma Oy - Yhteystiedot',
-  description:
-    'Ota yhteyttä Hietakulma Oy:hyn. Pyydä tarjous puutaloista, puuelementeistä tai kattoristikoista. Kankaanpää, puh. 02 573 0300.',
+  title: 'Ota yhteyttä - Hietakulma Oy',
+  description: 'Yhteystiedot ja henkilöt - Hietakulma Oy',
 };
 
 export default function OtaYhteyttaPage() {
@@ -16,7 +15,6 @@ export default function OtaYhteyttaPage() {
         title="Yhteystiedot ja henkilöt"
         subtitle="Ota yhteyttä, niin autamme rakennuskohteeseesi sopivan ratkaisun valinnassa."
         backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
-        buttons={[]}
       />
 
       <Section background="white">

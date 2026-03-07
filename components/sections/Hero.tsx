@@ -1,23 +1,20 @@
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 
-interface HeroButton {
-  label: string;
-  href: string;
-}
-
 interface HeroProps {
   title: string;
   subtitle?: string;
   backgroundImage?: string;
-  buttons?: HeroButton[];
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 export default function Hero({
   title,
   subtitle,
   backgroundImage,
-  buttons,
+  ctaText,
+  ctaLink,
 }: HeroProps) {
   return (
     <section className="relative w-full flex items-center justify-center hero-section">
@@ -43,22 +40,34 @@ export default function Hero({
             {subtitle}
           </p>
         )}
-        {buttons && buttons.length > 0 && (
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8 px-4 sm:px-0">
-            {buttons.map((button, index) => (
-              <Button
-                key={index}
-                href={button.href}
-                variant="outline"
-                className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
-                style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
-              >
-                {button.label}
-              </Button>
-            ))}
-          </div>
-        )}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8 px-4 sm:px-0">
+          <Button
+            href="/kohteet"
+            variant="outline"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
+            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
+          >
+            KOHTEEMME
+          </Button>
+          <Button
+            href="/tarina"
+            variant="outline"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
+            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
+          >
+            TARINAMME
+          </Button>
+          <Button
+            href="#tuotteemme"
+            variant="outline"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
+            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
+          >
+            TUOTTEEMME
+          </Button>
+        </div>
       </div>
     </section>
   );
 }
+

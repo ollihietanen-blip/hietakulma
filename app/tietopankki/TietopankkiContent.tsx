@@ -12,43 +12,43 @@ interface Document {
 
 const documents: Document[] = [
   {
-    title: 'HK-seinä 198mm',
+    title: 'HK-seinä 198mm (TEST)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'rakennetyypit',
     type: 'pdf',
   },
   {
-    title: 'Sähkövalmiit elementit',
+    title: 'Sähkövalmiit elementit (TEST)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'rakennetyypit',
     type: 'pdf',
   },
   {
-    title: 'HK-seinä 248mm',
+    title: 'HK-seinä 248mm (TEST)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'rakennetyypit',
     type: 'pdf',
   },
   {
-    title: 'Ulkoverhousdetaljit',
+    title: 'Ulkoverhousdetaljit (TEST)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'rakennetyypit',
     type: 'pdf',
   },
   {
-    title: 'Elementtien asennusohje',
+    title: 'Elementtien asennusohje (test)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'ohjeet',
     type: 'pdf',
   },
   {
-    title: 'Sähkö- ja LVI-suunnitteluopas',
+    title: 'Sähkö- ja LVI-suunnitteluopas (test)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'ohjeet',
     type: 'pdf',
   },
   {
-    title: 'Ristikoiden tuentaohje',
+    title: 'Ristikoiden tuentaohje (test)',
     url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
     category: 'ohjeet',
     type: 'pdf',
