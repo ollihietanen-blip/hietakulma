@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navItems = [
   { label: 'Tarina', href: '/tarina' },
@@ -20,8 +21,15 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full relative">
           {/* Logo - centered on mobile, left on desktop */}
-          <Link href="/" aria-label="Hietakulma" className="md:mr-0 text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0">
-            <span aria-hidden="true">HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA</span>
+          <Link href="/" aria-label="Hietakulma" className="absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0 flex items-center hover:opacity-90 transition-opacity">
+            <Image
+              src="/logos/Hietakulma_logo_cmyk_valk.png"
+              alt="Hietakulma"
+              width={235}
+              height={36}
+              priority
+              className="h-8 sm:h-9 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation - center */}

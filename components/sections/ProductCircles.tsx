@@ -26,20 +26,11 @@ export default function ProductCircles({ products }: ProductCirclesProps) {
           <p className="text-text mb-4 sm:mb-6 text-sm md:text-base leading-relaxed px-2" style={{ minHeight: '60px' }}>
             {product.description}
           </p>
-          {product.keyFacts && (
-            <div className="flex flex-wrap gap-2 justify-center mb-4">
-              {product.keyFacts.map((fact, i) => (
-                <span key={i} className="text-xs px-3 py-1 rounded-full" style={{ backgroundColor: 'var(--sand)', color: 'var(--text)' }}>
-                  {fact}
-                </span>
-              ))}
-            </div>
-          )}
           <Button
             href={product.link}
             variant="outline"
-            className="border border-text text-text hover:bg-muted px-5 py-2.5 sm:px-6 sm:py-3 transition-all uppercase text-xs sm:text-sm tracking-wide w-full sm:w-auto"
-            style={{ borderColor: 'var(--text)', borderRadius: '8px', height: '44px' }}
+            className="border-2 border-text text-text hover:bg-muted px-5 py-2.5 sm:px-6 sm:py-3 transition-all uppercase text-xs sm:text-sm tracking-wide w-full sm:w-auto"
+            style={{ borderColor: 'var(--text)', borderRadius: '0', height: '44px' }}
           >
             {product.title.toUpperCase()}
           </Button>

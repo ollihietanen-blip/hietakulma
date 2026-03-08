@@ -18,6 +18,7 @@ export const homepageContent = {
         alt: 'Kirjavaisenkatu 40 — rivitalo, ammattikuvaus',
         title: 'KIRJAVAISENKATU 40',
         href: '/kohteet/kirjavaisenkatu-40',
+        rotate: 180,
       },
       {
         src: '/images/kohteet/leppatie-pori/leppatie-01.webp',
@@ -54,6 +55,7 @@ export const homepageContent = {
         alt: 'Maitiaisentie 9, Tuusula — omakotitalo',
         title: 'MAITIAISENTIE, TUUSULA',
         href: '/kohteet/maitiaisentie-tuusula',
+        rotate: 180,
       },
       {
         src: '/images/kohteet/hoylakatu/hoylakatu-01.webp',
@@ -84,7 +86,6 @@ export const homepageContent = {
       description: 'Suunnittelemme ja valmistamme puuelementtitalot omakoti- ja paritalokohteisiin — avaimet käteen tai runkopakettina, juuri niin kuin tarvitset.',
       image: '/images/kohteet/kirjavaisenkatu-40/b7-01_DJI_0965-HDR.webp',
       link: '/puutalot',
-      keyFacts: ['Räätälöity jokaisen asiakkaan tarpeisiin', 'Toimitamme koko Suomeen, rahti sisältyy', '30+ vuoden kokemus omakotirakentamisesta'],
     },
     {
       id: 'puuelementit',
@@ -92,7 +93,6 @@ export const homepageContent = {
       description: 'Seinä-, välipohjа- ja kattoelementit tehtaassamme mittatilaustyönä — valmiina suoraan rakennuspaikallesi asennettavaksi.',
       image: '/images/tehdas/elementtituotanto/IMG_4222.webp',
       link: '/puuelementit',
-      keyFacts: ['Yli 81 500 m² elementtejä toimitettu', 'Nopea asennus, lyhyt rakennusaika', 'Sopii sekä yksityisrakentajille että rakennusliikkeille'],
     },
     {
       id: 'puuristikot',
@@ -101,7 +101,6 @@ export const homepageContent = {
         'CE-merkityt kattoristikot vakiomittoina tai kohdekohtaisesti mitoitettuna — toimitusvarmuus ja tekninen tarkkuus joka projektiin.',
       image: '/images/tehdas/ristikkotuotanto/IMG_4251.webp',
       link: '/kattoristikot',
-      keyFacts: ['Ristikot: 84 % tarjous-kauppa-konversio', 'Nopeat toimitusajat', 'Lue lisää: Kattoristikot →'],
     },
   ] as Product[],
 };

@@ -47,17 +47,17 @@ export default function Hero({
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 px-4 sm:px-0">
           <Button
             href="/ota-yhteytta"
-            variant="primary"
-            className="text-white px-6 py-3 text-sm sm:text-base font-bold w-[240px] animate-pulseGlow shadow-lg"
-            style={{ backgroundColor: 'var(--blue)', borderRadius: '8px' }}
+            variant="ghost"
+            className="px-6 py-3 text-sm sm:text-base font-bold w-[240px] transition-colors duration-300"
+            style={{ borderRadius: '0' }}
           >
             PYYDÄ TARJOUS
           </Button>
           <Button
             href="/kohteet"
-            variant="outline"
-            className="text-white px-6 py-3 text-sm sm:text-base font-bold w-[240px] hover:bg-white/10 backdrop-blur-sm"
-            style={{ borderColor: 'rgba(255,255,255,0.6)', borderRadius: '8px', color: '#ffffff' }}
+            variant="ghost"
+            className="px-6 py-3 text-sm sm:text-base font-bold w-[240px] transition-colors duration-300"
+            style={{ borderRadius: '0' }}
           >
             TUTUSTU KOHTEISIIMME
           </Button>

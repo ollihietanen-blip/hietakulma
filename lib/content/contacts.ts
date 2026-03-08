@@ -1,5 +1,16 @@
 import { ContactPerson } from '@/types/content';
 
+export const companyInfo = {
+  name: 'Hietakulma Oy',
+  phone: '02 573 0300',
+  email: 'talotehdas@hietakulma.fi',
+  emailTruss: 'ristikkotehdas@hietakulma.fi',
+  address: 'Koskenojankatu 11',
+  postalCode: '38700',
+  city: 'Kankaanpää',
+  businessId: '2547711-2',
+};
+
 export const contactPersons: ContactPerson[] = [
   {
     name: 'Olli Hietanen',

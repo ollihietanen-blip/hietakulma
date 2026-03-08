@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
+import { companyInfo } from '@/lib/content/contacts';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -59,6 +60,25 @@ export default function ContactSection() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 text-white" style={{ color: 'var(--sand)', lineHeight: '1.1' }}>
               Ota yhteyttä
             </h2>
+            <div className="space-y-3 text-white/90 text-sm sm:text-base">
+              <p>{companyInfo.address}</p>
+              <p>{companyInfo.postalCode} {companyInfo.city}</p>
+              <p>
+                <a href={`tel:${companyInfo.phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors">
+                  Puh. {companyInfo.phone}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${companyInfo.email}`} className="hover:text-white transition-colors">
+                  {companyInfo.email}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${companyInfo.emailTruss}`} className="hover:text-white transition-colors">
+                  {companyInfo.emailTruss}
+                </a>
+              </p>
+            </div>
           </div>
           <div className="max-w-lg mx-auto md:mx-0">
             {submitted ? (

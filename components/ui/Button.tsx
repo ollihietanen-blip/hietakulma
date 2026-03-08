@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
@@ -28,6 +28,7 @@ export default function Button({
     primary: 'bg-dark text-white hover:bg-black',
     secondary: 'bg-muted text-text hover:bg-gray-200',
     outline: 'border-2 border-dark text-dark hover:bg-dark hover:text-white',
+    ghost: 'bg-transparent border-2 border-white/70 text-white hover:bg-white/15',
   };
 
   // Korkeus 44-48px, kulmat 8-12px
