@@ -21,16 +21,18 @@ export default function Hero({
   return (
     <section className="relative w-full flex items-center justify-center hero-section">
       {backgroundImage && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src={backgroundImage}
             alt={altText || title}
             fill
-            className="object-cover"
+            className="object-cover animate-kenBurns"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black" style={{ opacity: 0.45 }} />
+          {/* Radial gradient overlay for more depth */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-black/30 pointer-events-none" />
         </div>
       )}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto animate-fadeIn py-12 sm:py-16 md:py-20">
@@ -42,30 +44,22 @@ export default function Hero({
             {subtitle}
           </p>
         )}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8 px-4 sm:px-0">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 px-4 sm:px-0">
           <Button
             href="/ota-yhteytta"
-            variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
-            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
+            variant="primary"
+            className="text-white px-6 py-3 text-sm sm:text-base font-bold w-[240px] animate-pulseGlow shadow-lg"
+            style={{ backgroundColor: 'var(--blue)', borderRadius: '8px' }}
           >
             PYYDÄ TARJOUS
           </Button>
           <Button
             href="/kohteet"
             variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
-            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
+            className="text-white px-6 py-3 text-sm sm:text-base font-bold w-[240px] hover:bg-white/10 backdrop-blur-sm"
+            style={{ borderColor: 'rgba(255,255,255,0.6)', borderRadius: '8px', color: '#ffffff' }}
           >
-            KOHTEEMME
-          </Button>
-          <Button
-            href="#tuotteemme"
-            variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
-            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
-          >
-            TUOTTEEMME
+            TUTUSTU KOHTEISIIMME
           </Button>
         </div>
       </div>

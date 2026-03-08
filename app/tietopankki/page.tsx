@@ -14,7 +14,7 @@ export default async function TietopankkiPage() {
     <>
       <Hero
         title="Tietopankki"
-        subtitle="Lataa ohjeet, detaljit ja rakenneratkaisut Hietakulman puuelementeillä ja kattoristikoilla toteutettuun rakentamiseen."
+        subtitle="Täältä löydät rakentamisen tueksi ohjeet, detaljit ja rakenneratkaisut — Hietakulman puuelementeille ja kattoristikoille. Lataa tarvitsemasi materiaalit suoraan käyttöösi."
         backgroundImage="/images/hero/tehdas-drone-01.webp"
       />
       <TietopankkiContent />

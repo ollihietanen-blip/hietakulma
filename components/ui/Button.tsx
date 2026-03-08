@@ -23,13 +23,13 @@ export default function Button({
   disabled,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center px-6 text-base font-medium transition-all duration-200';
+    'inline-flex items-center justify-center px-6 text-base font-medium transition-all duration-300 ease-out active:scale-[0.98] hover:-translate-y-[2px] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue relative overflow-hidden group';
   const variants = {
-    primary: 'bg-dark text-white hover:bg-gray-800',
-    secondary: 'bg-muted text-text hover:bg-gray-300',
-    outline: 'border text-text hover:bg-muted',
+    primary: 'bg-dark text-white hover:bg-black',
+    secondary: 'bg-muted text-text hover:bg-gray-200',
+    outline: 'border-2 border-dark text-dark hover:bg-dark hover:text-white',
   };
-  
+
   // Korkeus 44-48px, kulmat 8-12px
   const heightStyle = { height: '44px', minHeight: '44px' };
   const borderRadius = '8px';
@@ -46,20 +46,22 @@ export default function Button({
   if (href) {
     return (
       <Link href={href} className={combinedClassName} style={defaultStyle}>
-        {children}
+        <span className="relative z-10">{children}</span>
+        {variant === 'primary' && <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />}
       </Link>
     );
   }
 
   return (
-    <button 
-      type={type || 'button'} 
-      onClick={onClick} 
-      className={combinedClassName} 
+    <button
+      type={type || 'button'}
+      onClick={onClick}
+      className={combinedClassName}
       style={defaultStyle}
       disabled={disabled}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
+      {variant === 'primary' && <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0" />}
     </button>
   );
 }

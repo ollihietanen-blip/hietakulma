@@ -21,7 +21,7 @@ export default function KohteetPage() {
     <>
       <Hero
         title="Talosta kodiksi"
-        subtitle="Toteutamme rivi-, pari- ja omakotitalot yhteistyössä ammattirakentajien kanssa yksittäisistä kohteista aina useamman kohteen alueiksi saakka. Kaikkia kohteita yhdistää asiakaslähtöinen suunnittelu ja kustannustehokas tuotanto – me teemme taloja joihin on helppoa asettua kodiksi."
+        subtitle="Yli 3 750 toimitettua projektia — omakotitaloista rivitaloihin ja aluekohteisiin. Jokaisen takana on sama lupaus: asiakaslähtöinen suunnittelu, tehdasvalmistettu laatu ja toimitus ajallaan."
         backgroundImage="/images/hero/kirjavaisenkatu-drone-02.webp"
       />
 
