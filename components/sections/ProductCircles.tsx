@@ -26,6 +26,15 @@ export default function ProductCircles({ products }: ProductCirclesProps) {
           <p className="text-text mb-4 sm:mb-6 text-sm md:text-base leading-relaxed px-2" style={{ minHeight: '60px' }}>
             {product.description}
           </p>
+          {product.keyFacts && (
+            <div className="flex flex-wrap gap-2 justify-center mb-4">
+              {product.keyFacts.map((fact, i) => (
+                <span key={i} className="text-xs px-3 py-1 rounded-full" style={{ backgroundColor: 'var(--sand)', color: 'var(--text)' }}>
+                  {fact}
+                </span>
+              ))}
+            </div>
+          )}
           <Button
             href={product.link}
             variant="outline"

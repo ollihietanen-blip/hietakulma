@@ -6,6 +6,11 @@ import ProductCircles from '@/components/sections/ProductCircles';
 import ContactSection from '@/components/sections/ContactSection';
 import { homepageContent } from '@/lib/content/homepage';
 
+export const metadata = {
+  title: 'Hietakulma Oy — Puutalot, puuelementit ja kattoristikot Kankaanpäästä',
+  description: 'Suunnittelemme ja valmistamme tehdasvalmisteisia puutaloja, puuelementtejä ja CE-merkittyjä kattoristikoita yli 30 vuoden kokemuksella. Pyydä tarjous!',
+};
+
 export default function Home() {
   return (
     <>

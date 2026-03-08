@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { contactPersons, billingInfo } from '@/lib/content/contacts';
 
 export const metadata = {
-  title: 'Ota yhteyttä - Hietakulma Oy',
-  description: 'Yhteystiedot ja henkilöt - Hietakulma Oy',
+  title: 'Ota yhteyttä — Hietakulma Oy',
+  description: 'Yhteystiedot, henkilöstö ja yhteydenottolomake. Autamme rakennuskohteesi sopivan ratkaisun valinnassa.',
 };
 
 export default function OtaYhteyttaPage() {

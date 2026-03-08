@@ -7,6 +7,7 @@ interface HeroProps {
   backgroundImage?: string;
   ctaText?: string;
   ctaLink?: string;
+  altText?: string;
 }
 
 export default function Hero({
@@ -15,6 +16,7 @@ export default function Hero({
   backgroundImage,
   ctaText,
   ctaLink,
+  altText,
 }: HeroProps) {
   return (
     <section className="relative w-full flex items-center justify-center hero-section">
@@ -22,7 +24,7 @@ export default function Hero({
         <div className="absolute inset-0 z-0">
           <Image
             src={backgroundImage}
-            alt=""
+            alt={altText || title}
             fill
             className="object-cover"
             priority
@@ -42,20 +44,20 @@ export default function Hero({
         )}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8 px-4 sm:px-0">
           <Button
+            href="/ota-yhteytta"
+            variant="outline"
+            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
+            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
+          >
+            PYYDÄ TARJOUS
+          </Button>
+          <Button
             href="/kohteet"
             variant="outline"
             className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
             style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
           >
             KOHTEEMME
-          </Button>
-          <Button
-            href="/tarina"
-            variant="outline"
-            className="border-2 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-xl hover:bg-blue hover:border-blue hover:text-white w-[200px] sm:w-[180px] opacity-70 hover:opacity-100 hover:-translate-y-0.5"
-            style={{ borderColor: '#F8E0C7', borderRadius: '0', color: '#F8E0C7', boxSizing: 'content-box' }}
-          >
-            TARINAMME
           </Button>
           <Button
             href="#tuotteemme"

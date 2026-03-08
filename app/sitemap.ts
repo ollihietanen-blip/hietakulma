@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tarina',
     '/tietopankki',
     '/ota-yhteytta',
+    '/tietosuoja',
   ];
 
   return routes.map((route) => ({

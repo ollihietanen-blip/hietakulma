@@ -5,9 +5,8 @@ import Button from '@/components/ui/Button';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Kohteet - Hietakulma Oy',
-  description:
-    'Toteutamme rivi-, pari- ja omakotitalot yhteistyössä ammattirakentajien kanssa.',
+  title: 'Referenssit ja kohteet — Hietakulma Oy',
+  description: 'Tutustu toteuttamiimme kohteisiin: omakotitaloja, rivitaloja ja asuinalueita ympäri Suomea. Yli 3 750 toimitettua kohdetta.',
 };
 
 export default function KohteetPage() {

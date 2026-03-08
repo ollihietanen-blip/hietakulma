@@ -3,12 +3,12 @@ import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import StoryBlock from '@/components/sections/StoryBlock';
+import WallStructureTable from '@/components/sections/WallStructureTable';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Puuelementit - Hietakulma Oy',
-  description:
-    'Puuelementeistä rakentaminen on nykyaikainen ja kustannustehokas toteutustapa.',
+  title: 'Puuelementit — Tehdasvalmisteiset seinäelementit',
+  description: 'Valmiiksi eristetyt ja pintakäsitellyt seinäelementit U-arvolla 0,17–0,21. Vaakapanelointi, pystypanelointi ja rapattu pinnoite.',
 };
 
 export default function PuuelementitPage() {
@@ -64,11 +64,11 @@ export default function PuuelementitPage() {
             <h3 className="font-bold text-2xl mb-8">VERHOUSVAIHTOEHDOT</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg' },
-                { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg' },
-                { name: 'Pysty-vaaka-pystypanelointi', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg' },
-                { name: 'Lomalaudoitus', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg' },
-                { name: 'Rapattu pinnoite', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg' },
+                { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg', description: 'Perinteinen ja ajaton valinta. UTW-profiili 28\u00d7195 mm, tehdasmaalattu kolmeen kertaan.' },
+                { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg', description: 'Moderni ja ryhdik\u00e4s ilme. Sopii erityisesti nykyaikaiseen arkkitehtuuriin.' },
+                { name: 'Pysty-vaaka-pystypanelointi', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg', description: 'El\u00e4v\u00e4 ja persoonallinen julkisivu, joka yhdist\u00e4\u00e4 molempien suuntien parhaat puolet.' },
+                { name: 'Lomalaudoitus', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg', description: 'Luonnollinen ja perinteinen. Antaa julkisivulle el\u00e4v\u00e4n tekstuurin.' },
+                { name: 'Rapattu pinnoite', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg', description: 'Kivitalomainen ilme puurakenteella. Moderni ja huoltovapaa vaihtoehto.' },
               ].map((option) => (
                 <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="relative h-48">
@@ -81,13 +81,18 @@ export default function PuuelementitPage() {
                     />
                   </div>
                   <div className="p-4">
-                    <p className="font-semibold text-text">{option.name}</p>
+                    <p className="font-semibold text-text mb-2">{option.name}</p>
+                    <p className="text-sm text-gray-600">{option.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
+      </Section>
+
+      <Section background="gray">
+        <WallStructureTable />
       </Section>
 
       <StoryBlock

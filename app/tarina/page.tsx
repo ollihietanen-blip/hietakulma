@@ -6,9 +6,8 @@ import ProductCircles from '@/components/sections/ProductCircles';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Tarina - Hietakulma Oy',
-  description:
-    'Hietakulman puutalot, -elementit ja kattoristikot suunnitellaan ja rakennetaan tehtaallamme Kankaanpäässä 30 vuoden kokemuksella.',
+  title: 'Hietakulman tarina — Yli 30 vuotta puurakentamista',
+  description: 'Kankaanpääläinen elementtitalovalmistaja, joka toimittaa kokonaisvaltaisen palvelun suunnittelusta valmiiksi elementeiksi. Tutustu tarinaamme.',
 };
 
 export default function TarinaPage() {

@@ -3,9 +3,8 @@ import TietopankkiContent from './TietopankkiContent';
 import { requireAuth } from '@/lib/auth';
 
 export const metadata = {
-  title: 'Tietopankki - Hietakulma Oy',
-  description:
-    'Lataa ohjeet, detaljit ja rakenneratkaisut Hietakulman puuelementeillä ja kattoristikoilla toteutettuun rakentamiseen.',
+  title: 'Tietopankki — Ohjeet, detaljit ja dokumentit',
+  description: 'Lataa asennusohjeet, rakennedetaljit, suoritustasoilmoitukset ja tuotedokumentit Hietakulman puuelementeille ja kattoristikoille.',
 };
 
 export default async function TietopankkiPage() {

@@ -4,21 +4,20 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 
 export const metadata = {
-  title: 'Kattoristikot - Hietakulma Oy',
-  description:
-    'Valmistamme sertifioituja NR-ristikoita valmiiden mallien tai pelkkien mittatietojen pohjalta.',
+  title: 'CE-merkityt kattoristikot — Hietakulma Oy',
+  description: 'CE-merkityt kattoristikot vakioratkaisuina tai mittatilaustyönä. Harjaristikot, saksiristikot, kehäristikot ja muut ratkaisut.',
 };
 
 export default function KattoristikotPage() {
   const trussTypes = [
-    { name: 'Harjaristikko', description: 'Yleisin ristikkomalli harjakattoisiin taloihin.' },
-    { name: 'Saksiristikko', description: 'Mahdollistaa korkean ja avaran sisäkaton.' },
-    { name: 'Murtoharjaristikko', description: 'Monimuotoisiin kattorakenteisiin.' },
-    { name: 'Käyttöullakkoristikko', description: 'Luo lisätilaa yläpohjaan varastointia tai asumista varten.' },
-    { name: 'Kehäristikko', description: 'Suuriin jänneväleihin ja avoimiin tiloihin.' },
-    { name: 'Pulpettiristikko', description: 'Yksilappeisiin kattoihin.' },
-    { name: 'Pukkiristikko', description: 'Erityisrakenteisiin ja tuentoihin.' },
-    { name: 'Palkkiristikko', description: 'Välipohjiin ja tasakattoihin.' },
+    { name: 'Harjaristikko', description: 'Yleisin ristikkomalli harjakattoisiin taloihin.', spanRange: '6\u201314 m', typicalUse: 'Omakotitalot' },
+    { name: 'Saksiristikko', description: 'Mahdollistaa korkean ja avaran sis\u00e4katon.', spanRange: '8\u201316 m', typicalUse: 'Avarasis\u00e4tilat' },
+    { name: 'Murtoharjaristikko', description: 'Monimuotoisiin kattorakenteisiin.', spanRange: '8\u201314 m', typicalUse: 'Monikerroksiset katot' },
+    { name: 'K\u00e4ytt\u00f6ullakkoristikko', description: 'Luo lis\u00e4tilaa yl\u00e4pohjaan varastointia tai asumista varten.', spanRange: '8\u201314 m', typicalUse: 'Asuttava ullakko' },
+    { name: 'Keh\u00e4ristikko', description: 'Suuriin j\u00e4nnev\u00e4leihin ja avoimiin tiloihin.', spanRange: '10\u201324 m', typicalUse: 'Hallit ja avoimet tilat' },
+    { name: 'Pulpettiristikko', description: 'Yksilappeisiin kattoihin.', spanRange: '4\u201312 m', typicalUse: 'Yksilappeiset katot' },
+    { name: 'Pukkiristikko', description: 'Erityisrakenteisiin ja tuentoihin.', spanRange: '10\u201320 m', typicalUse: 'Laajat kattoalueet' },
+    { name: 'Palkkiristikko', description: 'V\u00e4lipohjiin ja tasakattoihin.', spanRange: '6\u201318 m', typicalUse: 'Tasakatot ja loivat katot' },
   ];
 
   return (
@@ -76,12 +75,27 @@ export default function KattoristikotPage() {
             {trussTypes.map((type) => (
               <div
                 key={type.name}
-                className="bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition-colors"
+                className="bg-gray-100 p-5 rounded-lg hover:bg-gray-200 transition-colors"
               >
                 <p className="font-semibold mb-2">{type.name}</p>
-                <p className="text-sm text-gray-600">{type.description}</p>
+                <p className="text-sm text-gray-600 mb-3">{type.description}</p>
+                <div className="space-y-1 text-xs text-gray-500">
+                  <p><span className="font-medium text-gray-700">J\u00e4nnev\u00e4li:</span> {type.spanRange}</p>
+                  <p><span className="font-medium text-gray-700">K\u00e4ytt\u00f6:</span> {type.typicalUse}</p>
+                </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 p-8 rounded-lg" style={{ backgroundColor: 'var(--sand)' }}>
+            <h3 className="text-2xl font-bold mb-4">CE-merkinn\u00e4n merkitys</h3>
+            <p className="text-lg text-gray-700">
+              Kaikki kattoristikkomme ovat CE-merkittyj\u00e4 EN 14250 -standardin mukaisesti. CE-merkint\u00e4 takaa,
+              ett\u00e4 ristikot on suunniteltu ja valmistettu eurooppalaisen harmonisoidun standardin mukaisesti,
+              ja niille on laadittu suoritustasoilmoitus (DoP). Suoritustasoilmoitukset l\u00f6yd\u00e4t{' '}
+              <a href="/tietopankki" className="underline font-medium" style={{ color: 'var(--blue)' }}>
+                Tietopankistamme
+              </a>.
+            </p>
           </div>
           <div className="mt-8 text-center">
             <p className="text-lg text-gray-700 mb-4">

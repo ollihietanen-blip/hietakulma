@@ -27,5 +27,6 @@ export interface Product {
   description: string;
   image?: string;
   link: string;
+  keyFacts?: string[];
 }
 

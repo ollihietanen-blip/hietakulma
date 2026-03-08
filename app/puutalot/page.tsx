@@ -7,9 +7,8 @@ import StoryBlock from '@/components/sections/StoryBlock';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Puutalot - Hietakulma Oy',
-  description:
-    'Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka.',
+  title: 'Puutalot elementeistä — Hietakulma Oy',
+  description: 'Toteutamme omakoti-, pari- ja rivitaloja puuelementeistä. Kokonaistoimituspaketti suunnittelusta valmiiksi pintakäsiteltyihin elementteihin.',
 };
 
 export default function PuutalotPage() {
@@ -61,27 +60,27 @@ export default function PuutalotPage() {
             {
               number: 1,
               title: 'TONTTI JA LUONNOS',
-              description: 'Tontin valinta ja alustavat suunnitelmat.',
+              description: 'Tontin valinta ja alustavat suunnitelmat \u2014 kartoitamme tontin mahdollisuudet, laadimme alustavan pohjapiirroksen ja 3D-mallin.',
             },
             {
               number: 2,
               title: 'SUUNNITTELU JA LUVAT',
-              description: 'Arkkitehti- ja rakennesuunnittelu sekä lupaprosessi.',
+              description: 'Arkkitehti- ja rakennesuunnittelu, energiatodistus sek\u00e4 rakennuslupaprosessin hoitaminen \u2014 kaikki samasta talosta.',
             },
             {
               number: 3,
               title: 'BUDJETOINTI',
-              description: 'Kustannuslaskenta ja rahoitusratkaisut.',
+              description: 'Tarkka kustannuslaskenta Talo-2000 -nimikkeist\u00f6ll\u00e4, rahoitusratkaisujen kartoitus ja lopullinen tarjous.',
             },
             {
               number: 4,
               title: 'VALMISTUS',
-              description: 'Elementtien valmistus tehtaalla ja asennus.',
+              description: 'Elementtien valmistus tehtaallamme kontrolloiduissa olosuhteissa \u2014 valmiiksi eristettyinä, ikkunoituna ja pintakäsiteltyinä.',
             },
             {
               number: 5,
               title: 'LUOVUTUS',
-              description: 'Kohteen luovutus ja myynnin tuki.',
+              description: 'Elementtien toimitus ja asennus työmaalle, asennusohjeet ja tekninen tuki koko rakennusprojektin ajan.',
             },
           ]}
         />

@@ -16,13 +16,34 @@ export default function Footer() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Viestin lähetys epäonnistui.');
+      }
+
+      setSubmitted(true);
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', company: '', message: '' });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Viestin lähetys epäonnistui. Yritä uudelleen.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -53,10 +74,15 @@ export default function Footer() {
               <div className="max-w-lg mx-auto md:mx-0">
                 {submitted ? (
                   <div className="bg-green-500/20 border border-green-500 text-green-200 p-4 rounded" style={{ borderRadius: '8px' }}>
-                    <p>Viesti lähetetty onnistuneesti! Otamme yhteyttä pian.</p>
+                    <p>Kiitos yhteydenotostasi! Palaamme asiaan 1–2 arkipäivän kuluessa.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    {error && (
+                      <div className="bg-red-500/20 border border-red-500 text-red-200 p-4 rounded" style={{ borderRadius: '8px' }}>
+                        <p>{error}</p>
+                      </div>
+                    )}
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="footerFirstName" className="block text-white text-sm mb-2">
@@ -158,10 +184,11 @@ export default function Footer() {
                       <Button
                         type="submit"
                         variant="outline"
-                        className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 transition-all"
+                        disabled={loading}
+                        className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{ borderColor: 'white', borderRadius: '8px', height: '48px' }}
                       >
-                        LÄHETÄ
+                        {loading ? 'LÄHETETÄÄN...' : 'LÄHETÄ'}
                       </Button>
                     </div>
                   </form>
@@ -180,6 +207,7 @@ export default function Footer() {
 
           <div className="text-center mb-8 space-y-2 text-sm text-white">
             <p className="font-semibold">HIETAKULMA OY</p>
+            <p>Y-tunnus: 2547711-2</p>
             <p>Puh. {contactPersons[0]?.phone || '050 4496 321'}</p>
             <p>{contactPersons[0]?.email || 'olli.hietanen@hietakulma.fi'}</p>
             <p>asiakaspalvelu@hietakulma.fi</p>
@@ -218,6 +246,9 @@ export default function Footer() {
 
           <div className="text-center text-sm text-gray-400">
             <p>&copy; {new Date().getFullYear()} Hietakulma</p>
+            <Link href="/tietosuoja" className="text-gray-400 hover:text-white transition-colors text-sm mt-2 block">
+              Tietosuojaseloste
+            </Link>
           </div>
         </div>
       </footer>

@@ -3,7 +3,7 @@ import { Product } from '@/types/content';
 export const homepageContent = {
   hero: {
     title: 'Seinät ja katot\narjen suojaksi',
-    subtitle: 'Hietakulman arjenkestävät puutalot, -elementit ja -ristikot suunnitellaan ja rakennetaan Kankaanpäässä yli 30 vuoden kokemuksella.',
+    subtitle: 'Hietakulman arjenkestävät puutalot, -elementit ja -ristikot suunnitellaan ja rakennetaan Kankaanpäässä yli 30 vuoden kokemuksella — kaikki yhdeltä luukulta suunnittelusta valmiiksi pintakäsiteltyihin elementteihin.',
     backgroundImage: '/Puuelementit_hero.png',
     ctaText: 'LUE LISÄÄ',
     ctaLink: '/puutalot',
@@ -15,48 +15,48 @@ export const homepageContent = {
     images: [
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1f9a6860-2d9f-418d-b02a-2ce04121dc61/hk_web_kohteet_0014_pori4_6.jpg',
-        alt: 'Projekti 1',
-        title: 'KOHTEEN NIMI 1',
+        alt: 'Villa Tähtiranta — moderni puutalo',
+        title: 'VILLA TÄHTIRANTA',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1fe4dbf3-cfda-4704-9ceb-8eb22f876a38/hk_web_kohteet_0027_pori2_2.jpg',
-        alt: 'Projekti 2',
-        title: 'KOHTEEN NIMI 4',
+        alt: 'Leppätien rivitalot, Pori',
+        title: 'LEPPÄTIEN RIVITALOT',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1f9a6860-2d9f-418d-b02a-2ce04121dc61/hk_web_kohteet_0014_pori4_6.jpg',
-        alt: 'Projekti 3',
-        title: 'KOHTEEN NIMI 7',
+        alt: 'Rantakatu 5 — omakotitalo',
+        title: 'RANTAKATU 5',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/3deeb784-e177-4d28-9a13-ee0d4d1374ed/hk_web_kohteet_0006_pori6_3.jpg',
-        alt: 'Projekti 4',
-        title: 'KOHTEEN NIMI 2',
+        alt: 'Vesikkotie 12, Vantaa — omakotitalo',
+        title: 'VESIKKOTIE 12',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/4550596a-4672-4ae5-9d4b-5771ac39f3c2/hk_web_kohteet_0002_tre1_2.jpg',
-        alt: 'Projekti 5',
-        title: 'KOHTEEN NIMI 5',
+        alt: 'Kirjavaisenkatu 40 — rivitalo, ammattikuvaus',
+        title: 'KIRJAVAISENKATU 40',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/3deeb784-e177-4d28-9a13-ee0d4d1374ed/hk_web_kohteet_0006_pori6_3.jpg',
-        alt: 'Projekti 6',
-        title: 'KOHTEEN NIMI 8',
+        alt: 'Karhulan Kuusikko — asuinalue',
+        title: 'KARHULAN KUUSIKKO',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/4812ebe5-5ab5-43ae-b4c4-84310662d45f/hk_web_kohteet_0037_nokia2_1.jpg',
-        alt: 'Projekti 7',
-        title: 'KOHTEEN NIMI 3',
+        alt: 'As Oy Nokian Villa Sand — rivitalo',
+        title: 'AS OY NOKIAN VILLA SAND',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/a255ca72-2531-47b6-9ca7-3d64fec4e67b/hk_web_kohteet_0017_pori4_3.jpg',
-        alt: 'Projekti 8',
-        title: 'KOHTEEN NIMI 6',
+        alt: 'Meritorinin rivitalot',
+        title: 'MERITORININ RIVITALOT',
       },
       {
         src: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/4812ebe5-5ab5-43ae-b4c4-84310662d45f/hk_web_kohteet_0037_nokia2_1.jpg',
-        alt: 'Projekti 9',
-        title: 'KOHTEEN NIMI 9',
+        alt: 'Nokian Havumetsä — asuinalue',
+        title: 'NOKIAN HAVUMETSÄ',
       },
     ],
   },
@@ -77,14 +77,16 @@ export const homepageContent = {
       image:
         'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
       link: '/puutalot',
+      keyFacts: ['Yli 3 750 toimitettua kohdetta', '30+ vuoden kokemus'],
     },
     {
       id: 'puuelementit',
       title: 'Puuelementit',
-      description: 'Seinä- ja runkoelementtejä tehokkaaseen ja hallittuun puurakentamiseen.',
+      description: 'Seinä- ja runkoelementtejä tehokkaaseen ja hallittuun puurakentamiseen — valmiiksi eristettyinä ja pintakäsiteltyinä tehtaaltamme.',
       image:
         'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
       link: '/puuelementit',
+      keyFacts: ['U-arvo 0,17–0,21 W/m²K', 'Tehdasmaalaus vakiona'],
     },
     {
       id: 'puuristikot',
@@ -94,6 +96,7 @@ export const homepageContent = {
       image:
         'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg',
       link: '/kattoristikot',
+      keyFacts: ['CE-merkityt', 'Vakio- ja mittatilausristikot'],
     },
   ] as Product[],
 };
