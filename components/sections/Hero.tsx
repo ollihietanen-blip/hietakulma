@@ -56,7 +56,7 @@ export default function Hero({
           <Button
             href="/kohteet"
             variant="ghost"
-            className="px-6 py-3 text-sm sm:text-base font-bold w-[240px] transition-colors duration-300"
+            className="px-6 py-3 text-sm sm:text-base font-bold w-[240px] transition-colors duration-300 hover:bg-[var(--blue)] hover:border-[var(--blue)]"
             style={{ borderRadius: '0' }}
           >
             TUTUSTU KOHTEISIIMME
