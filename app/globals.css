@@ -154,6 +154,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Fix image orientation from EXIF metadata */
+img {
+  image-orientation: from-image;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
