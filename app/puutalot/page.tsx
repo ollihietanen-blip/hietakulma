@@ -17,7 +17,7 @@ export default function PuutalotPage() {
       <Hero
         title="Puutalot kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
-        backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
+        backgroundImage="/images/hero/kirjavaisenkatu-drone-01.webp"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -29,7 +29,7 @@ export default function PuutalotPage() {
           </h2>
           <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
+              src="/images/tehdas/elementtituotanto/IMG_4213.webp"
               alt="Puutalot"
               fill
               className="object-cover"

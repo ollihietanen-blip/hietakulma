@@ -15,7 +15,7 @@ export default function KohteetPage() {
       <Hero
         title="Talosta kodiksi"
         subtitle="Toteutamme rivi-, pari- ja omakotitalot yhteistyössä ammattirakentajien kanssa yksittäisistä kohteista aina useamman kohteen alueiksi saakka. Kaikkia kohteita yhdistää asiakaslähtöinen suunnittelu ja kustannustehokas tuotanto – me teemme taloja joihin on helppoa asettua kodiksi."
-        backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
+        backgroundImage="/images/hero/kirjavaisenkatu-drone-02.webp"
       />
 
       <Section background="white">

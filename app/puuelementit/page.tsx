@@ -17,7 +17,7 @@ export default function PuuelementitPage() {
       <Hero
         title="Puuelementit kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
-        backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
+        backgroundImage="/images/hero/tehdas-drone-03.webp"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -40,7 +40,7 @@ export default function PuuelementitPage() {
           </div>
           <div className="relative h-96 rounded-lg overflow-hidden">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
+              src="/images/tehdas/elementtituotanto/IMG_4222.webp"
               alt="Puuelementit"
               fill
               className="object-cover"
@@ -66,9 +66,9 @@ export default function PuuelementitPage() {
               {[
                 { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg', description: 'Perinteinen ja ajaton valinta. UTW-profiili 28\u00d7195 mm, tehdasmaalattu kolmeen kertaan.' },
                 { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg', description: 'Moderni ja ryhdik\u00e4s ilme. Sopii erityisesti nykyaikaiseen arkkitehtuuriin.' },
-                { name: 'Pysty-vaaka-pystypanelointi', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg', description: 'El\u00e4v\u00e4 ja persoonallinen julkisivu, joka yhdist\u00e4\u00e4 molempien suuntien parhaat puolet.' },
-                { name: 'Lomalaudoitus', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg', description: 'Luonnollinen ja perinteinen. Antaa julkisivulle el\u00e4v\u00e4n tekstuurin.' },
-                { name: 'Rapattu pinnoite', image: 'https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg', description: 'Kivitalomainen ilme puurakenteella. Moderni ja huoltovapaa vaihtoehto.' },
+                { name: 'Pysty-vaaka-pystypanelointi', image: '/images/tehdas/elementtituotanto/IMG_4224.webp', description: 'Elävä ja persoonallinen julkisivu, joka yhdistää molempien suuntien parhaat puolet.' },
+                { name: 'Lomalaudoitus', image: '/images/tehdas/elementtituotanto/IMG_4226.webp', description: 'Luonnollinen ja perinteinen. Antaa julkisivulle elävän tekstuurin.' },
+                { name: 'Rapattu pinnoite', image: '/images/tehdas/elementtituotanto/IMG_4236.webp', description: 'Kivitalomainen ilme puurakenteella. Moderni ja huoltovapaa vaihtoehto.' },
               ].map((option) => (
                 <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="relative h-48">

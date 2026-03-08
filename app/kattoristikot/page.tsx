@@ -25,7 +25,7 @@ export default function KattoristikotPage() {
       <Hero
         title="Kattoristikot kokemuksella"
         subtitle="Valmistamme sertifioituja NR-ristikoita valmiiden mallien tai pelkkien mittatietojen pohjalta. CE-laatuvarmistettu tuotanto ja vuosikymmenten kokemus takaavat kestävän ja laadukkaan lopputuloksen."
-        backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
+        backgroundImage="/images/hero/tehdas-drone-02.webp"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -56,7 +56,7 @@ export default function KattoristikotPage() {
           </div>
           <div className="relative h-96 rounded-lg overflow-hidden">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
+              src="/images/tehdas/ristikkotuotanto/IMG_4251.webp"
               alt="Kattoristikot"
               fill
               className="object-cover"

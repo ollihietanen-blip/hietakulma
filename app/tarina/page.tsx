@@ -17,7 +17,7 @@ export default function TarinaPage() {
       <Hero
         title="Hietakulman tarina"
         subtitle="Hietakulma syntyi Kankaanpäässä halusta tehdä puurakentaminen paremmin. Kolmen vuosikymmenen aikana olemme kasvaneet hiljaisesta tekijästä yhdeksi Suomen luotetuimmista puuelementtivalmistajista — yli 3 750 toimitettua projektia puhuvat puolestaan."
-        backgroundImage="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/f3c1e841-848b-41c9-afc2-3d7012848230/Hietakulma_tehdas_kuva2-860x530.jpg"
+        backgroundImage="/images/hero/tehdas-drone-01.webp"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -43,7 +43,7 @@ export default function TarinaPage() {
           </div>
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/67fd435b2995dc1e8e125040/1745739487556-NEIPALA0AQZGO4UV9XZ8/unsplash-image-OLFA5DgSIFo.jpg"
+              src="/images/tehdas/elementtituotanto/IMG_4225.webp"
               alt="Hietakulman tarina"
               fill
               className="object-cover"
