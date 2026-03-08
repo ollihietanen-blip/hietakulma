@@ -3,6 +3,7 @@ import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import ProductCircles from '@/components/sections/ProductCircles';
+import KeyMetrics from '@/components/sections/KeyMetrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
@@ -20,6 +21,10 @@ export default function TarinaPage() {
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
+
+      <Section background="sand">
+        <KeyMetrics />
+      </Section>
 
       <Section background="white" id="content">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -46,6 +51,44 @@ export default function TarinaPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
+        </div>
+      </Section>
+
+      <Section background="gray">
+        <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-10 text-center" style={{ lineHeight: '1.2' }}>
+          Miksi Hietakulma?
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {[
+            {
+              title: 'Kokonaispalvelu',
+              description: 'Suunnittelusta valmiiksi pintakäsiteltyihin elementteihin — kaikki yhdeltä luukulta.',
+            },
+            {
+              title: 'Tehdaslaatu',
+              description: 'Kontrolloidut olosuhteet takaavat tasalaatuisen ja mittatarkan lopputuloksen.',
+            },
+            {
+              title: 'Joustavuus',
+              description: 'Toteutamme niin vakioratkaisuja kuin yksilöllisiä suunnitelmia joustavasti.',
+            },
+            {
+              title: 'Energiatehokkuus',
+              description: 'U-arvo 0,17–0,21 W/m²K — elementtimme täyttävät nykyaikaiset energiavaatimukset.',
+            },
+          ].map((card, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg p-6 md:p-8 shadow-sm text-center"
+            >
+              <h3 className="text-lg md:text-xl font-bold mb-3" style={{ color: 'var(--dark)' }}>
+                {card.title}
+              </h3>
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                {card.description}
+              </p>
+            </div>
+          ))}
         </div>
       </Section>
 

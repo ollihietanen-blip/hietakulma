@@ -42,6 +42,47 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi" className={workSans.variable}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Hietakulma Oy",
+              "description": "Puutalot, puuelementit ja kattoristikot — suunnittelusta valmiiksi elementeiksi yli 30 vuoden kokemuksella.",
+              "url": "https://hietakulma.fi",
+              "telephone": "+358 20 741 8870",
+              "email": "talotehdas@hietakulma.fi",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Koskenojankatu 11",
+                "addressLocality": "Kankaanpää",
+                "postalCode": "38700",
+                "addressCountry": "FI"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 61.8044,
+                "longitude": 24.0601
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "07:00",
+                "closes": "16:00"
+              },
+              "foundingDate": "1993",
+              "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "minValue": 15,
+                "maxValue": 20
+              },
+              "sameAs": []
+            })
+          }}
+        />
+      </head>
       <body className={workSans.className}>
         <Providers>
           <Header />
