@@ -30,3 +30,20 @@ export interface Product {
   keyFacts?: string[];
 }
 
+export interface KohdeImage {
+  src: string;
+  alt: string;
+}
+
+export interface Kohde {
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  location: string;
+  type: string;
+  heroImage: string;
+  thumbnailImage: string;
+  galleryImages: KohdeImage[];
+}
+

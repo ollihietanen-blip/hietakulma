@@ -200,8 +200,8 @@ export default function Footer() {
           <div className="w-full h-px mb-12" style={{ backgroundColor: 'var(--blue)' }}></div>
 
           <div className="text-center mb-12">
-            <Link href="/" className="text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans">
-              HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA
+            <Link href="/" aria-label="Hietakulma" className="text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans">
+              <span aria-hidden="true">HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA</span>
             </Link>
           </div>
 

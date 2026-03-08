@@ -20,8 +20,8 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full relative">
           {/* Logo - centered on mobile, left on desktop */}
-          <Link href="/" className="md:mr-0 text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0">
-            HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA
+          <Link href="/" aria-label="Hietakulma" className="md:mr-0 text-2xl sm:text-3xl font-light text-white hover:text-gray-300 transition-colors uppercase tracking-tight font-sans absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0">
+            <span aria-hidden="true">HIETA<span style={{ color: 'var(--blue)' }}>K</span>ULMA</span>
           </Link>
 
           {/* Desktop Navigation - center */}
@@ -42,8 +42,8 @@ export default function Header() {
             <Link
               href="/ota-yhteytta"
               className="border text-sm uppercase tracking-wide px-6 py-2 transition-all font-normal"
-              style={{ 
-                borderColor: 'var(--blue)', 
+              style={{
+                borderColor: 'var(--blue)',
                 color: 'var(--blue)',
                 borderRadius: '0'
               }}
@@ -100,8 +100,8 @@ export default function Header() {
             <Link
               href="/ota-yhteytta"
               className="block mt-4 border px-6 py-2 text-center text-sm uppercase tracking-wide transition-all"
-              style={{ 
-                borderColor: 'var(--blue)', 
+              style={{
+                borderColor: 'var(--blue)',
                 color: 'var(--blue)',
                 borderRadius: '0'
               }}

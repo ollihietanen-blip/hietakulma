@@ -2,68 +2,77 @@ import { Product } from '@/types/content';
 
 export const homepageContent = {
   hero: {
-    title: 'Seinät ja katot\narjen suojaksi',
-    subtitle: 'Hietakulman arjenkestävät puutalot, -elementit ja -ristikot suunnitellaan ja rakennetaan Kankaanpäässä yli 30 vuoden kokemuksella — kaikki yhdeltä luukulta suunnittelusta valmiiksi pintakäsiteltyihin elementteihin.',
+    title: 'Kaikki yhdeltä luukulta —\nsuunnittelusta valmiisiin elementteihin.',
+    subtitle: 'Yli 3 750 toimitettua projektia. Omalla tehtaalla valmistettu. Toimitamme koko Suomeen.',
     backgroundImage: '/Puuelementit_hero.png',
     ctaText: 'LUE LISÄÄ',
     ctaLink: '/puutalot',
   },
   projects: {
-    title: 'Talosta kodiksi',
+    title: 'Talosta kodiksi — näin se etenee',
     description:
-      'Toteutamme rivi-, pari- ja omakotitalot yhteistyössä ammattirakentajien kanssa yksittäisistä kohteista aina useamman kohteen alueiksi saakka. Kaikkia kohteita yhdistää asiakaslähtöinen suunnittelu ja kustannustehokas tuotanto – me teemme taloja joihin on helppoa asettua kodiksi.',
+      'Rakentaminen tuntuu monimutkaiselta, ennen kuin se alkaa. Meillä prosessi on selvä: otamme suunnitelmasi vastaan, valmistamme elementit tehtaalla ja toimitamme ne rakennuspaikallesi aikataulussa. Sinä tiedät aina, missä mennään.',
     images: [
       {
-        src: '/images/kohteet/leppatie-pori/leppatie-01.webp',
-        alt: 'Villa Tähtiranta — moderni puutalo',
-        title: 'VILLA TÄHTIRANTA',
+        src: '/images/kohteet/kirjavaisenkatu-40/b7-01_DJI_0965-HDR.webp',
+        alt: 'Kirjavaisenkatu 40 — rivitalo, ammattikuvaus',
+        title: 'KIRJAVAISENKATU 40',
+        href: '/kohteet/kirjavaisenkatu-40',
       },
       {
-        src: '/images/kohteet/leppatie-pori/leppatie-02.webp',
+        src: '/images/kohteet/leppatie-pori/leppatie-01.webp',
         alt: 'Leppätien rivitalot, Pori',
-        title: 'LEPPÄTIEN RIVITALOT',
+        title: 'LEPPÄTIE, PORI',
+        href: '/kohteet/leppatie-pori',
       },
       {
         src: '/images/kohteet/hankreetintie-pori/hankreetintie-01.webp',
-        alt: 'Rantakatu 5 — omakotitalo',
-        title: 'RANTAKATU 5',
+        alt: 'Hankreetintie 189, Pori — omakotitalo',
+        title: 'HANKREETINTIE, PORI',
+        href: '/kohteet/hankreetintie-pori',
       },
       {
         src: '/images/kohteet/vesikkotie-vantaa/vesikkotie-01.webp',
         alt: 'Vesikkotie 12, Vantaa — omakotitalo',
         title: 'VESIKKOTIE 12',
-      },
-      {
-        src: '/images/kohteet/kirjavaisenkatu-40/b7-01_DJI_0965-HDR.webp',
-        alt: 'Kirjavaisenkatu 40 — rivitalo, ammattikuvaus',
-        title: 'KIRJAVAISENKATU 40',
-      },
-      {
-        src: '/images/kohteet/maitiaisentie-tuusula/maitiaisentie-01.webp',
-        alt: 'Karhulan Kuusikko — asuinalue',
-        title: 'KARHULAN KUUSIKKO',
+        href: '/kohteet/vesikkotie-vantaa',
       },
       {
         src: '/images/kohteet/nokia-villa-sand/villa-sand-01.webp',
         alt: 'As Oy Nokian Villa Sand — rivitalo',
         title: 'AS OY NOKIAN VILLA SAND',
-      },
-      {
-        src: '/images/kohteet/leppatie-pori/leppatie-03.webp',
-        alt: 'Meritorinin rivitalot',
-        title: 'MERITORININ RIVITALOT',
+        href: '/kohteet/nokia-villa-sand',
       },
       {
         src: '/images/kohteet/nokian-havumetsa/havumetsa-01.webp',
         alt: 'Nokian Havumetsä — asuinalue',
         title: 'NOKIAN HAVUMETSÄ',
+        href: '/kohteet/nokian-havumetsa',
+      },
+      {
+        src: '/images/kohteet/maitiaisentie-tuusula/maitiaisentie-01.webp',
+        alt: 'Maitiaisentie 9, Tuusula — omakotitalo',
+        title: 'MAITIAISENTIE, TUUSULA',
+        href: '/kohteet/maitiaisentie-tuusula',
+      },
+      {
+        src: '/images/kohteet/hoylakatu/hoylakatu-01.webp',
+        alt: 'Höyläkatu, Kankaanpää — rivitalo',
+        title: 'HÖYLÄKATU',
+        href: '/kohteet/hoylakatu',
+      },
+      {
+        src: '/images/kohteet/apatti-merikarvia/apatti-01.webp',
+        alt: 'Loma-asunto Äpätti, Merikarvia',
+        title: 'ÄPÄTTI, MERIKARVIA',
+        href: '/kohteet/apatti-merikarvia',
       },
     ],
   },
   story: {
     title: 'Hietakulman tarina',
     description:
-      'Hietakulma syntyi Kankaanpäässä halusta tehdä puurakentaminen paremmin. Kolmen vuosikymmenen aikana olemme kasvaneet hiljaisesta tekijästä yhdeksi Suomen luotetuimmista puuelementtivalmistajista — yli 3 750 toimitettua projektia puhuvat puolestaan.',
+      'Hietakulma syntyi Kankaanpäässä halusta tehdä puurakentaminen paremmin. Kolmen vuosikymmenen aikana olemme kasvaneet hiljaisesta tekijästä yhdeksi Suomen luotetuimmista puuelementtivalmistajista — yli 3 750 toimitettua projektia puhuvat puolestaan.\n\nKaikki alkaa suunnittelupöydältä ja päättyy rakennuspaikalle. Suunnittelemme, valmistamme ja toimitamme — kaikki saman katon alta, omalla henkilöstöllä ja omalla vastuulla. Ei välikäsiä, ei epäselvyyksiä. Kun lupaamme jotain, pidämme sen.\n\nViime vuosina olemme investoineet merkittävästi tuotantoomme: uusi automaattinen tuotantolinjamme Kankaanpään tehtaalla on rakennettu vastaamaan kasvavaan kysyntään tinkimättä siitä, mistä emme koskaan tingi — laadusta. Sama käsityötaito, nopeampi tahti.\n\n*Tule mukaan rakentamaan. Me hoidamme rungon.*',
     ctaText: 'TUTUSTU TARINAAMME',
     ctaLink: '/tarina',
     image: '/images/hero/tehdas-drone-02.webp',
@@ -72,27 +81,27 @@ export const homepageContent = {
     {
       id: 'puutalot',
       title: 'Puutalot',
-      description: 'Puutaloratkaisuja omakoti-, pari- ja rivitalokohteisiin sekä useamman rakennuksen kokonaisuuksiin.',
+      description: 'Suunnittelemme ja valmistamme puuelementtitalot omakoti- ja paritalokohteisiin — avaimet käteen tai runkopakettina, juuri niin kuin tarvitset.',
       image: '/images/kohteet/kirjavaisenkatu-40/b7-01_DJI_0965-HDR.webp',
       link: '/puutalot',
-      keyFacts: ['Yli 3 750 toimitettua kohdetta', '30+ vuoden kokemus'],
+      keyFacts: ['Räätälöity jokaisen asiakkaan tarpeisiin', 'Toimitamme koko Suomeen, rahti sisältyy', '30+ vuoden kokemus omakotirakentamisesta'],
     },
     {
       id: 'puuelementit',
       title: 'Puuelementit',
-      description: 'Seinä- ja runkoelementtejä tehokkaaseen ja hallittuun puurakentamiseen — valmiiksi eristettyinä ja pintakäsiteltyinä tehtaaltamme.',
+      description: 'Seinä-, välipohjа- ja kattoelementit tehtaassamme mittatilaustyönä — valmiina suoraan rakennuspaikallesi asennettavaksi.',
       image: '/images/tehdas/elementtituotanto/IMG_4222.webp',
       link: '/puuelementit',
-      keyFacts: ['U-arvo 0,17–0,21 W/m²K', 'Tehdasmaalaus vakiona'],
+      keyFacts: ['Yli 81 500 m² elementtejä toimitettu', 'Nopea asennus, lyhyt rakennusaika', 'Sopii sekä yksityisrakentajille että rakennusliikkeille'],
     },
     {
       id: 'puuristikot',
       title: 'Kattoristikot',
       description:
-        'CE-merkityt kattoristikot vakioratkaisuina tai kohdekohtaisesti mitoitettuna.',
+        'CE-merkityt kattoristikot vakiomittoina tai kohdekohtaisesti mitoitettuna — toimitusvarmuus ja tekninen tarkkuus joka projektiin.',
       image: '/images/tehdas/ristikkotuotanto/IMG_4251.webp',
       link: '/kattoristikot',
-      keyFacts: ['CE-merkityt', 'Vakio- ja mittatilausristikot'],
+      keyFacts: ['Ristikot: 84 % tarjous-kauppa-konversio', 'Nopeat toimitusajat', 'Lue lisää: Kattoristikot →'],
     },
   ] as Product[],
 };

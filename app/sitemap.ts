@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
+import { getAllKohdeSlugs } from '@/lib/content/kohteet';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://hietakulma.fi'; // Päivitä oikea domain
+  const baseUrl = 'https://hietakulma.fi';
 
-  const routes = [
+  const staticRoutes = [
     '',
     '/puutalot',
     '/puuelementit',
@@ -15,11 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tietosuoja',
   ];
 
-  return routes.map((route) => ({
+  const kohdeRoutes = getAllKohdeSlugs().map((slug) => `/kohteet/${slug}`);
+
+  return [...staticRoutes, ...kohdeRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1 : route.startsWith('/kohteet/') ? 0.7 : 0.8,
   }));
 }
-
