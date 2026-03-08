@@ -63,7 +63,7 @@ export const homepageContent = {
   story: {
     title: 'Hietakulman tarina',
     description:
-      'Hietakulma Oy on kankaanpääläinen perheyritys, joka on erikoistunut puuelementtitalojen ja kattoristikoiden tuotantoon. Suunnittelemme, valmistamme ja toimitamme puutaloja ja kattoristikoita sekä yritys- että yksityisasiakkaillemme ympäri Suomen.',
+      'Hietakulma syntyi Kankaanpäässä halusta tehdä puurakentaminen paremmin. Kolmen vuosikymmenen aikana olemme kasvaneet hiljaisesta tekijästä yhdeksi Suomen luotetuimmista puuelementtivalmistajista — yli 3 750 toimitettua projektia puhuvat puolestaan.',
     ctaText: 'TUTUSTU TARINAAMME',
     ctaLink: '/tarina',
     image:
