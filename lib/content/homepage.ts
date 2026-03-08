@@ -62,6 +62,7 @@ export const homepageContent = {
         alt: 'Höyläkatu, Kankaanpää — rivitalo',
         title: 'HÖYLÄKATU',
         href: '/kohteet/hoylakatu',
+        rotate: 90,
       },
       {
         src: '/images/kohteet/apatti-merikarvia/apatti-01.webp',

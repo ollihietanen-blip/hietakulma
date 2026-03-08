@@ -21,11 +21,11 @@ export default function Footer() {
                 alt="Hietakulma"
                 width={235}
                 height={36}
-                className="h-8 sm:h-10 w-auto object-contain"
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </Link>
 
-            <div className="space-y-1 text-sm text-white/90 mb-6">
+            <div className="space-y-1 text-sm text-white mb-6">
               <p>{companyInfo.address}, {companyInfo.postalCode} {companyInfo.city}</p>
               <p>
                 <a href={`tel:${companyInfo.phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors">
@@ -73,16 +73,16 @@ export default function Footer() {
               </a>
             </div>
 
-            <div className="flex justify-center items-center gap-6 mb-6 text-xs text-white/70">
+            <div className="flex justify-center items-center gap-6 mb-6 text-xs text-white/90">
               <span>CE</span>
               <span>Tilaajavastuu</span>
               <span>Luotettava Kumppani</span>
               <span>®</span>
             </div>
 
-            <div className="text-center text-sm text-gray-400">
+            <div className="text-center text-sm text-gray-300">
               <p>&copy; {new Date().getFullYear()} Hietakulma</p>
-              <Link href="/tietosuoja" className="text-gray-400 hover:text-white transition-colors text-sm mt-2 block">
+              <Link href="/tietosuoja" className="text-gray-300 hover:text-white transition-colors text-sm mt-2 block">
                 Tietosuojaseloste
               </Link>
             </div>

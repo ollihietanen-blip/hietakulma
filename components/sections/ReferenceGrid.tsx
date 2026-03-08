@@ -25,7 +25,11 @@ export default function ReferenceGrid({ images }: ReferenceGridProps) {
           >
             <div
               className="absolute inset-0"
-              style={image.rotate ? { transform: `rotate(${image.rotate}deg)` } : undefined}
+              style={image.rotate ? {
+                transform: image.rotate === 90
+                  ? 'rotate(90deg) scale(1.5)'
+                  : `rotate(${image.rotate}deg)`,
+              } : undefined}
             >
               <Image
                 src={image.src}
