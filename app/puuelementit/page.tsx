@@ -39,7 +39,7 @@ export default function PuuelementitPage() {
           <FadeIn delay={250}>
             <div className="relative h-96 rounded-lg overflow-hidden">
               <Image
-                src="/images/tehdas/elementtituotanto/IMG_4222.webp"
+                src="/images/tehdas/elementtituotanto/IMG_0293.JPG"
                 alt="Puuelementit"
                 fill
                 className="object-cover"

@@ -50,11 +50,10 @@ export const homepageContent = {
         href: '/kohteet/nokian-havumetsa',
       },
       {
-        src: '/images/kohteet/maitiaisentie-tuusula/maitiaisentie-01.webp',
+        src: '/images/kohteet/maitiaisentie-tuusula/maitiaisentie-02.webp',
         alt: 'Maitiaisentie 9, Tuusula — omakotitalo',
         title: 'MAITIAISENTIE, TUUSULA',
         href: '/kohteet/maitiaisentie-tuusula',
-        rotate: 180,
       },
       {
         src: '/images/kohteet/hoylakatu/hoylakatu-01.webp',
