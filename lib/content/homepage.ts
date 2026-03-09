@@ -14,11 +14,10 @@ export const homepageContent = {
       'Rakentaminen tuntuu monimutkaiselta, ennen kuin se alkaa. Meillä prosessi on selvä: otamme suunnitelmasi vastaan, valmistamme elementit tehtaalla ja toimitamme ne rakennuspaikallesi aikataulussa. Sinä tiedät aina, missä mennään.',
     images: [
       {
-        src: '/images/kohteet/kirjavaisenkatu-40/b7-01_DJI_0965-HDR.webp',
+        src: '/images/kohteet/kirjavaisenkatu-40/b7-03_DJI_0935-HDR.webp',
         alt: 'Kirjavaisenkatu 40 — rivitalo, ammattikuvaus',
         title: 'KIRJAVAISENKATU 40',
         href: '/kohteet/kirjavaisenkatu-40',
-        rotate: 180,
       },
       {
         src: '/images/kohteet/leppatie-pori/leppatie-01.webp',

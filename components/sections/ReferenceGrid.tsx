@@ -24,11 +24,12 @@ export default function ReferenceGrid({ images }: ReferenceGridProps) {
             style={{ borderRadius: '0' }}
           >
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 w-full h-full"
               style={image.rotate ? {
                 transform: image.rotate === 90
                   ? 'rotate(90deg) scale(1.5)'
                   : `rotate(${image.rotate}deg)`,
+                transformOrigin: 'center center',
               } : undefined}
             >
               <Image
