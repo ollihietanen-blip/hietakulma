@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import KeyMetrics from '@/components/sections/KeyMetrics';
+import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import TietopankkiContent from './TietopankkiContent';
 import { requireAuth } from '@/lib/auth';
 
@@ -20,7 +21,7 @@ export default async function TietopankkiPage() {
         backgroundImage="/images/hero/tehdas-drone-01.webp"
       />
       <Section background="sand">
-        <KeyMetrics />
+        <KeyMetrics metrics={keyMetricsByPage.tietopankki} />
       </Section>
       <TietopankkiContent />
     </>

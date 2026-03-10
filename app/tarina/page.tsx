@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import FadeIn from '@/components/ui/FadeIn';
 import ProductCircles from '@/components/sections/ProductCircles';
 import KeyMetrics from '@/components/sections/KeyMetrics';
+import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
@@ -24,7 +25,7 @@ export default function TarinaPage() {
       />
 
       <Section background="sand">
-        <KeyMetrics />
+        <KeyMetrics metrics={keyMetricsByPage.tarina} />
       </Section>
 
       <Section background="white" id="content">

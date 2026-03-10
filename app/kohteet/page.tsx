@@ -3,6 +3,7 @@ import Section from '@/components/sections/Section';
 import ImageGallery from '@/components/sections/ImageGallery';
 import Button from '@/components/ui/Button';
 import KeyMetrics from '@/components/sections/KeyMetrics';
+import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { kohteet } from '@/lib/content/kohteet';
 
 export const metadata = {
@@ -27,7 +28,7 @@ export default function KohteetPage() {
       />
 
       <Section background="sand">
-        <KeyMetrics />
+        <KeyMetrics metrics={keyMetricsByPage.kohteet} />
       </Section>
 
       <Section background="white">

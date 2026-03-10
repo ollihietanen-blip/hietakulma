@@ -6,6 +6,7 @@ import FadeIn from '@/components/ui/FadeIn';
 import StoryBlock from '@/components/sections/StoryBlock';
 import WallStructureTable from '@/components/sections/WallStructureTable';
 import KeyMetrics from '@/components/sections/KeyMetrics';
+import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
@@ -25,7 +26,7 @@ export default function PuuelementitPage() {
       />
 
       <Section background="sand">
-        <KeyMetrics />
+        <KeyMetrics metrics={keyMetricsByPage.puuelementit} />
       </Section>
 
       <Section background="white" id="content">

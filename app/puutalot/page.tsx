@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import ProcessFlow from '@/components/sections/ProcessFlow';
 import StoryBlock from '@/components/sections/StoryBlock';
 import KeyMetrics from '@/components/sections/KeyMetrics';
+import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
@@ -24,7 +25,7 @@ export default function PuutalotPage() {
       />
 
       <Section background="sand">
-        <KeyMetrics />
+        <KeyMetrics metrics={keyMetricsByPage.puutalot} />
       </Section>
 
       <Section background="white" id="content">

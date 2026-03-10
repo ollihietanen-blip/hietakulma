@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import FadeIn from '@/components/ui/FadeIn';
 import KeyMetrics from '@/components/sections/KeyMetrics';
+import { keyMetricsByPage } from '@/lib/content/key-metrics';
 
 export const metadata = {
   title: 'CE-merkityt kattoristikot — Hietakulma Oy',
@@ -33,7 +34,7 @@ export default function KattoristikotPage() {
       />
 
       <Section background="sand">
-        <KeyMetrics />
+        <KeyMetrics metrics={keyMetricsByPage.kattoristikot} />
       </Section>
 
       <Section background="white" id="content">
