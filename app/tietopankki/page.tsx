@@ -1,4 +1,6 @@
 import Hero from '@/components/sections/Hero';
+import Section from '@/components/sections/Section';
+import KeyMetrics from '@/components/sections/KeyMetrics';
 import TietopankkiContent from './TietopankkiContent';
 import { requireAuth } from '@/lib/auth';
 
@@ -17,6 +19,9 @@ export default async function TietopankkiPage() {
         subtitle="Täältä löydät rakentamisen tueksi ohjeet, detaljit ja rakenneratkaisut — Hietakulman puuelementeille ja kattoristikoille. Lataa tarvitsemasi materiaalit suoraan käyttöösi."
         backgroundImage="/images/hero/tehdas-drone-01.webp"
       />
+      <Section background="sand">
+        <KeyMetrics />
+      </Section>
       <TietopankkiContent />
     </>
   );

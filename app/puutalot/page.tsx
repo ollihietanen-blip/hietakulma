@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import ProcessFlow from '@/components/sections/ProcessFlow';
 import StoryBlock from '@/components/sections/StoryBlock';
+import KeyMetrics from '@/components/sections/KeyMetrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
@@ -21,6 +22,10 @@ export default function PuutalotPage() {
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
+
+      <Section background="sand">
+        <KeyMetrics />
+      </Section>
 
       <Section background="white" id="content">
         <div className="max-w-4xl mx-auto">

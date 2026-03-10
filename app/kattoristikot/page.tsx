@@ -3,6 +3,7 @@ import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import FadeIn from '@/components/ui/FadeIn';
+import KeyMetrics from '@/components/sections/KeyMetrics';
 
 export const metadata = {
   title: 'CE-merkityt kattoristikot — Hietakulma Oy',
@@ -30,6 +31,10 @@ export default function KattoristikotPage() {
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
+
+      <Section background="sand">
+        <KeyMetrics />
+      </Section>
 
       <Section background="white" id="content">
         <FadeIn>

@@ -2,6 +2,7 @@ import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import ImageGallery from '@/components/sections/ImageGallery';
 import Button from '@/components/ui/Button';
+import KeyMetrics from '@/components/sections/KeyMetrics';
 import { kohteet } from '@/lib/content/kohteet';
 
 export const metadata = {
@@ -24,6 +25,10 @@ export default function KohteetPage() {
         subtitle="Yli 3 750 toimitettua projektia — omakotitaloista rivitaloihin ja aluekohteisiin. Jokaisen takana on sama lupaus: asiakaslähtöinen suunnittelu, tehdasvalmistettu laatu ja toimitus ajallaan."
         backgroundImage="/images/hero/kirjavaisenkatu-drone-02.webp"
       />
+
+      <Section background="sand">
+        <KeyMetrics />
+      </Section>
 
       <Section background="white">
         <ImageGallery images={galleryImages} columns={3} />

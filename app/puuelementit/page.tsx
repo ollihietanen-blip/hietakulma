@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import FadeIn from '@/components/ui/FadeIn';
 import StoryBlock from '@/components/sections/StoryBlock';
 import WallStructureTable from '@/components/sections/WallStructureTable';
+import KeyMetrics from '@/components/sections/KeyMetrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
@@ -22,6 +23,10 @@ export default function PuuelementitPage() {
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
+
+      <Section background="sand">
+        <KeyMetrics />
+      </Section>
 
       <Section background="white" id="content">
         <div className="grid md:grid-cols-2 gap-12 items-start">
