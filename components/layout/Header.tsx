@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import Button from '@/components/ui/Button';
 
 const navItems = [
   { label: 'Tarina', href: '/tarina' },
@@ -15,13 +17,14 @@ const navItems = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 shadow-sm" style={{ height: '72px', backgroundColor: 'var(--dark)' }}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full relative">
           {/* Logo - centered on mobile, left on desktop */}
-          <Link href="/" aria-label="Hietakulma" className="absolute md:relative left-1/2 md:left-auto transform md:transform-none -translate-x-1/2 md:translate-x-0 flex items-center hover:opacity-90 transition-opacity">
+          <Link href="/" aria-label="Hietakulma" className="absolute xl:relative left-1/2 xl:left-auto transform xl:transform-none -translate-x-1/2 xl:translate-x-0 flex items-center hover:opacity-90 transition-opacity">
             <Image
               src="/logos/Hietakulma_logo_cmyk_valk.png"
               alt="Hietakulma"
@@ -33,44 +36,37 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation - center */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 absolute left-1/2 transform -translate-x-1/2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white hover:text-gray-300 transition-colors font-normal text-sm"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden xl:flex items-center space-x-6 lg:space-x-8 absolute left-1/2 transform -translate-x-1/2">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`hover:text-gray-300 transition-colors font-normal text-sm ${
+                    isActive ? 'text-[var(--blue)] font-medium' : 'text-white'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA Button - right */}
-          <div className="hidden md:block ml-auto">
-            <Link
+          <div className="hidden xl:block ml-auto">
+            <Button
               href="/ota-yhteytta"
-              className="border text-sm uppercase tracking-wide px-6 py-2 transition-all font-normal"
-              style={{
-                borderColor: 'var(--blue)',
-                color: 'var(--blue)',
-                borderRadius: '0'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--blue)';
-                e.currentTarget.style.color = 'white';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'var(--blue)';
-              }}
+              variant="dark"
+              className="text-sm uppercase tracking-wide px-6 py-2 transition-all font-normal"
             >
               OTA YHTEYTTÄ
-            </Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-white ml-auto"
+            className="xl:hidden p-2 text-white ml-auto"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -94,37 +90,32 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-700" style={{ backgroundColor: 'var(--dark)' }}>
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block py-2 text-white hover:text-gray-300"
+          <div className="xl:hidden py-4 border-t border-gray-700" style={{ backgroundColor: 'var(--dark)' }}>
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block py-2 hover:text-gray-300 ${
+                    isActive ? 'text-[var(--blue)] font-medium' : 'text-white'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <div className="px-4 mt-6">
+              <Button
+                href="/ota-yhteytta"
+                variant="dark"
+                className="w-full text-center text-sm uppercase tracking-wide px-6 py-3 transition-all block"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/ota-yhteytta"
-              className="block mt-4 border px-6 py-2 text-center text-sm uppercase tracking-wide transition-all"
-              style={{
-                borderColor: 'var(--blue)',
-                color: 'var(--blue)',
-                borderRadius: '0'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--blue)';
-                e.currentTarget.style.color = 'white';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'var(--blue)';
-              }}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              OTA YHTEYTTÄ
-            </Link>
+                OTA YHTEYTTÄ
+              </Button>
+            </div>
           </div>
         )}
       </nav>

@@ -19,7 +19,7 @@ export default function Hero({
   altText,
 }: HeroProps) {
   return (
-    <section className="relative w-full flex items-center justify-center hero-section">
+    <section className="relative w-full flex items-center justify-center hero-section mb-12 sm:mb-16 md:mb-20">
       {backgroundImage && (
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
@@ -32,7 +32,7 @@ export default function Hero({
           />
           {/* Radial gradient overlay for more depth */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.7)_100%)] pointer-events-none" />
-          <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/50 pointer-events-none" />
         </div>
       )}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto animate-fadeIn py-12 sm:py-16 md:py-20">
@@ -46,20 +46,18 @@ export default function Hero({
         )}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 px-4 sm:px-0">
           <Button
-            href="/ota-yhteytta"
-            variant="ghost"
-            className="px-6 py-3 text-sm sm:text-base font-bold w-[240px] transition-colors duration-300 hover:bg-[var(--blue)] hover:border-[var(--blue)]"
-            style={{ borderRadius: '0' }}
-          >
-            PYYDÄ TARJOUS
-          </Button>
-          <Button
             href="/kohteet"
-            variant="ghost"
-            className="px-6 py-3 text-sm sm:text-base font-bold w-[240px] transition-colors duration-300 hover:bg-[var(--blue)] hover:border-[var(--blue)]"
-            style={{ borderRadius: '0' }}
+            variant="image"
+            className="w-full sm:w-auto min-w-[280px] whitespace-nowrap"
           >
             TUTUSTU KOHTEISIIMME
+          </Button>
+          <Button
+            href="/ota-yhteytta"
+            variant="image"
+            className="w-full sm:w-auto min-w-[280px] whitespace-nowrap"
+          >
+            PYYDÄ TARJOUS
           </Button>
         </div>
       </div>

@@ -60,7 +60,7 @@ export default function ContactSection() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 text-white" style={{ color: 'var(--sand)', lineHeight: '1.1' }}>
               Ota yhteyttä
             </h2>
-            <div className="space-y-3 text-white/90 text-sm sm:text-base">
+            <div className="space-y-3 text-white text-sm sm:text-base opacity-90">
               <p>{companyInfo.address}</p>
               <p>{companyInfo.postalCode} {companyInfo.city}</p>
               <p>

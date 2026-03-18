@@ -3,7 +3,6 @@ import Section from '@/components/sections/Section';
 import ReferenceGrid from '@/components/sections/ReferenceGrid';
 import StoryBlock from '@/components/sections/StoryBlock';
 import ProductCircles from '@/components/sections/ProductCircles';
-import ContactSection from '@/components/sections/ContactSection';
 import FadeIn from '@/components/ui/FadeIn';
 import { homepageContent } from '@/lib/content/homepage';
 
@@ -62,9 +61,6 @@ export default function Home() {
           <ProductCircles products={homepageContent.products} />
         </FadeIn>
       </Section>
-
-      {/* Ota yhteyttä */}
-      <ContactSection />
     </>
   );
 }

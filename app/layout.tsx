@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ContactSection from "@/components/sections/ContactSection";
 import { Providers } from "./providers";
 
 const workSans = Work_Sans({
@@ -87,6 +88,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <main style={{ paddingTop: '72px' }}>{children}</main>
+          <ContactSection />
           <Footer />
         </Providers>
       </body>

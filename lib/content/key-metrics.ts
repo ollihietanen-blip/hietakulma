@@ -21,11 +21,6 @@ export const keyMetricsByPage = {
       title: 'Kokemusta',
       description: 'Suunnittelusta toimitukseen – kolmen vuosikymmenen kokemus näkyy jokaisessa yksityiskohdassa.',
     },
-    {
-      value: 'Kaikki yhdestä paikasta',
-      title: '',
-      description: 'Piirustukset, 3D-mallinnus, energiatodistus ja elementit. Yksi kumppani, selkeä prosessi.',
-    },
   ] as KeyMetric[],
   puuelementit: [
     {
@@ -43,11 +38,6 @@ export const keyMetricsByPage = {
       title: 'Energiatehokkuus',
       description: 'Elementtiemme eristyskyky ylittää rakennusmääräysten vähimmäisvaatimukset selvästi. Lämpö pysyy sisällä.',
     },
-    {
-      value: 'Maalattu valmiiksi',
-      title: 'Tehtaalla',
-      description: 'Pohja-, väli- ja pintamaalaus tehdään halliolosuhteissa – tasainen jälki, ei sääriippuvuutta.',
-    },
   ] as KeyMetric[],
   kattoristikot: [
     {
@@ -64,11 +54,6 @@ export const keyMetricsByPage = {
       value: 'Suunnittelu mukana',
       title: 'Aina',
       description: 'Ristikkolaskelmat ja -piirustukset sisältyvät jokaiseen toimitukseen ilman erillistä laskutusta.',
-    },
-    {
-      value: 'Kaikenkokoisiin kohteisiin',
-      title: '',
-      description: 'Omakotitalon katosta isohkon hallin kattoon – sama laatu ja palvelu joka mittakaavassa.',
     },
   ] as KeyMetric[],
   kohteet: [
