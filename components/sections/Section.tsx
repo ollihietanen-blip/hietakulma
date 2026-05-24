@@ -22,7 +22,7 @@ export default function Section({
     sand: '',
   };
 
-  const sectionStyle = background === 'sand' ? { backgroundColor: '#F8E0C7' } : undefined;
+  const sectionStyle = background === 'sand' ? { backgroundColor: 'var(--sand)' } : undefined;
 
   return (
     <section id={id} className={cn(backgrounds[background], className)} style={sectionStyle}>
@@ -32,4 +32,3 @@ export default function Section({
     </section>
   );
 }
-

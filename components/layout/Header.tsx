@@ -24,7 +24,7 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center h-full relative">
           {/* Logo - centered on mobile, left on desktop */}
-          <Link href="/" aria-label="Hietakulma" className="absolute xl:relative left-1/2 xl:left-auto transform xl:transform-none -translate-x-1/2 xl:translate-x-0 flex items-center hover:opacity-90 transition-opacity">
+          <Link href="/" aria-label="Hietakulma" className="absolute lg:relative left-1/2 lg:left-auto transform lg:transform-none -translate-x-1/2 lg:translate-x-0 flex items-center hover:opacity-90 transition-opacity">
             <Image
               src="/logos/Hietakulma_logo_cmyk_valk.png"
               alt="Hietakulma"
@@ -36,14 +36,14 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation - center */}
-          <div className="hidden xl:flex items-center space-x-6 lg:space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          <div className="hidden lg:flex items-center space-x-5 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`hover:text-gray-300 transition-colors font-normal text-sm ${
+                  className={`hover:text-[var(--blue)] transition-colors font-normal text-xs xl:text-sm ${
                     isActive ? 'text-[var(--blue)] font-medium' : 'text-white'
                   }`}
                 >
@@ -54,7 +54,7 @@ export default function Header() {
           </div>
 
           {/* CTA Button - right */}
-          <div className="hidden xl:block ml-auto">
+          <div className="hidden lg:block ml-auto">
             <Button
               href="/ota-yhteytta"
               variant="dark"
@@ -66,7 +66,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="xl:hidden p-2 text-white ml-auto"
+            className="lg:hidden p-2 text-white ml-auto"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -90,14 +90,14 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="xl:hidden py-4 border-t border-gray-700" style={{ backgroundColor: 'var(--dark)' }}>
+          <div className="lg:hidden py-4 border-t border-gray-700" style={{ backgroundColor: 'var(--dark)' }}>
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block py-2 hover:text-gray-300 ${
+                  className={`block py-2 hover:text-[var(--blue)] ${
                     isActive ? 'text-[var(--blue)] font-medium' : 'text-white'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
@@ -122,4 +122,3 @@ export default function Header() {
     </header>
   );
 }
-

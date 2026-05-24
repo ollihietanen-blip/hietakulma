@@ -41,7 +41,7 @@ export default function ReferenceGrid({ images }: ReferenceGridProps) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 z-10" />
+            <div className="absolute inset-0 bg-black/25 group-hover:bg-black/60 transition-colors duration-300 z-10" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center z-20 pointer-events-none">
               {image.type && (
                 <span className="text-white text-xs sm:text-sm font-semibold uppercase tracking-widest drop-shadow-lg mb-1 sm:mb-2 opacity-90 transition-transform duration-300 group-hover:-translate-y-1">

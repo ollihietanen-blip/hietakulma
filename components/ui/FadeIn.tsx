@@ -20,25 +20,56 @@ export default function FadeIn({
     const domRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // In your case there's only one element to observe:     
-                if (entries[0].isIntersecting) {
-                    // Not possible to set it back to false like this:
-                    setIsVisible(true);
-                    // No need to keep observing:
-                    if (domRef.current) observer.unobserve(domRef.current);
-                }
-            },
-            { rootMargin: '0px 0px -10% 0px' }
-        );
+        const currentElement = domRef.current;
+        if (!currentElement) return;
 
-        if (domRef.current) {
-            observer.observe(domRef.current);
+        let hasRevealed = false;
+        let observer: IntersectionObserver | null = null;
+
+        const reveal = () => {
+            if (hasRevealed) return;
+            hasRevealed = true;
+            setIsVisible(true);
+            observer?.unobserve(currentElement);
+            window.removeEventListener('scroll', checkVisibility);
+            window.removeEventListener('resize', checkVisibility);
+        };
+
+        const checkVisibility = () => {
+            const rect = currentElement.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+            const isInViewport =
+                rect.top <= viewportHeight * 0.9 &&
+                rect.bottom >= 0 &&
+                rect.left <= viewportWidth &&
+                rect.right >= 0;
+
+            if (isInViewport) reveal();
+        };
+
+        if ('IntersectionObserver' in window) {
+            observer = new IntersectionObserver(
+                (entries) => {
+                    if (entries.some((entry) => entry.isIntersecting)) reveal();
+                },
+                { rootMargin: '0px 0px -10% 0px' }
+            );
+            observer.observe(currentElement);
+        } else {
+            reveal();
         }
 
+        const frameId = window.requestAnimationFrame(checkVisibility);
+        window.addEventListener('scroll', checkVisibility, { passive: true });
+        window.addEventListener('resize', checkVisibility);
+
         return () => {
-            if (domRef.current) observer.unobserve(domRef.current);
+            window.cancelAnimationFrame(frameId);
+            observer?.unobserve(currentElement);
+            window.removeEventListener('scroll', checkVisibility);
+            window.removeEventListener('resize', checkVisibility);
         };
     }, []);
 
@@ -54,7 +85,7 @@ export default function FadeIn({
         <div
             ref={domRef}
             className={cn(
-                'transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1)',
+                'transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]',
                 isVisible ? 'opacity-100 translate-y-0 translate-x-0' : `opacity-0 ${directionClasses[direction]}`,
                 className
             )}

@@ -4,27 +4,50 @@ export const homepageContent = {
   hero: {
     title: 'Kaikki yhdeltä luukulta —\nsuunnittelusta valmiisiin elementteihin.',
     subtitle: 'Yli 3 750 toimitettua projektia. Omalla tehtaalla valmistettu. Toimitamme koko Suomeen.',
-    backgroundImage: '/Puuelementit_hero.png',
+    backgroundImage: '/images/hero/puuelementit-hero.webp',
+    backgroundVideo: '/images/hero/mp_hero.mp4',
     ctaText: 'LUE LISÄÄ',
     ctaLink: '/puutalot',
   },
   projects: {
-    title: 'Talosta kodiksi — näin se etenee',
+    title: 'Talosta kodiksi',
+    subtitle: 'Näin se etenee.',
     description:
-      'Rakentaminen tuntuu monimutkaiselta, ennen kuin se alkaa. Meillä prosessi on selvä: otamme suunnitelmasi vastaan, valmistamme elementit tehtaalla ja toimitamme ne rakennuspaikallesi aikataulussa. Sinä tiedät aina, missä mennään.',
+      'Meillä kokonaisuus kulkee saman katon alta: suunnittelu, tehdasvalmistus ja toimitus sovitetaan yhteen jo ennen kuin työmaa odottaa elementtejä.',
+    steps: [
+      {
+        title: 'Suunnitelmat',
+        description: 'Käymme lähtötiedot läpi ja varmistamme, että rakenne, mitoitus ja toimitus sopivat kohteeseesi.',
+      },
+      {
+        title: 'Valmistus tehtaalla',
+        description: 'Elementit ja ristikot tehdään omissa tuotantotiloissa kuivissa oloissa, sovitun aikataulun mukaan.',
+      },
+      {
+        title: 'Toimitus työmaalle',
+        description: 'Valmiit osat lähtevät Kankaanpäästä työmaalle oikeassa järjestyksessä ja oikeaan aikaan.',
+      },
+      {
+        title: 'Selkeä vastuu',
+        description: 'Yksi toimija pitää kokonaisuuden kasassa, joten tiedät missä mennään suunnittelusta toimitukseen.',
+      },
+    ],
+    referencesTitle: 'Toteutettuja kohteita',
+    referencesDescription:
+      'Valmiista kohteista näkee, miltä tehtaalla valmistettu puurakentaminen näyttää käytännössä.',
     images: [
       {
         src: '/images/kohteet/kirjavaisenkatu-40/b7-03_DJI_0935-HDR.webp',
-        alt: 'Kirjavaisenkatu 40 — rivitalo, ammattikuvaus',
-        title: 'KIRJAVAISENKATU 40',
-        type: 'Rivitalo',
+        alt: 'Asunto Oy Huunalan Herttua, Kirjavaisenkatu 40, Tampere — rivitalo',
+        title: 'ASUNTO OY HUUNALAN HERTTUA',
+        type: 'Rivitalo · Kirjavaisenkatu 40, Tampere',
         href: '/kohteet/kirjavaisenkatu-40',
       },
       {
         src: '/images/kohteet/leppatie-pori/leppatie-01.webp',
-        alt: 'Leppätien rivitalot, Pori',
-        title: 'LEPPÄTIE, PORI',
-        type: 'Rivitalo',
+        alt: 'Asunto Oy Porin Leppä, Leppätie, Pori — rivitalo',
+        title: 'ASUNTO OY PORIN LEPPÄ',
+        type: 'Rivitalo · Leppätie, Pori',
         href: '/kohteet/leppatie-pori',
       },
       {
@@ -36,9 +59,9 @@ export const homepageContent = {
       },
       {
         src: '/images/kohteet/vesikkotie-vantaa/vesikkotie-01.webp',
-        alt: 'Vesikkotie 12, Vantaa — omakotitalo',
-        title: 'VESIKKOTIE 12',
-        type: 'Omakotitalo',
+        alt: 'Asunto Oy Vantaan Vesikkotie, Vesikkotie 12, Vantaa — omakotitalo',
+        title: 'ASUNTO OY VANTAAN VESIKKOTIE',
+        type: 'Omakotitalo · Vesikkotie 12, Vantaa',
         href: '/kohteet/vesikkotie-vantaa',
       },
       {
@@ -57,9 +80,9 @@ export const homepageContent = {
       },
       {
         src: '/images/kohteet/maitiaisentie-tuusula/maitiaisentie-02.webp',
-        alt: 'Maitiaisentie 9, Tuusula — omakotitalo',
-        title: 'MAITIAISENTIE, TUUSULA',
-        type: 'Omakotitalo',
+        alt: 'Asunto Oy Tuusulan Maitiaisentie, Maitiaisentie 9, Tuusula — omakotitalo',
+        title: 'ASUNTO OY TUUSULAN MAITIAISENTIE',
+        type: 'Paritaloja · Maitiaisentie 9, Tuusula',
         href: '/kohteet/maitiaisentie-tuusula',
       },
       {
@@ -72,9 +95,9 @@ export const homepageContent = {
       },
       {
         src: '/images/kohteet/apatti-merikarvia/apatti-01.webp',
-        alt: 'Loma-asunto Äpätti, Merikarvia',
-        title: 'ÄPÄTTI, MERIKARVIA',
-        type: 'Loma-asunto',
+        alt: 'Loma-asunto Levin Atrin Atmos, Suvannoisenkuja 9, Kittilä',
+        title: 'LEVIN ATRIN ATMOS',
+        type: 'Loma-asunto · Suvannoisenkuja 9, Kittilä',
         href: '/kohteet/apatti-merikarvia',
       },
     ],
@@ -112,4 +135,3 @@ export const homepageContent = {
     },
   ] as Product[],
 };
-

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'light' | 'blue' | 'dark' | 'image';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'light' | 'blue' | 'dark' | 'image' | 'imagePrimary';
   className?: string;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
@@ -30,6 +30,7 @@ export default function Button({
     blue: 'bg-transparent border border-white text-white hover:bg-white hover:text-dark',
     dark: 'bg-transparent border border-[var(--blue)] text-[var(--blue)] hover:bg-[var(--blue)] hover:text-white',
     image: 'bg-transparent border border-white text-white hover:bg-[var(--blue)] hover:text-white hover:border-[var(--blue)]',
+    imagePrimary: 'bg-[var(--blue)] border border-[var(--blue)] text-white hover:bg-white hover:text-[var(--dark)] hover:border-white',
     
     // Legacy variants kept for backward compatibility until all are replaced
     primary: 'bg-dark text-white hover:bg-black',
@@ -70,4 +71,3 @@ export default function Button({
     </button>
   );
 }
-

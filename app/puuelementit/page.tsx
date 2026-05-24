@@ -1,7 +1,7 @@
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
-import Button from '@/components/ui/Button';
+import ImageCompare from '@/components/ui/ImageCompare';
 import FadeIn from '@/components/ui/FadeIn';
 import StoryBlock from '@/components/sections/StoryBlock';
 import WallStructureTable from '@/components/sections/WallStructureTable';
@@ -11,8 +11,77 @@ import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
   title: 'Puuelementit — Tehdasvalmisteiset seinäelementit',
-  description: 'Valmiiksi eristetyt ja pintakäsitellyt seinäelementit U-arvolla 0,17–0,21. Vaakapanelointi, pystypanelointi ja rapattu pinnoite.',
+  description: 'Valmiiksi eristetyt ja pintakäsitellyt seinäelementit U-arvolla 0,17–0,21. Vaakapanelointi, pystypanelointi ja rappausalustat.',
 };
+
+const elementSolutions = [
+  {
+    name: 'Seinäelementit',
+    image: '/images/puuelementit/elementti-seinaelementit.webp',
+    description:
+      'Ulkoseinäelementit valmistetaan rakennesuunnitelmien mukaan. Valmiusasteeseen voidaan sisällyttää runko, eristeet, levytykset, aukotukset ja ulkoverhous.',
+  },
+  {
+    name: 'Väliseinäelementit',
+    image: '/images/puuelementit/elementti-valiseinaelementit.webp',
+    description:
+      'Väliseinät voidaan valmistaa elementteinä aukotuksineen. Sähkörasiat, putkitukset ja levytykset tehdään piirustusten mukaan.',
+  },
+  {
+    name: 'Välipohjaelementit',
+    image: '/images/puuelementit/elementti-valipohjaelementit-rakenne.webp',
+    description:
+      'Välipohjaelementit mitoitetaan kohteen kuormien, jännevälien ja talotekniikan mukaan. Esivalmistus nopeuttaa rungon etenemistä.',
+  },
+  {
+    name: 'Kattoelementit',
+    image: '/images/puuelementit/elementti-kattoelementit.webp',
+    description:
+      'Kattoelementit mitoitetaan kohteen rakenteiden ja nostojärjestyksen mukaan. Esivalmistus nopeuttaa vesikaton rungon asennusta.',
+  },
+  {
+    name: 'Räystäselementit',
+    image: '/images/puuelementit/elementti-kattoelementit.webp',
+    beforeImage: '/images/puuelementit/elementti-raystaselementit-rakenne-puhdistettu.webp',
+    beforeLabel: 'Tehtaalla',
+    afterLabel: 'Työmaalla',
+    description:
+      'Räystäät ja liittymädetaljit voidaan esivalmistaa tehtaalla. Näin linjat pysyvät yhtenäisinä ja työmaan viimeistely nopeutuu.',
+  },
+  {
+    name: 'Katoselementit',
+    image: '/images/puuelementit/elementti-katos-porraselementit.webp',
+    description:
+      'Sisäänkäyntien ja kuistien katokset valmistetaan kohteen mittoihin. Esivalmistus nopeuttaa asennusta ja pitää liittymät siisteinä.',
+  },
+  {
+    name: 'Porraselementit',
+    image: '/images/puuelementit/elementti-porraselementit.webp',
+    description:
+      'Sisäänkäyntien portaat voidaan toimittaa valmiiksi mitoitettuina elementteinä. Ratkaisu nopeuttaa työmaan viimeistelyä.',
+  },
+  {
+    name: 'Terassi- ja parveke-elementit',
+    image: '/images/puuelementit/elementti-parveke-elementit.webp',
+    description:
+      'Terassi- ja parvekerakenteet voidaan valmistella elementteinä. Mittatarkka toteutus nopeuttaa asennusta ja viimeistelyä.',
+  },
+];
+
+const claddingOptions = [
+  {
+    name: 'AQUAPANEL®-verhous',
+    image: '/images/puuelementit/rappaus-pinnoite.webp',
+    beforeImage: '/images/puuelementit/aquapanel-outdoor-before-peilattu.webp',
+    beforeLabel: 'Tehtaalta',
+    afterLabel: 'Valmis pinta',
+    description: 'Työmaalla rapattavaa julkisivua varten elementtiin voidaan asentaa AQUAPANEL® Outdoor -julkisivulevy. Levy toimii veden- ja säänkestävänä rappausalustana.',
+  },
+  { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg', description: 'Kuvassa UTW 28×195 mm -vaakapaneeli tehdasmaalattuna. Vakiovalikoiman vaakaverhouksia on saatavilla 95–220 mm paneelileveyksillä.' },
+  { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg', description: 'Kuvassa UTS 120 mm -pystypaneeli tehdasmaalattuna. Paneelijako suunnitellaan elementtien ja aukotusten mukaan, 95–220 mm leveysvalikoimasta.' },
+  { name: 'Yhdistelmäverhoukset', image: '/images/puuelementit/yhdistelmaverhous-laaja.webp', description: 'Paneeleja voidaan yhdistellä samaan julkisivuun eri suuntiin ja leveyksiin. Suunnittelemme kohteeseen oman panelointijaon yhdessä asiakkaan kanssa.' },
+  { name: 'Verhoamattomat elementit', image: '/images/puuelementit/verhoamattomat-elementit.webp', description: 'Elementit voidaan toimittaa ilman ulkoverhousta, kun verhous asennetaan työmaalla tai kuljetus sitä edellyttää. Koolaukset tehdään suunnitelmien mukaan.' },
+];
 
 export default function PuuelementitPage() {
   return (
@@ -21,6 +90,7 @@ export default function PuuelementitPage() {
         title="Puuelementit kokemuksella"
         subtitle="Suunnittelemme ja valmistamme puuelementit omakoti-, pari- ja rivitaloista aina suurempiin aluekohteisiin. Jokainen elementti tehdään mittatarkasti omalla tehtaallamme — valmiina toimitettavaksi suoraan rakennuspaikallesi."
         backgroundImage="/images/hero/tehdas-drone-03.webp"
+        backgroundVideo="/images/puuelementit/puuelementit-hero-loop-hidastettu.mp4"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -59,37 +129,77 @@ export default function PuuelementitPage() {
           <div className="mt-12">
             <h2 className="text-3xl font-bold mb-6">Ammattitaidolla viimeistelty</h2>
             <p className="text-lg text-gray-700 mb-6">
-              Ulkoverhousvaihtoehtoja on useita: vaaka-, pysty-, pysty-vaaka-pysty- sekä lomalautapanelointi. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Ulko-, sisä- ja väliseinäelementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
+              Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan seinä-, väliseinä-, välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
             </p>
-          <div className="mt-8">
-            <h3 className="font-bold text-2xl mb-8">VERHOUSVAIHTOEHDOT</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg', description: 'Perinteinen ja ajaton valinta. UTW-profiili 28\u00d7195 mm, tehdasmaalattu kolmeen kertaan.' },
-                { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg', description: 'Moderni ja ryhdik\u00e4s ilme. Sopii erityisesti nykyaikaiseen arkkitehtuuriin.' },
-                { name: 'Pysty-vaaka-pystypanelointi', image: '/images/tehdas/elementtituotanto/IMG_4224.webp', description: 'Elävä ja persoonallinen julkisivu, joka yhdistää molempien suuntien parhaat puolet.' },
-                { name: 'Lomalaudoitus', image: '/images/tehdas/elementtituotanto/IMG_4226.webp', description: 'Luonnollinen ja perinteinen. Antaa julkisivulle elävän tekstuurin.' },
-                { name: 'Rapattu pinnoite', image: '/images/tehdas/elementtituotanto/IMG_4236.webp', description: 'Kivitalomainen ilme puurakenteella. Moderni ja huoltovapaa vaihtoehto.' },
-              ].map((option) => (
-                <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div className="relative h-48">
-                    <Image
-                      src={option.image}
-                      alt={option.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
+            <div className="mt-8">
+              <h3 className="font-bold text-2xl mb-8">ELEMENTTIRATKAISUT</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {elementSolutions.map((option) => (
+                  <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div className="relative h-52">
+                      {option.beforeImage ? (
+                        <ImageCompare
+                          beforeSrc={option.beforeImage}
+                          afterSrc={option.image}
+                          beforeAlt={`${option.name} tehtaalla`}
+                          afterAlt={`${option.name} työmaalla`}
+                          beforeLabel={option.beforeLabel ?? 'Tehtaalla'}
+                          afterLabel={option.afterLabel ?? 'Työmaalla'}
+                        />
+                      ) : (
+                        <Image
+                          src={option.image}
+                          alt={option.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <p className="font-semibold text-text mb-2">{option.name}</p>
+                      <p className="text-sm leading-relaxed text-gray-600">{option.description}</p>
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <p className="font-semibold text-text mb-2">{option.name}</p>
-                    <p className="text-sm text-gray-600">{option.description}</p>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12">
+              <h3 className="font-bold text-2xl mb-8">VERHOUSVAIHTOEHDOT</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {claddingOptions.map((option) => (
+                  <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div className="relative h-48">
+                      {option.beforeImage ? (
+                        <ImageCompare
+                          beforeSrc={option.beforeImage}
+                          afterSrc={option.image}
+                          beforeAlt={`${option.name} tehtaalta`}
+                          afterAlt={`${option.name} valmiilla pinnalla`}
+                          beforeLabel={option.beforeLabel}
+                          afterLabel={option.afterLabel}
+                          afterPosition="center 44%"
+                        />
+                      ) : (
+                        <Image
+                          src={option.image}
+                          alt={option.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <p className="font-semibold text-text mb-2">{option.name}</p>
+                      <p className="text-sm leading-relaxed text-gray-600">{option.description}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
         </FadeIn>
       </Section>
 
@@ -106,4 +216,3 @@ export default function PuuelementitPage() {
     </>
   );
 }
-

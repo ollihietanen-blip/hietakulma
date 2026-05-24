@@ -20,6 +20,7 @@ export default function PuutalotPage() {
         title="Puutalot kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
         backgroundImage="/images/hero/kirjavaisenkatu-drone-01.webp"
+        backgroundVideo="/images/puuelementit/puuelementit-hero-loop-hidastettu.mp4"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -139,4 +140,3 @@ export default function PuutalotPage() {
     </>
   );
 }
-

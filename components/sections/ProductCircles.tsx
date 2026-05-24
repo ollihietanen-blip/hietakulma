@@ -39,4 +39,3 @@ export default function ProductCircles({ products }: ProductCirclesProps) {
     </div>
   );
 }
-

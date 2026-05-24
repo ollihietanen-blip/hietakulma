@@ -5,6 +5,7 @@ interface HeroProps {
   title: string;
   subtitle?: string;
   backgroundImage?: string;
+  backgroundVideo?: string;
   ctaText?: string;
   ctaLink?: string;
   altText?: string;
@@ -14,22 +15,43 @@ export default function Hero({
   title,
   subtitle,
   backgroundImage,
+  backgroundVideo,
   ctaText,
   ctaLink,
   altText,
 }: HeroProps) {
   return (
-    <section className="relative w-full flex items-center justify-center hero-section mb-12 sm:mb-16 md:mb-20">
-      {backgroundImage && (
+    <section className="relative w-full flex items-center justify-center hero-section">
+      {(backgroundImage || backgroundVideo) && (
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src={backgroundImage}
-            alt={altText || title}
-            fill
-            className="object-cover animate-kenBurns"
-            priority
-            sizes="100vw"
-          />
+          {backgroundImage && (
+            <Image
+              src={backgroundImage}
+              alt={altText || title}
+              fill
+              className="object-cover animate-kenBurns"
+              priority
+              sizes="100vw"
+            />
+          )}
+          {backgroundVideo && (
+            <video
+              className="absolute inset-0 hidden h-full w-full object-cover md:block motion-reduce:hidden"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              poster={backgroundImage}
+              aria-hidden="true"
+            >
+              <source
+                src={backgroundVideo}
+                type="video/mp4"
+                media="(min-width: 768px) and (prefers-reduced-motion: no-preference)"
+              />
+            </video>
+          )}
           {/* Radial gradient overlay for more depth */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.7)_100%)] pointer-events-none" />
           <div className="absolute inset-0 bg-black/50 pointer-events-none" />
@@ -44,24 +66,23 @@ export default function Hero({
             {subtitle}
           </p>
         )}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 px-4 sm:px-0">
-          <Button
-            href="/kohteet"
-            variant="image"
-            className="w-full sm:w-auto min-w-[280px] whitespace-nowrap"
-          >
-            TUTUSTU KOHTEISIIMME
-          </Button>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-8 px-4 sm:px-0">
           <Button
             href="/ota-yhteytta"
-            variant="image"
+            variant="imagePrimary"
             className="w-full sm:w-auto min-w-[280px] whitespace-nowrap"
           >
             PYYDÄ TARJOUS
+          </Button>
+          <Button
+            href={ctaLink || '/kohteet'}
+            variant="image"
+            className="w-full sm:w-auto min-w-[280px] whitespace-nowrap"
+          >
+            {ctaText || 'TUTUSTU KOHTEISIIN'}
           </Button>
         </div>
       </div>
     </section>
   );
 }
-
