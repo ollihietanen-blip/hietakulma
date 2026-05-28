@@ -100,38 +100,42 @@ export default function PuuelementitPage() {
       </Section>
 
       <Section background="white" id="content">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="max-w-2xl mx-auto py-8 md:py-12 text-center">
           <FadeIn delay={100}>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Turvallisuudesta ja laadusta tinkimättä</h2>
-              <p className="text-lg text-gray-700 mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-6 text-center" style={{ lineHeight: '1.2' }}>
+                Turvallisuudesta ja laadusta tinkimättä
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700 mb-5">
                 Puuelementeistä rakentaminen on nopea, kustannustehokas ja laadukas tapa toteuttaa unelmien koti. Tehdasvalmistus tarkoittaa, että jokainen elementti syntyy kontrolloiduissa olosuhteissa — sääriippumattomasti, mittatarkasti ja toistettavasti. Pohjaratkaisu ja ulkoverhoilu mukautuvat tarpeidesi mukaan.
               </p>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-lg leading-relaxed text-gray-700">
                 Toimitukseen sisältyy kantavien rakenteiden lujuuslaskelmat sekä elementtien että kattoristikoiden osalta. Ulkoseinärakenteet suunnitellaan täyttämään voimassa olevat määräykset, ja rungot rakennetaan CE-merkitystä, lujuuslajitellusta kuusesta.
               </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={250}>
-            <div className="relative h-96 rounded-lg overflow-hidden">
-              <Image
-                src="/images/tehdas/elementtituotanto/IMG_0293.JPG"
-                alt="Puuelementit"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
             </div>
           </FadeIn>
         </div>
 
         <FadeIn>
           <div className="mt-12">
-            <h2 className="text-3xl font-bold mb-6">Ammattitaidolla viimeistelty</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan seinä-, väliseinä-, välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
-            </p>
-            <div className="mt-8">
+            <div className="grid gap-12 md:grid-cols-2 items-start">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Ammattitaidolla viimeistelty</h2>
+                <p className="text-lg text-gray-700 mb-6">
+                  Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan seinä-, väliseinä-, välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
+                </p>
+              </div>
+              <div className="relative h-80 md:h-96 rounded-lg overflow-hidden">
+                <Image
+                  src="/images/tehdas/elementtituotanto/IMG_0293.JPG"
+                  alt="Puuelementit"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+            <div className="mt-10">
               <h3 className="font-bold text-2xl mb-8">ELEMENTTIRATKAISUT</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {elementSolutions.map((option) => (

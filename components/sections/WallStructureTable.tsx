@@ -45,9 +45,10 @@ export default function WallStructureTable() {
           <p className="text-sm text-gray-500 mt-1">Riippuen runkopaksuudesta 198/248 mm</p>
         </div>
         <div className="p-6 rounded-lg" style={{ backgroundColor: 'var(--sand)' }}>
-          <p className="font-bold text-lg mb-1">Elementtikorkeus</p>
-          <p className="text-gray-700">2 760–3 950 mm</p>
-          <p className="text-sm text-gray-500 mt-1">Kohdekohtainen mitoitus</p>
+          <p className="font-bold text-lg mb-1">Elementin maksimimitat</p>
+          <p className="text-gray-700">Korkeus max 3 500 mm</p>
+          <p className="text-gray-700">Pituus max 12 000 mm</p>
+          <p className="text-sm text-gray-500 mt-1">Minimikorkeutta ei ole määritelty</p>
         </div>
         <div className="p-6 rounded-lg" style={{ backgroundColor: 'var(--sand)' }}>
           <p className="font-bold text-lg mb-1">Sähkövalmius</p>

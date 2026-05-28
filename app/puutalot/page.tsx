@@ -1,6 +1,5 @@
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
-import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import ProcessFlow from '@/components/sections/ProcessFlow';
 import StoryBlock from '@/components/sections/StoryBlock';
@@ -30,27 +29,18 @@ export default function PuutalotPage() {
       </Section>
 
       <Section background="white" id="content">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto py-8 md:py-12 text-center">
           <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-6 text-center" style={{ lineHeight: '1.2' }}>
             Suunnitelmasta valmiiksi kohteeksi
           </h2>
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-8">
-            <Image
-              src="/images/tehdas/elementtituotanto/IMG_4213.webp"
-              alt="Puutalot"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
-            />
-          </div>
-          <div className="space-y-4">
-            <p className="text-lg text-gray-700">
+          <div className="space-y-5">
+            <p className="text-lg leading-relaxed text-gray-700">
               Ymmärrämme alustavia suunnitelmia yhtä luontevasti kuin valmiita
               rakennuspiirrustuksiakin. Suunnittelupöydällä ideasi jäsentyvät oivaltaviksi
               pohjaratkaisuiksi ja tyyllikkäiksi kohteiksi nykyaikaista ja toimintavarmaa
               talotekniikkaa unohtamatta.
             </p>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg leading-relaxed text-gray-700">
               Tämän lisäksi tunnemme rakennustyömaat kuin oman tehtaamme ja kykenemme siksi
               ottamaan työmaatyöskentelyn realiteetit huomioon niin suunnittelu- kuin
               tuotantovaiheessakin. Ammattimainen yhteistyö rakentajien ja urakoitsijoiden
@@ -61,7 +51,7 @@ export default function PuutalotPage() {
         </div>
       </Section>
 
-      <Section background="white">
+      <Section background="white" contentClassName="pt-0">
         <ProcessFlow
           steps={[
             {

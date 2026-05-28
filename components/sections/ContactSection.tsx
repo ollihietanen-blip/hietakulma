@@ -104,8 +104,8 @@ export default function ContactSection() {
                       required
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
-                      style={{ borderRadius: '8px', height: '44px' }}
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      style={{ height: '44px' }}
                       placeholder="Etunimi"
                     />
                   </div>
@@ -120,8 +120,8 @@ export default function ContactSection() {
                       required
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
-                      style={{ borderRadius: '8px', height: '44px' }}
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      style={{ height: '44px' }}
                       placeholder="Sukunimi"
                     />
                   </div>
@@ -137,10 +137,10 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
-                      style={{ borderRadius: '8px', height: '44px' }}
-                      placeholder="sähköposti@esimerkki.fi"
-                    />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                    style={{ height: '44px' }}
+                    placeholder="sähköposti@esimerkki.fi"
+                  />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-white text-sm mb-2">
@@ -153,10 +153,10 @@ export default function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
-                      style={{ borderRadius: '8px', height: '44px' }}
-                      placeholder="040 123 4567"
-                    />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                    style={{ height: '44px' }}
+                    placeholder="040 123 4567"
+                  />
                 </div>
                 <div>
                   <label htmlFor="company" className="block text-white text-sm mb-2">
@@ -168,10 +168,10 @@ export default function ContactSection() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
-                      style={{ borderRadius: '8px', height: '44px' }}
-                      placeholder="Yrityksen nimi"
-                    />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                    style={{ height: '44px' }}
+                    placeholder="Yrityksen nimi"
+                  />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-white text-sm mb-2">
@@ -184,10 +184,9 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue resize-none"
-                      style={{ borderRadius: '8px' }}
-                      placeholder="Kirjoita viestisi tähän..."
-                    />
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue resize-none"
+                    placeholder="Kirjoita viestisi tähän..."
+                  />
                 </div>
                 <div className="text-center">
                   <Button
@@ -208,4 +207,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
