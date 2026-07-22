@@ -58,7 +58,7 @@ export default async function KohdePage({ params }: KohdePageProps) {
                   ['Valmistunut', kohde.year],
                   ['Asiakas', kohde.customerType],
                 ].map(([label, value]) => (
-                  <div key={label} className="grid grid-cols-[0.8fr_1.2fr] gap-4 border-b border-black/15 py-4 text-sm">
+                  <div key={label} className="grid grid-cols-[0.8fr_1.2fr] gap-4 border-b border-black/15 py-4 text-[15px] leading-6 md:text-base">
                     <dt className="font-semibold text-gray-500">{label}</dt>
                     <dd className="font-semibold text-text">{value}</dd>
                   </div>
@@ -66,10 +66,10 @@ export default async function KohdePage({ params }: KohdePageProps) {
               </dl>
             </div>
             <div>
-              <p className="text-xl font-medium leading-relaxed text-text md:text-2xl md:leading-relaxed">{kohde.description}</p>
+              <p className="max-w-3xl text-lg font-medium leading-8 text-text md:text-[1.35rem] md:leading-[1.65]">{kohde.description}</p>
               <div className="mt-8 border-l-2 border-blue pl-5 md:mt-10 md:pl-7">
                 <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Hietakulman toimitus</p>
-                <p className="text-base font-bold leading-relaxed text-text md:text-lg">{kohde.deliveryScope}</p>
+                <p className="max-w-3xl text-base font-bold leading-7 text-text md:text-lg md:leading-8">{kohde.deliveryScope}</p>
               </div>
             </div>
           </div>
@@ -82,13 +82,13 @@ export default async function KohdePage({ params }: KohdePageProps) {
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-gray-600">Miksi tämä kohde on mukana?</p>
               <h2 className="text-3xl font-extrabold leading-[1.06] text-text md:text-4xl">Referenssiarvo</h2>
-              <p className="mt-6 text-base leading-relaxed text-gray-700 md:text-lg">{kohde.referenceReason}</p>
+              <p className="mt-6 text-[15px] leading-7 text-gray-700 md:text-[1.05rem] md:leading-8">{kohde.referenceReason}</p>
             </div>
             <div className="border-t border-black/30 pt-5 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
               <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gray-600">Perustiedot</p>
               <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
                 {kohde.facts?.map((fact) => (
-                  <li key={fact} className="flex gap-3 text-sm leading-relaxed text-gray-700">
+                  <li key={fact} className="flex gap-3 text-[15px] leading-6 text-gray-700 md:text-base md:leading-7">
                     <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-blue" aria-hidden="true" />
                     <span>{fact}</span>
                   </li>
@@ -122,7 +122,7 @@ export default async function KohdePage({ params }: KohdePageProps) {
       </section>
 
       <section className="relative overflow-hidden bg-dark">
-        <Link href={`/kohteet/${nextProject.slug}`} className="group block min-h-[420px] md:min-h-[520px]">
+        <Link href={`/kohteet/${nextProject.slug}`} className="group relative block min-h-[420px] md:min-h-[520px]">
           <Image src={nextProject.thumbnailImage} alt={nextProject.title} fill className="object-cover opacity-45 transition-transform duration-700 group-hover:scale-[1.03]" sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/20" />
           <div className="relative mx-auto flex min-h-[420px] max-w-7xl items-end px-4 py-14 sm:px-6 md:min-h-[520px] md:py-20 lg:px-8">

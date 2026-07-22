@@ -27,7 +27,7 @@ export default function ProjectPortfolio({ projects }: ProjectPortfolioProps) {
 
   return (
     <div>
-      <div className="mb-9 flex gap-x-7 gap-y-3 overflow-x-auto border-b border-black/15 pb-px md:mb-12 md:flex-wrap" aria-label="Suodata kohteita">
+      <div className="mb-9 flex flex-wrap gap-x-5 gap-y-1 border-b border-black/15 pb-px md:mb-12 md:gap-x-7" aria-label="Suodata kohteita">
         {filters.map((filter) => {
           const count = filter.value === 'all'
             ? projects.length
@@ -40,7 +40,7 @@ export default function ProjectPortfolio({ projects }: ProjectPortfolioProps) {
               key={filter.value}
               type="button"
               onClick={() => setActiveFilter(filter.value)}
-              className={`relative shrink-0 pb-4 text-sm font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue ${
+              className={`relative shrink-0 pb-3 text-[13px] font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue md:pb-4 md:text-sm ${
                 activeFilter === filter.value ? 'text-text' : 'text-gray-500 hover:text-text'
               }`}
               aria-pressed={activeFilter === filter.value}
@@ -57,7 +57,7 @@ export default function ProjectPortfolio({ projects }: ProjectPortfolioProps) {
         })}
       </div>
 
-      <div className="grid grid-cols-1 gap-x-5 gap-y-10 md:grid-cols-2 lg:gap-x-7 lg:gap-y-14">
+      <div className="grid grid-cols-1 gap-x-5 gap-y-11 md:grid-cols-2 lg:gap-x-7 lg:gap-y-14">
         {visibleProjects.map((project, index) => {
           const isLead = activeFilter === 'all' && index === 0;
 
@@ -82,26 +82,26 @@ export default function ProjectPortfolio({ projects }: ProjectPortfolioProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
                   {isLead && (
                     <div className="absolute bottom-5 left-5 border-l-2 border-blue pl-4 text-white md:bottom-8 md:left-8 md:pl-5">
-                      <p className="text-[11px] font-bold uppercase tracking-[0.2em]">Uusin kohde</p>
-                      <p className="mt-1 text-sm text-white/85">{project.deliveryScope}</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.18em]">Uusin kohde</p>
                     </div>
                   )}
                 </div>
 
-                <div className="grid gap-4 border-b border-black/15 py-5 transition-colors group-hover:border-blue md:grid-cols-[1fr_auto] md:items-start md:py-6">
+                <div className="grid gap-5 border-b border-black/15 py-5 transition-colors group-hover:border-blue md:grid-cols-[1fr_auto] md:items-start md:py-7">
                   <div>
-                    <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500">
+                    <p className="mb-2.5 text-xs font-bold uppercase tracking-[0.16em] text-gray-500">
                       {project.type} · {project.location} · {project.year}
                     </p>
-                    <h3 className={`font-extrabold leading-[1.05] text-text ${isLead ? 'text-3xl md:text-4xl' : 'text-2xl md:text-[1.75rem]'}`}>
+                    <h3 className={`font-extrabold leading-[1.08] text-text ${isLead ? 'text-[2rem] md:text-[2.5rem]' : 'text-[1.65rem] md:text-[1.9rem]'}`}>
                       {project.title}
                     </h3>
-                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-600">
-                      {project.customerType} <span className="mx-2 text-blue">/</span> {project.deliveryScope}
+                    <p className="mt-3 max-w-2xl text-[15px] leading-6 text-gray-600 md:text-base md:leading-7">
+                      {project.subtitle}
                     </p>
                   </div>
-                  <span className="flex h-11 w-11 items-center justify-center border border-black/25 transition-all duration-300 group-hover:border-blue group-hover:bg-blue group-hover:text-white" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <span className="inline-flex items-center gap-2 justify-self-start border-b border-black/35 pb-1.5 text-xs font-bold uppercase tracking-[0.12em] transition-colors group-hover:border-blue group-hover:text-blue md:mt-1 md:justify-self-end" aria-hidden="true">
+                    Tutustu kohteeseen
+                    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M5 12h13M13 6l6 6-6 6" />
                     </svg>
                   </span>

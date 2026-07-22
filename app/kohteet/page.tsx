@@ -80,9 +80,9 @@ export default function KohteetPage() {
           <div className="mb-10 grid gap-5 md:mb-14 md:grid-cols-[0.9fr_1fr] md:items-end">
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-blue">Valitut referenssit</p>
-              <h2 className="text-3xl font-extrabold leading-[1.05] text-text md:text-5xl">Tehtaalta valmiiksi rakennukseksi.</h2>
+              <h2 className="text-[2rem] font-extrabold leading-[1.08] text-text md:text-5xl md:leading-[1.05]">Tehtaalta valmiiksi rakennukseksi.</h2>
             </div>
-            <p className="max-w-xl text-sm leading-relaxed text-gray-600 md:justify-self-end md:text-base">
+            <p className="max-w-xl text-[15px] leading-6 text-gray-600 md:justify-self-end md:text-base md:leading-7">
               Tutustu kohteisiin tyypin mukaan. Jokaiselta sivulta löydät perustiedot, Hietakulman toimituksen sekä syyn, miksi juuri tämä toteutus kuuluu portfolioomme.
             </p>
           </div>
