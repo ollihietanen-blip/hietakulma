@@ -45,5 +45,11 @@ export interface Kohde {
   heroImage: string;
   thumbnailImage: string;
   galleryImages: KohdeImage[];
+  category: 'pientalot' | 'paritalot' | 'rivitalot' | 'loma-asunnot' | 'toimitilat';
+  customerType: string;
+  deliveryScope: string;
+  year: string;
+  featured?: boolean;
+  facts?: string[];
+  referenceReason?: string;
 }
-

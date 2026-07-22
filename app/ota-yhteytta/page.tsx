@@ -5,7 +5,7 @@ import FadeIn from '@/components/ui/FadeIn';
 import { contactPersons, billingInfo } from '@/lib/content/contacts';
 
 export const metadata = {
-  title: 'Ota yhteyttä — Hietakulma Oy',
+  title: 'Ota yhteyttä',
   description: 'Yhteystiedot, henkilöstö ja yhteydenottolomake. Autamme rakennuskohteesi sopivan ratkaisun valinnassa.',
 };
 
@@ -126,4 +126,3 @@ export default function OtaYhteyttaPage() {
     </>
   );
 }
-

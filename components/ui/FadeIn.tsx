@@ -25,6 +25,7 @@ export default function FadeIn({
 
         let hasRevealed = false;
         let observer: IntersectionObserver | null = null;
+        const timeoutIds: number[] = [];
 
         const reveal = () => {
             if (hasRevealed) return;
@@ -33,6 +34,7 @@ export default function FadeIn({
             observer?.unobserve(currentElement);
             window.removeEventListener('scroll', checkVisibility);
             window.removeEventListener('resize', checkVisibility);
+            window.removeEventListener('hashchange', scheduleVisibilityChecks);
         };
 
         const checkVisibility = () => {
@@ -49,6 +51,15 @@ export default function FadeIn({
             if (isInViewport) reveal();
         };
 
+        const scheduleVisibilityChecks = () => {
+            checkVisibility();
+            timeoutIds.push(
+                window.setTimeout(checkVisibility, 100),
+                window.setTimeout(checkVisibility, 350),
+                window.setTimeout(checkVisibility, 800)
+            );
+        };
+
         if ('IntersectionObserver' in window) {
             observer = new IntersectionObserver(
                 (entries) => {
@@ -61,15 +72,18 @@ export default function FadeIn({
             reveal();
         }
 
-        const frameId = window.requestAnimationFrame(checkVisibility);
+        const frameId = window.requestAnimationFrame(scheduleVisibilityChecks);
         window.addEventListener('scroll', checkVisibility, { passive: true });
         window.addEventListener('resize', checkVisibility);
+        window.addEventListener('hashchange', scheduleVisibilityChecks);
 
         return () => {
             window.cancelAnimationFrame(frameId);
+            timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId));
             observer?.unobserve(currentElement);
             window.removeEventListener('scroll', checkVisibility);
             window.removeEventListener('resize', checkVisibility);
+            window.removeEventListener('hashchange', scheduleVisibilityChecks);
         };
     }, []);
 

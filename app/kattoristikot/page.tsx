@@ -7,7 +7,7 @@ import KeyMetrics from '@/components/sections/KeyMetrics';
 import { keyMetricsByPage } from '@/lib/content/key-metrics';
 
 export const metadata = {
-  title: 'CE-merkityt kattoristikot — Hietakulma Oy',
+  title: 'CE-merkityt kattoristikot',
   description: 'CE-merkityt kattoristikot vakioratkaisuina tai mittatilaustyönä. Harjaristikot, saksiristikot, kehäristikot ja muut ratkaisut.',
 };
 
@@ -132,4 +132,3 @@ export default function KattoristikotPage() {
     </>
   );
 }
-

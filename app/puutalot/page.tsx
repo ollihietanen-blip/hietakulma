@@ -8,7 +8,7 @@ import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
 export const metadata = {
-  title: 'Puutalot elementeistä — Hietakulma Oy',
+  title: 'Puutalot elementeistä',
   description: 'Toteutamme omakoti-, pari- ja rivitaloja puuelementeistä. Kokonaistoimituspaketti suunnittelusta valmiiksi pintakäsiteltyihin elementteihin.',
 };
 
@@ -36,8 +36,8 @@ export default function PuutalotPage() {
           <div className="space-y-5">
             <p className="text-lg leading-relaxed text-gray-700">
               Ymmärrämme alustavia suunnitelmia yhtä luontevasti kuin valmiita
-              rakennuspiirrustuksiakin. Suunnittelupöydällä ideasi jäsentyvät oivaltaviksi
-              pohjaratkaisuiksi ja tyyllikkäiksi kohteiksi nykyaikaista ja toimintavarmaa
+              rakennuspiirustuksiakin. Suunnittelupöydällä ideasi jäsentyvät oivaltaviksi
+              pohjaratkaisuiksi ja tyylikkäiksi kohteiksi nykyaikaista ja toimintavarmaa
               talotekniikkaa unohtamatta.
             </p>
             <p className="text-lg leading-relaxed text-gray-700">

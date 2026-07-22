@@ -1,7 +1,7 @@
 import Section from '@/components/sections/Section';
 
 export const metadata = {
-  title: 'Tietosuojaseloste - Hietakulma Oy',
+  title: 'Tietosuojaseloste',
   description:
     'Hietakulma Oy:n tietosuojaseloste. Tietoa henkilötietojen käsittelystä, rekisteröidyn oikeuksista ja evästekäytännöstä.',
 };

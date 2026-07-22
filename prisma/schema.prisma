@@ -12,10 +12,44 @@ datasource db {
 }
 
 model User {
-  id            String   @id @default(cuid())
-  email         String   @unique
-  password      String
-  marketingConsent Boolean @default(false)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id                 String    @id @default(cuid())
+  email              String    @unique
+  password           String
+  name               String?
+  firstName          String?
+  lastName           String?
+  company            String?
+  roleCategory       String?
+  jobTitle           String?
+  phone              String?
+  useCase            String?
+  emailVerifiedAt    DateTime?
+  marketingConsent   Boolean   @default(false)
+  marketingConsentAt DateTime?
+  privacyAcceptedAt  DateTime?
+  lastLoginAt        DateTime?
+  loginCount         Int       @default(0)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model RegistrationRequest {
+  id                String    @id @default(cuid())
+  email             String
+  tokenHash         String    @unique
+  firstName         String
+  lastName          String
+  company           String
+  roleCategory      String
+  jobTitle          String?
+  phone             String?
+  useCase           String
+  marketingConsent  Boolean   @default(false)
+  privacyAcceptedAt DateTime
+  expiresAt         DateTime
+  usedAt            DateTime?
+  createdAt         DateTime  @default(now())
+
+  @@index([email, createdAt])
+  @@index([expiresAt])
 }

@@ -14,7 +14,19 @@ export const metadata = {
   description: 'Valmiiksi eristetyt ja pintakäsitellyt seinäelementit U-arvolla 0,17–0,21. Vaakapanelointi, pystypanelointi ja rappausalustat.',
 };
 
-const elementSolutions = [
+type ImageCardOption = {
+  name: string;
+  image: string;
+  description: string;
+  imagePosition?: string;
+  beforeImage?: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+  beforePosition?: string;
+  afterPosition?: string;
+};
+
+const elementSolutions: ImageCardOption[] = [
   {
     name: 'Seinäelementit',
     image: '/images/puuelementit/elementti-seinaelementit.webp',
@@ -29,7 +41,7 @@ const elementSolutions = [
   },
   {
     name: 'Välipohjaelementit',
-    image: '/images/puuelementit/elementti-valipohjaelementit-rakenne.webp',
+    image: '/images/puuelementit/elementti-valipohjaelementit.webp',
     description:
       'Välipohjaelementit mitoitetaan kohteen kuormien, jännevälien ja talotekniikan mukaan. Esivalmistus nopeuttaa rungon etenemistä.',
   },
@@ -41,34 +53,44 @@ const elementSolutions = [
   },
   {
     name: 'Räystäselementit',
-    image: '/images/puuelementit/elementti-kattoelementit.webp',
-    beforeImage: '/images/puuelementit/elementti-raystaselementit-rakenne-puhdistettu.webp',
-    beforeLabel: 'Tehtaalla',
-    afterLabel: 'Työmaalla',
+    image: '/images/puuelementit/elementti-katoselementit.webp',
+    beforeImage: '/images/puuelementit/elementti-raystaselementit-rakenne.webp',
+    beforeLabel: 'Rakenne',
+    afterLabel: 'Valmis räystäs',
+    afterPosition: 'center 42%',
     description:
       'Räystäät ja liittymädetaljit voidaan esivalmistaa tehtaalla. Näin linjat pysyvät yhtenäisinä ja työmaan viimeistely nopeutuu.',
   },
   {
     name: 'Katoselementit',
     image: '/images/puuelementit/elementti-katos-porraselementit.webp',
+    imagePosition: 'center 44%',
     description:
       'Sisäänkäyntien ja kuistien katokset valmistetaan kohteen mittoihin. Esivalmistus nopeuttaa asennusta ja pitää liittymät siisteinä.',
   },
   {
     name: 'Porraselementit',
     image: '/images/puuelementit/elementti-porraselementit.webp',
+    imagePosition: 'center 46%',
     description:
       'Sisäänkäyntien portaat voidaan toimittaa valmiiksi mitoitettuina elementteinä. Ratkaisu nopeuttaa työmaan viimeistelyä.',
   },
   {
-    name: 'Terassi- ja parveke-elementit',
-    image: '/images/puuelementit/elementti-parveke-elementit.webp',
+    name: 'Terassielementit',
+    image: '/images/puuelementit/elementti-terassielementit.webp',
     description:
-      'Terassi- ja parvekerakenteet voidaan valmistella elementteinä. Mittatarkka toteutus nopeuttaa asennusta ja viimeistelyä.',
+      'Terassirakenteet voidaan valmistella elementteinä. Mittatarkka toteutus nopeuttaa asennusta ja viimeistelyä.',
+  },
+  {
+    name: 'Parveke-elementit',
+    image: '/images/puuelementit/elementti-parveke-elementit.webp',
+    imagePosition: 'center 48%',
+    description:
+      'Parvekerakenteet mitoitetaan kohteen mukaan ja toimitetaan työmaalle asennusta nopeuttavina kokonaisuuksina.',
   },
 ];
 
-const claddingOptions = [
+const claddingOptions: ImageCardOption[] = [
   {
     name: 'AQUAPANEL®-verhous',
     image: '/images/puuelementit/rappaus-pinnoite.webp',
@@ -139,7 +161,7 @@ export default function PuuelementitPage() {
               <h3 className="font-bold text-2xl mb-8">ELEMENTTIRATKAISUT</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {elementSolutions.map((option) => (
-                  <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div key={option.name} className="h-full bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                     <div className="relative h-52">
                       {option.beforeImage ? (
                         <ImageCompare
@@ -149,6 +171,8 @@ export default function PuuelementitPage() {
                           afterAlt={`${option.name} työmaalla`}
                           beforeLabel={option.beforeLabel ?? 'Tehtaalla'}
                           afterLabel={option.afterLabel ?? 'Työmaalla'}
+                          beforePosition={option.beforePosition}
+                          afterPosition={option.afterPosition}
                         />
                       ) : (
                         <Image
@@ -156,6 +180,7 @@ export default function PuuelementitPage() {
                           alt={option.name}
                           fill
                           className="object-cover"
+                          style={{ objectPosition: option.imagePosition ?? 'center' }}
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       )}
@@ -173,7 +198,7 @@ export default function PuuelementitPage() {
               <h3 className="font-bold text-2xl mb-8">VERHOUSVAIHTOEHDOT</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {claddingOptions.map((option) => (
-                  <div key={option.name} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                  <div key={option.name} className="h-full bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                     <div className="relative h-48">
                       {option.beforeImage ? (
                         <ImageCompare
@@ -181,8 +206,9 @@ export default function PuuelementitPage() {
                           afterSrc={option.image}
                           beforeAlt={`${option.name} tehtaalta`}
                           afterAlt={`${option.name} valmiilla pinnalla`}
-                          beforeLabel={option.beforeLabel}
-                          afterLabel={option.afterLabel}
+                          beforeLabel={option.beforeLabel ?? 'Tehtaalta'}
+                          afterLabel={option.afterLabel ?? 'Valmis pinta'}
+                          beforePosition={option.beforePosition}
                           afterPosition="center 44%"
                         />
                       ) : (
@@ -191,6 +217,7 @@ export default function PuuelementitPage() {
                           alt={option.name}
                           fill
                           className="object-cover"
+                          style={{ objectPosition: option.imagePosition ?? 'center' }}
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       )}

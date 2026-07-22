@@ -16,10 +16,14 @@ function LoginForm() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [registered, setRegistered] = useState(false);
+  const [activated, setActivated] = useState(false);
 
   useEffect(() => {
     if (searchParams.get('registered') === 'true') {
       setRegistered(true);
+    }
+    if (searchParams.get('activated') === 'true') {
+      setActivated(true);
     }
   }, [searchParams]);
 
@@ -74,6 +78,11 @@ function LoginForm() {
           {registered && (
             <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
               Rekisteröityminen onnistui! Tarkista sähköpostisi tunnuksia varten.
+            </div>
+          )}
+          {activated && (
+            <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded">
+              Tunnus on aktivoitu. Voit nyt kirjautua sisään.
             </div>
           )}
           <div className="space-y-4">
