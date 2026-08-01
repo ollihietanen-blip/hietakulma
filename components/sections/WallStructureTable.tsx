@@ -13,7 +13,7 @@ export default function WallStructureTable() {
   return (
     <div>
       <h2 className="text-3xl font-bold mb-6">Elementtien tekniset tiedot</h2>
-      <p className="text-lg text-gray-700 mb-8">
+      <p className="mb-8 text-base text-gray-700 md:text-lg">
         Ulkoseinäelementti — tyypillinen rakenne ulkoa sisäänpäin:
       </p>
 

@@ -2,8 +2,8 @@ import { Product } from '@/types/content';
 
 export const homepageContent = {
   hero: {
-    title: 'Kaikki yhdeltä luukulta —\nsuunnittelusta valmiisiin elementteihin.',
-    subtitle: 'Yli 3 750 toimitettua projektia. Omalla tehtaalla valmistettu. Toimitamme koko Suomeen.',
+    title: 'Kun puurakentamisen\npitää onnistua',
+    subtitle: 'Suunnittelusta valmiiksi pintakäsiteltyihin puuelementteihin. Kaikki omalta tehtaaltamme Kankaanpäästä.',
     backgroundImage: '/images/hero/puuelementit-hero.webp',
     backgroundVideo: '/images/hero/mp_hero.mp4',
     ctaText: 'LUE LISÄÄ',
@@ -44,7 +44,7 @@ export const homepageContent = {
         href: '/kohteet/kivikolunkatu-7-nokia',
       },
       {
-        src: '/images/kohteet/kirjavaisenkatu-40/huunala-01-piha.webp',
+        src: '/images/kohteet/kirjavaisenkatu-40/b7-03_DJI_0935-HDR.webp',
         alt: 'Asunto Oy Huunalan Herttua, Kirjavaisenkatu 40, Tampere — rivitalo',
         title: 'ASUNTO OY HUUNALAN HERTTUA',
         type: 'Rivitalo · Kirjavaisenkatu 40, Tampere',
@@ -79,8 +79,8 @@ export const homepageContent = {
         href: '/kohteet/satakunnan-autopinta',
       },
       {
-        src: '/images/kohteet/as-oy-nokian-tokeenkatu-8/tokeenkatu-havainne-01.webp',
-        alt: 'As Oy Nokian Tokeenkatu 8 — havainnekuva rivitalokohteesta',
+        src: '/images/kohteet/kirjavaisenkatu-40/huunala-01-piha.webp',
+        alt: 'Tokeenkatu 8 ja 9 — valmis rivitalokokonaisuus Nokialla',
         title: 'AS OY NOKIAN TOKEENKATU 8',
         type: 'Rivitalo · Nokia',
         href: '/kohteet/as-oy-nokian-tokeenkatu-8',

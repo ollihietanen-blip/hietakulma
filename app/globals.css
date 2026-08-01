@@ -30,62 +30,57 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography */
-h1 {
-  font-weight: 800;
-  line-height: 1.05;
-  color: var(--text);
-}
-
-h2 {
-  font-weight: 800;
-  line-height: 1.1;
-  color: var(--text);
-}
-
-@media (min-width: 768px) {
+/* Typography defaults stay below utility specificity so component-level scales work. */
+@layer base {
   h1 {
-    font-size: clamp(54px, 5vw, 72px);
+    color: var(--text);
+    font-size: clamp(34px, 8vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
   }
-  h2 {
-    font-size: clamp(40px, 4vw, 52px);
-  }
-}
 
-@media (max-width: 767px) {
-  h1 {
-    font-size: clamp(34px, 8vw, 44px);
-  }
   h2 {
-    font-size: clamp(28px, 6vw, 34px);
+    color: var(--text);
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
   }
 }
 
 /* Ingressi-tyyli */
-.ingress {
-  font-size: clamp(14px, 1.5vw, 16px);
-  font-weight: 400;
-  max-width: 680px;
-  line-height: 1.6;
+@layer components {
+  .ingress {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 680px;
+  }
 }
 
 /* Hero section responsive heights */
 .hero-section {
-  height: calc(100svh - 112px);
-  min-height: 620px;
+  height: calc(100svh - 40px);
+  min-height: 692px;
 }
 
 @media (max-width: 768px) {
   .hero-section {
-    height: calc(100svh - 128px);
-    min-height: 500px;
+    height: calc(100svh - 56px);
+    min-height: 572px;
   }
 }
 
 @media (max-width: 640px) {
   .hero-section {
-    height: calc(100svh - 136px);
-    min-height: 460px;
+    height: calc(100svh - 64px);
+    min-height: 532px;
   }
 }
 

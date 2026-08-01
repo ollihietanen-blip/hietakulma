@@ -33,13 +33,13 @@ export default function TarinaPage() {
           <FadeIn delay={100}>
             <div>
               <div className="space-y-4">
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-base text-gray-700 leading-relaxed md:text-lg">
                   Kaikki alkaa suunnittelupöydältä ja päättyy rakennuspaikalle. Suunnittelemme, valmistamme ja toimitamme — kaikki saman katon alta, omalla henkilöstöllä ja omalla vastuulla. Ei välikäsiä, ei epäselvyyksiä. Kun lupaamme jotain, pidämme sen.
                 </p>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-base text-gray-700 leading-relaxed md:text-lg">
                   Viime vuosina olemme investoineet merkittävästi tuotantoomme: uusi automaattinen tuotantolinjamme Kankaanpään tehtaalla on rakennettu vastaamaan kasvavaan kysyntään — tinkimättä siitä, mistä emme koskaan tingi. Sama käsityötaito, nopeampi tahti.
                 </p>
-                <p className="text-xl font-semibold text-text mt-8">
+                <p className="mt-8 text-lg font-semibold text-text md:text-xl">
                   Tule mukaan rakentamaan. Me hoidamme rungon.
                 </p>
               </div>
@@ -115,4 +115,3 @@ export default function TarinaPage() {
     </>
   );
 }
-

@@ -129,10 +129,10 @@ export default function PuuelementitPage() {
               <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-6 text-center" style={{ lineHeight: '1.2' }}>
                 Turvallisuudesta ja laadusta tinkimättä
               </h2>
-              <p className="text-lg leading-relaxed text-gray-700 mb-5">
+              <p className="text-base leading-relaxed text-gray-700 mb-5 md:text-lg">
                 Puuelementeistä rakentaminen on nopea, kustannustehokas ja laadukas tapa toteuttaa unelmien koti. Tehdasvalmistus tarkoittaa, että jokainen elementti syntyy kontrolloiduissa olosuhteissa — sääriippumattomasti, mittatarkasti ja toistettavasti. Pohjaratkaisu ja ulkoverhoilu mukautuvat tarpeidesi mukaan.
               </p>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="text-base leading-relaxed text-gray-700 md:text-lg">
                 Toimitukseen sisältyy kantavien rakenteiden lujuuslaskelmat sekä elementtien että kattoristikoiden osalta. Ulkoseinärakenteet suunnitellaan täyttämään voimassa olevat määräykset, ja rungot rakennetaan CE-merkitystä, lujuuslajitellusta kuusesta.
               </p>
             </div>
@@ -144,18 +144,18 @@ export default function PuuelementitPage() {
             <div className="grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr] lg:gap-16">
               <div>
                 <h2 className="text-3xl font-bold mb-6">Ammattitaidolla viimeistelty</h2>
-                <p className="text-lg text-gray-700 mb-6">
+                <p className="text-base text-gray-700 mb-6 md:text-lg">
                   Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan seinä-, väliseinä-, välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
                 </p>
               </div>
               <Link
-                href="/kohteet/kirjavaisenkatu-40"
+                href="/kohteet/as-oy-nokian-tokeenkatu-8"
                 className="group relative block min-h-[360px] overflow-hidden bg-dark md:min-h-[460px]"
-                aria-label="Tutustu Huunalan Herttuan ja Paronin referenssiin"
+                aria-label="Tutustu Tokeenkatu 8:n referenssiin"
               >
                 <Image
                   src="/images/kohteet/kirjavaisenkatu-40/huunala-02-lasijulkisivu.webp"
-                  alt="Huunalan Herttuan ja Paronin valmis lasitettu julkisivu"
+                  alt="Tokeenkatu 8:n ja 9:n valmis lasitettu julkisivu"
                   fill
                   className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -166,7 +166,7 @@ export default function PuuelementitPage() {
                     Valmis referenssi
                   </p>
                   <h3 className="max-w-md text-2xl font-extrabold leading-tight text-white sm:text-3xl">
-                    Huunalan Herttua ja Paroni
+                    Tokeenkatu 8 ja 9
                   </h3>
                   <span className="mt-5 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-sm font-bold transition-colors group-hover:border-blue group-hover:text-blue">
                     TUTUSTU KOHTEESEEN <span aria-hidden="true">→</span>

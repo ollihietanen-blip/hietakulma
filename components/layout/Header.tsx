@@ -6,21 +6,32 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const navItems = [
-  { label: 'Tarina', href: '/tarina', index: '01', delay: '[animation-delay:40ms]' },
-  { label: 'Puutalot', href: '/puutalot', index: '02', delay: '[animation-delay:80ms]' },
-  { label: 'Puuelementit', href: '/puuelementit', index: '03', delay: '[animation-delay:120ms]' },
-  { label: 'Kattoristikot', href: '/kattoristikot', index: '04', delay: '[animation-delay:160ms]' },
-  { label: 'Kohteet', href: '/kohteet', index: '05', delay: '[animation-delay:200ms]' },
-  { label: 'Tietopankki', href: '/tietopankki', index: '06', delay: '[animation-delay:240ms]' },
+  { label: 'Tarina', href: '/tarina', delay: '[animation-delay:40ms]' },
+  { label: 'Puutalot', href: '/puutalot', delay: '[animation-delay:80ms]' },
+  { label: 'Puuelementit', href: '/puuelementit', delay: '[animation-delay:120ms]' },
+  { label: 'Kattoristikot', href: '/kattoristikot', delay: '[animation-delay:160ms]' },
+  { label: 'Kohteet', href: '/kohteet', delay: '[animation-delay:200ms]' },
+  { label: 'Tietopankki', href: '/tietopankki', delay: '[animation-delay:240ms]' },
 ] as const;
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const hasSolidSurface = isScrolled || pathname !== '/' || mobileMenuOpen;
+
+  useEffect(() => {
+    const updateHeader = () => setIsScrolled(window.scrollY > 24);
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    return () => window.removeEventListener('scroll', updateHeader);
+  }, []);
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
@@ -44,8 +55,11 @@ export default function Header() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 h-[72px] border-b border-white/10 text-white backdrop-blur-xl"
-      style={{ backgroundColor: 'rgba(31, 28, 28, 0.94)' }}
+      className={`fixed inset-x-0 top-0 z-50 h-[72px] border-b text-white transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${
+        hasSolidSurface
+          ? 'border-[rgba(255,255,255,0.10)] bg-[rgba(24,22,22,0.82)] shadow-[0_10px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl'
+          : 'border-transparent bg-transparent shadow-none backdrop-blur-none'
+      }`}
     >
       <nav
         className="mx-auto h-full max-w-[1440px] px-4 sm:px-6 lg:px-8"
@@ -55,7 +69,7 @@ export default function Header() {
           <Link
             href="/"
             aria-label="Hietakulman etusivu"
-            className="flex shrink-0 items-center gap-3.5 transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
+            className="flex shrink-0 items-center transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
           >
             <Image
               src="/logos/Hietakulma_logo_cmyk_valk.png"
@@ -65,42 +79,38 @@ export default function Header() {
               priority
               className="h-[21px] w-auto object-contain xl:h-[22px]"
             />
-            <span className="hidden border-l border-white/15 pl-3.5 text-[8px] font-semibold uppercase tracking-[0.19em] text-white/45 2xl:block">
-              Puurakentamisen erikoisosaaja
-            </span>
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex xl:gap-1.5">
+          <div className="hidden items-center gap-2 lg:flex xl:gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(item.href) ? 'page' : undefined}
-                className={`group relative flex h-9 items-center gap-2 px-2.5 text-[13px] font-medium tracking-[0.01em] transition-[color,background-color] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue xl:px-3 ${
+                className={`group relative flex h-10 items-center px-2 text-[13px] font-medium tracking-[0.01em] transition-colors hover:text-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-blue ${
                   isActive(item.href)
-                    ? 'bg-white/[0.07] text-white'
-                    : 'text-white/68 hover:bg-white/[0.045] hover:text-white'
+                    ? 'text-white'
+                    : 'text-white/70'
                 }`}
               >
+                {item.label}
                 <span
-                  className={`h-1.5 w-1.5 rounded-full bg-blue transition-[opacity,transform] ${
+                  className={`absolute inset-x-2 bottom-0 h-px origin-left bg-blue transition-[opacity,transform] ${
                     isActive(item.href)
-                      ? 'scale-100 opacity-100'
-                      : 'scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-55'
+                      ? 'scale-x-100 opacity-100'
+                      : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-70'
                   }`}
                   aria-hidden="true"
                 />
-                {item.label}
               </Link>
             ))}
           </div>
 
           <Link
             href="/ota-yhteytta"
-            className="group hidden h-10 shrink-0 items-center gap-3 bg-blue px-4 text-[10px] font-bold uppercase tracking-[0.13em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:inline-flex xl:px-5"
+            className="hidden h-11 min-w-[180px] shrink-0 items-center justify-center bg-blue px-5 text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:inline-flex xl:px-6"
           >
-            <span>Aloita projekti</span>
-            <span className="text-base font-normal leading-none transition-transform group-hover:translate-x-0.5" aria-hidden="true">→</span>
+            <span>Pyydä tarjous</span>
           </Link>
 
           <button
@@ -124,13 +134,13 @@ export default function Header() {
       {mobileMenuOpen && (
         <div
           id="mobile-navigation"
-          className="pointer-events-auto fixed inset-0 z-[60] min-h-[100svh] overflow-y-auto bg-dark text-white lg:hidden"
+          className="pointer-events-auto fixed inset-0 z-[60] min-h-[100svh] overflow-y-auto bg-[rgba(13,12,12,0.82)] text-white backdrop-blur-2xl animate-fadeIn lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Päävalikko"
         >
           <div className="mx-auto flex min-h-[100svh] max-w-xl flex-col px-5 sm:px-7">
-            <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-white/10">
+            <div className="flex h-[72px] shrink-0 items-center justify-between">
               <Link
                 href="/"
                 aria-label="Hietakulman etusivu"
@@ -160,42 +170,29 @@ export default function Header() {
               </button>
             </div>
 
-            <div className="flex flex-1 flex-col py-6 sm:py-8">
-              <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-blue">Tutustu Hietakulmaan</p>
-              <div className="border-t border-white/10">
+            <div className="flex flex-1 flex-col pb-5 pt-5 sm:pt-7">
+              <div className="space-y-0.5">
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`group grid min-h-[58px] grid-cols-[2.25rem_1fr_auto] items-center border-b border-white/10 opacity-0 [animation-fill-mode:both] motion-reduce:animate-none motion-reduce:opacity-100 ${item.delay} animate-slideUp ${
+                    className={`group flex min-h-[58px] items-center opacity-0 [animation-fill-mode:both] motion-reduce:animate-none motion-reduce:opacity-100 ${item.delay} animate-slideUp ${
                       isActive(item.href) ? 'text-blue' : 'text-white'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className="text-[9px] font-bold tracking-[0.18em] text-white/35">{item.index}</span>
-                    <span className="text-[1.35rem] font-semibold leading-none tracking-[-0.02em]">{item.label}</span>
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-4 w-4 text-white/35 transition-all group-hover:translate-x-1 group-hover:text-blue"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h13M13 6l6 6-6 6" />
-                    </svg>
+                    <span className="text-[clamp(1.85rem,8vw,2.45rem)] font-semibold leading-[1.05] tracking-[-0.035em] transition-colors group-hover:text-blue">{item.label}</span>
                   </Link>
                 ))}
               </div>
 
-              <div className="mt-6">
+              <div className="mt-8 border-t border-white/15 pt-6">
                 <Link
                   href="/ota-yhteytta"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="group flex min-h-14 items-center justify-between bg-blue px-5 text-xs font-bold uppercase tracking-[0.14em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="flex min-h-14 items-center justify-center bg-blue px-5 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  <span>Aloita projekti</span>
-                  <span className="text-lg transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+                  <span>Pyydä tarjous</span>
                 </Link>
               </div>
 

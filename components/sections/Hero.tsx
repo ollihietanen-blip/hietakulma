@@ -21,7 +21,7 @@ export default function Hero({
   altText,
 }: HeroProps) {
   return (
-    <section className="relative w-full flex items-center justify-center hero-section">
+    <section className="hero-section relative -mt-[72px] flex w-full items-center justify-center pt-[72px]">
       {(backgroundImage || backgroundVideo) && (
         <div className="absolute inset-0 z-0 overflow-hidden">
           {backgroundImage && (
@@ -57,8 +57,8 @@ export default function Hero({
           <div className="absolute inset-0 bg-black/50 pointer-events-none" />
         </div>
       )}
-      <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto animate-fadeIn py-12 sm:py-16 md:py-20">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight whitespace-pre-line" style={{ lineHeight: '1.05', fontWeight: 900, color: '#F8E0C7' }}>
+      <div className="relative z-10 mx-auto max-w-[1024px] px-4 py-12 text-center animate-fadeIn sm:px-6 sm:py-16 md:py-20">
+        <h1 className="mx-auto mb-4 max-w-[980px] whitespace-pre-line text-3xl font-extrabold leading-tight text-white sm:mb-6 sm:text-4xl md:text-5xl lg:text-[clamp(64px,5.25vw,76px)]" style={{ lineHeight: '1', fontWeight: 900, color: '#F8E0C7' }}>
           {title}
         </h1>
         {subtitle && (

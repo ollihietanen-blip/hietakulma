@@ -25,40 +25,33 @@ export default function Home() {
       />
 
       {/* Talosta kodiksi */}
-      <Section id="prosessi" background="sand" contentClassName="py-14 md:py-24">
-        <FadeIn>
-          <div className="grid items-start gap-12 text-text lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-            <div className="max-w-xl">
-              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-blue">
-                {homepageContent.projects.subtitle}
+      <Section id="prosessi" background="sand" contentClassName="pb-16 pt-20 md:py-24">
+        <div className="mx-auto mb-10 max-w-3xl text-center text-text md:mb-14">
+          <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-blue">
+            {homepageContent.projects.subtitle}
+          </p>
+          <h2 className="mb-5 text-[2.15rem] font-extrabold leading-[1.04] tracking-[-0.035em] text-text md:text-5xl">
+            {homepageContent.projects.title}
+          </h2>
+          <p className="mx-auto max-w-2xl text-base leading-7 text-text/70 md:text-lg md:leading-8">
+            {homepageContent.projects.description}
+          </p>
+        </div>
+        <ol className="mx-auto grid max-w-6xl grid-cols-1 gap-3 text-center sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {homepageContent.projects.steps.map((step, index) => (
+            <li key={step.title} className="px-4 py-5 md:px-5 md:py-6">
+              <span className="mb-3 block text-3xl font-extrabold leading-none text-blue md:text-4xl">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="mb-3 text-base font-bold leading-tight text-text md:text-lg">
+                {step.title}
+              </h3>
+              <p className="mx-auto max-w-xs text-sm leading-6 text-text/65 md:text-[15px]">
+                {step.description}
               </p>
-              <h2 className="mb-6 text-[2.15rem] font-extrabold leading-[1.04] tracking-[-0.035em] text-text md:text-5xl">
-                {homepageContent.projects.title}
-              </h2>
-              <p className="max-w-lg text-base leading-7 text-text/75 md:text-lg md:leading-8">
-                {homepageContent.projects.description}
-              </p>
-            </div>
-            <ol className="grid gap-x-12 gap-y-9 sm:grid-cols-2">
-              {homepageContent.projects.steps.map((step, index) => (
-                <li
-                  key={step.title}
-                  className="border-l border-black/20 pl-5 md:pl-6"
-                >
-                  <span className="mb-3 block text-[10px] font-bold tracking-[0.18em] text-blue">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="mb-2.5 text-xl font-bold leading-tight tracking-[-0.02em] text-text">
-                    {step.title}
-                  </h3>
-                  <p className="max-w-sm text-[15px] leading-6 text-text/70 md:text-base md:leading-7">
-                    {step.description}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </FadeIn>
+            </li>
+          ))}
+        </ol>
       </Section>
 
       {/* Toteutettuja kohteita */}

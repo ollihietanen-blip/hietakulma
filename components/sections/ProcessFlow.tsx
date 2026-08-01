@@ -52,7 +52,7 @@ export default function ProcessFlow({
             </div>
             <div>
               <h3 className="font-bold text-text text-lg md:text-2xl mb-3">{step.title}</h3>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-xl">{step.description}</p>
+              <p className="max-w-xl text-base leading-relaxed text-gray-600 md:text-lg">{step.description}</p>
             </div>
           </div>
         ))}

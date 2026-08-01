@@ -41,7 +41,7 @@ export default function KattoristikotPage() {
         <FadeIn>
           <div className="mb-12">
             <h2 className="text-3xl font-bold mb-6">CE-Merkityt Kattoristikot</h2>
-            <p className="text-lg text-gray-700 mb-6 max-w-4xl">
+            <p className="mb-6 max-w-4xl text-base text-gray-700 md:text-lg">
               Ristikkomme valmistetaan Kankaanpäässä kotimaisesta, lujuuslajitellusta puusta. Toimitamme suoraan tehtaalta työmaan tarpeisiin — joko valmiista mallista tai kohdekohtaisesti mitoitettuna.
             </p>
           </div>
@@ -51,10 +51,10 @@ export default function KattoristikotPage() {
           <FadeIn delay={100}>
             <div>
               <h3 className="text-2xl font-bold mb-6">Valmiista mallista tai omista mitoista</h3>
-              <p className="text-lg text-gray-700 mb-4">
+              <p className="mb-4 text-base text-gray-700 md:text-lg">
                 Toimitamme kattoristikoita omien kohteidemme lisäksi ammattirakentajille ympäri Suomen. Ristikot suunnitellaan ja valmistetaan aina kohteen tarpeen mukaan — oli kyseessä sitten vakiomalli tai täysin räätälöity ratkaisu.
               </p>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="mb-6 text-base text-gray-700 md:text-lg">
                 Listattujen ristikkotyyppien lisäksi valmistamme erikoisristikoita vaativiin kohteisiin. Kuljetukset ja toimitukset hoidamme luotettavien yhteistyökumppanien avulla — myös nostopalvelusta voidaan sopia tapauskohtaisesti.
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function KattoristikotPage() {
         <FadeIn>
           <div className="mt-12">
           <h2 className="text-3xl font-bold mb-6">Kattoristikkovaihtoehdot</h2>
-          <p className="text-lg text-gray-700 mb-6">
+          <p className="mb-6 text-base text-gray-700 md:text-lg">
             Toimitamme ristikot joko valmiista malleista tai mittatiedoista seuraavien
             ristikkotyyppien pohjalta:
           </p>
@@ -96,7 +96,7 @@ export default function KattoristikotPage() {
           </div>
           <div className="mt-12 p-8 rounded-lg" style={{ backgroundColor: 'var(--sand)' }}>
             <h3 className="text-2xl font-bold mb-4">CE-merkinnän merkitys</h3>
-            <p className="text-lg text-gray-700">
+            <p className="text-base text-gray-700 md:text-lg">
               Kaikki kattoristikkomme ovat CE-merkittyjä EN 14250 -standardin mukaisesti. Merkintä takaa, että ristikot on suunniteltu ja valmistettu eurooppalaisen harmonisoidun standardin mukaan, ja niille on laadittu suoritustasoilmoitus (DoP). Suoritustasoilmoitukset löydät{' '}
               <a href="/tietopankki" className="underline font-medium" style={{ color: 'var(--blue)' }}>
                 Tietopankistamme
@@ -104,7 +104,7 @@ export default function KattoristikotPage() {
             </p>
           </div>
           <div className="mt-8 text-center">
-            <p className="text-lg text-gray-700 mb-4">
+            <p className="mb-4 text-base text-gray-700 md:text-lg">
               Ota yhteyttä, niin autamme rakennuskohteeseesi sopivan kattoristikkotyypin valinnassa.
             </p>
             <Button href="/ota-yhteytta" variant="primary">
@@ -119,7 +119,7 @@ export default function KattoristikotPage() {
         <FadeIn>
           <div className="text-center">
             <h2 className="text-4xl font-bold mb-4">Hietakulman tarina</h2>
-            <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="mx-auto mb-8 max-w-3xl text-lg text-gray-700 md:text-xl">
               Hietakulma Oy on kankaanpääläinen perheyritys, joka on erikoistunut
               puuelementtitalojen ja kattoristikoiden tuotantoon.
             </p>

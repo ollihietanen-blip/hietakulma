@@ -19,7 +19,7 @@ export default function PuutalotPage() {
         title="Puutalot kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
         backgroundImage="/images/kohteet/kirjavaisenkatu-40/huunala-06-pihakokonaisuus.webp"
-        altText="Huunalan Herttuan ja Paronin valmis puutalokokonaisuus Tampereella"
+        altText="Tokeenkatu 8:n ja 9:n valmis puutalokokonaisuus Nokialla"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
@@ -34,13 +34,13 @@ export default function PuutalotPage() {
             Suunnitelmasta valmiiksi kohteeksi
           </h2>
           <div className="space-y-5">
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
               Ymmärrämme alustavia suunnitelmia yhtä luontevasti kuin valmiita
               rakennuspiirustuksiakin. Suunnittelupöydällä ideasi jäsentyvät oivaltaviksi
               pohjaratkaisuiksi ja tyylikkäiksi kohteiksi nykyaikaista ja toimintavarmaa
               talotekniikkaa unohtamatta.
             </p>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
               Tämän lisäksi tunnemme rakennustyömaat kuin oman tehtaamme ja kykenemme siksi
               ottamaan työmaatyöskentelyn realiteetit huomioon niin suunnittelu- kuin
               tuotantovaiheessakin. Ammattimainen yhteistyö rakentajien ja urakoitsijoiden

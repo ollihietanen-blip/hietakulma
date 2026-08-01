@@ -156,11 +156,11 @@ export default function TietopankkiContent() {
   return (
     <Section background="white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-lg text-gray-700 mb-4 text-center">
+        <p className="mb-4 text-center text-base text-gray-700 md:text-lg">
           Hietakulman tietopankki kokoaa yhteen suunnittelun tueksi tarvittavat materiaalit: detaljipiirrustukset,
           rakennetyypit, asennus- ja suunnitteluohjeet sekä valmiit tuotedokumentit.
         </p>
-        <p className="text-lg text-gray-700 mb-12 text-center">
+        <p className="mb-12 text-center text-base text-gray-700 md:text-lg">
           Meiltä saat myös sähkövalmiit elementit, CE-merkityt kattoristikot ja valmiiksi maalatut ulkoverhoukset –
           nyt kaikki tieto yhdessä paikassa.
         </p>
@@ -295,4 +295,3 @@ export default function TietopankkiContent() {
     </Section>
   );
 }
-

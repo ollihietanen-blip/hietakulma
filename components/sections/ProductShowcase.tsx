@@ -17,8 +17,8 @@ export default function ProductShowcase({
     <div className="py-16">
       {title && (
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">{title}</h2>
-          {description && <p className="text-xl text-gray-600">{description}</p>}
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">{title}</h2>
+          {description && <p className="text-lg text-gray-600 md:text-xl">{description}</p>}
         </div>
       )}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -40,4 +40,3 @@ export default function ProductShowcase({
     </div>
   );
 }
-
