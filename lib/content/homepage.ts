@@ -44,7 +44,7 @@ export const homepageContent = {
         href: '/kohteet/kivikolunkatu-7-nokia',
       },
       {
-        src: '/images/kohteet/kirjavaisenkatu-40/b7-03_DJI_0935-HDR.webp',
+        src: '/images/kohteet/kirjavaisenkatu-40/huunala-01-piha.webp',
         alt: 'Asunto Oy Huunalan Herttua, Kirjavaisenkatu 40, Tampere — rivitalo',
         title: 'ASUNTO OY HUUNALAN HERTTUA',
         type: 'Rivitalo · Kirjavaisenkatu 40, Tampere',

@@ -1,6 +1,7 @@
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
+import Link from 'next/link';
 import ImageCompare from '@/components/ui/ImageCompare';
 import FadeIn from '@/components/ui/FadeIn';
 import StoryBlock from '@/components/sections/StoryBlock';
@@ -140,22 +141,38 @@ export default function PuuelementitPage() {
 
         <FadeIn>
           <div className="mt-12">
-            <div className="grid gap-12 md:grid-cols-2 items-start">
+            <div className="grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr] lg:gap-16">
               <div>
                 <h2 className="text-3xl font-bold mb-6">Ammattitaidolla viimeistelty</h2>
                 <p className="text-lg text-gray-700 mb-6">
                   Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan seinä-, väliseinä-, välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
                 </p>
               </div>
-              <div className="relative h-80 md:h-96 rounded-lg overflow-hidden">
+              <Link
+                href="/kohteet/kirjavaisenkatu-40"
+                className="group relative block min-h-[360px] overflow-hidden bg-dark md:min-h-[460px]"
+                aria-label="Tutustu Huunalan Herttuan ja Paronin referenssiin"
+              >
                 <Image
-                  src="/images/tehdas/elementtituotanto/IMG_0293.JPG"
-                  alt="Puuelementit"
+                  src="/images/kohteet/kirjavaisenkatu-40/huunala-02-lasijulkisivu.webp"
+                  alt="Huunalan Herttuan ja Paronin valmis lasitettu julkisivu"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-blue">
+                    Valmis referenssi
+                  </p>
+                  <h3 className="max-w-md text-2xl font-extrabold leading-tight text-white sm:text-3xl">
+                    Huunalan Herttua ja Paroni
+                  </h3>
+                  <span className="mt-5 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-sm font-bold transition-colors group-hover:border-blue group-hover:text-blue">
+                    TUTUSTU KOHTEESEEN <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </Link>
             </div>
             <div className="mt-10">
               <h3 className="font-bold text-2xl mb-8">ELEMENTTIRATKAISUT</h3>
