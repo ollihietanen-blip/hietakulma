@@ -41,8 +41,8 @@ Valmis, kun käyttäjä voi rekisteröityä, vastaanottaa aktivointiviestin, ase
 
 - [x] Selvitä olemassa olevien dokumenttien lähdekansio luonnosten lähtöaineistoksi. Myynti/Detaljit-kansio ja vuoden 2025 NR-tuotannonvalvonnan käsikirja löytyivät; hyväksytyt asiakasversiot vahvistetaan asiantuntijoilta.
 - [ ] Inventoi todelliset saatavilla olevat dokumentit. Aiemmat 11 otsikkoa ovat vain vanhan käyttöliittymän lista, eivät todiste aineistojen olemassaolosta.
-- [ ] Laadi itse ensimmäiset luonnokset puuttuvista dokumenteista ja dokumentteihin tarvittavista liitteistä olemassa olevan aineiston pohjalta. Merkitse ne luonnoksiksi ja kirjaa puuttuvat tiedot sekä tarkistettavat tekniset kohdat näkyvästi.
-- [ ] Kokoa luonnoksista tarkistuspaketti Villelle, Jormalle ja Tapanille. Liitä jokaiseen dokumenttiin tai liitteeseen selkeät kysymykset ja päivitystarpeet; heidän ei tarvitse aloittaa tyhjästä.
+- [x] Laadi itse ensimmäiset luonnokset puuttuvista dokumenteista ja dokumentteihin tarvittavista liitteistä olemassa olevan aineiston pohjalta. Merkitse ne luonnoksiksi ja kirjaa puuttuvat tiedot sekä tarkistettavat tekniset kohdat näkyvästi.
+- [x] Kokoa luonnoksista tarkistuspaketti Villelle, Jormalle ja Tapanille. Liitä jokaiseen dokumenttiin tai liitteeseen selkeät kysymykset ja päivitystarpeet; heidän ei tarvitse aloittaa tyhjästä.
 - [ ] Pyydä Villeltä, Jormalta ja Tapanilta luonnoksiin päivitykset ja täydennykset. Sovi vastuunjako dokumenttikohtaisesti.
 - [ ] Yhdistä saadut päivitykset, ratkaise avoimet kohdat ja varmista lopullisten versioiden sisältö ennen tietopankkiin julkaisemista.
 - [ ] Tarkista otsikko, sisältö, päiväys/versio ja jakeluun soveltuvuus. Älä julkaise hankekohtaisia piirustuksia yleisohjeina.
@@ -157,3 +157,12 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - Dokumentti 07 sisältää erilliset tarkistuspyynnöt Villelle, Jormalle ja Tapanille. Niitä ei ole lähetetty.
 - Kaikki 11 aiempaa tietopankkinimikettä on katettu luonnosten kattavuustaulukossa. Tämä ei tarkoita, että hyväksytyt tekniset ohjeet tai tuoteilmoitukset olisivat valmiit.
 - Seuraava työ on Word-versioiden muodostaminen, kaikkien sivujen visuaalinen tarkistus ja paketin lopullinen laaduntarkistus.
+
+### Muokattava tarkistuspaketti valmis
+
+- `valmistelu/tarkistuspaketti/Hietakulma-tarkistuspaketti-luonnos.docx`: 20 sivua, 18 taulukkoa. Sisältää lähteet, seitsemän numeroidun asiakirjan sisällöt, liitteet ja kolme lähettämätöntä tarkistuspyyntöä.
+- Word-kooste renderöity ja sivut tarkistettu. Korjattu otsikon ylimääräinen viiva, materiaalierittelyn lähes tyhjä jatkosivu, vastaanottolomakkeen sarakeleveydet ja tarkistuspyyntöjen sivunvaihdot. Viimeisen renderöinnin muuttumattomat sivusisällöt varmennettiin pikselivertailulla aiemmin tarkistettuihin sivuihin ja muuttuneet sivut luettiin uudelleen.
+- Kaikkien Markdown-lähdetekstien mukanaolo Wordissa tarkistettu ohjelmallisesti. QA-renderöinti: `/tmp/hietakulma-docx-verified`. Word-tiedoston SHA256: `756f72e0b2a8c35040ce4fffc9614866a59f307d6394c859442e35eb07a035f2`.
+- Toistettava muodostusskripti: `valmistelu/muodosta_tarkistuspaketti.py` (python-docx). Sisältömuutoksen jälkeen Word on muodostettava ja sivut tarkistettava uudelleen.
+- Tämä päättää ensimmäisten dokumenttiluonnosten kokoamisen. Hyväksytyt tekniset piirustukset, voimassa olevat tuoteilmoitukset ja asiantuntijoiden päivitykset ovat edelleen seuraavan vaiheen tehtäviä.
+- Goalin teknisestä osuudesta jäljellä tietosuojan ja ylläpidon täydentäminen, riippuvuustarkistus, lopullinen esikatselu ja kattava lopputarkistus; ulkoisen ympäristön asetukset ovat edelleen varmentamatta.

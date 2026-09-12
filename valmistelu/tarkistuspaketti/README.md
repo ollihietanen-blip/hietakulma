@@ -4,7 +4,7 @@ LUONNOS 0.1 · 12.9.2026 · Sisäinen tarkistus · Ei asiakasjakeluun
 
 Tähän kansioon kootaan Hietakulman tietopankin dokumenttien ensimmäiset luonnokset ja niiden liitteet. Ville, Jorma ja Tapani saavat valmiiksi kirjoitetun aineiston, johon he voivat merkitä korjaukset ja täydentää puuttuvat tiedot. Vastuunjako on ehdotus, jonka Olli vahvistaa ennen tarkistuspyyntöjen lähettämistä.
 
-Paketti sisältää nyt kaikkien alla lueteltujen nimikkeiden tekstiluonnokset ja tarkistuspyynnöt. Muokattavat Word-versiot ja niiden sivutuksen tarkistus ovat vielä tekemättä. Tässä vaiheessa mitään ei lähetetä eikä lisätä verkkosivujen julkisiin latauksiin.
+Paketti sisältää nyt kaikkien alla lueteltujen nimikkeiden tekstiluonnokset ja tarkistuspyynnöt. Muokattava Word-kooste sisältää samat luonnokset ja lähdeluettelon. Tässä vaiheessa mitään ei lähetetä eikä lisätä verkkosivujen julkisiin latauksiin.
 
 ## Luonnosten kattavuus
 
