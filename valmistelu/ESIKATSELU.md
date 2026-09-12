@@ -46,6 +46,8 @@ Kuvakaappaukset tallennetaan käyttöjärjestelmän tilapäishakemistoon, jonka 
 
 ## Ulkoinen Vercel-esikatselu
 
+Jatkovaiheen PostgreSQL-valmistelu, käyttöönoton rajaukset ja testausjärjestys on kuvattu tiedostossa [ULKOINEN-TIETOKANTA.md](ULKOINEN-TIETOKANTA.md). Erillinen schema ja alkumigraatio on valmisteltu; sovelluksen tietokantayhteyttä ei vielä vaihdettu.
+
 Commitin `df05d8c` [Vercel-esikatselu](https://hietakulma-f8u1luiho-olli-hietanens-projects.vercel.app) valmistui GitHubin deployment-tilan mukaan. Se avattiin 12.9.2026 Ollin nykyisellä Vercel-selainistunnolla: etusivu renderöityi ja Tietopankki-linkki ohjasi kirjautumissivulle. Ilman Vercel-istuntoa osoite ohjaa Vercelin kirjautumiseen. Suojausta ei muutettu.
 
 Vercel-liitin vaati aiemmin uudelleenkirjautumisen, mutta projektin asetukset voitiin lopulta lukea selaimesta. Projektin Environment Variables -näkymä ilmoitti **No Environment Variables Added**, Shared-välilehti **No shared variables linked**, Storage-luettelo oli tyhjä ja Domains-näkymässä oli vain `hietakulma.vercel.app` Production-osoitteena. Ulkoiseen portaaliin tarvittavia tietokanta-, Auth- ja Resend-asetuksia ei ole näin konfiguroitu projektin ympäristömuuttujiin. Mahdollisia projektin ulkopuolisia palvelusopimuksia tämä näkymä ei kartoita.
