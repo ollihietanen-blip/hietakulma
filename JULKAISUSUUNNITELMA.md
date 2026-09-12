@@ -1,6 +1,6 @@
 # Hietakulman verkkosivujen viimeistely
 
-Päivitetty 12.9.2026. Perustuu paikalliseen koodiin ja tässä työssä tehtyihin testeihin. Tuotantopalvelun, DNS:n ja sähköpostitoimitusten tilaa ei ole vielä tarkistettu. Tämä on toteutussuunnitelma, ei vahvistus julkaisuvalmiudesta.
+Päivitetty 12.9.2026. Ensimmäisen vaiheen tekninen esikatselu ja asiantuntijoiden luonnospaketti on tarkistettu; vaatimuskohtainen näyttö on tiedostossa `valmistelu/ENSIMMAISEN-VAIHEEN-KATSELMOINTI.md`. Vercelin asetukset luettiin lopuksi selainistunnolla: ympäristömuuttujat, jaetut muuttujat ja tietovarastoluettelo ovat tyhjät. DNS-siirtoa ja oikeaa sähköpostitoimitusta ei ole tehty. Tämä suunnitelma ulottuu myös myöhempään tuotantojulkaisuun, jonka avoimet ruudut säilyvät avoimina.
 
 ## Tavoite ja rajaus
 
@@ -78,7 +78,7 @@ Valmis, kun sivusto ei sisällä tyhjiä linkkejä, virheellisiä yhteystietoja 
 
 ## 5. Tietosuojakuvauksen ja ylläpidon täydentäminen
 
-- [ ] Täydennä tietosuojaseloste vastaamaan todellista portaalin tietojen käsittelyä: käyttäjäprofiili, käyttötarkoitus, kirjautumistiedot ja markkinointivalinta puuttuvat nykyisestä pääosin yhteydenottoja kuvaavasta tekstistä.
+- [x] Täydennä tietosuojaseloste vastaamaan portaalin toteutusta. Profiili, käyttötarkoitus, kirjautumistiedot ja markkinointivalinta lisätty; sivu säilyy luonnoksena oikeudellisten ja säilytyspäätösten vahvistamiseen asti.
 - [ ] Vahvista säilytysajat, poistopyyntöjen käsittely ja vastuuhenkilö; toteuta sovitut käytännöt.
 - [ ] Tarkista käytetyt ulkoiset palvelut, karttaupotus ja mahdollinen analytiikka sekä sovita sivun kuvaukset ja toiminta niihin. Varsinainen oikeudellinen arvio tehdään ajantasaisista lähteistä toteutusvaiheessa.
 - [x] Määritä, miten dokumentteja päivitetään ja käyttäjän käyttöoikeus poistetaan. Asiakirjojen hyväksyntä-/versiomenettely kuvattu; käyttäjien ylläpitokomennot toteutettu ja testattu. Tuotannon käyttäjäroolit ja tiedostotallennus vahvistetaan ennen käyttöönottoa.
@@ -88,10 +88,10 @@ Valmis, kun sivuston kuvaus vastaa toteutusta ja ylläpitäjällä on toimiva ta
 ## 6. Julkaisun valmistelu ja lopputarkistus
 
 - [x] Tarkista riippuvuuksien ajantasaisuus ja korjaa julkaisuun vaikuttavat tunnetut ongelmat ilman tarpeetonta versiouudistusta. Next 15.5.25 / React 19, korjatut välilliset riippuvuudet ja 0 audit-havaintoa; tarkistukset kuvattu `valmistelu/RIIPPUVUUSPAIVITYS.md`-tiedostossa.
-- [ ] Erottele toimitettavat muutokset työpuun vanhoista kuva-, video- ja väliaikaistiedostoista. Älä poista käyttäjän aineistoja siivouksen yhteydessä.
-- [ ] Tee muutoksista selkeä commit ja tarkista julkaistava haara, Vercel-projekti ja tuotantoasetukset.
-- [ ] Avaa esikatselu ja käy läpi kaikki julkiset sivut, navigaatio, lomakkeet, kohdesivut ja portaali tietokoneella sekä mobiilissa.
-- [ ] Tarkista näppäimistökäyttö, kuvien/videoiden lataus, vaakavieritys, virhesivut ja olennaiset konsolivirheet.
+- [x] Erottele toimitettavat muutokset työpuun vanhoista kuva-, video- ja väliaikaistiedostoista. Älä poista käyttäjän aineistoja siivouksen yhteydessä.
+- [x] Tee muutoksista selkeä commit ja tarkista haara, Vercel-projekti ja asetukset. Branchin Preview-deploymentit ja puuttuvat ympäristöasetukset varmennettu; tuotantokonfiguraatiota ei muutettu.
+- [x] Avaa esikatselu ja käy läpi kaikki julkiset sivut, navigaatio, lomakkeet, kohdesivut ja portaali tietokoneella sekä mobiilissa. Täysi koe tehty eristetyssä paikallisessa tuotantokoosteessa myös puhtaasta Git-aineistosta.
+- [x] Tarkista näppäimistökäyttö, kuvien/videoiden lataus, vaakavieritys, virhesivut ja olennaiset konsolivirheet. Näissä kokeissa havaitut valikon ja vähennetyn liikkeen virheet korjattu ja testattu uudelleen.
 - [ ] Kun tekniset korjaukset, sisällöt sekä dokumentit ja liitteet ovat valmiit Villen, Jorman ja Tapanin päivitysten jälkeen, kokoa koko sivusto esikatseluun Jussi-Pekka Koiviston katselmointia varten.
 - [ ] Pyydä Jussi-Pekka Koivistolta tarkastelu sivuston visuaalisesta ilmeestä ja yleisestä toimivuudesta: ulkoasun yhtenäisyys, selkeys, navigaatio, mobiilikäyttö, yhteydenotto ja tietopankin käyttöpolku.
 - [ ] Kirjaa Jussi-Pekan palaute, toteuta sovitut korjaukset ja tarkista niiden toimivuus ennen julkaisua.
@@ -106,7 +106,7 @@ Analytiikan ja Search Consolen käyttöönotto, hakukonetulosten seuranta, uudet
 
 ## Seuraava konkreettinen askel
 
-Aloita vaiheesta 1: tarkista tuotannon tietokanta ja kirjautumisen asetukset, korjaa aktivointiviestin virheenkäsittely ja testaa koko tunnuksen luontipolku. Tämän rinnalla selvitetään lähdeaineistot ja laaditaan tarvittavista dokumenteista ja liitteistä omat luonnokset, joihin pyydetään sen jälkeen päivitykset Villeltä, Jormalta ja Tapanilta.
+Seuraavassa vaiheessa Olli käy valmiin luonnospaketin ja lähettämättömät tarkistuspyynnöt läpi. Villeltä, Jormalta ja Tapanilta pyydetään päivitykset erillisellä lähetysluvalla. Ulkoista portaalia varten valitaan pysyvä tietokanta ja konfiguroidaan puuttuvat Auth- ja Resend-asetukset. Asiantuntijapäivitysten jälkeen pyydetään Jussi-Pekka Koiviston katselmointi. Tuotantojulkaisu päätetään erikseen.
 
 ## Työtilanne 12.9.2026: portaalin ensimmäiset korjaukset
 
@@ -212,3 +212,11 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - `valmistelu/VANHAT-OSOITTEET.md` kokoaa vanhan sivuston kahdeksan erillistä referenssipolkua ja PDF-osoitteet. Vahvistamattomia kohdevastaavuuksia ei muutettu arvatuiksi ohjauksiksi; säilytysratkaisu kuuluu domain-siirron valmisteluun.
 - Ennen esikatselun uudelleenrakennusta luotu testitili kirjautui edelleen onnistuneesti sen jälkeen. Paikallisen esikatselun tietojen säilyminen uudelleenkäynnistyksessä on siten testattu.
 - Jäljellä ensimmäisestä vaiheesta: tarkistus puhtaasta Git-aineistosta ja vaatimuskohtainen valmistumiskatselmointi. Ulkoisen ympäristön asetukset ja ihmisten hyväksynnät kirjataan jatkovaiheen avoimiksi kohdiksi.
+
+### Puhtaan version loppukatselmointi ja lähdepäivitys
+
+- Commitin `df05d8c` Git-arkisto purettiin erilliseen hakemistoon ilman työtilan asetuksia, tietokantoja tai ylimääräisiä kuvia. Node 24:n `npm ci`, 46 testiä, migraatiot ja tuotantokooste onnistuivat. Portin 3110 eristetty selainkoe kattoi julkiset sivut, portaalin, yhteydenoton, kartan ja navigaation molemmissa näyttökoissa.
+- Vercelin selainistunto mahdollisti asetusten tarkistuksen liittimen virheestä huolimatta. Project- ja Shared-muuttujat puuttuvat, Storage-luettelo on tyhjä ja Domains-näkymässä näkyy vain `hietakulma.vercel.app`. Branchin etusivu ja tietopankista kirjautumissivulle ohjaus nähtiin; ulkoista tunnuspolkua tai sähköpostitoimitusta ei väitetä toimiviksi.
+- V03:n 11-sivuisen NR-PDF:n sivut 1, 10 ja 11 luettiin kuvina. Ohjeen ja lomakkeen näkyvä päiväys on 15.4.2008. Havainto lisättiin lähteisiin ja N2-liitteeseen. Word päivitettiin ja renderöitiin: edelleen 20 sivua/18 taulukkoa, muuttuneet sivut 4 ja 16 tarkistettu, muut sivut vastaavat aiemmin hyväksyttyjä pikseleittäin. Kaikki lähdekatkelmat mukana.
+- Viimeisen Word-version SHA256: `bac7708dcda6483a7022a428fb040e0d47129cf223046af9c8b1f4e8834c0726`. Vanhempi yllä kirjattu SHA koskee aiempaa välietappia.
+- Valmistumisen vaatimuskohtainen tarkastus ja seuraavan vaiheen avoimet kohdat: `valmistelu/ENSIMMAISEN-VAIHEEN-KATSELMOINTI.md`.

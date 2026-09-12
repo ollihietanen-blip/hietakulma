@@ -24,7 +24,7 @@ L01–L03 sijaitsevat jaetussa OneDrive-kirjastossa `OneDrive-Jaetutkirjastot-Hi
 |---|---|---|
 | V01 | https://hietakulma.fi/download_file/115/182 | Kattoristikkosivun sertifikaattilinkki 2412-CPD-215. Hyväksytty nykyversio ja voimassaolo varmistettava. |
 | V02 | https://hietakulma.fi/download_file/116/182 | DoP 215–01/2013, päiväys 1.7.2013. Verkkolukijalla luettu teksti. Nykyisen asiakasversion hyväksyntä puuttuu. |
-| V03 | https://hietakulma.fi/download_file/117/182 | Kattoristikkosivun NR-asennus- ja tuentaohjeen linkki. Tiedosto noin 14,7 MB. Sisältö ja versio eivät vielä tarkastettu. |
+| V03 | https://hietakulma.fi/download_file/117/182 | 11-sivuinen PDF. Sivut 1, 10 ja 11 luettu kuvina: RIL 248-2008:n liite C, päiväys 15.4.2008; viimeisenä asennustyön tarkastuslomake. Nykyinen soveltuvuus vahvistettava. |
 | V04 | https://hietakulma.fi/ota-yhteytta | Henkilöiden yhteystiedot ja roolit tarkistettu nykyiseltä julkiselta sivulta. |
 
 ## Jormalle ja Ollille ratkaistava versioristiriita
@@ -32,6 +32,8 @@ L01–L03 sijaitsevat jaetussa OneDrive-kirjastossa `OneDrive-Jaetutkirjastot-Hi
 L04:n DoP-tekstissä on sama tunnus 215–01/2013 kuin julkisessa V02:ssa, mutta päiväys on 14.6.2025 eikä 1.7.2013. Pelkkä myöhempi päiväys ei todista, että kyseinen liite olisi hyväksytty tai allekirjoitettu. L04:n tekstissä esiintyy lisäksi valvontaa käsittelevässä kohdassa Control Union Finland Oy ja DoP-osassa Finotrol Oy. Näistä ei päätellä nykyistä ilmoitettua laitosta.
 
 Tarvitaan vahvistus nykyisestä sertifikaatista, ilmoitetusta laitoksesta, hyväksytystä DoP:sta, allekirjoittajasta ja asiakasjakeluun tarkoitetusta tiedostosta. Uutta DoP:ta ei laadita yhdistämällä eri vuosien tietoja.
+
+V03:n PDF-metatiedoissa on luontipäivä 11.10.2024, mutta ohjeen ja tarkastuslomakkeen painettu päiväys on 15.4.2008. Metatieto ei osoita ohjeen päivitystä. Jorma vahvistaa nykyisen ohjeversion ja lomakkeen; vanhan lähteen säädösviitteitä tai mitoitusarvoja ei siirretä uusiin ohjeisiin ilman tarkistusta. Muita V03:n sivuja ei tässä lähdetarkistuksessa arvioitu teknisesti.
 
 ## Sisältöväitteiden erot
 

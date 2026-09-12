@@ -33,7 +33,7 @@ Jorma vahvistaa saatteessa käytettävän vastuunjaon ja toimitukseen sisältyv�
 
 Kohde ja toimitus: [ ]. Vastaanottaja: [ ]. Päiväys: [ ]. Puuttuvat asiakirjat tai epäselvyydet: [ ]. Ratkaisusta vastaava henkilö ja ratkaisuviite: [ ]. Täydennetyt asiakirjat vastaanotettu: [ ].
 
-V03:n tiedoston ajantasaisuus ja sopivuus vahvistetaan, ennen kuin se merkitään N1:een hyväksytyksi ohjeeksi. Tässä luonnoksessa ei anneta nostopisteitä, sidepuumittoja, kiinnitysmääriä tai työnaikaisia tuentavälejä.
+V03:n ohje ja sen sivun 11 tarkastuslomake on päivätty 15.4.2008. Jorma vahvistaa niiden nykyisen korvaavan tai hyväksytyn version ennen merkitsemistä N1:een. N2 on vastaanoton seuranta, ei kyseisen asennustarkastuksen korvaava lomake. Tässä luonnoksessa ei anneta nostopisteitä, sidepuumittoja, kiinnitysmääriä tai työnaikaisia tuentavälejä.
 
 ## Liite D1 NR suoritustasoilmoituksen versiotarkistus
 
