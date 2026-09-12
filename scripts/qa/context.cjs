@@ -3,7 +3,7 @@ const os = require('node:os');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
-const state = path.resolve(__dirname, '../../.local-preview');
+const state = process.env.HIETAKULMA_QA_STATE || path.resolve(__dirname, '../../.local-preview');
 const config = JSON.parse(fs.readFileSync(path.join(state, 'preview.json'), 'utf8'));
 const base = config.origin;
 assert.equal(config.kind, 'hietakulma-local-preview');

@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /.local-preview/
+/.postgres-browser/
 /prisma/**/*.db
 /prisma/**/*.db-journal
 /prisma/**/*.db-wal

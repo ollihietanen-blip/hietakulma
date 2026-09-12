@@ -33,7 +33,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next-env.d.ts",
-    ".local-preview/build/types/**/*.ts"
+    ".local-preview/build/types/**/*.ts",
+    ".postgres-browser/build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

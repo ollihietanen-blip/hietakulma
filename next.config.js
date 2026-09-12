@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: process.env.HIETAKULMA_LOCAL_PREVIEW === '1' ? '.local-preview/build' : '.next',
+  distDir: process.env.HIETAKULMA_LOCAL_PREVIEW === '1'
+    ? process.env.HIETAKULMA_POSTGRES_BROWSER === '1' ? '.postgres-browser/build' : '.local-preview/build'
+    : '.next',
   async headers() {
     return process.env.HIETAKULMA_LOCAL_PREVIEW === '1' && process.env.PREVIEW_ID
       ? [{ source: '/:path*', headers: [{ key: 'X-Hietakulma-Preview', value: process.env.PREVIEW_ID }] }]

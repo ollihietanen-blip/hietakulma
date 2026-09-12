@@ -32,6 +32,7 @@ async function main() {
     prisma(['migrate', 'deploy']);
     prisma(['migrate', 'diff', '--from-schema-datasource', 'prisma/postgresql/schema.prisma', '--to-schema-datamodel', 'prisma/postgresql/schema.prisma', '--exit-code']);
     execFileSync(process.execPath, ['--test', 'tests/portal-flow.test.cjs'], { cwd: root, env: { ...env, HIETAKULMA_TEST_POSTGRES_URL: url }, stdio: 'inherit' });
+    if (process.argv.includes('--browser')) await require('./test-postgres-browser.cjs')(url);
     const backup = path.join(dir, 'portal.dump');
     const fd = fs.openSync(backup, 'wx', 0o600);
     try {

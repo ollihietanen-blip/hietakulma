@@ -35,7 +35,15 @@ Validointi tarvitsee `POSTGRES_DATABASE_URL`-muuttujan, mutta ei yhteyttä palve
 
 Koe generoi erillisen clientin, ajaa migraation kahdesti (toinen ajo ei muuta mitään), tarkistaa rakenteen Prisma-diffillä ja suorittaa samat 21 portaalin integraatiotestin tulosta kuin SQLite-koe. Lisäksi se ottaa custom-muotoisen `pg_dump`-kopion vain omistajan luettavaan tiedostoon ja palauttaa sen erilliseen tyhjään kantaan. Kaikkien neljän mallin kaikki kentät verrataan alkuperäiseen, ja palautetun viiteavaimen cascade-poisto testataan. Testitiedot ja kopio poistuvat ajon lopuksi. Oikeita sähköposteja ei lähetetä.
 
-Tämä todentaa paikallisen migraation, palvelinpolut ja palautettavuuden. Se ei vielä testaa Vercelin poolattua yhteyttä, käyttöliittymää PostgreSQL:llä, ulkoista sähköpostitoimitusta eikä operatiivisen varmuuskopioinnin ajastusta tai säilytystä.
+Tämä todentaa paikallisen migraation, palvelinpolut ja palautettavuuden. Se ei vielä testaa Vercelin poolattua yhteyttä, ulkoista sähköpostitoimitusta eikä operatiivisen varmuuskopioinnin ajastusta tai säilytystä.
+
+### PostgreSQL:n selainkoe
+
+`npm run test:postgres:browser` lisää edelliseen kokeeseen oikean Next-tuotantokoosteen ja palvelimen PostgreSQL-yhteydellä. Se käyttää omaa `.postgres-browser`-hakemistoa ja vapaata loopback-porttia, eikä korvaa käynnissä olevan SQLite-esikatselun koostetta. Olemassa oleva testihakemisto estää käynnistyksen; ajon lopussa oma palvelin pysäytetään ja tilapäiset tiedostot poistetaan. Chrome tarvitaan kuten muissakin selainkokeissa.
+
+Kokeessa SQLiten osoite on tarkoituksella käyttökelvoton, jotta väärä provider-valinta ei voisi läpäistä tunnuspolkua. Oma satunnainen esikatselutunniste varmistetaan ennen selainoperaatioita. Sähköpostit otetaan paikalliseen tiedostoon, ja Auth-/Resend-asetukset korvataan testiarvoilla. Kattavuus: 17 julkista sivua, tunnusketju, yhteydenoton virhetilanteet ja onnistuminen sekä kartan suostumus molemmissa näyttökoissa. Tämä ei korvaa ulkoisen Vercel-/Neon-ympäristön toimituskoetta.
+
+12.9.2026 ajettu kokonaiskoe läpäisi kaikki edellä kuvatut osiot 1440 ja 390 px koossa sekä palvelintestit ja palautuskokeen. Prosessi päättyi onnistuneesti, testipalvelimen portti vapautui ja oma tilapäishakemisto poistui. Tavallinen SQLite-esikatselu jäi käyntiin porttiin 3108.
 
 Provider-kytkennän tarkistus: TypeScript ja PostgreSQL-build läpäisivät; Nextin signup-reitin deployment-jäljitys sisältää PostgreSQL-enginen ja scheman. Kaikki 48 paikallista testiä läpäisivät. Uudelleenrakennetun SQLite-esikatselun koko tunnuspolku läpäisi selainkokeen 1440 ja 390 px koossa. Ulkoiseen toimitukseen ei vielä vedota tällä näytöllä.
 
