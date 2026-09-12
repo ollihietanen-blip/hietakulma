@@ -39,18 +39,15 @@ async function main() {
     execFileSync(process.execPath, ['--test', 'tests/portal-admin.test.cjs'], { cwd: root, env: adminEnv, stdio: 'inherit' });
     if (process.argv.includes('--browser')) await require('./test-postgres-browser.cjs')(url);
     const backup = path.join(dir, 'portal.dump');
-    const fd = fs.openSync(backup, 'wx', 0o600);
-    try {
-      run('pg_dump', ['--format=custom', '--no-owner', '--no-acl'], {
-        env: { ...env, PGDATABASE: 'hietakulma_test_portal', PGHOST: '127.0.0.1', PGPORT: String(port), PGUSER: 'test_runner' },
-        stdio: ['ignore', fd, 'pipe'],
-      });
-    } finally { fs.closeSync(fd); }
+    const snapshot = (connection, command, extra = []) => execFileSync(process.execPath, ['scripts/postgres-snapshot.cjs', command, '--database', `${new URL(connection).host}${new URL(connection).pathname}`, '--file', backup, ...extra], { cwd: root, env: { ...env, POSTGRES_DIRECT_URL: connection, PG_BIN: bin }, stdio: 'pipe' });
+    snapshot(url, 'backup');
+    assert.equal(fs.statSync(backup).mode & 0o777, 0o600);
+    assert.throws(() => snapshot(url, 'backup'), 'Existing backups must not be overwritten');
+    assert.throws(() => snapshot(url, 'restore', ['--apply']), 'Occupied source must reject restoration');
     run('createdb', ['-h', '127.0.0.1', '-p', String(port), '-U', 'test_runner', 'hietakulma_test_restored']);
     const restoredUrl = url.replace('/hietakulma_test_portal', '/hietakulma_test_restored');
-    run('pg_restore', ['--exit-on-error', '--no-owner', '--no-acl', '--dbname', 'hietakulma_test_restored', backup], {
-      env: { ...env, PGHOST: '127.0.0.1', PGPORT: String(port), PGUSER: 'test_runner' },
-    });
+    assert.equal(JSON.parse(snapshot(restoredUrl, 'restore')).applied, false);
+    snapshot(restoredUrl, 'restore', ['--apply']);
     const { PrismaClient } = require('../lib/generated/prisma-postgres');
     const original = new PrismaClient({ datasourceUrl: url });
     const restored = new PrismaClient({ datasourceUrl: restoredUrl });
