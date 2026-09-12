@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import FadeIn from '@/components/ui/FadeIn';
+import ContactMap from '@/components/sections/ContactMap';
 import { contactPersons, billingInfo } from '@/lib/content/contacts';
 
 export const metadata = pageMetadata('/ota-yhteytta', 'Ota yhteyttä', 'Yhteystiedot, henkilöstö ja yhteydenottolomake. Autamme rakennuskohteesi sopivan ratkaisun valinnassa.');
@@ -104,21 +105,7 @@ export default function OtaYhteyttaPage() {
       <Section background="gray">
         <FadeIn>
           <h2 className="text-3xl font-bold mb-8 text-center">Löydä perille</h2>
-          <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
-            <iframe
-              src="https://maps.google.com/maps?q=Koskenojankatu%2011%2C%2038700%20Kankaanp%C3%A4%C3%A4&output=embed"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Hietakulma Oy sijainti kartalla"
-            />
-          </div>
-          <p className="text-center text-gray-600 mt-4">
-            Koskenojankatu 11, 38700 Kankaanpää
-          </p>
+          <ContactMap />
         </FadeIn>
       </Section>
     </>

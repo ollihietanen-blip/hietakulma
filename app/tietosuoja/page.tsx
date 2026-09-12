@@ -1,118 +1,125 @@
 import { pageMetadata } from '@/lib/metadata';
+import { companyInfo } from '@/lib/content/contacts';
 import Section from '@/components/sections/Section';
 
-export const metadata = pageMetadata('/tietosuoja', 'Tietosuojaseloste', 'Hietakulma Oy:n tietosuojaseloste. Tietoa henkilötietojen käsittelystä, rekisteröidyn oikeuksista ja evästekäytännöstä.');
+export const metadata = pageMetadata('/tietosuoja', 'Tietosuojaseloste', 'Tietoa Hietakulman verkkosivujen yhteydenottojen ja tietopankin henkilötietojen käsittelystä.');
 
 export default function TietosuojaPage() {
+  const heading = 'text-2xl font-bold mt-10 mb-4 text-text';
+  const paragraph = 'text-gray-700 leading-relaxed mt-4';
   return (
     <Section background="white">
       <div className="max-w-3xl mx-auto prose prose-lg">
         <h1 className="text-3xl md:text-4xl font-bold mb-8 text-text">Tietosuojaseloste</h1>
-        <p className="text-sm text-gray-500 mb-8">Päivitetty 8.3.2026</p>
-
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">1. Rekisterinpitäjä</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Hietakulma Oy<br />
-          Y-tunnus: 2547711-2<br />
-          Koskenojankatu 11<br />
-          38700 Kankaanpää<br />
-          Puh. 02 573 0300<br />
-          talotehdas@hietakulma.fi
+        <p className="text-sm text-gray-600">Luonnos esikatselua varten · 12.9.2026</p>
+        <p className={paragraph}>
+          Tämä kuvaus koskee yhteydenottoja ja tietopankin käyttäjätilejä. Ennen tuotantokäyttöä
+          Hietakulma vahvistaa käsittelyn oikeusperusteet, säilytysajat, palveluntarjoajat ja
+          mahdolliset kansainväliset tiedonsiirrot. Esikatselussa käytetään testitietoja.
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">2. Henkilötietojen käsittelyn tarkoitus</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Käsittelemme henkilötietoja seuraaviin tarkoituksiin:
-        </p>
-        <ul className="list-disc pl-6 text-gray-700 space-y-2 mt-4">
-          <li>Yhteydenottolomakkeen kautta lähetettyjen viestien vastaanottaminen ja niihin vastaaminen</li>
-          <li>Asiakassuhteen hoitaminen ja tarjousten laatiminen</li>
-          <li>Lakisääteisten velvoitteiden noudattaminen</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">3. Käsiteltävät henkilötiedot</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Yhteydenottolomakkeen kautta keräämme seuraavat tiedot:
-        </p>
-        <ul className="list-disc pl-6 text-gray-700 space-y-2 mt-4">
-          <li>Etunimi ja sukunimi</li>
-          <li>Sähköpostiosoite</li>
-          <li>Puhelinnumero</li>
-          <li>Yrityksen nimi (vapaaehtoinen)</li>
-          <li>Viestin sisältö</li>
-        </ul>
-
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">4. Käsittelyn oikeusperuste</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Henkilötietojen käsittely perustuu rekisteröidyn antamaan suostumukseen (yhteydenottolomakkeen lähettäminen)
-          sekä rekisterinpitäjän oikeutettuun etuun asiakassuhteen hoitamisessa.
+        <h2 className={heading}>1. Rekisterinpitäjä ja yhteydenotot</h2>
+        <p className={paragraph}>
+          {companyInfo.name}, Y-tunnus {companyInfo.businessId}<br />
+          {companyInfo.address}, {companyInfo.postalCode} {companyInfo.city}<br />
+          Puhelin {companyInfo.phone}<br />
+          <a href={`mailto:${companyInfo.email}`} className="underline">{companyInfo.email}</a>
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">5. Tietojen säilytysaika</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Yhteydenottolomakkeen kautta saadut tiedot säilytetään niin kauan kuin on tarpeen yhteydenoton
-          käsittelemiseksi ja mahdollisen asiakassuhteen hoitamiseksi. Tiedot poistetaan viimeistään kahden (2)
-          vuoden kuluttua viimeisestä yhteydenotosta, ellei lainsäädäntö edellytä pidempää säilytysaikaa.
+        <h2 className={heading}>2. Yhteydenotot</h2>
+        <p className={paragraph}>
+          Yhteydenottolomakkeella annetaan nimi, sähköpostiosoite, puhelinnumero ja viesti sekä
+          haluttaessa yritys. Tietoja tarvitaan yhteydenottoon vastaamiseen ja mahdollisen
+          tarjouspyynnön käsittelyyn. Viesti välitetään sähköpostitse Hietakulmalle.
+          Lomake ei tallenna viestiä tietopankin käyttäjätietokantaan.
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">6. Tietojen luovutus ja siirto</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Henkilötietoja ei luovuteta kolmansille osapuolille markkinointitarkoituksiin. Tietoja voidaan luovuttaa
-          viranomaisille lainsäädännön niin edellyttäessä. Sähköpostin välittämiseen käytämme Resend-palvelua,
-          jonka palvelimet voivat sijaita EU/ETA-alueen ulkopuolella. Tiedonsiirto perustuu EU:n hyväksymiin
-          vakiosopimuslausekkeisiin.
+        <h2 className={heading}>3. Tietopankin käyttäjätili</h2>
+        <p className={paragraph}>
+          Rekisteröitymisessä kysytään etu- ja sukunimi, sähköposti, yritys tai organisaatio,
+          rooli ja tietopankin käyttötarkoitus. Tehtävänimike ja puhelin ovat vapaaehtoisia.
+          Tallennamme myös tietosuojakuvaukseen tutustumisen ajankohdan ja mahdollisen
+          markkinointivalinnan. Tiedot saadaan käyttäjältä itseltään.
+        </p>
+        <p className={paragraph}>
+          Sähköpostin vahvistamista ja salasanan palautusta varten käsitellään kertakäyttöisiä
+          linkkejä ja niiden voimassaoloaikoja. Salasana tallennetaan tiivisteenä. Käyttäjätiliin
+          tallennetaan luonti- ja päivitysajat, sähköpostin vahvistusaika, viimeisimmän
+          onnistuneen kirjautumisen ajankohta ja kirjautumisten määrä. Näitä tietoja käytetään
+          käyttöoikeuden toteuttamiseen ja palvelun ylläpitoon.
+        </p>
+        <p className={paragraph}>
+          Väärinkäytösten ehkäisemiseksi kirjautumis- ja tunnuspyyntöjen määrää rajoitetaan.
+          Rajoitustieto muodostetaan sähköpostin tai palautustunnuksen tiivisteestä ja
+          aikaikkunasta. Käyttöoikeus voidaan evätä sähköpostin verkkotunnuksen perusteella.
+          Jos rekisteröityminen ei onnistu, voit pyytää asian selvittämistä ottamalla yhteyttä.
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">7. Rekisteröidyn oikeudet</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Sinulla on EU:n yleisen tietosuoja-asetuksen (GDPR) mukaisesti oikeus:
+        <h2 className={heading}>4. Markkinointivalinta ja käsittelyn perusteet</h2>
+        <p className={paragraph}>
+          Sähköpostimarkkinoinnin valinta on vapaaehtoinen eikä se ole tietopankin käytön ehto.
+          Valinnan voi peruuttaa ottamalla yhteyttä yllä olevaan osoitteeseen. Tunnuksen
+          aktivointi- ja palautusviestit ovat palveluviestejä, eivät markkinointia.
         </p>
-        <ul className="list-disc pl-6 text-gray-700 space-y-2 mt-4">
-          <li>Saada pääsy omiin henkilötietoihisi ja pyytää niistä jäljennös</li>
-          <li>Pyytää tietojesi oikaisemista tai poistamista</li>
-          <li>Rajoittaa tai vastustaa tietojesi käsittelyä</li>
-          <li>Siirtää tietosi toiselle rekisterinpitäjälle (tietojen siirrettävyys)</li>
-          <li>Peruuttaa suostumuksesi milloin tahansa</li>
-          <li>Tehdä valitus tietosuojavaltuutetulle, mikäli koet, ettei tietojasi käsitellä asianmukaisesti</li>
-        </ul>
-        <p className="text-gray-700 leading-relaxed mt-4">
-          Voit käyttää oikeuksiasi ottamalla yhteyttä sähköpostitse osoitteeseen{' '}
-          <a href="mailto:talotehdas@hietakulma.fi" className="text-blue underline hover:opacity-80">
-            talotehdas@hietakulma.fi
-          </a>.
+        <p className={paragraph}>
+          Luonnoksen lähtökohtana on käsitellä tarjouspyyntöjä sopimuksen valmistelua varten,
+          yhteydenottoja ja palvelun ylläpitoa oikeutetun edun perusteella sekä vapaaehtoista
+          sähköpostimarkkinointia suostumuksella. Rekisterinpitäjän on vielä vahvistettava
+          tarkoituskohtaiset perusteet ja oikeutetun edun arvio. Tietosuojakuvaukseen
+          tutustumisen kuittaus ei itsessään ole suostumus kaikkeen henkilötietojen käsittelyyn.
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">8. Tietosuojavaltuutetun yhteystiedot</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Tietosuojavaltuutetun toimisto<br />
-          Käyntiosoite: Lintulahdenkuja 4, 00530 Helsinki<br />
-          Postiosoite: PL 800, 00531 Helsinki<br />
-          Puhelinvaihde: 029 566 6700<br />
-          tietosuoja.fi
+        <h2 className={heading}>5. Säilytysajat</h2>
+        <p className={paragraph}>
+          Aktivointilinkin voimassaolo ja salasanan palautuslinkin 30 minuutin voimassaolo
+          rajaavat linkin käyttöä. Linkin vanheneminen ei itsessään poista siihen liittyvää
+          tietokantariviä. Käyttäjätilien, vanhentuneiden pyyntöjen, yhteydenottojen,
+          sähköpostipalvelun lokien ja varmuuskopioiden säilytysajat sekä poistomenettelyt
+          vahvistetaan ennen tuotantokäyttöä. Aiemman selosteen kahden vuoden poistolupausta
+          ei ole varmennettu käytännössä.
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">9. Evästekäytäntö</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Verkkosivustomme käyttää vain teknisesti välttämättömiä evästeitä, jotka ovat tarpeen sivuston
-          perustoimintojen varmistamiseksi. Emme käytä analytiikka- tai markkinointievästeitä ilman
-          erillistä suostumustasi.
-        </p>
-        <p className="text-gray-700 leading-relaxed mt-4">
-          Välttämättömiä evästeitä ovat esimerkiksi istuntoevästeet, jotka mahdollistavat sivuston
-          toiminnan. Nämä evästeet eivät edellytä suostumustasi ja ne poistetaan selaimen sulkemisen yhteydessä.
-        </p>
-
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">10. Tietoturva</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Henkilötiedot suojataan asianmukaisin teknisin ja organisatorisin toimenpitein luvattomalta pääsyltä,
-          muuttamiselta, luovuttamiselta, hävittämiseltä tai muulta laittomalta käsittelyltä. Yhteydenottolomakkeen
-          tiedot välitetään salattua HTTPS-yhteyttä käyttäen.
+        <h2 className={heading}>6. Palveluntarjoajat ja tiedonsiirrot</h2>
+        <p className={paragraph}>
+          Lomake-, aktivointi- ja palautusviestien lähetyksessä käytetään Resend-palvelua.
+          Viestit käsitellään myös vastaanottajan sähköpostipalvelussa. Sivuston ylläpito,
+          tietokanta ja tekniset lokit edellyttävät palveluntarjoajia, joiden lopullinen
+          tuotantokokoonpano on vielä vahvistamatta. Palvelukohtaiset käsittelysopimukset,
+          sijainnit, alihankkijat ja ETA-alueen ulkopuolisten siirtojen suojatoimet tarkistetaan
+          ennen tuotantokäyttöä; niitä ei pidetä vahvistettuina tämän luonnoksen perusteella.
         </p>
 
-        <h2 className="text-2xl font-bold mt-10 mb-4 text-text">11. Selosteen muutokset</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Pidätämme oikeuden päivittää tätä tietosuojaselostetta. Muutokset tulevat voimaan, kun päivitetty
-          seloste on julkaistu verkkosivuillamme. Suosittelemme tarkistamaan tämän selosteen säännöllisesti.
+        <h2 className={heading}>7. Evästeet ja Google-kartta</h2>
+        <p className={paragraph}>
+          Tietopankin kirjautuminen käyttää istunto- ja suojaustoimintoihin tarvittavia evästeitä.
+          Kirjautumisistunto voi säilyä enintään 30 päivää; sen voimassaolo voi uusiutua palvelua
+          käytettäessä. Uloskirjautuminen poistaa kirjautumisevästeen. Salasanan palautus
+          mitätöi aiemmat istunnot. Evästeet eivät siis kaikki poistu selaimen sulkemisessa.
+          Tässä toteutuksessa ei ole otettu käyttöön analytiikka- tai markkinointiseurantaa.
+        </p>
+        <p className={paragraph}>
+          Yhteystietosivun Google-kartta ladataan vasta, kun valitset kartan lataamisen.
+          Tällöin selain muodostaa yhteyden Googleen, joka saa esimerkiksi IP-osoitteesi ja
+          selaimen teknisiä tietoja ja voi käyttää omia evästeitään.
+          Valintaa ei tallenneta myöhempiä käyntejä varten. Kartan voi sulkea sivulla.
+          Lisätietoja on <a className="underline" href="https://policies.google.com/privacy">Googlen tietosuojakäytännössä</a>.
+          Osoite näkyy myös ilman kartan lataamista.
+        </p>
+
+        <h2 className={heading}>8. Oikeutesi ja tietojen suojaaminen</h2>
+        <p className={paragraph}>
+          Voit pyytää pääsyä tietoihisi, tietojen oikaisua tai poistamista sekä käsittelyn
+          rajoittamista. Tilanteesta ja käsittelyperusteesta riippuen sinulla on oikeus
+          vastustaa käsittelyä ja siirtää tiedot järjestelmästä toiseen. Voit peruuttaa antamasi
+          suostumuksen. Pyyntö käsitellään sovellettavien edellytysten mukaisesti, ja henkilöllisyys
+          varmistetaan tarvittaessa. Älä lähetä salasanaasi tai aktivointilinkkiä pyynnön mukana.
+        </p>
+        <p className={paragraph}>
+          Ota yhteyttä rekisterinpitäjään yllä olevilla tiedoilla. Voit myös saattaa asian
+          <a className="underline" href="https://tietosuoja.fi/ilmoitus-tietosuojavaltuutetulle"> tietosuojavaltuutetun käsiteltäväksi</a>.
+          Käyttäjätilit suojataan salasanan tiivistyksellä, istuntojen tarkistuksilla ja
+          käyttöyritysten rajoituksilla. Tuotannon käyttöoikeudet, varmuuskopiointi ja
+          poistopyyntöjen vastuuhenkilö vahvistetaan käyttöönoton yhteydessä.
         </p>
       </div>
     </Section>

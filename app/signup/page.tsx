@@ -247,7 +247,7 @@ export default function SignupPage() {
                   className="mt-1 h-4 w-4 accent-[var(--blue)]"
                 />
                 <span>
-                  Hyväksyn henkilötietojeni käsittelyn tietopankin käyttöoikeuden toteuttamiseksi ja olen tutustunut{' '}
+                  Olen tutustunut tietopankin henkilötietojen käsittelyä kuvaavaan{' '}
                   <Link href="/tietosuoja" className="font-semibold underline" target="_blank">
                     tietosuojailmoitukseen
                   </Link>

@@ -166,3 +166,12 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - Toistettava muodostusskripti: `valmistelu/muodosta_tarkistuspaketti.py` (python-docx). Sisältömuutoksen jälkeen Word on muodostettava ja sivut tarkistettava uudelleen.
 - Tämä päättää ensimmäisten dokumenttiluonnosten kokoamisen. Hyväksytyt tekniset piirustukset, voimassa olevat tuoteilmoitukset ja asiantuntijoiden päivitykset ovat edelleen seuraavan vaiheen tehtäviä.
 - Goalin teknisestä osuudesta jäljellä tietosuojan ja ylläpidon täydentäminen, riippuvuustarkistus, lopullinen esikatselu ja kattava lopputarkistus; ulkoisen ympäristön asetukset ovat edelleen varmentamatta.
+
+### Tietosuojaluonnos ja kartan latausvalinta
+
+- Tietosuojasivu kuvaa nyt yhteydenottojen lisäksi portaalin profiilin, kirjautumistiedot, markkinointivalinnan, palautuspyynnöt ja yritysrajoitukset. Luonnosmerkintä säilyy, koska oikeusperusteet, säilytysajat ja palvelusopimukset ovat vahvistamatta.
+- Poistettu vahvistamattomat lupaukset kahden vuoden poistamisesta, kaikille evästeille selaimen sulkemisessa tapahtuvasta poistosta ja toteutuneista kansainvälisten siirtojen suojatoimista. Rekisteröitymisen pakollinen valinta on nyt tutustumiskuittaus.
+- Google-kartta ladataan vain käyttäjän valinnasta; sen voi sulkea ja valinta ei säily seuraavalle sivulataukselle. Osoite on nähtävissä ilman Google-yhteyttä.
+- `valmistelu/TIETOSUOJA-JA-YLLAPITO.md` sisältää toteutukseen perustuvan tietovirta- ja säilytystaulukon, päätettävät asiat ja ylläpitomenettelyn luonnoksen. Ylläpitokomennot ja niiden testaus ovat vielä tekemättä.
+- Build hyväksytty. Chrome-selainkoe 390 ja 1440 px: ei karttapyyntöä ennen valintaa, näppäimistöllä lataus, sulkeminen ja uudelleenlatauksen oletustila oikein. Tietosuojasivu ei aiheuta vaakavieritystä. Google-vastaus simuloitiin testissä. Skripti `/tmp/hietakulma-privacy-qa.cjs`.
+- Riippuvuustarkistus tuotti 30 audit-merkintää. Niiden arviointi ja korjaaminen on seuraava tekninen työvaihe; tarkistus ei vielä täytä riippuvuuksien korjauskohtaa.
