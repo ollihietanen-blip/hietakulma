@@ -20,19 +20,25 @@ Jälkitarkistus lukutilassa palautti 20 rakenneriviä:
 
 Editorin Read-only-tila palautettiin päälle. Sovelluksen käyttäjiä tai paikallisia testitietoja ei tuotu kantaan. Yhteyssalaisuuksia ei avattu tai tulostettu. Vercel CLI 59.16.0 jäi kirjautumatta; sen Allow Access -painike ei aktivoitunut. Kun ylläpidon suora yhteys on käytettävissä, tarkista lisäksi Prisma `migrate status` ja skeeman diff ennen seuraavaa migraatiota. Älä aja alkumigraation DDL:ää uudelleen.
 
-Kohde on Vercelin `hietakulma`-projektin **Preview**. Tavoiteltu branch-rajaus on `codex/julkaisuvalmistelu`; integraation ympäristölaajuinen kohdistus on vielä ratkaistava. Tuotanto ja `hietakulma.fi`-domain eivät kuulu tähän käyttöönottoon. Paikallinen PostgreSQL-selainkoe on valmis. Ulkoisen esikatselun Auth-/sähköpostiasetukset, uusi deployment, toiminnallinen koe ja ulkoisen kannan varmuuskopio-/palautuskoe ovat vielä tekemättä. Asiantuntijapyyntöjen ja oikeiden testisähköpostien lähetyslupaa ei ole annettu tässä yhteydessä.
+Kohde on Vercelin `hietakulma`-projektin **Preview**. Tavoiteltu branch-rajaus on `codex/julkaisuvalmistelu`; integraation ympäristölaajuinen kohdistus on vielä ratkaistava. Tuotanto ja `hietakulma.fi`-domain eivät kuulu tähän käyttöönottoon. Paikallinen PostgreSQL-selainkoe on valmis. Ulkoisen esikatselun Auth-salaisuudet ja sähköpostiasetukset, uusi deployment, toiminnallinen koe ja ulkoisen kannan varmuuskopio-/palautuskoe ovat vielä tekemättä. Asiantuntijapyyntöjen ja oikeiden testisähköpostien lähetyslupaa ei ole annettu tässä yhteydessä.
+
+## Branch-asetusten tallennus 12.9.2026
+
+Vercelin ympäristömuuttujanäkymä vahvisti viiden Config-muuttujan tallennuksen kohteeseen **Preview → codex/julkaisuvalmistelu**: `PORTAL_DATABASE_PROVIDER=postgresql`, `AUTH_TRUST_HOST=true` sekä `AUTH_URL`, `NEXTAUTH_URL` ja `NEXT_PUBLIC_APP_URL`, joiden yhteinen arvo on `https://hietakulma-git-codex-julkaisuvalmistelu-olli-hietanens-projects.vercel.app`. Production-oletus poistettiin ennen tallennusta. Vercel ilmoitti onnistumisesta ja uuden deploymentin tarpeesta.
+
+Commitin `24ded41` deployment (`6411260919`) oli onnistunut jo ennen näitä asetuksia; se ei siten todista uusien asetusten käyttöönottoa. CLI-kirjautumista kokeiltiin uudelleen tietokannan tunnistautumisen jälkeen, mutta Allow Access oli edelleen pois käytöstä. Käyttäjälle annettiin mahdollisuus viimeistellä tämä saman Macin kirjautuminen omassa selaimessa. Auth-salaisuuksia tai Resend-avaimia ei vielä tallennettu.
 
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
 |---|---|---|
-| `PORTAL_DATABASE_PROVIDER` | `postgresql` | Toteutettu; Vercelissä myös oletus |
+| `PORTAL_DATABASE_PROVIDER` | `postgresql` | Tallennettu branchille; Vercelissä myös oletus |
 | `POSTGRES_DATABASE_URL` | Uuden Preview-kannan poolattu yhteys, palveluntarjoajan vaatima TLS | Neon-integraatio lisäsi Preview-ympäristöön; branch-rajaus tarkistamatta |
 | `NEXTAUTH_SECRET` | Vain Preview-ympäristölle generoitu vahva salaisuus | Asettamatta; sovelluksen Auth-konfiguraatio käyttää tätä |
 | `AUTH_SECRET` | Sama Preview-salaisuus Auth.js:n ympäristötunnistukselle | Asettamatta |
-| `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Valitaan Vercelin aliasnäkymästä; ei arvata |
-| `AUTH_TRUST_HOST` | `true` vain hallitussa Vercel-ympäristössä | Asettamatta |
-| `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Aktivointi- ja palautuslinkkien kohde |
+| `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Tallennettu branchille yllä olevaan vahvistettuun aliasosoitteeseen |
+| `AUTH_TRUST_HOST` | `true` vain hallitussa Vercel-ympäristössä | Tallennettu branchille |
+| `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Tallennettu branchille; toimituskoe tekemättä |
 | `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Palvelu ja lähetyslupa vahvistamatta |
 | `RESEND_FROM_EMAIL` | Resendissä vahvistettu lähettäjä, esimerkiksi hyväksytyn domainin noreply-osoite | Vahvistettava palvelusta; esimerkki ei osoita lähetysvalmiutta |
 
