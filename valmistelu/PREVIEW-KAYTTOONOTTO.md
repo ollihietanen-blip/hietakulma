@@ -28,14 +28,22 @@ Vercelin ympäristömuuttujanäkymä vahvisti viiden Config-muuttujan tallennuks
 
 Commitin `24ded41` deployment (`6411260919`) oli onnistunut jo ennen näitä asetuksia; se ei siten todista uusien asetusten käyttöönottoa. CLI-kirjautumista kokeiltiin uudelleen tietokannan tunnistautumisen jälkeen, mutta Allow Access oli edelleen pois käytöstä. Käyttäjälle annettiin mahdollisuus viimeistellä tämä saman Macin kirjautuminen omassa selaimessa. Auth-salaisuuksia tai Resend-avaimia ei vielä tallennettu.
 
+## CLI-yhteys ja Auth-salaisuudet 12.9.2026
+
+Vercel CLI -kirjautuminen onnistui ja `whoami` vahvisti tilin `ollihietanen-7645`. Branchille `codex/julkaisuvalmistelu` lisättiin `NEXTAUTH_SECRET` ja `AUTH_SECRET` samalla kryptografisesti satunnaisella 48 tavun salaisuudella. Molemmat tallennettiin Secret-tyyppisinä vain Preview-branchille. Arvoa ei tulostettu tai tallennettu Gitiin.
+
+Ympäristömuuttujat ladattiin erilliseen käyttöoikeuksin suojattuun väliaikaishakemistoon, käyttäjän `.env.local` säilytettiin. Viisi Config-arvoa ja Auth-salaisuudet olivat käytettävissä, mutta integraation Neon-yhteysmuuttujat tulivat tyhjinä sekä branch- että yleisessä Preview-latauksessa. Muuttujanimet ja integraation Preview-kytkentä ovat olemassa. Pelkkä tyhjä paikallinen vienti ei todista runtime-yhteyden puuttumista tai branch-virhettä. Suora Prisma-status/diff ja ulkoisen kannan varmuuskopio/palautus jäävät odottamaan ylläpitoyhteyden saatavuutta.
+
+Commitin `71f31c9` onnistuneesta Preview-deploymentista käynnistettiin uusi koonti Auth-muutosten käyttöönottoon. Resend-tilin ja vahvistetun lähettäjän olemassaoloa kysyttiin käyttäjältä; API-avainta ei pyydetty keskusteluun. Oikeiden sähköpostien lähetyslupa ja asiantuntijapalautteet ovat edelleen erillisiä avoimia kohtia.
+
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
 |---|---|---|
 | `PORTAL_DATABASE_PROVIDER` | `postgresql` | Tallennettu branchille; Vercelissä myös oletus |
 | `POSTGRES_DATABASE_URL` | Uuden Preview-kannan poolattu yhteys, palveluntarjoajan vaatima TLS | Neon-integraatio lisäsi Preview-ympäristöön; branch-rajaus tarkistamatta |
-| `NEXTAUTH_SECRET` | Vain Preview-ympäristölle generoitu vahva salaisuus | Asettamatta; sovelluksen Auth-konfiguraatio käyttää tätä |
-| `AUTH_SECRET` | Sama Preview-salaisuus Auth.js:n ympäristötunnistukselle | Asettamatta |
+| `NEXTAUTH_SECRET` | Vain Preview-ympäristölle generoitu vahva salaisuus | Tallennettu branchille Secret-tyyppisenä |
+| `AUTH_SECRET` | Sama Preview-salaisuus Auth.js:n ympäristötunnistukselle | Tallennettu branchille Secret-tyyppisenä |
 | `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Tallennettu branchille yllä olevaan vahvistettuun aliasosoitteeseen |
 | `AUTH_TRUST_HOST` | `true` vain hallitussa Vercel-ympäristössä | Tallennettu branchille |
 | `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Tallennettu branchille; toimituskoe tekemättä |
