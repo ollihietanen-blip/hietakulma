@@ -76,6 +76,8 @@ Vercelin Neon-opasnäkymä pystyi näyttämään suoran yhteyden. Selainliittym�
 
 Ulkoisen kannan suora Prisma-status/diff ja varmuuskopio-/palautuskoe ovat edelleen tekemättä. SQL-editorilla tehty migraatio ja oikean sovelluspolun tietokantatoiminta on jo todennettu erikseen.
 
+Neonin oman hallinnan sähköpostivahvistus tehtiin 12.9.2026, minkä jälkeen projekti `red-forest-04557626` avautui Neon Consolessa. Connect-näkymästä varmennettiin suora, poolaamaton `neondb`-yhteys. Neon CLI:n kirjautuminen keskeytettiin ennen hyväksyntää, koska se pyysi laajat projektien ja organisaatioiden luku-, luonti-, muutos- ja poisto-oikeudet. Uusia CLI-oikeuksia ei myönnetty. Yhteyden paikallinen siirto on edelleen avoin: tietokannan salasanaa ei kirjattu tähän dokumenttiin, eikä palautuskoetta ole ajettu. Käyttäjälle valmisteltiin repositorion ulkopuolelle tyhjä, oikeuksiltaan 0600 oleva tiedosto `~/.config/hietakulma/preview-database-url` suoran yhteyden turvallista paikallista luovutusta varten.
+
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
