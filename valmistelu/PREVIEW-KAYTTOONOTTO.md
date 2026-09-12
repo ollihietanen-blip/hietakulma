@@ -50,6 +50,22 @@ Uusi avain siirrettiin suoraan selaimen avainnäkymästä Vercelin Secret-muuttu
 
 Resendin `hietakulma.fi`-domain on **Not Started**, Ireland-alueella. Valmiit kolme DNS-tietuetta, julkisen DNS:n esitarkistus ja nykyisen Microsoft 365 -sähköpostireitityksen säilyttävä toteutusohje ovat tiedostossa `RESEND-DNS.md`. DNS-muutoksia, Verify-toimintoa tai sähköpostien lähetystä ei tehty. Avaimen tallennus ei vielä todista lähetysvalmiutta. DNS-ylläpitäjä ja erillinen toteutus-/testilupa tarvitaan seuraavaksi.
 
+## Oikea sähköpostikoe testilähettäjällä 12.9.2026
+
+Käyttäjä ilmoitti, että DNS-asetuksia pääsee muuttamaan julkaisun yhteydessä. Resendin oman `hietakulma.fi`-lähettäjän vahvistus siirrettiin siihen vaiheeseen. Käyttäjä antoi erillisen luvan lähettää rekisteröinnin, aktivoinnin ja salasanan palautuksen testiviestit osoitteeseen `olli.hietanen@gmail.com`. Lupa ei kata yhteydenottolomakkeen viestejä `talotehdas@hietakulma.fi`-osoitteeseen eikä asiantuntijapyyntöjä.
+
+Vain branchin `codex/julkaisuvalmistelu` `RESEND_FROM_EMAIL` vaihdettiin arvoon `Hietakulma esikatselu <onboarding@resend.dev>`. Deployment `dpl_Eg4Rq6yfws1ktmKj1Npbhkz1W3mq` (`hietakulma-mavvmy62z-olli-hietanens-projects.vercel.app`, lähtöcommit `9368656`) valmistui Ready-tilaan. Testi käytti vakaata branch-aliasta.
+
+- Rekisteröintilomake lähetti onnistuneen pyynnön. Testihenkilö **Esikatselu Testi**, yritys **Hietakulma – tekninen testi**, rooli **Muu**, markkinointisuostumus pois. Tili on tekninen testitili.
+- Aktivointiviesti saapui Gmailiin 12.9.2026 klo 19.48.36 Suomen aikaa. Resend-viesti `5e84775d-0b78-4c8e-8c2d-3c462a51c6e0`: Delivered. Gmail-viesti `1a0968558697e942`: **SPAM**.
+- Gmailin tekstiosan aktivointilinkki osoitti oikeaan HTTPS-branch-aliakseen. Aktivointi API:n kautta palautti HTTP 200; sen jälkeen Credentials-kirjautuminen, oikean käyttäjän istunto ja suojattu `/tietopankki` palauttivat onnistuneet tulokset.
+- Salasanapalautus pyydettiin selaimen lomakkeella. Viesti saapui Gmailiin klo 19.50.43, viesti `1a096874b17d4dfe`, myös **SPAM**. Salasanan vaihtamisen API palautti HTTP 200.
+- Vanha istunto palautui kirjautumattomaksi (`/api/auth/session`: HTTP 200, `null`), käytetty palautustoken hylättiin HTTP 410:llä, vanha salasana hylättiin ja uudella salasanalla kirjautuminen onnistui. Uloskirjautumisen jälkeen istunto oli jälleen tyhjä.
+
+Selainlomakkeiden lisäksi tekninen koe käytti oikeita ulkoisia HTTP-rajapintoja ja evästeitä Vercelin hyväksytyn CLI-yhteyden kautta. Salasanat generoitiin tätä testitiliä varten eikä niitä julkaistu. Tämä ei vielä ole koko tunnuspolun visuaalinen hyväksyntä molemmilla näyttökoilla: mobiilin 390 px -asetuksen jälkeen sivun mitattu leveys jäi 1280 px:iin, joten tästä ajosta ei kirjata mobiilikokeen läpäisyä.
+
+Gmailin SPF-, DKIM- ja DMARC-tarkistukset menivät läpi, mutta viestit luokiteltiin roskapostiksi. Testidomainin HTML-linkki kulki palvelun seurantaosoitteen kautta, ja HTML sisälsi seurantakuvan. Omalla lähettäjädomainilla tarkistetaan seuranta-asetukset ja saapuminen uudelleen ennen julkaisuhyväksyntää. Testidomainin viesti ei todista oman domainin lähetysalueen tai toimitusvarmuuden toteutumista.
+
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
