@@ -108,6 +108,8 @@ Copyright © Hietakulma Oy
 
 ## Tietopankin paikallinen kehitys ja testaus
 
+Riippuvuuspäivitys on tarkistettu Node 24.19.0:lla. Käytä Node 24:ää; kehitystyökaluna oleva Firecrawl edellyttää vähintään Node 22:ta. Asenna lukitut riippuvuudet komennolla `npm ci`.
+
 Kopioi `.env.example` tiedostoksi `.env.local` ja aseta paikalliset salaisuudet ennen kehityspalvelimen käynnistystä. Prisma-komennot lukevat myös `.env.local`-tiedoston. Olemassa olevat prosessin ympäristömuuttujat ovat ensisijaisia.
 
 ```bash
@@ -117,6 +119,8 @@ npm run dev
 ```
 
 `db:migrate` kohdistuu määritettyyn `DATABASE_URL`-tietokantaan. Varmista kohde ennen komentoa. Uusin migraatio lisää salasanan palautukset, istuntojen version ja yritysrajoituksen; vanhaa tietokantaa ei voi käyttää uuden koodin kanssa ilman migraatiota.
+
+Uudessa SQLite-ympäristössä luo ensin tietokannan hakemisto ja tyhjä tiedosto valittuun osoitteeseen. Prisma 6.19.3:n `migrate deploy` palautti paikallisessa kokeessa yleisen `Schema engine error` -virheen, kun tiedostoa ei ollut; tyhjään olemassa olevaan tiedostoon kaikki neljä migraatiota onnistuivat. Älä korvaa tai tyhjennä olemassa olevaa tietokantaa.
 
 ```bash
 npm test

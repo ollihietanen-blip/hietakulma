@@ -87,7 +87,7 @@ Valmis, kun sivuston kuvaus vastaa toteutusta ja ylläpitäjällä on toimiva ta
 
 ## 6. Julkaisun valmistelu ja lopputarkistus
 
-- [ ] Tarkista riippuvuuksien ajantasaisuus ja korjaa julkaisuun vaikuttavat tunnetut ongelmat ilman tarpeetonta versiouudistusta.
+- [x] Tarkista riippuvuuksien ajantasaisuus ja korjaa julkaisuun vaikuttavat tunnetut ongelmat ilman tarpeetonta versiouudistusta. Next 15.5.25 / React 19, korjatut välilliset riippuvuudet ja 0 audit-havaintoa; tarkistukset kuvattu `valmistelu/RIIPPUVUUSPAIVITYS.md`-tiedostossa.
 - [ ] Erottele toimitettavat muutokset työpuun vanhoista kuva-, video- ja väliaikaistiedostoista. Älä poista käyttäjän aineistoja siivouksen yhteydessä.
 - [ ] Tee muutoksista selkeä commit ja tarkista julkaistava haara, Vercel-projekti ja tuotantoasetukset.
 - [ ] Avaa esikatselu ja käy läpi kaikki julkiset sivut, navigaatio, lomakkeet, kohdesivut ja portaali tietokoneella sekä mobiilissa.
@@ -175,3 +175,10 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - `valmistelu/TIETOSUOJA-JA-YLLAPITO.md` sisältää toteutukseen perustuvan tietovirta- ja säilytystaulukon, päätettävät asiat ja ylläpitomenettelyn luonnoksen. Ylläpitokomennot ja niiden testaus ovat vielä tekemättä.
 - Build hyväksytty. Chrome-selainkoe 390 ja 1440 px: ei karttapyyntöä ennen valintaa, näppäimistöllä lataus, sulkeminen ja uudelleenlatauksen oletustila oikein. Tietosuojasivu ei aiheuta vaakavieritystä. Google-vastaus simuloitiin testissä. Skripti `/tmp/hietakulma-privacy-qa.cjs`.
 - Riippuvuustarkistus tuotti 30 audit-merkintää. Niiden arviointi ja korjaaminen on seuraava tekninen työvaihe; tarkistus ei vielä täytä riippuvuuksien korjauskohtaa.
+
+### Riippuvuuksien korjattu välietappi
+
+- Edellisen kohdan 30 audit-havaintoa korjattu: nykyinen `npm audit` ilmoittaa 0 haavoittuvuutta. Next 15.5.25, React 19.3.0, Prisma 6.19.3 ja NextAuth beta.32; kaksi perusteltua välillisen riippuvuuden override-määritystä kuvattu erikseen.
+- Node 24.19.0: Prisma-generointi, neljän migraation ajo erilliseen tyhjään SQLite-tiedostoon, 37 testiä ja tuotantokooste hyväksytty. Olemassa olevia projektin tietokantoja ei muutettu.
+- Portaalin koko selainpolku, yhteydenoton virhetilanteet ja uudelleenyritys sekä julkinen ja tietosuojan QA läpäisivät uudelleen 1440 ja 390 px koossa. Oikeita sähköposteja ei lähetetty.
+- Seuraavat riippumattomat työt: toistettavat ylläpito- ja esikatselutyökalut sekä kattava loppukatselmointi. Ulkoisen ympäristön asetukset ja varsinaisen sähköpostitoimituksen testaus ovat edelleen avoinna.
