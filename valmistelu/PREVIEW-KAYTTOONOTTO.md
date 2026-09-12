@@ -34,7 +34,7 @@ Vercel CLI -kirjautuminen onnistui ja `whoami` vahvisti tilin `ollihietanen-7645
 
 Ympäristömuuttujat ladattiin erilliseen käyttöoikeuksin suojattuun väliaikaishakemistoon, käyttäjän `.env.local` säilytettiin. Viisi Config-arvoa ja Auth-salaisuudet olivat käytettävissä, mutta integraation Neon-yhteysmuuttujat tulivat tyhjinä sekä branch- että yleisessä Preview-latauksessa. Muuttujanimet ja integraation Preview-kytkentä ovat olemassa. Pelkkä tyhjä paikallinen vienti ei todista runtime-yhteyden puuttumista tai branch-virhettä. Suora Prisma-status/diff ja ulkoisen kannan varmuuskopio/palautus jäävät odottamaan ylläpitoyhteyden saatavuutta.
 
-Commitin `71f31c9` onnistuneesta Preview-deploymentista käynnistettiin uusi koonti Auth-muutosten käyttöönottoon. Resend-tilin ja vahvistetun lähettäjän olemassaoloa kysyttiin käyttäjältä; API-avainta ei pyydetty keskusteluun. Oikeiden sähköpostien lähetyslupa ja asiantuntijapalautteet ovat edelleen erillisiä avoimia kohtia.
+Commitin `71f31c9` onnistuneesta Preview-deploymentista tehty uusi koonti `dpl_5v5SeAwjEpi3Lm3vo1KKfDKFFQaW` valmistui Ready-tilaan. Sen `/api/auth/providers` vastasi HTTP 200 ja palautti Credentials-palvelun kirjautumis- ja callback-osoitteet oikeaan vakaaseen branch-aliakseen. Tarkistus tehtiin Vercel CLI:n `curl`-komennolla, joka loi projektille deployment protection bypass -tokenin; tokenia ei tulostettu eikä kirjattu tähän. Tämä testi todistaa Auth-konfiguraation latautumisen, ei vielä tietokantakirjautumista tai sähköpostitoimitusta. Resend-tilin ja vahvistetun lähettäjän olemassaoloa kysyttiin käyttäjältä; API-avainta ei pyydetty keskusteluun. Oikeiden sähköpostien lähetyslupa ja asiantuntijapalautteet ovat edelleen erillisiä avoimia kohtia.
 
 ## Asetettavat muuttujat
 
