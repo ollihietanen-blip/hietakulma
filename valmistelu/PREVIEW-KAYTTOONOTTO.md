@@ -112,4 +112,12 @@ Word-paketti: `tarkistuspaketti/Hietakulma-tarkistuspaketti-luonnos.docx`, 20 si
 - Jorma Salomäki, `jorma.salomaki@hietakulma.fi`: dokumentti 06, DoP-/sertifikaattiversiot, asennusohjeet ja ristikkoväitteet.
 - Tapani Katajisto, `tapani.katajisto@hietakulma.fi`: dokumentit 02, 04 ja 05, tarjonta, toimitusrajat ja myynnin lupaukset.
 
-Ehdotettu palautuspäivä on 18.9.2026, ei vielä sovittu määräaika. Lähettäjätili vahvistetaan ennen toimitusta. Mitään näistä pyynnöistä ei ole lähetetty. Jussi-Pekka Koiviston katselmointia ei käynnistetä ennen palautteiden käsittelyä ja päivitetyn kokonaisuuden valmistumista.
+Ehdotettu palautuspäivä on 18.9.2026, ei vielä sovittu määräaika. Gmailiin tallennettiin 12.9.2026 kolme lähettämätöntä luonnosta lähettäjänä `olli.hietanen@gmail.com`. Viestit pyytävät vastaanottajaa ilmoittamaan palautusaikataulunsa; niihin ei asetettu vahvistamatonta määräaikaa.
+
+| Vastaanottaja | Gmail-luonnoksen tunniste | Viestin tunniste |
+|---|---|---|
+| Ville | `r-1846559097011883117` | `1a0969b567bc6531` |
+| Jorma | `r-5615856375889291544` | `1a0969b5c706d607` |
+| Tapani | `r-5053673080345945937` | `1a0969b5fc975cd1` |
+
+Tallennettujen viestien uudelleenluvulla tarkistettiin lähettäjä, vastaanottajat, aiheet, DRAFT-tila sekä molemmat liitteet: `Hietakulma-tarkistuspaketti-luonnos.docx` (58 659 tavua) ja `LAHTEET.md` (4 917 tavua). Word-paketti vastaa yllä yksilöityä versiota. Tarkistuspyynnöt ovat valmiina lähetyksen hyväksyntää varten; niitä ei ole lähetetty. Jussi-Pekka Koiviston katselmointia ei käynnistetä ennen palautteiden käsittelyä ja päivitetyn kokonaisuuden valmistumista.
