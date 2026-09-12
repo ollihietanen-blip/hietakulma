@@ -66,6 +66,16 @@ Selainlomakkeiden lisäksi tekninen koe käytti oikeita ulkoisia HTTP-rajapintoj
 
 Gmailin SPF-, DKIM- ja DMARC-tarkistukset menivät läpi, mutta viestit luokiteltiin roskapostiksi. Testidomainin HTML-linkki kulki palvelun seurantaosoitteen kautta, ja HTML sisälsi seurantakuvan. Omalla lähettäjädomainilla tarkistetaan seuranta-asetukset ja saapuminen uudelleen ennen julkaisuhyväksyntää. Testidomainin viesti ei todista oman domainin lähetysalueen tai toimitusvarmuuden toteutumista.
 
+## Pysyvyys ja ylläpitoyhteyden rajaus 12.9.2026
+
+Commitin `ad3421d` Vercel-deployment `dpl_3tmMjVDNw1Agd7yGrTG7HTeVgfnH` valmistui onnistuneesti. Sen jälkeen samalla testitilillä ja palautuksessa vaihdetulla salasanalla tehty kirjautuminen vakaan branch-aliaksen kautta onnistui: käyttäjäistunto oli oikea ja suojattu tietopankki vastasi HTTP 200. Tämä todentaa käyttäjätietojen säilymisen uuden deploymentin yli.
+
+Mobiilin 390 × 844 -kokoa kokeiltiin myös uudessa selainvälilehdessä. Dokumentoitu viewport-asetus ei vaikuttanut mitattuun `window.innerWidth`-arvoon (1280); asetuksen palautus tehtiin testin jälkeen. Tästä ei kirjata ulkoisen mobiilipolun läpäisyä.
+
+Vercelin Neon-opasnäkymä pystyi näyttämään suoran yhteyden. Selainliittymä ei tue `content.export`-toimintoa. Suora yhteys kopioitiin kokeeksi `POSTGRES_DIRECT_URL`-Secret-muuttujaksi vain omalle Preview-branchille. CLI:n ympäristövienti palautti sille, Auth-salaisuudelle ja Resend-avaimelle identtisen 11 merkin arvon varsinaisten salaisuuksien sijasta. Siksi latauksessa ei ollut käyttökelpoista yhteysosoitetta; Prisma-status ei päässyt yhteyden muodostamiseen. Kokeeksi lisätty muuttuja poistettiin, alkuperäisiin Neon-muuttujiin ei koskettu. Tämä täsmentää aiempaa merkintää Auth-salaisuuksien paikallisesta saatavuudesta: avainnimien olemassaolo ja ei-tyhjä vientiarvo eivät todista oikean arvon saatavuutta.
+
+Ulkoisen kannan suora Prisma-status/diff ja varmuuskopio-/palautuskoe ovat edelleen tekemättä. SQL-editorilla tehty migraatio ja oikean sovelluspolun tietokantatoiminta on jo todennettu erikseen.
+
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
