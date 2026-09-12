@@ -87,7 +87,7 @@ export default function SignupPage() {
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="-z-20 object-cover object-center transition-transform duration-1000 ease-out motion-safe:group-hover:scale-[1.025]"
           />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/25 via-[var(--dark)]/50 to-[var(--dark)]/95" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
 
           <div className="flex h-full min-h-[556px] flex-col">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
