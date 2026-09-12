@@ -125,3 +125,9 @@ Ehdotettu palautuspäivä on 18.9.2026, ei vielä sovittu määräaika. Gmailiin
 | Tapani | `r-5053673080345945937` | `1a0969b5fc975cd1` |
 
 Tallennettujen viestien uudelleenluvulla tarkistettiin lähettäjä, vastaanottajat, aiheet, DRAFT-tila sekä molemmat liitteet: `Hietakulma-tarkistuspaketti-luonnos.docx` (58 659 tavua) ja `LAHTEET.md` (4 917 tavua). Word-paketti vastaa yllä yksilöityä versiota. Tarkistuspyynnöt ovat valmiina lähetyksen hyväksyntää varten; niitä ei ole lähetetty. Jussi-Pekka Koiviston katselmointia ei käynnistetä ennen palautteiden käsittelyä ja päivitetyn kokonaisuuden valmistumista.
+
+### Dokumenttikierros 0.3 — 13.9.2026
+
+Nykyinen tarkistusversio on `valmistelu/tarkistuspaketti-0.3/` (projektin juuresta). Se yhdistää Clauden 0.2:n ja Ollin täsmennykset. Uudempi elementtien varmennustodistus 501-03 löytyi; voimassaolo asiakirjan ehdoin 10.10.2028 saakka. Kaikki uudet dokumentit ovat Hietakulman nimellä, ja ulkoasu perustuu markkinointikansion graafiseen ohjeistoon. Aiemmat versiot säilyvät historiassa.
+
+Word ja koko ZIP toimitetaan ensin Ollin tarkistettaviksi. Nykyiset Gmail-luonnokset sisältävät edelleen vanhan 0.1:n; ne on päivitettävä ennen lähettämistä. Mitään viestejä ei ole lähetetty. Villeltä, Jormalta ja Tapanilta pyydetään sisältöjen ja liitteiden päivitykset vasta lähetysvaiheessa. Jussi-Pekka Koiviston visuaalinen ja toiminnallinen katselmointi seuraa asiantuntijapäivitysten käsittelyä.

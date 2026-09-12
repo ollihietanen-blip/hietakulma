@@ -223,3 +223,9 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - V03:n 11-sivuisen NR-PDF:n sivut 1, 10 ja 11 luettiin kuvina. Ohjeen ja lomakkeen näkyvä päiväys on 15.4.2008. Havainto lisättiin lähteisiin ja N2-liitteeseen. Word päivitettiin ja renderöitiin: edelleen 20 sivua/18 taulukkoa, muuttuneet sivut 4 ja 16 tarkistettu, muut sivut vastaavat aiemmin hyväksyttyjä pikseleittäin. Kaikki lähdekatkelmat mukana.
 - Viimeisen Word-version SHA256: `bac7708dcda6483a7022a428fb040e0d47129cf223046af9c8b1f4e8834c0726`. Vanhempi yllä kirjattu SHA koskee aiempaa välietappia.
 - Valmistumisen vaatimuskohtainen tarkastus ja seuraavan vaiheen avoimet kohdat: `valmistelu/ENSIMMAISEN-VAIHEEN-KATSELMOINTI.md`.
+
+### Dokumenttikierros 0.3 — 13.9.2026
+
+Nykyinen tarkistusversio on `valmistelu/tarkistuspaketti-0.3/` (projektin juuresta). Se yhdistää Clauden 0.2:n ja Ollin täsmennykset. Uudempi elementtien varmennustodistus 501-03 löytyi; voimassaolo asiakirjan ehdoin 10.10.2028 saakka. Kaikki uudet dokumentit ovat Hietakulman nimellä, ja ulkoasu perustuu markkinointikansion graafiseen ohjeistoon. Aiemmat versiot säilyvät historiassa.
+
+Word ja koko ZIP toimitetaan ensin Ollin tarkistettaviksi. Nykyiset Gmail-luonnokset sisältävät edelleen vanhan 0.1:n; ne on päivitettävä ennen lähettämistä. Mitään viestejä ei ole lähetetty. Villeltä, Jormalta ja Tapanilta pyydetään sisältöjen ja liitteiden päivitykset vasta lähetysvaiheessa. Jussi-Pekka Koiviston visuaalinen ja toiminnallinen katselmointi seuraa asiantuntijapäivitysten käsittelyä.
