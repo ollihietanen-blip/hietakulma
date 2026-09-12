@@ -4,19 +4,25 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { execFileSync, spawnSync } = require('node:child_process');
-const { PrismaClient } = require('@prisma/client');
+const postgresUrl = process.env.HIETAKULMA_TEST_ADMIN_POSTGRES_URL;
+if (postgresUrl) {
+  const url = new URL(postgresUrl);
+  assert.equal(url.hostname, '127.0.0.1');
+  assert.equal(url.pathname, '/hietakulma_test_admin');
+}
+const { PrismaClient } = require(postgresUrl ? '../lib/generated/prisma-postgres' : '@prisma/client');
 const root = path.resolve(__dirname, '..');
-const cli = path.join(root, 'scripts/portal-admin.cjs');
+const cli = path.join(root, postgresUrl ? 'scripts/portal-admin-postgres.cjs' : 'scripts/portal-admin.cjs');
 const snapshot = path.join(root, 'scripts/sqlite-snapshot.py');
 
-test('operator commands preserve unrelated users and restore a real SQLite backup', async t => {
+test('operator commands preserve unrelated users', async t => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hietakulma-admin-'));
-  const database = path.join(dir, 'test.db');
-  execFileSync('python3', ['-c', `import sqlite3,pathlib,sys
+  const database = postgresUrl ? `${new URL(postgresUrl).host}${new URL(postgresUrl).pathname}` : path.join(dir, 'test.db');
+  if (!postgresUrl) execFileSync('python3', ['-c', `import sqlite3,pathlib,sys
 c=sqlite3.connect(sys.argv[1])
 for p in sorted(pathlib.Path(sys.argv[2]).glob('*/migration.sql')): c.executescript(p.read_text())
 c.close()`, database, path.join(root, 'prisma/migrations')]);
-  const db = new PrismaClient({ datasourceUrl: `file:${database}` });
+  const db = new PrismaClient({ datasourceUrl: postgresUrl || `file:${database}` });
   const email = 'target@example.com';
   const old = new Date('2025-01-01T00:00:00.000Z');
   const future = new Date('2099-01-01T00:00:00.000Z');
@@ -90,7 +96,7 @@ c.close()`, database, path.join(root, 'prisma/migrations')]);
       assert.equal(await db.user.count(), 2);
     });
 
-    await t.test('backup includes committed WAL data and restores readable Prisma records', async () => {
+    if (!postgresUrl) await t.test('backup includes committed WAL data and restores readable Prisma records', async () => {
       await db.$queryRawUnsafe('PRAGMA journal_mode=WAL');
       await db.user.update({ where: { id: user.id }, data: { name: 'Committed WAL name' } });
       const backup = path.join(dir, 'backup.db');

@@ -1,6 +1,6 @@
 # Portaalin ylläpitokomennot
 
-12.9.2026 · Paikallisesti testattu SQLite-toteutuksella. Tuotannon palvelin, pysyvä tietokanta, vastuuhenkilöt, säilytysajat ja ajastus on vielä valittava ja varmistettava.
+12.9.2026 · Paikallisesti testattu SQLite- ja PostgreSQL-toteutuksilla. Ulkoisen ympäristön yhteydet, vastuuhenkilöt, säilytysajat ja ajastus on vielä vahvistettava. PostgreSQL-komento on kuvattu tämän ohjeen lopussa.
 
 Työkalut ajetaan repositorion juuresta Node 24:llä ja Python 3:lla. Ne eivät lue `.env`-tiedostoja tai valitse tietokantaa automaattisesti. Tietokannassa on oltava nykyiset migraatiot. Alla `/turvallinen/...` tarkoittaa ylläpitäjän valitsemaa absoluuttista polkua, ei valmista projektihakemistoa. Säilytä viennit ja varmuuskopiot rajatussa hakemistossa repositorion, `public`-kansion ja jaettujen kansioiden ulkopuolella.
 
@@ -49,3 +49,21 @@ Varmuuskopiossa on myös salasanatiivisteitä ja muita henkilötietoja. Tiedosto
 ## Todennettu tässä vaiheessa
 
 `npm test` sisältää oikeaan tilapäiseen SQLite-tietokantaan perustuvat ylläpitotestit. Testit tarkistavat oletusarvoisen kuivaharjoittelun, argumenttivirheiden hylkäämisen, viennin salaisuuksien rajauksen, peruutuksen ulottumisen odottaviin aktivointeihin, istuntoversion muutoksen, vanhenemisrajan, kohdennetun poiston ja varmuuskopion palautuksen Prismaan. Kopiointikokeessa tietokanta on WAL-tilassa ja palautuksesta tarkistetaan ennen kopiointia päivitetty tietue. Projektin tai tuotannon tietokantoihin ei tehdä testimuutoksia.
+## PostgreSQL-esikatselun ylläpito
+
+PostgreSQL:lle on erillinen `scripts/portal-admin-postgres.cjs`. Käytä sitä vasta migroidulle, oikeaksi varmennetulle esikatselukannalle. Se käyttää samoja tietojen vienti-, poisto-, markkinointivalinnan peruutus-, istuntojen mitätöinti- ja siivoustoimintoja kuin edellä kuvattu SQLite-työkalu.
+
+Anna suora yhteys prosessin `POSTGRES_DIRECT_URL`-ympäristömuuttujassa turvallisen salaisuuksien hallinnan kautta. Työkalu ei lue `.env.local`-tiedostoa. Älä lisää yhteysosoitetta komentorivin argumentiksi tai Gitiin. Lisäksi komennossa vaaditaan `--database host:port/database`, jonka pitää vastata täsmälleen yhteyden kohdetta. Oletusportti on 5432. Kohde ei sisällä käyttäjätunnusta, salasanaa tai URL:n kyselyparametreja.
+
+Esimerkki muodon tarkistamiseen (esimerkkikohde ei ole oikea tietokanta):
+
+```bash
+node scripts/portal-admin-postgres.cjs --help
+node scripts/portal-admin-postgres.cjs invalidate-sessions --database example.invalid:5432/preview --email testi@example.com
+```
+
+Ilman `--apply`-valintaa muuttavat komennot raportoivat vain kohdistuvien rivien määrät. `export` vaatii uuden absoluuttisen `--output`-polun, ei hyväksy `--apply`-valintaa ja luo tiedoston oikeuksilla 0600. Siivous vaatii hyväksytyn UTC-aikarajan aivan kuten SQLite-versio. Virhetilanteessa PostgreSQL-komento ei tulosta yhteysosoitetta tai tietokantakirjaston mahdollisesti arkaluonteista virheviestiä.
+
+Tarkistus 12.9.2026: `npm run test:postgres` ajaa ylläpitokokeet omaan erilliseen PostgreSQL-testikantaan. Kaikki 8 ylläpitotestitulosta läpäisivät: oletuksena vain raportointi, kohteen/argumenttien tarkistus, vienti ilman salaisuuksia, ylikirjoituksen esto, markkinointivalinnan peruutus, istuntojen mitätöinti, vanhentuneiden rivien siivous ja käyttäjän poiston rajaus. PostgreSQL-varmuuskopion palautus testataan saman ajon erillisessä osuudessa. SQLite-regressioiden 48 tulosta läpäisivät myös.
+
+Ulkoisen ympäristön palvelutunnus, pääsyoikeudet, säilytysajat ja automatisoitu varmuuskopiointi ovat vielä käyttöönottovaiheen päätöksiä. Näitä komentoja ei ole ajettu oikeisiin ulkoisiin henkilötietoihin.

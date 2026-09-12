@@ -32,6 +32,11 @@ async function main() {
     prisma(['migrate', 'deploy']);
     prisma(['migrate', 'diff', '--from-schema-datasource', 'prisma/postgresql/schema.prisma', '--to-schema-datamodel', 'prisma/postgresql/schema.prisma', '--exit-code']);
     execFileSync(process.execPath, ['--test', 'tests/portal-flow.test.cjs'], { cwd: root, env: { ...env, HIETAKULMA_TEST_POSTGRES_URL: url }, stdio: 'inherit' });
+    run('createdb', ['-h', '127.0.0.1', '-p', String(port), '-U', 'test_runner', 'hietakulma_test_admin']);
+    const adminUrl = url.replace('/hietakulma_test_portal', '/hietakulma_test_admin');
+    const adminEnv = { ...env, POSTGRES_DATABASE_URL: adminUrl, POSTGRES_DIRECT_URL: adminUrl, HIETAKULMA_TEST_ADMIN_POSTGRES_URL: adminUrl };
+    execFileSync(process.execPath, ['node_modules/prisma/build/index.js', 'migrate', 'deploy', '--config', 'prisma.postgresql.config.ts'], { cwd: root, env: adminEnv, stdio: 'inherit' });
+    execFileSync(process.execPath, ['--test', 'tests/portal-admin.test.cjs'], { cwd: root, env: adminEnv, stdio: 'inherit' });
     if (process.argv.includes('--browser')) await require('./test-postgres-browser.cjs')(url);
     const backup = path.join(dir, 'portal.dump');
     const fd = fs.openSync(backup, 'wx', 0o600);

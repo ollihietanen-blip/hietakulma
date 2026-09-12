@@ -11,7 +11,13 @@ User commands require --email. export requires --output /absolute/new-file.json.
 cleanup requires --before YYYY-MM-DDTHH:mm:ss.sssZ (approved retention cutoff).
 Mutations only report counts unless --apply is supplied. No emails are sent.`;
 
-function options(args) {
+function sqliteTarget(value) {
+  if (!value || !path.isAbsolute(value) || !fs.statSync(value).isFile()) throw Error('An existing absolute database file is required.');
+  const database = fs.realpathSync(value);
+  if (/[?#]/.test(database)) throw Error('Database path cannot contain ? or #.');
+  return database;
+}
+function options(args, resolveTarget = sqliteTarget) {
   const { values, positionals } = parseArgs({ args, allowPositionals: true, options: {
     database: { type: 'string' }, email: { type: 'string' }, output: { type: 'string' },
     before: { type: 'string' }, apply: { type: 'boolean', default: false }, help: { type: 'boolean' },
@@ -19,10 +25,7 @@ function options(args) {
   if (values.help) return { help: true };
   const command = positionals[0];
   if (positionals.length !== 1 || !['export', 'delete-user', 'withdraw-marketing', 'invalidate-sessions', 'cleanup'].includes(command)) throw Error(help);
-  if (!values.database || !path.isAbsolute(values.database) || !fs.statSync(values.database).isFile()) throw Error('An existing absolute database file is required.');
-  const database = fs.realpathSync(values.database);
-  // Prisma interprets query characters in datasource URLs. Fail rather than silently target another file.
-  if (/[?#]/.test(database)) throw Error('Database path cannot contain ? or #.');
+  const database = resolveTarget(values.database);
   const email = values.email?.trim().toLowerCase();
   if (command !== 'cleanup' && (!email || email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) throw Error('A valid --email is required.');
   if (command === 'cleanup' && (values.email || values.output)) throw Error('cleanup only accepts --before, --database and --apply.');
