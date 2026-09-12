@@ -10,6 +10,8 @@
     "preview": "node scripts/preview.cjs",
     "preview:mails": "node scripts/preview.cjs --mails",
     "test:browser": "node scripts/qa/public.cjs && node scripts/qa/portal.cjs && node scripts/qa/contact.cjs && node scripts/qa/privacy.cjs",
+    "test:navigation": "node scripts/qa/navigation.cjs",
+    "test:media": "node scripts/qa/media.cjs",
     "lint": "next lint",
     "clone": "node clone.js",
     "serve": "npx http-server cloned-website -p 8080 -o",

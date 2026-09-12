@@ -27,7 +27,7 @@ Työ tehdään haaralla `codex/julkaisuvalmistelu`. Jokaisesta valmiista, tarkis
 
 - [ ] Selvitä Vercelin nykyinen tuotantokonfiguraatio ja tietokannan pysyvyys. Prisma käyttää SQLitea; tuotannon ratkaisua ei ole varmennettu. Valitse tarvittaessa pysyvä tietokanta ja suunnittele tietojen siirto.
 - [ ] Tarkista migraatiot, varmuuskopiointi ja palautettavuus.
-- [ ] Selvitä Gitissä olevien `prisma/dev.db`- ja `prisma/prisma/dev.db`-tiedostojen tarkoitus ja sisältö. Älä poista tai siirrä niitä ennen selvitystä; varmista ettei oikeita käyttäjätietoja jaeta repossa tai julkaisupaketissa.
+- [x] Selvitä Gitissä olevien `prisma/dev.db`- ja `prisma/prisma/dev.db`-tiedostojen tarkoitus ja sisältö. Nykyiset tiedostot ja kaikki niitä muuttaneiden commitien versiot tarkistettu: vain migraatiotietoja, 0 käyttäjää ja 0 rekisteröitymispyyntöä. Tiedostot poistettu Git-seurannasta ja lisätty ignoreen; paikalliset tiedostot säilytetty muuttamattomina.
 - [ ] Varmista kirjautumisen palvelinosoite-, salaisuus- ja luottamusasetukset. Aiemmassa paikallisessa tuotantoajossa tuli `UntrustedHost`; tuotannossa esiintymisestä ei ole näyttöä.
 - [x] Korjaa aktivointiviestin lähetyksessä Resendin palauttaman `error`-arvon käsittely. Sekä palautettu virhe että poikkeus poistavat epäonnistuneen aktivointipyynnön ja sallivat uuden yrityksen; testattu erillisellä SQLite-tietokannalla.
 - [x] Estä tuotannon aktivointilinkkien päätyminen localhostiin puuttuvan asetuksen vuoksi. Tuotanto edellyttää kelvollista HTTPS-alkuperäosoitetta ennen tietokantakirjoituksia.
@@ -72,7 +72,7 @@ Valmis, kun oikea testiyhteydenotto saapuu perille ja siihen vastaaminen menee a
 - [ ] Vahvista henkilöiden roolit, yhteystiedot, kohteiden tiedot sekä näkyvät avainluvut ja toimituslupaukset.
 - [x] Tarkista sivukohtaiset otsikot, kuvaukset, jakoesikatselukuvat ja canonical-osoitteet. Julkisten sivujen yhteinen metadata-apuri lisätty; 17 sitemap-sivun vastaukset tarkistettu.
 - [x] Tarkista sitemap ja indeksointi. Kirjautumista vaativa tietopankki poistettu sitemapista; tunnussivuilla ja tietopankissa noindex. Sitemap ei enää ilmoita keksittyä päivittäistä muokkausajankohtaa.
-- [ ] Kokoa vanhojen sivuosoitteiden uudelleenohjaukset ennen verkkotunnuksen siirtoa.
+- [ ] Kokoa vanhojen sivuosoitteiden uudelleenohjaukset ennen verkkotunnuksen siirtoa. Pääsivujen ohjaukset toteutettu; kahdeksan vanhaa referenssiä ja PDF-osoitteet kartoitettu `valmistelu/VANHAT-OSOITTEET.md`-tiedostoon. Kohdevastaavuudet ja vanhojen tarinoiden säilyttäminen vahvistetaan ennen domain-siirtoa.
 
 Valmis, kun sivusto ei sisällä tyhjiä linkkejä, virheellisiä yhteystietoja tai vahvistamattomia sisältöväitteitä ja vanhojen osoitteiden tärkeät polut säilyvät.
 
@@ -201,3 +201,14 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - Kattoristikkosivun väärä lupaus tietopankista löytyvästä suoritustasoilmoituksesta korvattu yhteydenottopyynnöllä. Kohta tarkistettu myös mobiilin kuvakaappauksesta.
 - GitHub vahvistaa Vercelin esikatselukoosteiden valmistumisen, mutta tarkistettu ulkoinen osoite ohjasi Vercelin kirjautumiseen. Ulkoisen ympäristön käyttäjäpolkuja ei pidetä tämän perusteella testattuina. Tarkempi käyttöohje ja rajoitukset: `valmistelu/ESIKATSELU.md`.
 - Jäljellä loppukatselmoinnista navigaation ja näppäimistökäytön syvemmät kokeet, kuvien/videoiden kattava tarkistus, vanhojen referenssiosoitteiden kartoitus sekä koko goalia vasten tehtävä vaatimuskohtainen tarkastus.
+
+### Navigaatio, mediat ja kehitystietokannat
+
+- Mobiilivalikon sarkainkohdistus pääsi aiemmin taustasivulle ja työpöytäkokoon siirtyminen jätti vierityksen lukkoon. Valikko käyttää nyt selaimen dialogia, sarkainkierto pysyy sen sisällä, Escape palauttaa kohdistuksen ja työpöytäkokoon siirtyminen sulkee valikon sekä vapauttaa vierityksen.
+- `npm run test:navigation` hyväksytty 390 ja 1440 px koossa: valikon avaus ja sulkeminen näppäimistöllä, kohdistus molempiin suuntiin, koon vaihto, päälinkit, kohdesuodattimet ja kohdesivulle siirtyminen. Mobiilivalikon kuvakaappaus tarkistettu.
+- `npm run test:media` hyväksytty: 17 sivua, 165 näkyvää kuvaesiintymää kummassakin näyttökoossa, 95 erillistä Gitissä olevaa mediaresurssia, 23 sisäistä linkkiä/ankkuria ja puuttuvien sivujen 404-vastaukset. Kuvat dekoodattiin selaimessa; molempien taustavideoiden toisto tarkistettiin työpöydällä. Mobiilissa ei lähtenyt videopyyntöjä.
+- Vähennetyn liikkeen kokeessa löydetty tyylisääntöjen ristiriita korjattu: videot piiloutuvat ja taustakuvan animaatio poistuu asetuksen ollessa käytössä. Korjauksen jälkeinen mediakoe hyväksytty.
+- Molempien kehitystietokantojen historialliset versiot tarkistettiin commitien `63c20e2` ja `840af91` tiloissa. Niissä oli vain migraatiotietoja, 0 User-riviä ja uudemmassa 0 RegistrationRequest-riviä. Paikalliset tiedostot säilyivät, mutta ne poistettiin Git-seurannasta; tuore kehitystietokanta luodaan migraatioista.
+- `valmistelu/VANHAT-OSOITTEET.md` kokoaa vanhan sivuston kahdeksan erillistä referenssipolkua ja PDF-osoitteet. Vahvistamattomia kohdevastaavuuksia ei muutettu arvatuiksi ohjauksiksi; säilytysratkaisu kuuluu domain-siirron valmisteluun.
+- Ennen esikatselun uudelleenrakennusta luotu testitili kirjautui edelleen onnistuneesti sen jälkeen. Paikallisen esikatselun tietojen säilyminen uudelleenkäynnistyksessä on siten testattu.
+- Jäljellä ensimmäisestä vaiheesta: tarkistus puhtaasta Git-aineistosta ja vaatimuskohtainen valmistumiskatselmointi. Ulkoisen ympäristön asetukset ja ihmisten hyväksynnät kirjataan jatkovaiheen avoimiksi kohdiksi.

@@ -29,14 +29,14 @@ export default function Hero({
               src={backgroundImage}
               alt={altText || title}
               fill
-              className="object-cover animate-kenBurns"
+              className="object-cover animate-kenBurns motion-reduce:animate-none"
               priority
               sizes="100vw"
             />
           )}
           {backgroundVideo && (
             <video
-              className="absolute inset-0 hidden h-full w-full object-cover md:block motion-reduce:hidden"
+              className="absolute inset-0 hidden h-full w-full object-cover md:block motion-reduce:!hidden"
               autoPlay
               muted
               loop

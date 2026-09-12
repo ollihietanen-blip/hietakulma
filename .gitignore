@@ -11,6 +11,10 @@
 # next.js
 /.next/
 /.local-preview/
+/prisma/**/*.db
+/prisma/**/*.db-journal
+/prisma/**/*.db-wal
+/prisma/**/*.db-shm
 /out/
 
 # production

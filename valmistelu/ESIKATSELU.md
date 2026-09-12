@@ -34,11 +34,15 @@ Pidä esikatselu käynnissä ja varmista, että koneella on Google Chrome. Selai
 ```bash
 npm test
 npm run test:browser
+npm run test:navigation
+npm run test:media
 ```
 
 Selainajo varmistaa ennen toimia, että palvelimen esikatselutunniste vastaa paikallista testikonfiguraatiota. Se ei hyväksy mielivaltaista tuotanto- tai esikatseluosoitetta. Koetta ei pidä muuttaa osoittamaan ulkoiseen palveluun ilman sähköpostitoimituksen erillistä suunnittelua.
 
-Kattavuus: 17 julkisen sitemap-sivun HTTP/metatiedot ja renderöinti 1440 ja 390 px koossa, seitsemän uudelleenohjausta, viiden tunnussivun noindex, henkilökuvat, koko portaalipolku, yhteydenoton virhetilanteet ja uudelleenyritys sekä kartan latausvalinta. Kuvakaappaukset tallennetaan käyttöjärjestelmän tilapäishakemistoon, jonka polku näkyy testin tulosteessa. Uudet testitilit lisätään vain paikalliseen testitietokantaan. Selainkoe ei yksin kata kaikkia navigaation, näppäimistökäytön, videoiden tai ulkoisen ympäristön tilanteita; nämä kuuluvat loppukatselmointiin.
+Kattavuus: 17 julkisen sitemap-sivun HTTP/metatiedot ja renderöinti 1440 ja 390 px koossa, seitsemän uudelleenohjausta, viiden tunnussivun noindex, henkilökuvat, koko portaalipolku, yhteydenoton virhetilanteet ja uudelleenyritys sekä kartan latausvalinta. Navigaatiokoe kattaa valikon kohdistuksen molempiin suuntiin, Escape-sulkemisen, työpöytäkokoon siirtymisen, sivulinkit ja kohdesuodattimet näppäimistöllä. Mediakoe lataa näkyvät kuvat, tarkistaa niiden ja videoiden mukanaolon Gitissä, videoiden toiston työpöydällä, mobiilin videopyynnöt, vähennetyn liikkeen asetuksen, sisäiset linkit/ankkurit ja puuttuvien sivujen 404-vastaukset.
+
+Kuvakaappaukset tallennetaan käyttöjärjestelmän tilapäishakemistoon, jonka polku näkyy testin tulosteessa. Uudet testitilit lisätään vain paikalliseen testitietokantaan. Kokeet on suunniteltu Chromelle; ne eivät yksin todista kaikkien selainten, ruudunlukijoiden tai ulkoisen ympäristön toimintaa.
 
 ## Ulkoinen Vercel-esikatselu
 

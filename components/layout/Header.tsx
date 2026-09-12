@@ -19,6 +19,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const homeLinkRef = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
@@ -37,19 +39,23 @@ export default function Header() {
     if (!mobileMenuOpen) return;
 
     const menuButton = menuButtonRef.current;
+    const dialog = dialogRef.current;
     const previousOverflow = document.body.style.overflow;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileMenuOpen(false);
-    };
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMobileMenuOpen(false); };
 
     document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', closeOnEscape);
+    dialog?.showModal();
+    desktop.addEventListener('change', closeOnDesktop);
     closeButtonRef.current?.focus();
+    closeOnDesktop();
 
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', closeOnEscape);
-      menuButton?.focus();
+      desktop.removeEventListener('change', closeOnDesktop);
+      dialog?.close();
+      if (menuButton?.offsetParent) menuButton.focus();
+      else homeLinkRef.current?.focus();
     };
   }, [mobileMenuOpen]);
 
@@ -67,6 +73,7 @@ export default function Header() {
       >
         <div className="flex h-full items-center justify-between gap-4">
           <Link
+            ref={homeLinkRef}
             href="/"
             aria-label="Hietakulman etusivu"
             className="flex shrink-0 items-center transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
@@ -132,10 +139,24 @@ export default function Header() {
       </nav>
 
       {mobileMenuOpen && (
-        <div
+        <dialog
+          ref={dialogRef}
           id="mobile-navigation"
-          className="pointer-events-auto fixed inset-0 z-[60] min-h-[100svh] overflow-y-auto bg-[rgba(13,12,12,0.82)] text-white backdrop-blur-2xl animate-fadeIn lg:hidden"
-          role="dialog"
+          className="pointer-events-auto fixed inset-0 z-[60] m-0 min-h-[100svh] w-full max-w-none max-h-none border-0 p-0 overflow-y-auto bg-[rgba(13,12,12,0.82)] text-white backdrop-blur-2xl animate-fadeIn lg:hidden"
+          onCancel={(event) => { event.preventDefault(); setMobileMenuOpen(false); }}
+          onKeyDown={(event) => {
+            if (event.key !== 'Tab') return;
+            const controls = event.currentTarget.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first?.focus();
+            }
+          }}
           aria-modal="true"
           aria-label="Päävalikko"
         >
@@ -202,7 +223,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </header>
   );
