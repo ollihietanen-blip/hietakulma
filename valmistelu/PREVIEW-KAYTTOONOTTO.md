@@ -36,6 +36,12 @@ Ympäristömuuttujat ladattiin erilliseen käyttöoikeuksin suojattuun väliaika
 
 Commitin `71f31c9` onnistuneesta Preview-deploymentista tehty uusi koonti `dpl_5v5SeAwjEpi3Lm3vo1KKfDKFFQaW` valmistui Ready-tilaan. Sen `/api/auth/providers` vastasi HTTP 200 ja palautti Credentials-palvelun kirjautumis- ja callback-osoitteet oikeaan vakaaseen branch-aliakseen. Tarkistus tehtiin Vercel CLI:n `curl`-komennolla, joka loi projektille deployment protection bypass -tokenin; tokenia ei tulostettu eikä kirjattu tähän. Tämä testi todistaa Auth-konfiguraation latautumisen, ei vielä tietokantakirjautumista tai sähköpostitoimitusta. Resend-tilin ja vahvistetun lähettäjän olemassaoloa kysyttiin käyttäjältä; API-avainta ei pyydetty keskusteluun. Oikeiden sähköpostien lähetyslupa ja asiantuntijapalautteet ovat edelleen erillisiä avoimia kohtia.
 
+## Resend perustettu käyttäjän luvalla 12.9.2026
+
+Käyttäjä hyväksyi Resendin ehdot, Vercelin Marketplace-liitteen ja tilitietojen jakamisen. Vercelin asennusnäkymä vahvisti resurssin **hietakulma-preview-email** onnistuneen luonnin. Valinnat: **Free (0,00)**, 3 000 viestiä kuukaudessa, 100 päivässä, kolme domainia; alue **Ireland (eu-west-1)** ja ulkoinen lähettäjädomain `hietakulma.fi`. Domainin määritys Resendissä ei ole DNS-vahvistus. DNS-tietueita ei muutettu eikä sähköposteja lähetetty.
+
+Projektikytkentä valmisteltiin `hietakulma`-projektiin: Preview valittu, Production ja Development poistettu, Sensitive päällä. Kytkentä jäi tallentamatta, koska lomake ilmoitti vaadittavaksi lisäoikeudeksi **Read and Write → Domains**. Käyttäjän tilin perustamislupa ei vielä sisältänyt tätä domainien kirjoitusoikeutta. Pyydä oikeudelle erillinen hyväksyntä ennen Connect-painiketta tai käytä erikseen rajattua avainta ilman integraation domainoikeutta. `RESEND_API_KEY`-kytkentää, lähettäjäasetusta ja domainin DNS-vahvistusta ei ole vielä tehty. Maksullista pakettia ei valittu.
+
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
@@ -47,7 +53,7 @@ Commitin `71f31c9` onnistuneesta Preview-deploymentista tehty uusi koonti `dpl_5
 | `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Tallennettu branchille yllä olevaan vahvistettuun aliasosoitteeseen |
 | `AUTH_TRUST_HOST` | `true` vain hallitussa Vercel-ympäristössä | Tallennettu branchille |
 | `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Tallennettu branchille; toimituskoe tekemättä |
-| `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Palvelu ja lähetyslupa vahvistamatta |
+| `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Resend Free perustettu; projektikytkentä ja lähetyslupa avoinna |
 | `RESEND_FROM_EMAIL` | Resendissä vahvistettu lähettäjä, esimerkiksi hyväksytyn domainin noreply-osoite | Vahvistettava palvelusta; esimerkki ei osoita lähetysvalmiutta |
 
 Ylläpitoprosessi tarvitsee lisäksi `POSTGRES_DIRECT_URL`-arvon suoraan esikatselukantaan. Sitä ei tarvita sovelluksen runtime-yhteydeksi. Älä käytä paikallisen esikatselun salaisuuksia, SQLite-osoitetta tai `HIETAKULMA_LOCAL_PREVIEW`-, `PREVIEW_MAIL_FILE`- ja muita testimuuttujia Vercelissä. Salaisuuksia ei tallenneta tähän dokumenttiin, Gitiin tai tulosteisiin.
