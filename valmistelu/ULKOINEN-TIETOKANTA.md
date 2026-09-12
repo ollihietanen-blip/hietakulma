@@ -1,6 +1,6 @@
 # Ulkoisen esikatselun PostgreSQL-valmistelu
 
-12.9.2026. Tila: schema ja alkumigraatio valmisteltu ja portaalin palvelinpolut testattu paikallisella PostgreSQL:llä; ulkoista palvelua ei perustettu eikä sovelluksen tietokantayhteyttä vaihdettu. Ulkoinen esikatselu on edelleen kesken.
+12.9.2026. Tila: schema, alkumigraatio ja sovelluksen provider-valinta toteutettu. Portaalin palvelinpolut on testattu paikallisella PostgreSQL:llä. Ulkoista palvelua ei perustettu; ulkoinen esikatselu on edelleen kesken.
 
 ## Ratkaisu ja käyttöönoton rajaus
 
@@ -15,7 +15,9 @@ Hinta, alue, palautushistorian pituus ja mahdollinen automaattinen laskutus vahv
 - `prisma/postgresql/migrations/20260912000100_portal_initial/migration.sql`: Prisma 6.19.3:n generoima alkumigraatio tyhjään PostgreSQL-tietokantaan. Sisältää yksilöllisyydet, indeksit ja salasanan palautusrivien cascade-poiston.
 - `prisma.postgresql.config.ts`: erillinen CLI-konfiguraatio. Ei lue `.env.local`-tiedostoa eikä käytä SQLite-varayhteyttä. Migraatioyhteys annetaan prosessin `POSTGRES_DIRECT_URL`-muuttujassa. Clientin yhteys on `POSTGRES_DATABASE_URL`.
 
-Nykyinen `lib/prisma.ts`, build ja paikallinen esikatselu käyttävät edelleen SQLitea. PostgreSQL-clientin output on erillinen Gitistä rajattu `lib/generated/prisma-postgres`. Sovelluksen kytkentä tehdään vasta omana testattuna vaiheena. Pelkkä ympäristömuuttujan lisääminen ei tässä commitissa ota PostgreSQL:ää käyttöön.
+`lib/prisma.ts` valitsee providerin `PORTAL_DATABASE_PROVIDER`-muuttujasta (`sqlite` tai `postgresql`). Vercelissä oletus on PostgreSQL ja SQLite-valinta hylätään. Muussa paikallisessa ajossa oletus on SQLite. PostgreSQL-clientin output on erillinen Gitistä rajattu `lib/generated/prisma-postgres`. Molemmat clientit generoidaan komennoissa `npm run build`, `npm run dev`, `npm run db:generate` ja `npm run preview`. Esikatselukomento pakottaa paikallisen SQLiten omassa prosessissaan.
+
+Clientin luonti ei avaa yhteyttä buildin aikana. Puuttuva PostgreSQL-yhteys estää tietokantaoperaatiot, eikä sovellus vaihda tällöin SQLiteen. Näin julkiset sivut voidaan edelleen rakentaa ennen ulkoisen kannan perustamista. Verceliä vastaava PostgreSQL-build on tarkistettu ilman toimivaa tietokantayhteyttä. Palvelimella ajettava sovellus tarvitsee silti oikean `POSTGRES_DATABASE_URL`-arvon ja migroidun kannan.
 
 Valmistelun paikalliset komennot:
 
@@ -34,6 +36,8 @@ Validointi tarvitsee `POSTGRES_DATABASE_URL`-muuttujan, mutta ei yhteyttä palve
 Koe generoi erillisen clientin, ajaa migraation kahdesti (toinen ajo ei muuta mitään), tarkistaa rakenteen Prisma-diffillä ja suorittaa samat 21 portaalin integraatiotestin tulosta kuin SQLite-koe. Lisäksi se ottaa custom-muotoisen `pg_dump`-kopion vain omistajan luettavaan tiedostoon ja palauttaa sen erilliseen tyhjään kantaan. Kaikkien neljän mallin kaikki kentät verrataan alkuperäiseen, ja palautetun viiteavaimen cascade-poisto testataan. Testitiedot ja kopio poistuvat ajon lopuksi. Oikeita sähköposteja ei lähetetä.
 
 Tämä todentaa paikallisen migraation, palvelinpolut ja palautettavuuden. Se ei vielä testaa Vercelin poolattua yhteyttä, käyttöliittymää PostgreSQL:llä, ulkoista sähköpostitoimitusta eikä operatiivisen varmuuskopioinnin ajastusta tai säilytystä.
+
+Provider-kytkennän tarkistus: TypeScript ja PostgreSQL-build läpäisivät; Nextin signup-reitin deployment-jäljitys sisältää PostgreSQL-enginen ja scheman. Kaikki 48 paikallista testiä läpäisivät. Uudelleenrakennetun SQLite-esikatselun koko tunnuspolku läpäisi selainkokeen 1440 ja 390 px koossa. Ulkoiseen toimitukseen ei vielä vedota tällä näytöllä.
 
 ## Seuraava toteutus ja hyväksymisnäyttö
 

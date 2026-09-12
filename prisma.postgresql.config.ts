@@ -4,5 +4,5 @@ import { defineConfig } from "prisma/config";
 export default defineConfig({
   schema: "prisma/postgresql/schema.prisma",
   migrations: { path: "prisma/postgresql/migrations" },
-  datasource: { url: process.env.POSTGRES_DIRECT_URL },
+  datasource: { url: process.env.POSTGRES_DIRECT_URL || '' },
 });

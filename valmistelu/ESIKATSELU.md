@@ -46,7 +46,7 @@ Kuvakaappaukset tallennetaan käyttöjärjestelmän tilapäishakemistoon, jonka 
 
 ## Ulkoinen Vercel-esikatselu
 
-Jatkovaiheen PostgreSQL-valmistelu, käyttöönoton rajaukset ja testausjärjestys on kuvattu tiedostossa [ULKOINEN-TIETOKANTA.md](ULKOINEN-TIETOKANTA.md). Erillinen schema ja alkumigraatio on valmisteltu; sovelluksen tietokantayhteyttä ei vielä vaihdettu.
+Jatkovaiheen PostgreSQL-toteutus, käyttöönoton rajaukset ja testausjärjestys on kuvattu tiedostossa [ULKOINEN-TIETOKANTA.md](ULKOINEN-TIETOKANTA.md). Erillinen schema, migraatio ja provider-valinta on toteutettu. Vercel käyttää PostgreSQL-clientia; ulkoisen kannan perustaminen ja asetukset ovat kesken.
 
 Commitin `df05d8c` [Vercel-esikatselu](https://hietakulma-f8u1luiho-olli-hietanens-projects.vercel.app) valmistui GitHubin deployment-tilan mukaan. Se avattiin 12.9.2026 Ollin nykyisellä Vercel-selainistunnolla: etusivu renderöityi ja Tietopankki-linkki ohjasi kirjautumissivulle. Ilman Vercel-istuntoa osoite ohjaa Vercelin kirjautumiseen. Suojausta ei muutettu.
 

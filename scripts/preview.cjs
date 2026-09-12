@@ -54,6 +54,7 @@ async function main() {
   fs.closeSync(fs.openSync(database, 'a', 0o600));
   const mailFile = path.join(state, 'mail.ndjson');
   const env = { ...process.env,
+    PORTAL_DATABASE_PROVIDER: 'sqlite', VERCEL: '',
     DATABASE_URL: `file:${database}`, AUTH_SECRET: secret, NEXTAUTH_SECRET: secret,
     AUTH_URL: origin, NEXTAUTH_URL: origin, AUTH_TRUST_HOST: 'true',
     NEXT_PUBLIC_APP_URL: 'https://preview.hietakulma.test',
@@ -65,7 +66,7 @@ async function main() {
     const result = spawnSync(process.execPath, [require.resolve(module), ...args], { cwd: root, env, stdio: 'inherit' });
     if (result.error || result.status !== 0) throw Error(`Preview setup failed: ${module} ${args.join(' ')}`);
   }
-  run('prisma/build/index.js', ['generate']);
+  run('./generate-clients.cjs', []);
   run('prisma/build/index.js', ['migrate', 'deploy']);
   run('next/dist/bin/next', ['build']);
   console.log(`\nPaikallinen esikatselu: ${origin}\nTestitietokanta: ${database}\nViestejä ei lähetetä. Näytä aktivointi-/palautuslinkit: npm run preview:mails\nLopeta Ctrl+C. Testitiedot säilyvät .local-preview-hakemistossa.\n`);
