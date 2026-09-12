@@ -81,7 +81,7 @@ Valmis, kun sivusto ei sisällä tyhjiä linkkejä, virheellisiä yhteystietoja 
 - [ ] Täydennä tietosuojaseloste vastaamaan todellista portaalin tietojen käsittelyä: käyttäjäprofiili, käyttötarkoitus, kirjautumistiedot ja markkinointivalinta puuttuvat nykyisestä pääosin yhteydenottoja kuvaavasta tekstistä.
 - [ ] Vahvista säilytysajat, poistopyyntöjen käsittely ja vastuuhenkilö; toteuta sovitut käytännöt.
 - [ ] Tarkista käytetyt ulkoiset palvelut, karttaupotus ja mahdollinen analytiikka sekä sovita sivun kuvaukset ja toiminta niihin. Varsinainen oikeudellinen arvio tehdään ajantasaisista lähteistä toteutusvaiheessa.
-- [ ] Määritä, miten dokumentteja päivitetään ja käyttäjän käyttöoikeus poistetaan.
+- [x] Määritä, miten dokumentteja päivitetään ja käyttäjän käyttöoikeus poistetaan. Asiakirjojen hyväksyntä-/versiomenettely kuvattu; käyttäjien ylläpitokomennot toteutettu ja testattu. Tuotannon käyttäjäroolit ja tiedostotallennus vahvistetaan ennen käyttöönottoa.
 
 Valmis, kun sivuston kuvaus vastaa toteutusta ja ylläpitäjällä on toimiva tapa käsitellä aineistot ja käyttäjät.
 
@@ -182,3 +182,12 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - Node 24.19.0: Prisma-generointi, neljän migraation ajo erilliseen tyhjään SQLite-tiedostoon, 37 testiä ja tuotantokooste hyväksytty. Olemassa olevia projektin tietokantoja ei muutettu.
 - Portaalin koko selainpolku, yhteydenoton virhetilanteet ja uudelleenyritys sekä julkinen ja tietosuojan QA läpäisivät uudelleen 1440 ja 390 px koossa. Oikeita sähköposteja ei lähetetty.
 - Seuraavat riippumattomat työt: toistettavat ylläpito- ja esikatselutyökalut sekä kattava loppukatselmointi. Ulkoisen ympäristön asetukset ja varsinaisen sähköpostitoimituksen testaus ovat edelleen avoinna.
+
+### Ylläpitotyökalut ja palautusharjoitus
+
+- `scripts/portal-admin.cjs`: käyttäjätietojen vienti ilman salasana-/token-tiivisteitä, markkinointivalinnan peruutus myös odottavista aktivoinneista, istuntojen mitätöinti, tilin ja sen pyyntöjen poisto sekä vanhentuneiden pyyntöjen siivous erikseen valittavalla aikarajalla.
+- Tietokanta on annettava eksplisiittisenä absoluuttisena polkuna. Muutoskomennot ovat oletuksena kuivaharjoittelua; toteutus edellyttää `--apply`-valintaa. Automaattista säilytysaikaa tai ajastusta ei otettu käyttöön.
+- `scripts/sqlite-snapshot.py`: yhtenäinen SQLite-varmuuskopio ja palautus uuteen tiedostoon. Eheys ja vierasavaimet tarkistetaan, olemassa olevaa kohdetta ei ylikirjoiteta.
+- `valmistelu/YLLAPITOKOMENNOT.md`: käyttöohjeet, palautusmenettely, tietosuojapyynnön rajaus ja tuotantoympäristössä ratkaistavat asiat.
+- Node 24: kaikki 46 testiä hyväksytty. Uudet testit kattavat todellisen SQLite-aineiston kohdennetut muutokset, kuiva-ajon, viennin salaisuuksien rajauksen, vanhenemisrajan sekä WAL-tilassa olevan tietokannan varmuuskopion lukemisen palautuksen jälkeen Prismaan. Projektin tietokantoja ei muutettu.
+- Seuraavaksi toistettava esikatselu ja sivuston kattava loppukatselmointi. Tuotannon pysyvyyttä tai ulkoisia palveluasetuksia paikallinen palautusharjoitus ei todenna.

@@ -33,7 +33,7 @@ Tietopyyntö kirjataan rajattuun tukirekisteriin ja henkilöllisyys varmistetaan
 
 Markkinointisuostumuksen peruuttamisessa päivitetään sekä User-taulun valinta että mahdollinen erillinen lähetyslista. Tässä repossa ei ole markkinointilähetysjärjestelmää. Peruutuksen todisteen säilyttämisestä sovitaan erikseen; suostumuksen alkuperäistä aikaleimaa ei tulkita peruutusajaksi.
 
-Käyttöoikeuden poistossa mitätöidään istunnot ja ratkaistaan tilin poistaminen sovitun käytännön mukaan. User-rivin poistaminen ei yksin poista RegistrationRequest-rivejä, koska niillä ei ole käyttäjärelaatiota. Samalla sähköpostilla olevat pyynnöt, palautusrivit, mahdolliset sähköpostit ja varmuuskopiot käsitellään erikseen. Ylläpitokomentojen toteutus ja testaus on vielä tehtävä ennen kuin menettelyä voidaan pitää toimivana.
+Käyttöoikeuden poistossa mitätöidään istunnot ja ratkaistaan tilin poistaminen sovitun käytännön mukaan. User-rivin poistaminen ei yksin poista RegistrationRequest-rivejä, koska niillä ei ole käyttäjärelaatiota. Toteutettu `delete-user`-ylläpitokomento poistaa tilin sekä saman sähköpostin pyynnöt ja palautusrivit. Mahdolliset sähköpostit ja varmuuskopiot käsitellään erikseen. Komennot, rajoitukset ja palautusmenettely on kuvattu [ylläpito-ohjeessa](YLLAPITOKOMENNOT.md); toiminnot on testattu erillisellä SQLite-tietokannalla. Tuotannon käyttöönotto ja menettelyjen hyväksyntä ovat avoinna.
 
 Tietopankin dokumenttien päivityksessä tarkistetaan tekninen hyväksyntä, versionumero, nimi, lataustiedosto ja jakelurajaus. Sisäiset luonnokset pysyvät valmistelu-kansiossa. Kirjautumista vaativia tiedostoja ei sijoiteta suojaamattomaan public-kansioon. Latauksen istuntotarkistus toteutetaan ennen yksityisten tiedostojen käyttöönottoa; nykyinen dokumenttiluettelo on tyhjä.
 
@@ -47,6 +47,6 @@ Viranomaislähteet tarkistettu 12.9.2026:
 - [Tietosuojavaltuutettu: rekisteröidyn oikeudet](https://tietosuoja.fi/rekisteroidyn-oikeudet) — oikeuksien soveltaminen ja yhteydenottotapa.
 - [Traficomin evästeohjeistus palveluntarjoajille](https://www.traficom.fi/sites/default/files/media/file/Ev%C3%A4steohjeistus_palveluntarjoajille.pdf) — evästeiden tarpeellisuuden ja suostumusratkaisun tarkistuksen lähtökohta. Kartan tekninen latausvalinta ei yksin osoita koko tuotantopalvelun lainmukaisuutta.
 
-## Riippuvuuksien erillinen jatkotyö
+## Riippuvuuksien korjaus
 
-npm audit 12.9.2026 ilmoitti 30 haavoittuvuusmerkintää: 3 kriittistä, 19 korkeaa, 7 kohtalaista ja 1 matalaa. Merkinnät sisältävät välillisiä riippuvuuksia ja saman juurisyyn vaikutuksia useaan pakettiin; ne eivät tarkoita 30 erillistä sivustolla hyödynnettävää haavoittuvuutta. Next.js, Auth.js, kuvanprosessointi ja rakennustyökalut tarkistetaan ja päivitetään erillisessä välietapissa. Tuotantovalmiutta ei ole vahvistettu.
+Alkuperäisen npm audit -tarkistuksen 30 merkintää korjattiin 12.9.2026 riippuvuuspäivityksessä. Korjatun lukitustiedoston audit: 0 haavoittuvuutta. Versiot, välillisten riippuvuuksien override-määritykset ja testit on kuvattu [riippuvuuspäivityksessä](RIIPPUVUUSPAIVITYS.md). Tuotantovalmiutta ei ole vahvistettu.

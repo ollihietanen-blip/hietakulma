@@ -108,6 +108,8 @@ Copyright © Hietakulma Oy
 
 ## Tietopankin paikallinen kehitys ja testaus
 
+Käyttäjätietojen vienti, markkinointivalinnan peruutus, istuntojen mitätöinti, tilin poisto ja SQLite-varmuuskopiointi: [ylläpitokomentojen ohje](valmistelu/YLLAPITOKOMENNOT.md).
+
 Riippuvuuspäivitys on tarkistettu Node 24.19.0:lla. Käytä Node 24:ää; kehitystyökaluna oleva Firecrawl edellyttää vähintään Node 22:ta. Asenna lukitut riippuvuudet komennolla `npm ci`.
 
 Kopioi `.env.example` tiedostoksi `.env.local` ja aseta paikalliset salaisuudet ennen kehityspalvelimen käynnistystä. Prisma-komennot lukevat myös `.env.local`-tiedoston. Olemassa olevat prosessin ympäristömuuttujat ovat ensisijaisia.
