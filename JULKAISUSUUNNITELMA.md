@@ -21,11 +21,13 @@ Portaalin rekisteröityminen, aktivointi, kirjautuminen, uloskirjautuminen ja sa
 
 ## Versionhallinta ja välietapit
 
+Jatkovaiheessa PostgreSQL:n schema, migraatio, provider-kytkentä, 21 portaalitestitulosta, 8 ylläpitotestitulosta, varmuuskopion palautus ja koko tunnuspolun selainkoe on toteutettu ja tarkistettu paikallisesti. Ulkoisen käyttöönoton täsmälliset asetukset, testausjärjestys ja odottavat luvat löytyvät tiedostosta `valmistelu/PREVIEW-KAYTTOONOTTO.md`. Neonin perustaminen, oikea sähköpostitoimitus ja asiantuntijapalautteet eivät ole valmiita.
+
 Työ tehdään haaralla `codex/julkaisuvalmistelu`. Jokaisesta valmiista, tarkistetusta työvaiheesta tehdään commit ja push GitHubiin, jotta välietapit säilyvät ja ovat tarkasteltavissa. Ensimmäinen välietappi kattaa portaalin ja yhteydenoton korjaukset sekä linkkien, kuvien ja hakukonetietojen viimeistelyn. Push tähän haaraan ei tarkoita tuotantojulkaisun hyväksymistä.
 
 ## 1. Portaali ja tuotannon tietokanta — ensimmäinen työvaihe
 
-- [ ] Selvitä Vercelin nykyinen tuotantokonfiguraatio ja tietokannan pysyvyys. Prisma käyttää SQLitea; tuotannon ratkaisua ei ole varmennettu. Valitse tarvittaessa pysyvä tietokanta ja suunnittele tietojen siirto.
+- [ ] Viimeistele ulkoisen tietokannan käyttöönotto: Vercelin asetukset selvitetty, PostgreSQL-toteutus testattu paikallisesti, Neon-Preview-kanta odottaa perustamista. Tuotannon ratkaisua ei ole hyväksytty. Paikallisia testitilejä ei siirretä esikatselukantaan.
 - [ ] Tarkista migraatiot, varmuuskopiointi ja palautettavuus.
 - [x] Selvitä Gitissä olevien `prisma/dev.db`- ja `prisma/prisma/dev.db`-tiedostojen tarkoitus ja sisältö. Nykyiset tiedostot ja kaikki niitä muuttaneiden commitien versiot tarkistettu: vain migraatiotietoja, 0 käyttäjää ja 0 rekisteröitymispyyntöä. Tiedostot poistettu Git-seurannasta ja lisätty ignoreen; paikalliset tiedostot säilytetty muuttamattomina.
 - [ ] Varmista kirjautumisen palvelinosoite-, salaisuus- ja luottamusasetukset. Aiemmassa paikallisessa tuotantoajossa tuli `UntrustedHost`; tuotannossa esiintymisestä ei ole näyttöä.
