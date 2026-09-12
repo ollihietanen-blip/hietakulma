@@ -42,6 +42,14 @@ Käyttäjä hyväksyi Resendin ehdot, Vercelin Marketplace-liitteen ja tilitieto
 
 Projektikytkentä valmisteltiin `hietakulma`-projektiin: Preview valittu, Production ja Development poistettu, Sensitive päällä. Kytkentä jäi tallentamatta, koska lomake ilmoitti vaadittavaksi lisäoikeudeksi **Read and Write → Domains**. Käyttäjän tilin perustamislupa ei vielä sisältänyt tätä domainien kirjoitusoikeutta. Pyydä oikeudelle erillinen hyväksyntä ennen Connect-painiketta tai käytä erikseen rajattua avainta ilman integraation domainoikeutta. `RESEND_API_KEY`-kytkentää, lähettäjäasetusta ja domainin DNS-vahvistusta ei ole vielä tehty. Maksullista pakettia ei valittu.
 
+## Rajattu sähköpostikytkentä 12.9.2026
+
+Käyttäjän pyytämän järkevän ratkaisun mukaisesti Marketplace-projektikytkentä ohitettiin **Skip**-painikkeella. Integraatiolle ei myönnetty projektin domainien kirjoitusoikeutta. Resendissä luotiin erillinen `hietakulma-preview-send`-avain oikeudella **Sending access**. Domain-valitsin tarjosi vain **All domains**, joten domain-kohtainen lisärajaus odottaa palvelun mahdollistamaa valintaa. Tämä avain ei anna asetusten hallintaoikeutta. Marketplace-asennuksen automaattisesti luoma Full access -avain jäi Resendin hallintaan eikä sitä kytketty projektiin.
+
+Uusi avain siirrettiin suoraan selaimen avainnäkymästä Vercelin Secret-muuttujaksi `RESEND_API_KEY`, vain kohteeseen **Preview → codex/julkaisuvalmistelu**. Vercel CLI vahvisti tallennetun avaimen nimen, Secret-tyypin ja branch-kohdistuksen. Arvoa ei tulostettu tai tallennettu Gitiin. Lähettäjäksi tallennettiin `Hietakulma <noreply@hietakulma.fi>` samalle branchille Config-tyyppisenä; CLI vahvisti tallennuksen.
+
+Resendin `hietakulma.fi`-domain on **Not Started**, Ireland-alueella. Valmiit kolme DNS-tietuetta, julkisen DNS:n esitarkistus ja nykyisen Microsoft 365 -sähköpostireitityksen säilyttävä toteutusohje ovat tiedostossa `RESEND-DNS.md`. DNS-muutoksia, Verify-toimintoa tai sähköpostien lähetystä ei tehty. Avaimen tallennus ei vielä todista lähetysvalmiutta. DNS-ylläpitäjä ja erillinen toteutus-/testilupa tarvitaan seuraavaksi.
+
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
@@ -53,7 +61,7 @@ Projektikytkentä valmisteltiin `hietakulma`-projektiin: Preview valittu, Produc
 | `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Tallennettu branchille yllä olevaan vahvistettuun aliasosoitteeseen |
 | `AUTH_TRUST_HOST` | `true` vain hallitussa Vercel-ympäristössä | Tallennettu branchille |
 | `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Tallennettu branchille; toimituskoe tekemättä |
-| `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Resend Free perustettu; projektikytkentä ja lähetyslupa avoinna |
+| `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Sending access -avain tallennettu branchille; DNS ja lähetyslupa avoinna |
 | `RESEND_FROM_EMAIL` | Resendissä vahvistettu lähettäjä, esimerkiksi hyväksytyn domainin noreply-osoite | Vahvistettava palvelusta; esimerkki ei osoita lähetysvalmiutta |
 
 Ylläpitoprosessi tarvitsee lisäksi `POSTGRES_DIRECT_URL`-arvon suoraan esikatselukantaan. Sitä ei tarvita sovelluksen runtime-yhteydeksi. Älä käytä paikallisen esikatselun salaisuuksia, SQLite-osoitetta tai `HIETAKULMA_LOCAL_PREVIEW`-, `PREVIEW_MAIL_FILE`- ja muita testimuuttujia Vercelissä. Salaisuuksia ei tallenneta tähän dokumenttiin, Gitiin tai tulosteisiin.
