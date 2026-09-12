@@ -1,5 +1,13 @@
 # Ulkoisen esikatselun käyttöönotto
 
+## Päivitys: Neon perustettu käyttäjän luvalla
+
+12.9.2026 käyttäjä hyväksyi Neonin ehdot ja tilitietojen jakamisen sekä maksuttoman esikatselutietokannan käyttöönoton. Ehdot hyväksyttiin Vercelin nykyisessä istunnossa. Resurssi **hietakulma-preview** (`red-forest-04557626`) on tilassa Available, paketilla **Free**, alueella **Frankfurt (fra1)**. Valintanäkymä ilmoitti 0,5 GB tallennustilaa ja 100 CU-tuntia projektia kohden; maksullista pakettia ei valittu. Neon Auth poistettiin valinnasta, koska sovelluksessa on jo Auth.js-kirjautuminen.
+
+Kytkentä `hietakulma`-projektiin onnistui. Projects-näkymä vahvisti ympäristöksi vain **Preview**; Production ja Development eivät ole mukana. Muuttujien etuliitteeksi asetettiin `POSTGRES`, salaisuuksien Sensitive-valinta pidettiin käytössä. Integraation kytkentälomake ei tarjonnut Git-branchin rajausta: branch-kohtainen muuttujakohdistus on vielä varmistettava ennen käyttöönottoa.
+
+Tietokannan migraatioita ei ole vielä ajettu. Vercel CLI 59.16.0 ilmoitti olevansa kirjautumatta; kirjautuminen käynnistettiin tällä Macilla. Sen Allow Access -vaiheeseen pyydettiin erillinen lupa, koska se myöntää komentorivityökalulle tilipääsyn. Yhteyssalaisuuksia ei ole avattu tai tulostettu. Alla oleva alkuperäinen käyttöönottolista kuvaa jäljellä olevat tekniset vaiheet; Neonin perustamislupa on nyt saatu. Asiantuntijapyyntöjen ja oikeiden testisähköpostien lähetyslupaa ei ole annettu tässä yhteydessä.
+
 12.9.2026. Kohde: Vercelin `hietakulma`-projektin **Preview**, vain branch `codex/julkaisuvalmistelu`. Tuotanto ja `hietakulma.fi`-domain eivät kuulu tähän käyttöönottoon. Tekninen toteutus ja paikallinen PostgreSQL-selainkoe ovat valmiit; ulkoisen kannan perustaminen ja sähköpostitoimitus odottavat lupia ja asetuksia.
 
 ## Asetettavat muuttujat
