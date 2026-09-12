@@ -39,7 +39,7 @@ Valmis, kun käyttäjä voi rekisteröityä, vastaanottaa aktivointiviestin, ase
 
 ## 2. Tietopankin dokumentit ja liitteet — omat luonnokset ja asiantuntijoiden päivitykset
 
-- [ ] Selvitä olemassa olevien dokumenttien lähdekansio luonnosten lähtöaineistoksi. Luonnostelua ei tarvitse odottaa, jos osa aineistoista puuttuu. Myynti/Detaljit-kansiosta löytyi ehdokkaita, mutta oikeita versioita ei ole vahvistettu.
+- [x] Selvitä olemassa olevien dokumenttien lähdekansio luonnosten lähtöaineistoksi. Myynti/Detaljit-kansio ja vuoden 2025 NR-tuotannonvalvonnan käsikirja löytyivät; hyväksytyt asiakasversiot vahvistetaan asiantuntijoilta.
 - [ ] Inventoi todelliset saatavilla olevat dokumentit. Aiemmat 11 otsikkoa ovat vain vanhan käyttöliittymän lista, eivät todiste aineistojen olemassaolosta.
 - [ ] Laadi itse ensimmäiset luonnokset puuttuvista dokumenteista ja dokumentteihin tarvittavista liitteistä olemassa olevan aineiston pohjalta. Merkitse ne luonnoksiksi ja kirjaa puuttuvat tiedot sekä tarkistettavat tekniset kohdat näkyvästi.
 - [ ] Kokoa luonnoksista tarkistuspaketti Villelle, Jormalle ja Tapanille. Liitä jokaiseen dokumenttiin tai liitteeseen selkeät kysymykset ja päivitystarpeet; heidän ei tarvitse aloittaa tyhjästä.
@@ -123,7 +123,7 @@ Aloita vaiheesta 1: tarkista tuotannon tietokanta ja kirjautumisen asetukset, ko
 - `npm test`: 37 testitulosta hyväksytty; mukana oikea Prisma/SQLite, kertakäyttöisyys, vanheneminen, palautuksen jälkeinen vanhan salasanan ja istunnon mitätöinti sekä rinnakkaiset yritysrajat.
 - Tuotantokooste hyväksytty. Selainpolku hyväksytty Chrome/Playwrightissa 1440 × 1000 ja 390 × 844 koossa: rekisteröityminen → aktivointi → suojattu tietopankki → uloskirjautuminen → palautuspyyntö → salasanan vaihto → kirjautuminen uudella salasanalla.
 - Selainajossa käytettiin `/tmp/hietakulma-portal-preview.db`-testitietokantaa ja paikallisesti talteen otettuja testiviestejä. Oikeita sähköposteja ei lähetetty. Lähetyspalvelun tuotantotoimitusta tämä ei todenna.
-- Selainajon skripti: `/tmp/hietakulma-full-portal-qa.cjs`. Kuvakaappaukset: `/tmp/hietakulma-reset-success-1440.png` ja `/tmp/hietakulma-reset-success-390.png`. Aiemmin havaittu favicon 404 on edelleen erillinen korjattava kohta.
+- Selainajon skripti: `/tmp/hietakulma-full-portal-qa.cjs`. Kuvakaappaukset: `/tmp/hietakulma-reset-success-1440.png` ja `/tmp/hietakulma-reset-success-390.png`. Aiemmin havaittu favicon 404 korjattiin myöhemmässä linkkien ja metatietojen välietapissa.
 - Prisma lukee nyt `.env.local`-tiedoston; README sisältää tietokannan alustuksen ja testauksen komennot. Projektin olemassa oleviin SQLite-tiedostoihin ei ole ajettu uutta migraatiota tässä testissä.
 
 ### Lähdehavainto dokumenttiluonnoksia varten
@@ -141,3 +141,12 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - Tuotantokooste hyväksytty. Julkisten sivujen selainajo hyväksytty 1440 × 1000 ja 390 × 844 koossa: etusivu, puutalot, puuelementit, kohteet ja yhteystiedot. Ei vaakavieritystä, framework-virhenäkymiä tai konsolivirheitä; kaikki viisi paikallista henkilökuvaa latautuivat.
 - HTTP-tarkistus: 17 julkista sitemap-sivua vastasi 200 ja sisälsi canonical- ja jakamiskuvatiedot; seitsemän uudelleenohjausta sekä viiden tunnussivun noindex tarkistettu.
 - QA-skripti `/tmp/hietakulma-public-qa.cjs`; kuvakaappaukset `/tmp/hietakulma-contacts-local-1440.png` ja `/tmp/hietakulma-contacts-local-390.png`.
+
+### Dokumenttipaketin ensimmäiset luonnokset
+
+- `valmistelu/tarkistuspaketti/README.md` kokoaa kaikkien 11 aiemman dokumenttinimikkeen kattavuuden ja ehdotetut tarkistajat. Paketti on keskeneräinen, ei asiakasjakelussa.
+- `LAHTEET.md` erottaa tiedostolistauksella löydetyt aineistot todella luetuista lähteistä. Detaljikansiossa 44 rakenne-PDF:ää, kaksi LAM-tiedostoa ja yksi tekninen PDF. AP-US_198 ja US_198-YP_pelti luettiin kuvina; niiden päiväys ja revisio ovat tyhjät.
+- `01-seinarakenteet.md` sisältää lähteeseen perustuvan 198 mm rakenteen kuvauksen, avoimen 248 mm rakennetyypin, liitosliiteluettelon ja Villen tarkistuskysymykset. 223- ja 198+48-piirustuksia ei tulkita 248 mm rakenteeksi.
+- `02-materiaalierittely.md` sisältää esitäytetyt materiaaliryhmät, hankekohtaiset täydennyskentät, toimitusrajaliitteen ja muutosten käsittelyehdotuksen Villelle ja Tapanille.
+- Vuoden 2025 käsikirjan tekstissä oleva DoP on päivätty 14.6.2025, julkisella sivustolla oleva versio 1.7.2013. Jorma/Olli vahvistavat hyväksytyn asiakasversion ja nykyisen sertifikaatin. Sisäistä käsikirjaa ei kopioida Git-repositorioon.
+- Seuraavaksi laaditaan loput tuote-, asennuksen valmistelu-, talotekniikka-, verhous- ja NR-aineistojen luonnokset sekä varsinaiset tarkistuspyynnöt. Word-versiot tuotetaan ja tarkistetaan sisällön valmistuttua.
