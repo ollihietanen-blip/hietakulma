@@ -6,16 +6,28 @@
 
 Kytkentä `hietakulma`-projektiin onnistui. Projects-näkymä vahvisti ympäristöksi vain **Preview**; Production ja Development eivät ole mukana. Muuttujien etuliitteeksi asetettiin `POSTGRES`, salaisuuksien Sensitive-valinta pidettiin käytössä. Integraation kytkentälomake ei tarjonnut Git-branchin rajausta: branch-kohtainen muuttujakohdistus on vielä varmistettava ennen käyttöönottoa.
 
-Tietokannan migraatioita ei ole vielä ajettu. Vercel CLI 59.16.0 ilmoitti olevansa kirjautumatta; kirjautuminen käynnistettiin tällä Macilla. Sen Allow Access -vaiheeseen pyydettiin erillinen lupa, koska se myöntää komentorivityökalulle tilipääsyn. Yhteyssalaisuuksia ei ole avattu tai tulostettu. Alla oleva alkuperäinen käyttöönottolista kuvaa jäljellä olevat tekniset vaiheet; Neonin perustamislupa on nyt saatu. Asiantuntijapyyntöjen ja oikeiden testisähköpostien lähetyslupaa ei ole annettu tässä yhteydessä.
+### Migraatio suoritettu 12.9.2026
 
-12.9.2026. Kohde: Vercelin `hietakulma`-projektin **Preview**, vain branch `codex/julkaisuvalmistelu`. Tuotanto ja `hietakulma.fi`-domain eivät kuulu tähän käyttöönottoon. Tekninen toteutus ja paikallinen PostgreSQL-selainkoe ovat valmiit; ulkoisen kannan perustaminen ja sähköpostitoimitus odottavat lupia ja asetuksia.
+Käyttäjä hyväksyi migraatioiden ajamisen ja suoritti Vercelin vaatiman tunnistautumisen. Esitarkistus palautti `public`-skeemasta nolla taulua. Alkumigraation `20260912000100_portal_initial` DDL suoritettiin Vercelin Neon SQL-editorissa yhtenä atomisena `DO`-lohkona. Samassa tapahtumassa luotiin Prisma 6.19.3:n paikallisesta PostgreSQL-kannasta tarkistettu `_prisma_migrations`-taulu ja kirjattiin migraation valmistuminen. Vercel ilmoitti `Query executed successfully` (2150 ms). Tämä oli SQL-editorin kautta tehty alustus, ei CLI:n `prisma migrate deploy` -ajo.
+
+Jälkitarkistus lukutilassa palautti 20 rakenneriviä:
+
+- `User`: 20 saraketta; `RegistrationRequest`: 15; `PasswordResetRequest`: 6; `RateLimitBucket`: 3.
+- Kahdeksan sovellusindeksiä ja neljä sovellustaulujen pääavainindeksiä sekä migraatiohistorian pääavainindeksi.
+- `PasswordResetRequest_userId_fkey`: viittaus käyttäjän tunnukseen, `ON UPDATE CASCADE ON DELETE CASCADE`.
+- Yksi migraatiohistoriarivi: `finished=true`, `rolled_back=false`, `applied_steps_count=1`.
+- Tarkistussumma vastaa repositoryn alkuperäistä migraatiotiedostoa: `252881328c357cc515fa4455c20e61e2d1438cc23db3a9b32d3546325b6b02c3`.
+
+Editorin Read-only-tila palautettiin päälle. Sovelluksen käyttäjiä tai paikallisia testitietoja ei tuotu kantaan. Yhteyssalaisuuksia ei avattu tai tulostettu. Vercel CLI 59.16.0 jäi kirjautumatta; sen Allow Access -painike ei aktivoitunut. Kun ylläpidon suora yhteys on käytettävissä, tarkista lisäksi Prisma `migrate status` ja skeeman diff ennen seuraavaa migraatiota. Älä aja alkumigraation DDL:ää uudelleen.
+
+Kohde on Vercelin `hietakulma`-projektin **Preview**. Tavoiteltu branch-rajaus on `codex/julkaisuvalmistelu`; integraation ympäristölaajuinen kohdistus on vielä ratkaistava. Tuotanto ja `hietakulma.fi`-domain eivät kuulu tähän käyttöönottoon. Paikallinen PostgreSQL-selainkoe on valmis. Ulkoisen esikatselun Auth-/sähköpostiasetukset, uusi deployment, toiminnallinen koe ja ulkoisen kannan varmuuskopio-/palautuskoe ovat vielä tekemättä. Asiantuntijapyyntöjen ja oikeiden testisähköpostien lähetyslupaa ei ole annettu tässä yhteydessä.
 
 ## Asetettavat muuttujat
 
 | Muuttuja | Arvo tai valintaperuste | Tila |
 |---|---|---|
 | `PORTAL_DATABASE_PROVIDER` | `postgresql` | Toteutettu; Vercelissä myös oletus |
-| `POSTGRES_DATABASE_URL` | Uuden Preview-kannan poolattu yhteys, palveluntarjoajan vaatima TLS | Kanta perustamatta |
+| `POSTGRES_DATABASE_URL` | Uuden Preview-kannan poolattu yhteys, palveluntarjoajan vaatima TLS | Neon-integraatio lisäsi Preview-ympäristöön; branch-rajaus tarkistamatta |
 | `NEXTAUTH_SECRET` | Vain Preview-ympäristölle generoitu vahva salaisuus | Asettamatta; sovelluksen Auth-konfiguraatio käyttää tätä |
 | `AUTH_SECRET` | Sama Preview-salaisuus Auth.js:n ympäristötunnistukselle | Asettamatta |
 | `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Valitaan Vercelin aliasnäkymästä; ei arvata |
