@@ -1,6 +1,6 @@
 # Hietakulman verkkosivujen viimeistely
 
-Päivitetty 12.9.2026. Ensimmäisen vaiheen tekninen esikatselu ja asiantuntijoiden luonnospaketti on tarkistettu; vaatimuskohtainen näyttö on tiedostossa `valmistelu/ENSIMMAISEN-VAIHEEN-KATSELMOINTI.md`. Vercelin asetukset luettiin lopuksi selainistunnolla: ympäristömuuttujat, jaetut muuttujat ja tietovarastoluettelo ovat tyhjät. DNS-siirtoa ja oikeaa sähköpostitoimitusta ei ole tehty. Tämä suunnitelma ulottuu myös myöhempään tuotantojulkaisuun, jonka avoimet ruudut säilyvät avoimina.
+Päivitetty 12.9.2026. Ensimmäisen vaiheen tekninen esikatselu ja asiantuntijoiden luonnospaketti on tarkistettu; vaatimuskohtainen näyttö on tiedostossa `valmistelu/ENSIMMAISEN-VAIHEEN-KATSELMOINTI.md`. Jatkovaiheessa Neon-Preview-kanta, Auth-asetukset ja rajattu Resend-lähetys on otettu käyttöön. Aktivointi- ja palautusviestit on toimitettu luvalla Ollin Gmailiin; molemmat päätyivät roskapostiin. Ajantasainen näyttö ja rajaukset ovat tiedostossa `valmistelu/PREVIEW-KAYTTOONOTTO.md`. DNS-siirtoa tai tuotantoasetusten muutoksia ei ole tehty. Tämä suunnitelma ulottuu myös myöhempään tuotantojulkaisuun, jonka avoimet ruudut säilyvät avoimina.
 
 ## Tavoite ja rajaus
 
@@ -17,20 +17,21 @@ Tietopankin aineistojen odottaminen ei estä muiden vaiheiden tekemistä. Jos ai
 - [x] Tietopankin tyhjän tilan ja kirjautumisrajauksen selaintarkistus paikallisella testi-istunnolla.
 - [x] Tuotantokooste, linttaus ja tyyppitarkistus läpi viimeisillä toiminnallisilla muutoksilla.
 
-Portaalin rekisteröityminen, aktivointi, kirjautuminen, uloskirjautuminen ja salasanan palautus on testattu paikallisesti tietokoneella ja mobiilissa erillisellä testitietokannalla ja simuloidulla sähköpostipalvelulla. Oikea sähköpostitoimitus ja tuotantoympäristö ovat vielä varmentamatta.
+Portaalin rekisteröityminen, aktivointi, kirjautuminen, uloskirjautuminen ja salasanan palautus on testattu paikallisesti tietokoneella ja mobiilissa erillisellä testitietokannalla ja simuloidulla sähköpostipalvelulla. Ulkoisessa esikatselussa oikeat aktivointi- ja palautusviestit sekä API-tason tunnuspolku on lisäksi testattu. Ulkoisen ympäristön koko selainpolku molemmilla näyttökoilla ja tuotantoympäristö ovat vielä varmentamatta.
 
 ## Versionhallinta ja välietapit
 
-Jatkovaiheessa PostgreSQL:n schema, migraatio, provider-kytkentä, 21 portaalitestitulosta, 8 ylläpitotestitulosta, varmuuskopion palautus ja koko tunnuspolun selainkoe on toteutettu ja tarkistettu paikallisesti. Ulkoisen käyttöönoton täsmälliset asetukset, testausjärjestys ja odottavat luvat löytyvät tiedostosta `valmistelu/PREVIEW-KAYTTOONOTTO.md`. Neonin perustaminen, oikea sähköpostitoimitus ja asiantuntijapalautteet eivät ole valmiita.
+Jatkovaiheessa PostgreSQL:n schema, migraatio, provider-kytkentä, 21 portaalitestitulosta, 8 ylläpitotestitulosta, varmuuskopion palautus ja koko tunnuspolun selainkoe on toteutettu ja tarkistettu paikallisesti. Ulkoisen käyttöönoton täsmälliset asetukset, testausjärjestys ja odottavat luvat löytyvät tiedostosta `valmistelu/PREVIEW-KAYTTOONOTTO.md`. Neon on perustettu ja migroitu, käyttäjätiedot säilyivät uuden deploymentin yli ja testitilin sähköpostipolku toimi. Ulkoisen kannan erillinen varmuuskopio-/palautuskoe, koko ulkoinen mobiilikoe ja asiantuntijapalautteet ovat avoinna.
 
 Työ tehdään haaralla `codex/julkaisuvalmistelu`. Jokaisesta valmiista, tarkistetusta työvaiheesta tehdään commit ja push GitHubiin, jotta välietapit säilyvät ja ovat tarkasteltavissa. Ensimmäinen välietappi kattaa portaalin ja yhteydenoton korjaukset sekä linkkien, kuvien ja hakukonetietojen viimeistelyn. Push tähän haaraan ei tarkoita tuotantojulkaisun hyväksymistä.
 
 ## 1. Portaali ja tuotannon tietokanta — ensimmäinen työvaihe
 
-- [ ] Viimeistele ulkoisen tietokannan käyttöönotto: Vercelin asetukset selvitetty, PostgreSQL-toteutus testattu paikallisesti, Neon-Preview-kanta odottaa perustamista. Tuotannon ratkaisua ei ole hyväksytty. Paikallisia testitilejä ei siirretä esikatselukantaan.
-- [ ] Tarkista migraatiot, varmuuskopiointi ja palautettavuus.
+- [ ] Viimeistele ulkoisen tietokannan käyttöönotto: Neon-Preview-kanta on perustettu, migroitu ja sovelluskäytössä; käyttäjätietojen pysyvyys uuden deploymentin yli on todennettu. Suora ylläpitoyhteys ja ulkoisen kannan palautuskoe ovat avoinna. Tuotannon ratkaisua ei ole hyväksytty. Paikallisia testitilejä ei siirretä esikatselukantaan.
+- [ ] Viimeistele migraatioiden, varmuuskopioinnin ja palautettavuuden ulkoinen tarkistus. SQL-editorin migraatio ja historiarivi tarkistettu; suora Prisma-status/diff sekä Neon-kannasta otetun varmuuskopion palautus erilliseen kantaan puuttuvat. Paikallinen PostgreSQL-palautuskoe on läpäissyt.
 - [x] Selvitä Gitissä olevien `prisma/dev.db`- ja `prisma/prisma/dev.db`-tiedostojen tarkoitus ja sisältö. Nykyiset tiedostot ja kaikki niitä muuttaneiden commitien versiot tarkistettu: vain migraatiotietoja, 0 käyttäjää ja 0 rekisteröitymispyyntöä. Tiedostot poistettu Git-seurannasta ja lisätty ignoreen; paikalliset tiedostot säilytetty muuttamattomina.
-- [ ] Varmista kirjautumisen palvelinosoite-, salaisuus- ja luottamusasetukset. Aiemmassa paikallisessa tuotantoajossa tuli `UntrustedHost`; tuotannossa esiintymisestä ei ole näyttöä.
+- [x] Varmista Preview-branchin kirjautumisen palvelinosoite-, salaisuus- ja luottamusasetukset. Auth-palvelu palauttaa vakaan HTTPS-branch-aliaksen; oikea kirjautuminen, istunto ja uloskirjautuminen on testattu. Tuotannon asetukset vahvistetaan erikseen ennen julkaisua.
+- [ ] Varmista vastaavat Auth-asetukset tuotantoympäristössä erikseen hyväksytyn käyttöönoton yhteydessä.
 - [x] Korjaa aktivointiviestin lähetyksessä Resendin palauttaman `error`-arvon käsittely. Sekä palautettu virhe että poikkeus poistavat epäonnistuneen aktivointipyynnön ja sallivat uuden yrityksen; testattu erillisellä SQLite-tietokannalla.
 - [x] Estä tuotannon aktivointilinkkien päätyminen localhostiin puuttuvan asetuksen vuoksi. Tuotanto edellyttää kelvollista HTTPS-alkuperäosoitetta ennen tietokantakirjoituksia.
 - [x] Tarkista rekisteröitymisen ja kirjautumisen syötevalidointi, sähköpostin normalisointi ja toistuvien yritysten rajoitus. Yritysrajat tallennetaan tietokantaan ja rinnakkaiset yritykset on testattu; tuotannon verkkotason kuormitusrajoitus arvioidaan erikseen.
@@ -45,7 +46,7 @@ Valmis, kun käyttäjä voi rekisteröityä, vastaanottaa aktivointiviestin, ase
 - [ ] Inventoi todelliset saatavilla olevat dokumentit. Aiemmat 11 otsikkoa ovat vain vanhan käyttöliittymän lista, eivät todiste aineistojen olemassaolosta.
 - [x] Laadi itse ensimmäiset luonnokset puuttuvista dokumenteista ja dokumentteihin tarvittavista liitteistä olemassa olevan aineiston pohjalta. Merkitse ne luonnoksiksi ja kirjaa puuttuvat tiedot sekä tarkistettavat tekniset kohdat näkyvästi.
 - [x] Kokoa luonnoksista tarkistuspaketti Villelle, Jormalle ja Tapanille. Liitä jokaiseen dokumenttiin tai liitteeseen selkeät kysymykset ja päivitystarpeet; heidän ei tarvitse aloittaa tyhjästä.
-- [ ] Pyydä Villeltä, Jormalta ja Tapanilta luonnoksiin päivitykset ja täydennykset. Sovi vastuunjako dokumenttikohtaisesti.
+- [ ] Pyydä Villeltä, Jormalta ja Tapanilta luonnoksiin päivitykset ja täydennykset. Dokumenttikohtaiset vastuut on yksilöity kolmessa Gmail-luonnoksessa, joissa on Word-paketti ja lähdeluettelo liitteinä. Lähetyslupa odottaa; pyyntöjä ei ole lähetetty.
 - [ ] Yhdistä saadut päivitykset, ratkaise avoimet kohdat ja varmista lopullisten versioiden sisältö ennen tietopankkiin julkaisemista.
 - [ ] Tarkista otsikko, sisältö, päiväys/versio ja jakeluun soveltuvuus. Älä julkaise hankekohtaisia piirustuksia yleisohjeina.
 - [ ] Määritä latausten käyttöoikeus: jos aineistot ovat vain kirjautuneille, myös tiedostolataus tarkistaa istunnon; pelkkä sivun suojaus ei riitä.
@@ -60,7 +61,7 @@ Valmis, kun dokumenttien ja liitteiden luonnokset on päivitetty Villen, Jorman 
 
 - [ ] Tarkista tuotannon Resend-asetukset, lähettäjäosoite ja verkkotunnuksen määritykset.
 - [ ] Tarkista tarjouspyyntöjen vastaanottaja ja vastausosoite.
-- [ ] Lähetä erikseen sovittu testiviesti ja varmista saapuminen vastaanottajan postilaatikkoon. Tähän mennessä on käytetty vain simuloitua toimitusta.
+- [ ] Lähetä erikseen sovittu testiviesti ja varmista saapuminen vastaanottajan postilaatikkoon. Yhteydenottoa on testattu vain simuloidulla toimituksella. Ollin Gmailiin hyväksytyt aktivointi- ja palautusviestit eivät korvaa tätä koetta. Resendin testilähettäjä rajoittuu tilinomistajan osoitteeseen; oman domainin DNS-varmennus tehdään käyttäjän ilmoituksen mukaan julkaisun yhteydessä.
 - [ ] Varmista julkaistussa ympäristössä myös virheilmoitus ja uusi yritys.
 
 Valmis, kun oikea testiyhteydenotto saapuu perille ja siihen vastaaminen menee asiakkaan osoitteeseen. Palvelun hyväksyntä ei yksin todista saapumista postilaatikkoon.
@@ -91,7 +92,7 @@ Valmis, kun sivuston kuvaus vastaa toteutusta ja ylläpitäjällä on toimiva ta
 
 - [x] Tarkista riippuvuuksien ajantasaisuus ja korjaa julkaisuun vaikuttavat tunnetut ongelmat ilman tarpeetonta versiouudistusta. Next 15.5.25 / React 19, korjatut välilliset riippuvuudet ja 0 audit-havaintoa; tarkistukset kuvattu `valmistelu/RIIPPUVUUSPAIVITYS.md`-tiedostossa.
 - [x] Erottele toimitettavat muutokset työpuun vanhoista kuva-, video- ja väliaikaistiedostoista. Älä poista käyttäjän aineistoja siivouksen yhteydessä.
-- [x] Tee muutoksista selkeä commit ja tarkista haara, Vercel-projekti ja asetukset. Branchin Preview-deploymentit ja puuttuvat ympäristöasetukset varmennettu; tuotantokonfiguraatiota ei muutettu.
+- [x] Tee muutoksista selkeä commit ja tarkista haara, Vercel-projekti ja asetukset. Branchin Preview-deploymentit ja käyttöönotetut ympäristöasetukset varmennettu; tuotantokonfiguraatiota ei muutettu.
 - [x] Avaa esikatselu ja käy läpi kaikki julkiset sivut, navigaatio, lomakkeet, kohdesivut ja portaali tietokoneella sekä mobiilissa. Täysi koe tehty eristetyssä paikallisessa tuotantokoosteessa myös puhtaasta Git-aineistosta.
 - [x] Tarkista näppäimistökäyttö, kuvien/videoiden lataus, vaakavieritys, virhesivut ja olennaiset konsolivirheet. Näissä kokeissa havaitut valikon ja vähennetyn liikkeen virheet korjattu ja testattu uudelleen.
 - [ ] Kun tekniset korjaukset, sisällöt sekä dokumentit ja liitteet ovat valmiit Villen, Jorman ja Tapanin päivitysten jälkeen, kokoa koko sivusto esikatseluun Jussi-Pekka Koiviston katselmointia varten.

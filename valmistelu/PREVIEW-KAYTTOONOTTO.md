@@ -81,14 +81,14 @@ Ulkoisen kannan suora Prisma-status/diff ja varmuuskopio-/palautuskoe ovat edell
 | Muuttuja | Arvo tai valintaperuste | Tila |
 |---|---|---|
 | `PORTAL_DATABASE_PROVIDER` | `postgresql` | Tallennettu branchille; Vercelissä myös oletus |
-| `POSTGRES_DATABASE_URL` | Uuden Preview-kannan poolattu yhteys, palveluntarjoajan vaatima TLS | Neon-integraatio lisäsi Preview-ympäristöön; branch-rajaus tarkistamatta |
+| `POSTGRES_DATABASE_URL` | Uuden Preview-kannan poolattu yhteys, palveluntarjoajan vaatima TLS | Neon-integraatio lisäsi koko Preview-ympäristöön; ei Production/Development-kohdistusta eikä branch-rajausta |
 | `NEXTAUTH_SECRET` | Vain Preview-ympäristölle generoitu vahva salaisuus | Tallennettu branchille Secret-tyyppisenä |
 | `AUTH_SECRET` | Sama Preview-salaisuus Auth.js:n ympäristötunnistukselle | Tallennettu branchille Secret-tyyppisenä |
 | `AUTH_URL` ja `NEXTAUTH_URL` | Vahvistettu vakaa HTTPS-esikatselun alkuperäosoite | Tallennettu branchille yllä olevaan vahvistettuun aliasosoitteeseen |
 | `AUTH_TRUST_HOST` | `true` vain hallitussa Vercel-ympäristössä | Tallennettu branchille |
-| `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Tallennettu branchille; toimituskoe tekemättä |
-| `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Sending access -avain tallennettu branchille; DNS ja lähetyslupa avoinna |
-| `RESEND_FROM_EMAIL` | Resendissä vahvistettu lähettäjä, esimerkiksi hyväksytyn domainin noreply-osoite | Vahvistettava palvelusta; esimerkki ei osoita lähetysvalmiutta |
+| `NEXT_PUBLIC_APP_URL` | Sama vakaa HTTPS-osoite ilman polkua, kyselyä tai fragmenttia | Tallennettu branchille; aktivointi- ja palautusviestien linkit tarkistettu |
+| `RESEND_API_KEY` | Oikean lähetyspalvelun rajattu palvelinavain | Sending access -avain tallennettu branchille; luvalliset Gmail-kokeet tehty, oman domainin DNS avoinna |
+| `RESEND_FROM_EMAIL` | Resendissä vahvistettu lähettäjä, esimerkiksi hyväksytyn domainin noreply-osoite | `Hietakulma esikatselu <onboarding@resend.dev>` käytössä vain Preview-branchilla; oman domainin lähettäjä odottaa DNS-varmennusta |
 
 Ylläpitoprosessi tarvitsee lisäksi `POSTGRES_DIRECT_URL`-arvon suoraan esikatselukantaan. Sitä ei tarvita sovelluksen runtime-yhteydeksi. Älä käytä paikallisen esikatselun salaisuuksia, SQLite-osoitetta tai `HIETAKULMA_LOCAL_PREVIEW`-, `PREVIEW_MAIL_FILE`- ja muita testimuuttujia Vercelissä. Salaisuuksia ei tallenneta tähän dokumenttiin, Gitiin tai tulosteisiin.
 
