@@ -108,6 +108,8 @@ Yhteydenottolomakkeen nykyinen vastaanottaja on koodissa `talotehdas@hietakulma.
 
 ## Asiantuntijapaketti ja odottavat päätökset
 
+Ollin uusi ohjaus: ennen tarkistuspyyntöjen lähettämistä dokumentit parannetaan yhteisesti Clauden kanssa. Claudelle valmisteltiin ladattava `claude/Hietakulma-dokumentit-Claude.zip` ja työohje `claude/PROMPTI-CLAUDELLE.md`. Paketti sisältää nykyisen Word-koosteen, Markdown-luonnokset 01–07, README:n ja lähdeluettelon; alkuperäiset sisäiset lähdeasiakirjat eivät sisälly siihen. Aineistoa ei ole siirretty Claudeen automaattisesti. Clauden palautus verrataan nykyisiin lähteisiin, yhdistetään ja tarkistetaan ennen asiantuntijatoimitusta. Gmail-luonnokset ja niiden liitteet päivitetään tämän jälkeen; nykyisiä luonnoksia ei lähetetä sellaisinaan.
+
 Word-paketti: `tarkistuspaketti/Hietakulma-tarkistuspaketti-luonnos.docx`, 20 sivua; SHA256 `bac7708dcda6483a7022a428fb040e0d47129cf223046af9c8b1f4e8834c0726`. Tarkistuspyyntöjen tekstit ovat tiedostossa `tarkistuspaketti/07-tarkistuspyynnot.md`. Lähetyslupaa on pyydetty näille sivuston yhteystiedoissa oleville vastaanottajille:
 
 - Ville Pihlaja, `ville.pihlaja@hietakulma.fi`: dokumentit 01–05 ja D2, rakenteet, materiaalit, detaljit ja tuoteasiakirjat.
