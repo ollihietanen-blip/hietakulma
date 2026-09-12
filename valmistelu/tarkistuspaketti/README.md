@@ -4,7 +4,7 @@ LUONNOS 0.1 · 12.9.2026 · Sisäinen tarkistus · Ei asiakasjakeluun
 
 Tähän kansioon kootaan Hietakulman tietopankin dokumenttien ensimmäiset luonnokset ja niiden liitteet. Ville, Jorma ja Tapani saavat valmiiksi kirjoitetun aineiston, johon he voivat merkitä korjaukset ja täydentää puuttuvat tiedot. Vastuunjako on ehdotus, jonka Olli vahvistaa ennen tarkistuspyyntöjen lähettämistä.
 
-Paketti on vielä työn alla. Ensimmäinen osa sisältää lähdeinventaarion, seinärakenteiden luonnoksen sekä materiaalierittelyliitteen. Muut alla luetellut luonnokset laaditaan seuraavaksi. Tässä vaiheessa mitään ei lähetetä eikä lisätä verkkosivujen julkisiin latauksiin.
+Paketti sisältää nyt kaikkien alla lueteltujen nimikkeiden tekstiluonnokset ja tarkistuspyynnöt. Muokattavat Word-versiot ja niiden sivutuksen tarkistus ovat vielä tekemättä. Tässä vaiheessa mitään ei lähetetä eikä lisätä verkkosivujen julkisiin latauksiin.
 
 ## Luonnosten kattavuus
 
@@ -13,15 +13,15 @@ Aiemman tietopankin 11 nimikettä muodostavat tarkistuslistan. Vanhan käyttöli
 | Aiempi nimike | Luonnoksen sijainti tai seuraava työ | Ehdotettu tarkistaja |
 |---|---|---|
 | Seinäelementti 198 mm | `01-seinarakenteet.md`, rakenne R198 ja liitosliite | Ville |
-| Sähkövalmiit elementit | Laaditaan tuote- ja suunnitteluaineiston yhteyteen | Ville, Tapani |
+| Sähkövalmiit elementit | `04-talotekniikka.md` | Ville, Tapani |
 | Seinäelementti 248 mm | `01-seinarakenteet.md`, avoin rakenne R248 | Ville |
-| Ulkoverhouksen rakennedetaljit | Laaditaan erillinen verhous- ja liittymäliite | Ville |
-| Elementtien asennusohje | Laaditaan vastaanoton ja asennuksen valmistelun luonnos; tekniset ohjeet vahvistetaan erikseen | Ville |
-| Sähkö- ja LVI-suunnitteluopas | Laaditaan lähtötieto- ja yhteensovitusohje liitteineen | Ville, Tapani |
-| Kattoristikoiden tuentaohje | Laaditaan nykyisten ohjeiden käyttö- ja toimitusliite | Jorma |
-| Seinäelementtien DoP | Laaditaan soveltuvuuden selvityslomake; ei oleteta, että vanha otsikko osoittaisi DoP:n olemassaolon | Ville, Olli |
-| Kattoristikoiden DoP | Laaditaan versiovertailu ja asiakasjakelun saate | Jorma, Olli |
-| Tuoteluettelo 2026 | Laaditaan tuote-esittely ja toimitussisällön rajaukset | Tapani, Ville, Jorma |
+| Ulkoverhouksen rakennedetaljit | `05-verhoukset-ja-tuotteet.md`, liitteet U1–U2 | Ville |
+| Elementtien asennusohje | `03-asennuksen-valmistelu.md`, liitteet V1–V2; tekninen asennusohje vahvistettava | Ville |
+| Sähkö- ja LVI-suunnitteluopas | `04-talotekniikka.md`, liitteet T1–T2 | Ville, Tapani |
+| Kattoristikoiden tuentaohje | `06-ristikot-ja-tuoteasiakirjat.md`, liitteet N1–N2 | Jorma |
+| Seinäelementtien DoP | `06-ristikot-ja-tuoteasiakirjat.md`, liite D2; asiakirjan soveltuvuus avoin | Ville, Olli |
+| Kattoristikoiden DoP | `06-ristikot-ja-tuoteasiakirjat.md`, liite D1 ja saate | Jorma, Olli |
+| Tuoteluettelo 2026 | `05-verhoukset-ja-tuotteet.md` ja ristikoiden osalta `06-ristikot-ja-tuoteasiakirjat.md` | Tapani, Ville, Jorma |
 | Materiaalierittelypohja | `02-materiaalierittely.md` | Ville, Tapani |
 
 ## Tarkistustapa
@@ -37,3 +37,5 @@ Teknisiä arvoja ei siirretä julkiseen ohjeeseen ennen nimetyn asiantuntijan hy
 Hyväksyttyyn dokumenttiin kirjataan tunnus, versionumero, päiväys, hyväksyjä, soveltamisala ja liitteiden versiot. Vanhat versiot säilytetään hallitusti, mutta tietopankin lataus avaa vain valitun ajantasaisen version. Asiakasjakelun laajuus sekä mahdollinen kirjautumisvaatimus päätetään ennen latausten käyttöönottoa.
 
 Kun asiantuntijapäivitykset on käsitelty ja sivusto on tarkistettavissa, Jussi-Pekka Koivistolta pyydetään visuaalisen ilmeen ja yleisen toimivuuden katselmointi. Hänen katselmointinsa ja tuotantojulkaisu kuuluvat seuraavaan vaiheeseen.
+
+Tarkistuspyyntöjen viestiluonnokset ovat tiedostossa `07-tarkistuspyynnot.md`. Viestejä ei ole lähetetty.

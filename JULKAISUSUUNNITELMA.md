@@ -150,3 +150,10 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - `02-materiaalierittely.md` sisältää esitäytetyt materiaaliryhmät, hankekohtaiset täydennyskentät, toimitusrajaliitteen ja muutosten käsittelyehdotuksen Villelle ja Tapanille.
 - Vuoden 2025 käsikirjan tekstissä oleva DoP on päivätty 14.6.2025, julkisella sivustolla oleva versio 1.7.2013. Jorma/Olli vahvistavat hyväksytyn asiakasversion ja nykyisen sertifikaatin. Sisäistä käsikirjaa ei kopioida Git-repositorioon.
 - Seuraavaksi laaditaan loput tuote-, asennuksen valmistelu-, talotekniikka-, verhous- ja NR-aineistojen luonnokset sekä varsinaiset tarkistuspyynnöt. Word-versiot tuotetaan ja tarkistetaan sisällön valmistuttua.
+
+### Luonnospaketin tekstisisältö täydennetty
+
+- Dokumentit 03–06 sisältävät asennuksen valmistelun ja vastaanoton, sähkövalmiuden ja talotekniikan, tuotevalikoiman ja verhousten sekä NR-toimitusasiakirjojen luonnokset. Mukana yhdeksän nimettyä liitettä V1–V2, T1–T2, U1–U2, N1–N2 ja D1 sekä seinäelementtien asiakirjaselvitys D2.
+- Dokumentti 07 sisältää erilliset tarkistuspyynnöt Villelle, Jormalle ja Tapanille. Niitä ei ole lähetetty.
+- Kaikki 11 aiempaa tietopankkinimikettä on katettu luonnosten kattavuustaulukossa. Tämä ei tarkoita, että hyväksytyt tekniset ohjeet tai tuoteilmoitukset olisivat valmiit.
+- Seuraava työ on Word-versioiden muodostaminen, kaikkien sivujen visuaalinen tarkistus ja paketin lopullinen laaduntarkistus.
