@@ -1,13 +1,11 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
 import FadeIn from '@/components/ui/FadeIn';
 import { contactPersons, billingInfo } from '@/lib/content/contacts';
 
-export const metadata = {
-  title: 'Ota yhteyttä',
-  description: 'Yhteystiedot, henkilöstö ja yhteydenottolomake. Autamme rakennuskohteesi sopivan ratkaisun valinnassa.',
-};
+export const metadata = pageMetadata('/ota-yhteytta', 'Ota yhteyttä', 'Yhteystiedot, henkilöstö ja yhteydenottolomake. Autamme rakennuskohteesi sopivan ratkaisun valinnassa.');
 
 export default function OtaYhteyttaPage() {
   return (
@@ -108,7 +106,7 @@ export default function OtaYhteyttaPage() {
           <h2 className="text-3xl font-bold mb-8 text-center">Löydä perille</h2>
           <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1872.5!2d24.0601!3d61.8044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468493a0c0e1a34f%3A0x7e6f1a3b2c4d5e6f!2sKoskenojankatu%2011%2C%2038700%20Kankaanp%C3%A4%C3%A4!5e0!3m2!1sfi!2sfi!4v1700000000000"
+              src="https://maps.google.com/maps?q=Koskenojankatu%2011%2C%2038700%20Kankaanp%C3%A4%C3%A4&output=embed"
               width="100%"
               height="450"
               style={{ border: 0 }}

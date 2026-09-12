@@ -2,6 +2,8 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
+import { allowAttempt } from '@/lib/rate-limit';
+import { normalizeEmail, isValidEmail } from '@/lib/portal-registration';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -16,8 +18,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
 
-        const email = credentials.email as string;
-        const password = credentials.password as string;
+        const email = normalizeEmail(credentials.email);
+        const password = credentials.password;
+        if (!isValidEmail(email) || typeof password !== 'string' ||
+            Buffer.byteLength(password, 'utf8') > 72) return null;
+
+        if (!await allowAttempt('login', email, 10)) return null;
 
         const user = await prisma.user.findUnique({
           where: { email },
@@ -44,6 +50,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return {
           id: user.id,
           email: user.email,
+          sessionVersion: user.sessionVersion,
         };
       },
     }),
@@ -59,7 +66,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user) {
         token.id = user.id;
         token.email = user.email;
+        token.sessionVersion = user.sessionVersion;
       }
+      if (typeof token.id !== 'string' || !token.id) return null;
+      const current = await prisma.user.findUnique({ where: { id: token.id }, select: { sessionVersion: true } });
+      if (!current || current.sessionVersion !== token.sessionVersion) return null;
       return token;
     },
     async session({ session, token }) {

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
@@ -10,10 +11,7 @@ import KeyMetrics from '@/components/sections/KeyMetrics';
 import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
-export const metadata = {
-  title: 'Puuelementit — Tehdasvalmisteiset seinäelementit',
-  description: 'Valmiiksi eristetyt ja pintakäsitellyt seinäelementit U-arvolla 0,17–0,21. Vaakapanelointi, pystypanelointi ja rappausalustat.',
-};
+export const metadata = pageMetadata('/puuelementit', 'Puuelementit — Tehdasvalmisteiset seinäelementit', 'Valmiiksi eristetyt ja pintakäsitellyt seinäelementit U-arvolla 0,17–0,21. Vaakapanelointi, pystypanelointi ja rappausalustat.');
 
 type ImageCardOption = {
   name: string;

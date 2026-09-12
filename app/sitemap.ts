@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/kattoristikot',
     '/kohteet',
     '/tarina',
-    '/tietopankki',
     '/ota-yhteytta',
     '/tietosuoja',
   ];
@@ -20,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...kohdeRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: route === '' ? 1 : route.startsWith('/kohteet/') ? 0.7 : 0.8,
   }));

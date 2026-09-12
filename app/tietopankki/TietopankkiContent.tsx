@@ -3,81 +3,8 @@
 import { useState, useMemo } from 'react';
 import Section from '@/components/sections/Section';
 
-interface Document {
-  title: string;
-  url: string;
-  category: string;
-  type?: 'pdf' | 'dwg';
-}
-
-const documents: Document[] = [
-  {
-    title: 'Seinäelementti 198 mm — rakennedetalji',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'rakennetyypit',
-    type: 'pdf',
-  },
-  {
-    title: 'Sähkövalmiit elementit — tuote-esittely',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'rakennetyypit',
-    type: 'pdf',
-  },
-  {
-    title: 'Seinäelementti 248 mm — rakennedetalji',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'rakennetyypit',
-    type: 'pdf',
-  },
-  {
-    title: 'Ulkoverhouksen rakennedetaljit',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'rakennetyypit',
-    type: 'pdf',
-  },
-  {
-    title: 'Elementtien asennusohje',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'ohjeet',
-    type: 'pdf',
-  },
-  {
-    title: 'Sähkö- ja LVI-suunnitteluopas',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'ohjeet',
-    type: 'pdf',
-  },
-  {
-    title: 'Kattoristikoiden tuentaohje',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'ohjeet',
-    type: 'pdf',
-  },
-  {
-    title: 'Suoritustasoilmoitus (DoP) — Seinäelementit',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'tuotedokumentit',
-    type: 'pdf',
-  },
-  {
-    title: 'Suoritustasoilmoitus (DoP) — Kattoristikot',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'tuotedokumentit',
-    type: 'pdf',
-  },
-  {
-    title: 'Hietakulma Tuoteluettelo 2026',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'tuotedokumentit',
-    type: 'pdf',
-  },
-  {
-    title: 'Materiaalierittelypohja',
-    url: 'https://pentagon-dolphin-ztr3.squarespace.com/s/hietakulma-graafiset-elementit_V1.pdf',
-    category: 'tuotedokumentit',
-    type: 'pdf',
-  },
-];
+import { documents } from '@/lib/content/documents';
+import { companyInfo } from '@/lib/content/contacts';
 
 const categories = {
   rakennetyypit: 'Rakennetyypit ja detaljit',
@@ -96,7 +23,7 @@ export default function TietopankkiContent() {
   const filteredDocuments = useMemo(() => {
     let filtered = documents.filter((doc) => {
       // Search filter
-      const matchesSearch = doc.title.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesSearch = doc.title.toLowerCase().includes(searchQuery.trim().toLowerCase());
       // Category filter
       const matchesCategory = selectedCategories.includes(doc.category);
       return matchesSearch && matchesCategory;
@@ -153,11 +80,34 @@ export default function TietopankkiContent() {
     );
   };
 
+  if (documents.length === 0) {
+    return (
+      <Section background="white">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Tarvitsetko ohjeita tai rakennedetaljeja?
+          </h2>
+          <p className="text-base md:text-lg text-gray-700 mb-4">
+            Tietopankissa ei vielä ole ladattavia dokumentteja. Pyydä tarvitsemasi
+            aineisto meiltä ja kerro, mitä tuotetta tai rakennushanketta pyyntö koskee.
+          </p>
+          <a
+            href={`mailto:${companyInfo.email}?subject=${encodeURIComponent('Tietopankin aineistopyyntö')}`}
+            className="inline-flex items-center justify-center bg-blue text-white font-semibold px-6 py-3 mt-4 hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue"
+          >
+            Pyydä aineistoa sähköpostitse
+          </a>
+          <p className="mt-4 text-gray-600 break-words">{companyInfo.email}</p>
+        </div>
+      </Section>
+    );
+  }
+
   return (
     <Section background="white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="mb-4 text-center text-base text-gray-700 md:text-lg">
-          Hietakulman tietopankki kokoaa yhteen suunnittelun tueksi tarvittavat materiaalit: detaljipiirrustukset,
+          Hietakulman tietopankki kokoaa yhteen suunnittelun tueksi tarvittavat materiaalit: detaljipiirustukset,
           rakennetyypit, asennus- ja suunnitteluohjeet sekä valmiit tuotedokumentit.
         </p>
         <p className="mb-12 text-center text-base text-gray-700 md:text-lg">
@@ -171,6 +121,7 @@ export default function TietopankkiContent() {
           <div className="relative">
             <input
               type="text"
+              aria-label="Hae dokumentteja"
               placeholder="Hae dokumentteja..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -193,8 +144,9 @@ export default function TietopankkiContent() {
               {Object.entries(categories).map(([key, label]) => (
                 <button
                   key={key}
+                  aria-pressed={selectedCategories.includes(key)}
                   onClick={() => toggleCategory(key)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors text-left ${
                     selectedCategories.includes(key)
                       ? 'bg-blue text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -209,6 +161,7 @@ export default function TietopankkiContent() {
             <div className="flex items-center gap-2">
               <select
                 id="sort"
+                aria-label="Järjestä dokumentit"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
                 className="px-4 py-2 pr-10 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue focus:border-blue transition-all bg-white text-gray-900 cursor-pointer min-w-[200px]"
@@ -245,9 +198,9 @@ export default function TietopankkiContent() {
         {/* Documents List */}
         {filteredDocuments.length > 0 ? (
           <div className="grid gap-4">
-            {filteredDocuments.map((doc, index) => (
+            {filteredDocuments.map((doc) => (
               <a
-                key={index}
+                key={doc.url}
                 href={doc.url}
                 target="_blank"
                 rel="noopener noreferrer"

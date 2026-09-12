@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
@@ -6,10 +7,7 @@ import FadeIn from '@/components/ui/FadeIn';
 import KeyMetrics from '@/components/sections/KeyMetrics';
 import { keyMetricsByPage } from '@/lib/content/key-metrics';
 
-export const metadata = {
-  title: 'CE-merkityt kattoristikot',
-  description: 'CE-merkityt kattoristikot vakioratkaisuina tai mittatilaustyönä. Harjaristikot, saksiristikot, kehäristikot ja muut ratkaisut.',
-};
+export const metadata = pageMetadata('/kattoristikot', 'CE-merkityt kattoristikot', 'CE-merkityt kattoristikot vakioratkaisuina tai mittatilaustyönä. Harjaristikot, saksiristikot, kehäristikot ja muut ratkaisut.');
 
 export default function KattoristikotPage() {
   const trussTypes = [

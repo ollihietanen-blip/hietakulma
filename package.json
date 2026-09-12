@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "next lint",
     "clone": "node clone.js",
-    "serve": "npx http-server cloned-website -p 8080 -o"
+    "serve": "npx http-server cloned-website -p 8080 -o",
+    "test": "node --test tests/*.test.cjs",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^6.19.1",

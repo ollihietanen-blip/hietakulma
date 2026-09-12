@@ -54,7 +54,7 @@ export default function Footer() {
 
             <div className="flex justify-center gap-4 mb-8">
               <a
-                href="#"
+                href="https://www.facebook.com/hietakulma/"
                 className="w-10 h-10 border-2 border-white/60 rounded flex items-center justify-center text-white hover:bg-white/10 hover:border-white transition-colors"
                 aria-label="Facebook"
               >
@@ -63,7 +63,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/hietakulma/"
                 className="w-10 h-10 border-2 border-white/60 rounded flex items-center justify-center text-white hover:bg-white/10 hover:border-white transition-colors"
                 aria-label="Instagram"
               >

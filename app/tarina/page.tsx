@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Image from 'next/image';
@@ -8,10 +9,7 @@ import KeyMetrics from '@/components/sections/KeyMetrics';
 import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
-export const metadata = {
-  title: 'Hietakulman tarina — Yli 30 vuotta puurakentamista',
-  description: 'Kankaanpääläinen elementtitalovalmistaja, joka toimittaa kokonaisvaltaisen palvelun suunnittelusta valmiiksi elementeiksi. Tutustu tarinaamme.',
-};
+export const metadata = pageMetadata('/tarina', 'Hietakulman tarina — Yli 30 vuotta puurakentamista', 'Kankaanpääläinen elementtitalovalmistaja, joka toimittaa kokonaisvaltaisen palvelun suunnittelusta valmiiksi elementeiksi. Tutustu tarinaamme.');
 
 export default function TarinaPage() {
   return (

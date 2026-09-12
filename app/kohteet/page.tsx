@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import ProjectPortfolio from '@/components/sections/ProjectPortfolio';
@@ -7,10 +8,7 @@ import KeyMetrics from '@/components/sections/KeyMetrics';
 import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { kohteet } from '@/lib/content/kohteet';
 
-export const metadata = {
-  title: 'Referenssit ja toteutetut kohteet',
-  description: 'Tutustu Hietakulman toteuttamiin pientaloihin, paritaloihin, rivitaloihin, loma-asuntoihin ja toimitiloihin eri puolilla Suomea.',
-};
+export const metadata = pageMetadata('/kohteet', 'Referenssit ja toteutetut kohteet', 'Tutustu Hietakulman toteuttamiin pientaloihin, paritaloihin, rivitaloihin, loma-asuntoihin ja toimitiloihin eri puolilla Suomea.');
 
 const customerSegments = [
   {

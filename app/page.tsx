@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import ReferenceGrid from '@/components/sections/ReferenceGrid';
@@ -6,10 +7,7 @@ import ProductCircles from '@/components/sections/ProductCircles';
 import FadeIn from '@/components/ui/FadeIn';
 import { homepageContent } from '@/lib/content/homepage';
 
-export const metadata = {
-  title: 'Hietakulma Oy — Puutalot, puuelementit ja kattoristikot Kankaanpäästä',
-  description: 'Suunnittelemme ja valmistamme tehdasvalmisteisia puutaloja, puuelementtejä ja CE-merkittyjä kattoristikoita yli 30 vuoden kokemuksella. Pyydä tarjous!',
-};
+export const metadata = pageMetadata('/', 'Hietakulma Oy — Puutalot, puuelementit ja kattoristikot Kankaanpäästä', 'Suunnittelemme ja valmistamme tehdasvalmisteisia puutaloja, puuelementtejä ja CE-merkittyjä kattoristikoita yli 30 vuoden kokemuksella. Pyydä tarjous!');
 
 export default function Home() {
   return (

@@ -31,7 +31,7 @@ export function hashActivationToken(token: string) {
 }
 
 export function isStrongEnoughPassword(password: string) {
-  return password.length >= 12;
+  return password.length >= 12 && Buffer.byteLength(password, 'utf8') <= 72;
 }
 
 export function escapeHtml(value: string) {
@@ -41,4 +41,23 @@ export function escapeHtml(value: string) {
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
     .replaceAll("'", '&#039;');
+}
+
+export function isValidEmail(email: string) {
+  return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+export function portalBaseUrl() {
+  const configured = process.env.NEXT_PUBLIC_APP_URL;
+  if (!configured && process.env.NODE_ENV === 'production') {
+    throw new Error('Portal application URL is missing.');
+  }
+  const url = new URL(configured || 'http://localhost:3000');
+  if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password ||
+      url.pathname !== '/' || url.search || url.hash ||
+      (process.env.NODE_ENV === 'production' &&
+        (url.protocol !== 'https:' || ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)))) {
+    throw new Error('Portal application URL is invalid.');
+  }
+  return url.origin;
 }

@@ -1,3 +1,4 @@
+import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
 import Button from '@/components/ui/Button';
@@ -7,10 +8,7 @@ import KeyMetrics from '@/components/sections/KeyMetrics';
 import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import { homepageContent } from '@/lib/content/homepage';
 
-export const metadata = {
-  title: 'Puutalot elementeistä',
-  description: 'Toteutamme omakoti-, pari- ja rivitaloja puuelementeistä. Kokonaistoimituspaketti suunnittelusta valmiiksi pintakäsiteltyihin elementteihin.',
-};
+export const metadata = pageMetadata('/puutalot', 'Puutalot elementeistä', 'Toteutamme omakoti-, pari- ja rivitaloja puuelementeistä. Kokonaistoimituspaketti suunnittelusta valmiiksi pintakäsiteltyihin elementteihin.');
 
 export default function PuutalotPage() {
   return (
@@ -19,7 +17,7 @@ export default function PuutalotPage() {
         title="Puutalot kokemuksella"
         subtitle="Toimitamme puuelementit rivi-, pari- ja omakotitaloista aina useamman kohteen alueiksi saakka. Monipuolisista runko- ja verhousvaihtoehdoista syntyy juuri toiveidesi mukainen toimiva ja tyylikäs kokonaisuus."
         backgroundImage="/images/kohteet/kirjavaisenkatu-40/huunala-06-pihakokonaisuus.webp"
-        altText="Tokeenkatu 8:n ja 9:n valmis puutalokokonaisuus Nokialla"
+        altText="Kirjavaisenkatu 40:n Huunalan puutalokokonaisuus Tampereella"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />

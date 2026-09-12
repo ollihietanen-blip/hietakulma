@@ -40,7 +40,7 @@ function LoginForm() {
       });
 
       if (result?.error) {
-        setError('Väärä sähköposti tai salasana');
+        setError('Kirjautuminen epäonnistui. Tarkista tunnukset. Jos olet yrittänyt monta kertaa, odota 15 minuuttia.');
         setLoading(false);
         return;
       }
@@ -48,9 +48,12 @@ function LoginForm() {
       if (result?.ok) {
         router.push('/tietopankki');
         router.refresh();
+      } else {
+        setError('Kirjautuminen epäonnistui. Yritä uudelleen.');
       }
     } catch (err) {
       setError('Jotain meni pieleen. Yritä uudelleen.');
+    } finally {
       setLoading(false);
     }
   };
@@ -130,6 +133,7 @@ function LoginForm() {
               {loading ? 'Kirjaudutaan...' : 'Kirjaudu sisään'}
             </Button>
           </div>
+          <Link href="/forgot-password" className="block text-center text-sm text-blue underline">Unohtuiko salasana?</Link>
         </form>
       </div>
     </div>

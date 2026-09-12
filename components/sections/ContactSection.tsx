@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from '@/components/ui/Button';
 import { companyInfo } from '@/lib/content/contacts';
 
@@ -14,12 +14,23 @@ export default function ContactSection() {
     message: '',
   });
 
+  const sending = useRef(false);
+  const errorRef = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    if (error) {
+      errorRef.current?.focus({ preventScroll: true });
+      errorRef.current?.scrollIntoView({ block: 'center' });
+    }
+  }, [error]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending.current) return;
+    sending.current = true;
     setLoading(true);
     setError('');
 
@@ -30,17 +41,19 @@ export default function ContactSection() {
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => null);
 
-      if (!res.ok) {
-        throw new Error(data.error || 'Viestin lähetys epäonnistui.');
+      if (!res.ok || data?.success !== true) {
+        setError(typeof data?.error === 'string' ? data.error : 'Viestin lähetys epäonnistui. Yritä uudelleen.');
+        return;
       }
 
       setSubmitted(true);
       setFormData({ firstName: '', lastName: '', email: '', phone: '', company: '', message: '' });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Viestin lähetys epäonnistui. Yritä uudelleen.');
+    } catch {
+      setError('Lähetystä ei voitu vahvistaa. Tarkista verkkoyhteys ja yritä uudelleen.');
     } finally {
+      sending.current = false;
       setLoading(false);
     }
   };
@@ -82,14 +95,17 @@ export default function ContactSection() {
           </div>
           <div className="max-w-lg mx-auto md:mx-0">
             {submitted ? (
-              <div className="bg-green-500/20 border border-green-500 text-green-200 p-4 rounded text-sm sm:text-base" style={{ borderRadius: '8px' }}>
+              <div role="status" className="bg-green-500/20 border border-green-500 text-green-200 p-4 rounded text-sm sm:text-base" style={{ borderRadius: '8px' }}>
                 <p>Kiitos yhteydenotostasi! Palaamme asiaan 1–2 arkipäivän kuluessa.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form aria-busy={loading} onSubmit={handleSubmit} className="space-y-4">
                 {error && (
-                  <div className="bg-red-500/20 border border-red-500 text-red-200 p-4 rounded text-sm sm:text-base" style={{ borderRadius: '8px' }}>
+                  <div ref={errorRef} tabIndex={-1} role="alert" className="bg-red-500/20 border border-red-500 text-red-200 p-4 rounded text-sm sm:text-base" style={{ borderRadius: '8px' }}>
                     <p>{error}</p>
+                    <p className="mt-2">Tietosi ovat tallessa tässä lomakkeessa. Voit myös lähettää viestin osoitteeseen{' '}
+                      <a className="underline" href={`mailto:${companyInfo.email}`}>{companyInfo.email}</a>.
+                    </p>
                   </div>
                 )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -101,6 +117,8 @@ export default function ContactSection() {
                       type="text"
                       id="firstName"
                       name="firstName"
+                      maxLength={100}
+                      disabled={loading}
                       required
                       value={formData.firstName}
                       onChange={handleChange}
@@ -117,6 +135,8 @@ export default function ContactSection() {
                       type="text"
                       id="lastName"
                       name="lastName"
+                      maxLength={100}
+                      disabled={loading}
                       required
                       value={formData.lastName}
                       onChange={handleChange}
@@ -134,6 +154,8 @@ export default function ContactSection() {
                     type="email"
                     id="email"
                     name="email"
+                    maxLength={254}
+                    disabled={loading}
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -150,6 +172,8 @@ export default function ContactSection() {
                     type="tel"
                     id="phone"
                     name="phone"
+                    maxLength={40}
+                    disabled={loading}
                     required
                     value={formData.phone}
                     onChange={handleChange}
@@ -166,6 +190,8 @@ export default function ContactSection() {
                     type="text"
                     id="company"
                     name="company"
+                    maxLength={200}
+                    disabled={loading}
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
@@ -180,6 +206,8 @@ export default function ContactSection() {
                   <textarea
                     id="message"
                     name="message"
+                    maxLength={10000}
+                    disabled={loading}
                     required
                     value={formData.message}
                     onChange={handleChange}

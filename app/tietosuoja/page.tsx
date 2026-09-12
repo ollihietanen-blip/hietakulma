@@ -1,10 +1,7 @@
+import { pageMetadata } from '@/lib/metadata';
 import Section from '@/components/sections/Section';
 
-export const metadata = {
-  title: 'Tietosuojaseloste',
-  description:
-    'Hietakulma Oy:n tietosuojaseloste. Tietoa henkilötietojen käsittelystä, rekisteröidyn oikeuksista ja evästekäytännöstä.',
-};
+export const metadata = pageMetadata('/tietosuoja', 'Tietosuojaseloste', 'Hietakulma Oy:n tietosuojaseloste. Tietoa henkilötietojen käsittelystä, rekisteröidyn oikeuksista ja evästekäytännöstä.');
 
 export default function TietosuojaPage() {
   return (

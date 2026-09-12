@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ContactSection from "@/components/sections/ContactSection";
+import { companyInfo } from "@/lib/content/contacts";
+import { siteUrl, defaultShareImage } from "@/lib/metadata";
 import { Providers } from "./providers";
 
 const workSans = Work_Sans({
@@ -14,6 +16,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Hietakulma Oy - Puutalot, puuelementit ja kattoristikot",
     template: "%s | Hietakulma Oy",
@@ -22,6 +25,7 @@ export const metadata: Metadata = {
   keywords: ["puutalot", "puuelementit", "kattoristikot", "puurakentaminen", "Kankaanpää"],
   authors: [{ name: "Hietakulma Oy" }],
   openGraph: {
+    images: [{ url: defaultShareImage, alt: "Hietakulman tehdas Kankaanpäässä" }],
     type: "website",
     locale: "fi_FI",
     url: "https://hietakulma.fi",
@@ -30,6 +34,7 @@ export const metadata: Metadata = {
     description: "Hietakulman arjenkestävät puutalot, -elementit ja -ristikot suunnitellaan ja rakennetaan Kankaanpäässä yli 30 vuoden kokemuksella.",
   },
   twitter: {
+    images: [defaultShareImage],
     card: "summary_large_image",
     title: "Hietakulma Oy - Puutalot, puuelementit ja kattoristikot",
     description: "Hietakulman arjenkestävät puutalot, -elementit ja -ristikot suunnitellaan ja rakennetaan Kankaanpäässä yli 30 vuoden kokemuksella.",
@@ -53,33 +58,21 @@ export default function RootLayout({
               "name": "Hietakulma Oy",
               "description": "Puutalot, puuelementit ja kattoristikot — suunnittelusta valmiiksi elementeiksi yli 30 vuoden kokemuksella.",
               "url": "https://hietakulma.fi",
-              "telephone": "+358 20 741 8870",
-              "email": "talotehdas@hietakulma.fi",
+              "telephone": companyInfo.phone,
+              "email": companyInfo.email,
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Koskenojankatu 11",
-                "addressLocality": "Kankaanpää",
-                "postalCode": "38700",
+                "streetAddress": companyInfo.address,
+                "addressLocality": companyInfo.city,
+                "postalCode": companyInfo.postalCode,
                 "addressCountry": "FI"
               },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 61.8044,
-                "longitude": 24.0601
-              },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "07:00",
-                "closes": "16:00"
-              },
-              "foundingDate": "1993",
               "numberOfEmployees": {
                 "@type": "QuantitativeValue",
                 "minValue": 15,
                 "maxValue": 20
               },
-              "sameAs": []
+              "sameAs": ["https://www.facebook.com/hietakulma/", "https://www.instagram.com/hietakulma/"]
             })
           }}
         />

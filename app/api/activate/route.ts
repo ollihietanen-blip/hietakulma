@@ -31,13 +31,16 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== 'object' || Array.isArray(body)) {
+      return NextResponse.json({ error: 'Aktivoinnin tiedot ovat virheelliset.' }, { status: 400 });
+    }
     const token = activationToken(request, body.token);
     const password = typeof body.password === 'string' ? body.password : '';
 
     if (!isStrongEnoughPassword(password)) {
       return NextResponse.json(
-        { error: 'Salasanan tulee olla vähintään 12 merkkiä.' },
+        { error: 'Salasanan tulee olla vähintään 12 merkkiä ja enintään 72 tavua (erikoismerkit voivat käyttää useita tavuja).' },
         { status: 400 },
       );
     }
@@ -53,7 +56,13 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(password, 12);
     const activatedAt = new Date();
 
-    await prisma.$transaction(async (transaction) => {
+    const activated = await prisma.$transaction(async (transaction) => {
+      // Claim the still-valid token inside the same transaction that creates the user.
+      const claimed = await transaction.registrationRequest.updateMany({
+        where: { id: registration.id, usedAt: null, expiresAt: { gt: new Date() } },
+        data: { usedAt: activatedAt },
+      });
+      if (claimed.count !== 1) return false;
       await transaction.user.create({
         data: {
           email: registration.email,
@@ -73,15 +82,15 @@ export async function POST(request: NextRequest) {
         },
       });
 
-      await transaction.registrationRequest.update({
-        where: { id: registration.id },
-        data: { usedAt: activatedAt },
-      });
+      return true;
     });
 
+    if (!activated) {
+      return NextResponse.json({ error: 'Aktivointilinkki on vanhentunut tai jo käytetty.' }, { status: 410 });
+    }
     return NextResponse.json({ success: true, email: registration.email });
-  } catch (error) {
-    console.error('Activation error:', error);
+  } catch {
+    console.error('Account activation failed.');
     return NextResponse.json({ error: 'Tunnuksen aktivointi epäonnistui.' }, { status: 500 });
   }
 }

@@ -104,3 +104,27 @@ Sisältö on määritelty:
 ## Lisenssi
 
 Copyright © Hietakulma Oy
+
+
+## Tietopankin paikallinen kehitys ja testaus
+
+Kopioi `.env.example` tiedostoksi `.env.local` ja aseta paikalliset salaisuudet ennen kehityspalvelimen käynnistystä. Prisma-komennot lukevat myös `.env.local`-tiedoston. Olemassa olevat prosessin ympäristömuuttujat ovat ensisijaisia.
+
+```bash
+npm run db:generate
+npm run db:migrate
+npm run dev
+```
+
+`db:migrate` kohdistuu määritettyyn `DATABASE_URL`-tietokantaan. Varmista kohde ennen komentoa. Uusin migraatio lisää salasanan palautukset, istuntojen version ja yritysrajoituksen; vanhaa tietokantaa ei voi käyttää uuden koodin kanssa ilman migraatiota.
+
+```bash
+npm test
+npm run build
+```
+
+Palvelin-/integraatiotestit käyttävät tilapäistä SQLite-tietokantaa ja simuloitua sähköpostipalvelua. Ne eivät lähetä sähköposteja tai kirjoita projektin käyttäjätietokantaan. Integraatiotestien tietokannan alustaminen edellyttää Python 3:a.
+
+Salasanan palautus avautuu kirjautumissivun **Unohtuiko salasana?** -linkistä. Palautuslinkki on voimassa 30 minuuttia, toimii kerran ja mitätöi vanhat kirjautumisistunnot. Sähköpostiin perustuvat yritysrajat ovat kirjautumiselle 10 ja rekisteröitymis-/palautuspyynnöille 5 yritystä 15 minuutin kiinteässä aikaikkunassa. Tietokantarajoitus ei korvaa tuotantopalvelun mahdollista verkko- tai IP-kohtaista kuormitusrajoitusta.
+
+Tuotannossa `NEXT_PUBLIC_APP_URL` tulee asettaa oikeaan HTTPS-osoitteeseen ilman polkua. Tuotannon pysyvä tietokanta ja Vercel-asetukset on varmistettava erikseen ennen julkaisua; paikallinen SQLite-tiedosto ei todista niiden toimivuutta.
