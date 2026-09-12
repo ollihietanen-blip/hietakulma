@@ -6,14 +6,20 @@ const os = require('node:os');
 const vm = require('node:vm');
 const { execFileSync } = require('node:child_process');
 const ts = require('typescript');
-const { PrismaClient } = require('@prisma/client');
+const postgresUrl = process.env.HIETAKULMA_TEST_POSTGRES_URL;
+if (postgresUrl) {
+  const url = new URL(postgresUrl);
+  assert.equal(url.hostname, '127.0.0.1');
+  assert.equal(url.pathname, '/hietakulma_test_portal');
+}
+const { PrismaClient } = require(postgresUrl ? '../lib/generated/prisma-postgres' : '@prisma/client');
 const { NextRequest } = require('next/server');
 const bcrypt = require('bcryptjs');
 const root = path.resolve(__dirname, '..');
 const valid = { email: 'maija@example.com', firstName: 'Maija', lastName: 'Meikäläinen', company: 'Testi Oy', roleCategory: 'DESIGNER', useCase: 'Rakennedetaljien tarkastelu', privacyAccepted: true };
 const password = 'Testisalasanani-123';
 
-// Real Prisma/SQLite and password hashing; only external delivery is replaced.
+// Real Prisma/database and password hashing; only external delivery is replaced.
 function load(file, prisma, env, transport, cache = new Map()) {
   if (cache.has(file)) return cache.get(file);
   const exports = {};
@@ -38,11 +44,11 @@ function request(body) {
 test('portal registration and activation integration', async t => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hietakulma-portal-'));
   const database = path.join(dir, 'test.db');
-  execFileSync('python3', ['-c', `import sqlite3,pathlib,sys
+  if (!postgresUrl) execFileSync('python3', ['-c', `import sqlite3,pathlib,sys
 c=sqlite3.connect(sys.argv[1])
 for p in sorted(pathlib.Path(sys.argv[2]).glob('*/migration.sql')): c.executescript(p.read_text())
 c.close()`, database, path.join(root, 'prisma/migrations')]);
-  const prisma = new PrismaClient({ datasourceUrl: `file:${database}` });
+  const prisma = new PrismaClient({ datasourceUrl: postgresUrl || `file:${database}` });
   const sent = [];
   let outcome = 'success';
   const transport = async message => {

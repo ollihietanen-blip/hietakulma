@@ -1,6 +1,6 @@
 # Ulkoisen esikatselun PostgreSQL-valmistelu
 
-12.9.2026. Tila: schema ja alkumigraatio valmisteltu; palvelua ei perustettu eikä sovelluksen tietokantayhteyttä vaihdettu. Tämä ei vielä osoita PostgreSQL-portaalin toimivuutta.
+12.9.2026. Tila: schema ja alkumigraatio valmisteltu ja portaalin palvelinpolut testattu paikallisella PostgreSQL:llä; ulkoista palvelua ei perustettu eikä sovelluksen tietokantayhteyttä vaihdettu. Ulkoinen esikatselu on edelleen kesken.
 
 ## Ratkaisu ja käyttöönoton rajaus
 
@@ -25,7 +25,15 @@ node scripts/postgres-schema.cjs --check
 npx prisma validate --config prisma.postgresql.config.ts
 ```
 
-Validointi tarvitsee `POSTGRES_DATABASE_URL`-muuttujan, mutta ei yhteyttä palvelimeen. Tarkistuksessa käytettiin tarkoituksella paikallista tekaistua yhteysosoitetta. SQL muodostettiin `migrate diff --from-empty --to-schema-datamodel prisma/postgresql/schema.prisma --script` -komennolla. Sitä ei vielä ajettu palvelimelle.
+Validointi tarvitsee `POSTGRES_DATABASE_URL`-muuttujan, mutta ei yhteyttä palvelimeen. SQL muodostettiin `migrate diff --from-empty --to-schema-datamodel prisma/postgresql/schema.prisma --script` -komennolla.
+
+### Oikealla PostgreSQL:llä toistettava koe
+
+`npm run test:postgres` luo oman tilapäisen PostgreSQL-klusterin, käynnistää sen loopback-osoitteeseen vapaaseen porttiin ja poistaa testiklusterin pysäytyksen jälkeen. Tarvitaan PostgreSQL 17 -työkalut: oletus `/opt/homebrew/opt/postgresql@17/bin`, vaihtoehtoinen hakemisto `PG_BIN`-muuttujalla. Homebrew-asennus on tehty tällä koneella, mutta sen oletusklusteria tai automaattisesti käynnistyvää palvelua ei käytetä.
+
+Koe generoi erillisen clientin, ajaa migraation kahdesti (toinen ajo ei muuta mitään), tarkistaa rakenteen Prisma-diffillä ja suorittaa samat 21 portaalin integraatiotestin tulosta kuin SQLite-koe. Lisäksi se ottaa custom-muotoisen `pg_dump`-kopion vain omistajan luettavaan tiedostoon ja palauttaa sen erilliseen tyhjään kantaan. Kaikkien neljän mallin kaikki kentät verrataan alkuperäiseen, ja palautetun viiteavaimen cascade-poisto testataan. Testitiedot ja kopio poistuvat ajon lopuksi. Oikeita sähköposteja ei lähetetä.
+
+Tämä todentaa paikallisen migraation, palvelinpolut ja palautettavuuden. Se ei vielä testaa Vercelin poolattua yhteyttä, käyttöliittymää PostgreSQL:llä, ulkoista sähköpostitoimitusta eikä operatiivisen varmuuskopioinnin ajastusta tai säilytystä.
 
 ## Seuraava toteutus ja hyväksymisnäyttö
 

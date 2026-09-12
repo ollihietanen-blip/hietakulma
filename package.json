@@ -16,6 +16,7 @@
     "clone": "node clone.js",
     "serve": "npx http-server cloned-website -p 8080 -o",
     "test": "node --test tests/*.test.cjs",
+    "test:postgres": "node scripts/test-postgres.cjs",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy"
   },
