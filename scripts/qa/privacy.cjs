@@ -1,0 +1,22 @@
+const { chromium, base, mailFile, output, verifyPreview } = require('./context.cjs');
+const assert=require('node:assert/strict');
+(async()=>{await verifyPreview(); const browser=await chromium.launch({channel:'chrome',headless:true});
+for(const width of [390,1440]){
+ const context=await browser.newContext({viewport:{width,height:900}});let google=0;
+ await context.route('https://maps.google.com/**',route=>{google++;return route.fulfill({status:200,contentType:'text/html',body:'<html><body>Google map test response</body></html>'});});
+ const page=await context.newPage();await page.goto(base + '/ota-yhteytta');
+ const load=page.getByRole('button',{name:'Lataa Google-kartta',exact:true});await load.scrollIntoViewIfNeeded();
+ assert.equal(await page.locator('iframe').count(),0);assert.equal(google,0);
+ await load.focus();await page.keyboard.press('Enter');await page.waitForSelector('iframe');
+ await page.waitForFunction(()=>document.querySelector('iframe')?.contentWindow!==null);assert.equal(google,1);
+ assert.match(await page.locator('iframe').getAttribute('src'),/Koskenojankatu/);
+ await page.getByRole('button',{name:'Sulje Google-kartta'}).click();assert.equal(await page.locator('iframe').count(),0);
+ await page.screenshot({path:output(`hietakulma-map-choice-${width}.png`)});
+ await page.reload();await page.getByRole('button',{name:'Lataa Google-kartta'}).waitFor();assert.equal(await page.locator('iframe').count(),0);assert.equal(google,1);
+ await page.goto(base + '/tietosuoja');await page.getByRole('heading',{level:1,name:'Tietosuojaseloste'}).waitFor();
+ assert.ok((await page.textContent('main')).includes('30 päivää'));assert.ok((await page.textContent('main')).includes('Luonnos esikatselua varten'));
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await page.screenshot({path:output(`hietakulma-privacy-${width}.png`)});
+ await page.goto(base + '/signup');assert.equal(await page.getByLabel(/Olen tutustunut tietopankin/).count(),1);
+ console.log(`PASS ${width}: map opt-in, keyboard, close, no persisted consent; privacy and signup`);await context.close();
+}await browser.close();})().catch(e=>{console.error(e);process.exit(1)});

@@ -108,6 +108,8 @@ Copyright © Hietakulma Oy
 
 ## Tietopankin paikallinen kehitys ja testaus
 
+Koko sivuston eristetty esikatselu: `npm run preview`. Katso [esikatselun ja selaintestien ohje](valmistelu/ESIKATSELU.md). Komento käyttää erillistä testitietokantaa ja ottaa sähköpostit talteen paikallisesti lähettämättä niitä.
+
 Käyttäjätietojen vienti, markkinointivalinnan peruutus, istuntojen mitätöinti, tilin poisto ja SQLite-varmuuskopiointi: [ylläpitokomentojen ohje](valmistelu/YLLAPITOKOMENNOT.md).
 
 Riippuvuuspäivitys on tarkistettu Node 24.19.0:lla. Käytä Node 24:ää; kehitystyökaluna oleva Firecrawl edellyttää vähintään Node 22:ta. Asenna lukitut riippuvuudet komennolla `npm ci`.

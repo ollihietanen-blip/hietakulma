@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  distDir: process.env.HIETAKULMA_LOCAL_PREVIEW === '1' ? '.local-preview/build' : '.next',
+  async headers() {
+    return process.env.HIETAKULMA_LOCAL_PREVIEW === '1' && process.env.PREVIEW_ID
+      ? [{ source: '/:path*', headers: [{ key: 'X-Hietakulma-Preview', value: process.env.PREVIEW_ID }] }]
+      : [];
+  },
   async redirects() {
     return [
       { source: '/favicon.ico', destination: '/icon.svg', permanent: true },

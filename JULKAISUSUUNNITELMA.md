@@ -191,3 +191,13 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 - `valmistelu/YLLAPITOKOMENNOT.md`: käyttöohjeet, palautusmenettely, tietosuojapyynnön rajaus ja tuotantoympäristössä ratkaistavat asiat.
 - Node 24: kaikki 46 testiä hyväksytty. Uudet testit kattavat todellisen SQLite-aineiston kohdennetut muutokset, kuiva-ajon, viennin salaisuuksien rajauksen, vanhenemisrajan sekä WAL-tilassa olevan tietokannan varmuuskopion lukemisen palautuksen jälkeen Prismaan. Projektin tietokantoja ei muutettu.
 - Seuraavaksi toistettava esikatselu ja sivuston kattava loppukatselmointi. Tuotannon pysyvyyttä tai ulkoisia palveluasetuksia paikallinen palautusharjoitus ei todenna.
+
+### Toistettava paikallinen esikatselu
+
+- `npm run preview` generoi Prisma Clientin, ajaa migraatiot omaan testitietokantaan, rakentaa sivuston omaan kooste-hakemistoon ja käynnistää osoitteen `http://127.0.0.1:3108`. Testitiedot säilyvät uudelleenkäynnistykseen. `.local-preview` on rajattu pois Gitistä.
+- Sähköpostipalvelu korvataan käynnistyksessä paikallisella talteenotolla ja kelpaamattomalla testiavaimella. `npm run preview:mails` näyttää paikalliset aktivointi- ja palautuslinkit. Oikeita viestejä ei lähetetty.
+- `npm run test:browser` on nyt repossa ylläpidettävä koe. Se tarkistaa esikatselutunnisteen ennen toimia. Hyväksytty: kaikki 17 julkista sitemap-sivua 1440 ja 390 px koossa, metatiedot, ohjaukset, noindex, koko portaalipolku, yhteydenoton virhetilanteet ja kartan latausvalinta.
+- Kaikki 46 palvelin-/ylläpitotestiä hyväksytty; audit 0 haavoittuvuutta. Playwright lisätty kehitysriippuvuudeksi. Selainkoe käyttää asennettua Google Chromea, koska Browser-pluginia ei ollut käytettävissä.
+- Kattoristikkosivun väärä lupaus tietopankista löytyvästä suoritustasoilmoituksesta korvattu yhteydenottopyynnöllä. Kohta tarkistettu myös mobiilin kuvakaappauksesta.
+- GitHub vahvistaa Vercelin esikatselukoosteiden valmistumisen, mutta tarkistettu ulkoinen osoite ohjasi Vercelin kirjautumiseen. Ulkoisen ympäristön käyttäjäpolkuja ei pidetä tämän perusteella testattuina. Tarkempi käyttöohje ja rajoitukset: `valmistelu/ESIKATSELU.md`.
+- Jäljellä loppukatselmoinnista navigaation ja näppäimistökäytön syvemmät kokeet, kuvien/videoiden kattava tarkistus, vanhojen referenssiosoitteiden kartoitus sekä koko goalia vasten tehtävä vaatimuskohtainen tarkastus.

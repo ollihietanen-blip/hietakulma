@@ -95,9 +95,9 @@ export default function KattoristikotPage() {
           <div className="mt-12 p-8 rounded-lg" style={{ backgroundColor: 'var(--sand)' }}>
             <h3 className="text-2xl font-bold mb-4">CE-merkinnän merkitys</h3>
             <p className="text-base text-gray-700 md:text-lg">
-              Kaikki kattoristikkomme ovat CE-merkittyjä EN 14250 -standardin mukaisesti. Merkintä takaa, että ristikot on suunniteltu ja valmistettu eurooppalaisen harmonisoidun standardin mukaan, ja niille on laadittu suoritustasoilmoitus (DoP). Suoritustasoilmoitukset löydät{' '}
-              <a href="/tietopankki" className="underline font-medium" style={{ color: 'var(--blue)' }}>
-                Tietopankistamme
+              Kaikki kattoristikkomme ovat CE-merkittyjä EN 14250 -standardin mukaisesti. Merkintä takaa, että ristikot on suunniteltu ja valmistettu eurooppalaisen harmonisoidun standardin mukaan, ja niille on laadittu suoritustasoilmoitus (DoP). Pyydä toimitukseesi liittyvä suoritustasoilmoitus{' '}
+              <a href="/ota-yhteytta" className="underline font-medium" style={{ color: 'var(--blue)' }}>
+                ottamalla yhteyttä
               </a>.
             </p>
           </div>
