@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingIncludes: {
+    '/api/documents/[id]': [
+      './valmistelu/tarkistuspaketti-0.4/Hietakulma-tarkistuspaketti-LUONNOS-0.4.docx',
+      './valmistelu/Hietakulma-tarkistuspaketti-LUONNOS-0.4.zip',
+    ],
+  },
   distDir: process.env.HIETAKULMA_LOCAL_PREVIEW === '1'
     ? process.env.HIETAKULMA_POSTGRES_BROWSER === '1' ? '.postgres-browser/build' : '.local-preview/build'
     : '.next',

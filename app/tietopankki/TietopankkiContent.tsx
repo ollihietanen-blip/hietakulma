@@ -23,7 +23,7 @@ export default function TietopankkiContent() {
   const filteredDocuments = useMemo(() => {
     let filtered = documents.filter((doc) => {
       // Search filter
-      const matchesSearch = doc.title.toLowerCase().includes(searchQuery.trim().toLowerCase());
+      const matchesSearch = `${doc.title} ${doc.description}`.toLowerCase().includes(searchQuery.trim().toLowerCase());
       // Category filter
       const matchesCategory = selectedCategories.includes(doc.category);
       return matchesSearch && matchesCategory;
@@ -106,14 +106,20 @@ export default function TietopankkiContent() {
   return (
     <Section background="white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="mb-4 text-center text-base text-gray-700 md:text-lg">
-          Hietakulman tietopankki kokoaa yhteen suunnittelun tueksi tarvittavat materiaalit: detaljipiirustukset,
-          rakennetyypit, asennus- ja suunnitteluohjeet sekä valmiit tuotedokumentit.
-        </p>
-        <p className="mb-12 text-center text-base text-gray-700 md:text-lg">
-          Meiltä saat myös sähkövalmiit elementit, CE-merkityt kattoristikot ja valmiiksi maalatut ulkoverhoukset –
-          nyt kaikki tieto yhdessä paikassa.
-        </p>
+        <div className="mb-10 border-l-4 border-blue bg-sand p-5 sm:p-6">
+          <h2 className="mb-3 text-xl font-bold">Aineistot kommentoitavaksi — luonnos 0.4</h2>
+          <p className="mb-3 text-base text-gray-800">
+            Tästä voit ladata nykyiset dokumentit ja liiteluonnokset. Word-koostetta voi
+            muokata ja kommentoida. ZIP-paketti sisältää lisäksi erilliset dokumentit,
+            lähteet ja avoimet kysymykset.
+          </p>
+          <p className="text-base text-gray-800">
+            Aineisto odottaa asiantuntijoiden kommentteja ja päivittyy niiden perusteella.
+            Luonnokset eivät ole hyväksyttyjä suunnittelu- tai asennusohjeita,
+            rakennesuunnitelmia tai suoritustasoilmoituksia. Tarkistusmerkinnät ja
+            keskeneräiset kohdat on jätetty näkyviin.
+          </p>
+        </div>
 
         {/* Search and Filter Section */}
         <div className="mb-8 space-y-4">
@@ -216,7 +222,8 @@ export default function TietopankkiContent() {
                   <h3 className="font-bold text-gray-900 group-hover:text-blue mb-1 transition-colors">
                     {doc.title}
                   </h3>
-                  <p className="text-sm text-gray-500">{categories[doc.category as keyof typeof categories]}</p>
+                  <p className="mb-2 text-sm font-semibold text-blue">{doc.version} · {doc.type.toUpperCase()}</p>
+                  <p className="text-sm leading-relaxed text-gray-600">{doc.description}</p>
                 </div>
 
                 {/* Download Icon */}
