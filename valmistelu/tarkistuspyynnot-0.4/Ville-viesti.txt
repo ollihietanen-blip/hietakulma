@@ -1,0 +1,19 @@
+Vastaanottaja: ville.pihlaja@hietakulma.fi
+Aihe: Hietakulman elementtidokumentit – tekninen tarkistus, luonnos 0.4
+
+Hei Ville,
+
+Olemme koonneet Hietakulman verkkosivujen ja tietopankin dokumenttiluonnokset. Tavoitteena on saada asiakkaalle oikeat tuotetiedot ja meille yhteiset, tuotantoa vastaavat ohjeet. Liitteenä on oma tarkistusotteesi: HK-TP-01–05 sekä seinäelementtien tuoteasiakirjojen liite D2.
+
+Tarvitsen sinulta nämä neljä kokonaisuutta:
+1. Vahvista nykyiset rakennetyypit, U-arvot laskentaperusteineen ja enimmäismitat. Ratkaise samalla, tarkoittaako sivujen 248 mm nimike rakennetta 198+48.
+2. Valitse julkaistavat liitos- ja verhousdetaljit sekä asennus- ja varastointiohjeet. Vuorilautamallit 1–2 löytyivät; nimeä nykyiset hyväksytyt versiot.
+3. Korjaa materiaalien, vastaanoton ja talotekniikan liitepohjat tuotannon käytännön mukaisiksi. Täsmennä Tapanin kanssa tehtaan ja työmaan työnjako, erityisesti mahdollinen kaapelointi, sekä tarkista uusi materiaaliluettelo M4.
+4. Yksilöi kanssani seinäelementtien julkaistavat tuoteasiakirjat. Nykyinen varmennustodistus 501-03 on löytynyt; sertifioinnin jatkuvuus on huomioitu.
+
+Lähdeluettelo on taustaksi. Jos jokin kohta kuuluu toiselle suunnittelijalle, nimeä asia ja oikea henkilö.
+
+Korjaa suoraan liitteen Wordiin tai vastaa tähän viestiin kohta kohdalta. Merkitse hyväksytyt kohdat ja vielä avoimet asiat sekä nimeä tarvittavat lähdetiedostot versioineen. Liite on luonnos, joten hyväksyntöjä ei ole oletettu. Ilmoitathan, milloin ehdit palauttaa kommentit.
+
+Terveisin
+Olli

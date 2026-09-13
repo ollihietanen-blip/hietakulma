@@ -1,0 +1,22 @@
+Vastaanottaja: jussipekka.koivisto@gmail.com
+Aihe: VALMISTELU – Hietakulman sivuston ja dokumenttien katselmointi asiantuntijapäivitysten jälkeen
+
+Hei Jussi-Pekka,
+
+Haluaisin sinulta Hietakulman uudistettujen verkkosivujen ja dokumenttien visuaalisen ja toiminnallisen katselmoinnin ennen julkaisua. Teknisten sisältöjen tarkistus tehdään ensin Villen, Jorman ja Tapanin kanssa. Tämä viesti on valmisteltu sitä seuraavaa vaihetta varten: sovimme katselmoinnin aloituksen erikseen, kun päivitykset on koottu.
+
+Pyytäisin katsomaan erityisesti:
+1. Onko Hietakulman ilme yhtenäinen sivustolla ja dokumenteissa: logo, värit, typografia, taulukot ja luettavuus?
+2. Ovatko kuvat oikein päin, tarkoituksenmukaisesti rajattuja ja riittävän laadukkaita myös puhelimella?
+3. Löytääkö asiakas tuotteet, yhteystiedot ja ladattavat dokumentit helposti? Ovatko valikot, painikkeet, lomakkeet ja tietopankin käyttö ymmärrettäviä?
+4. Mitkä asiat pitää korjata ennen julkaisua ja mitkä voi viimeistellä myöhemmin?
+
+Esikatselun osoite:
+https://hietakulma-git-codex-julkaisuvalmistelu-olli-hietanens-projects.vercel.app
+
+Liitteenä on nykyinen dokumenttikooste LUONNOS 0.4 taustaksi ulkoasuun. Se sisältää vielä sisäisiä tarkistuskysymyksiä. Varsinaiseen katselmointiin toimitan asiantuntijapalautteilla päivitetyn version ja varmistan pääsyn sivustolle.
+
+Palautteeksi riittää lista havainnoista sivun tai dokumentin nimellä, mielellään kuvakaappauksin. Teknistä sisällön hyväksyntää ei tarvitse tehdä.
+
+Terveisin
+Olli

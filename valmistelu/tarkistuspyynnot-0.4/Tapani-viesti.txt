@@ -1,0 +1,19 @@
+Vastaanottaja: tapani.katajisto@hietakulma.fi
+Aihe: Hietakulman tuotteet ja toimituslupaukset – tarkistus, luonnos 0.4
+
+Hei Tapani,
+
+Olemme luonnostelleet verkkosivujen tuote-esittelyt ja toimitussisällöt tarjousaineistomme pohjalta. Liitteenä on oma tarkistusotteesi: HK-TP-02, 04 ja 05. Tavoitteena on, että verkkosivu, tarjous ja toteutuva toimitus kertovat asiakkaalle saman asian.
+
+Tarvitsen sinulta nämä neljä linjausta:
+1. Vahvista myynnissä olevat tuoteryhmät ja niiden nimet sekä suunnittelua ja toimitusta koskevat lupaukset.
+2. Tarkista toimitusrajat ja asennuksen laajuus M2–M3:ssa. Mitkä asiat voidaan luvata yleisesti ja mitkä sovitaan aina kohdekohtaisesti? Täsmennä Villen kanssa sähkövalmiuden nimet ja mahdollisen tehdaskaapeloinnin osuus.
+3. Käy dokumentin 05 avainlukutaulukko läpi: hyväksy, korjaa tai poista väitteet. Anna hyväksytyille luvuille lähde tai peruste.
+4. Tarkista materiaaliluettelo M4 ja ehdota kanssani yhteinen ylläpitolähde tarjouspohjan, ERP:n ja tietopankin tiedoille.
+
+Tekniset rakenne- ja ristikkotiedot tarkistetaan Villen ja Jorman kanssa. Lähdeluettelo on mukana taustaksi.
+
+Korjaa suoraan liitteen Wordiin tai vastaa tähän viestiin kohta kohdalta. Merkitse hyväksytyt kohdat ja vielä avoimet asiat sekä nimeä tarvittavat lähdetiedostot versioineen. Liite on luonnos, joten hyväksyntöjä ei ole oletettu. Ilmoitathan, milloin ehdit palauttaa kommentit.
+
+Terveisin
+Olli
