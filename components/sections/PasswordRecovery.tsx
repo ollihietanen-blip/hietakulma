@@ -14,7 +14,7 @@ export default function PasswordRecovery({ token }: { token?: string }) {
   const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
   const sending = useRef(false);
-  const inputClass = 'mt-2 block w-full border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue';
+  const inputClass = 'mt-2 block w-full border border-gray-300 px-4 py-3 text-base sm:text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue';
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();

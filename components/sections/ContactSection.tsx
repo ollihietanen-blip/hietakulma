@@ -122,7 +122,7 @@ export default function ContactSection() {
                       required
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-base focus:outline-none focus:ring-2 focus:ring-blue"
                       style={{ height: '44px' }}
                       placeholder="Etunimi"
                     />
@@ -140,7 +140,7 @@ export default function ContactSection() {
                       required
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-base focus:outline-none focus:ring-2 focus:ring-blue"
                       style={{ height: '44px' }}
                       placeholder="Sukunimi"
                     />
@@ -159,7 +159,7 @@ export default function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-base focus:outline-none focus:ring-2 focus:ring-blue"
                     style={{ height: '44px' }}
                     placeholder="sähköposti@esimerkki.fi"
                   />
@@ -177,7 +177,7 @@ export default function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-base focus:outline-none focus:ring-2 focus:ring-blue"
                     style={{ height: '44px' }}
                     placeholder="040 123 4567"
                   />
@@ -194,7 +194,7 @@ export default function ContactSection() {
                     disabled={loading}
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue"
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-base focus:outline-none focus:ring-2 focus:ring-blue"
                     style={{ height: '44px' }}
                     placeholder="Yrityksen nimi"
                   />
@@ -212,7 +212,7 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue resize-none"
+                    className="w-full px-4 py-2.5 sm:py-3 bg-white border border-gray-300 rounded-none text-text text-base focus:outline-none focus:ring-2 focus:ring-blue resize-none"
                     placeholder="Kirjoita viestisi tähän..."
                   />
                 </div>

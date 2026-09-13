@@ -15,7 +15,8 @@ export const metadata = pageMetadata('/puuelementit', 'Puuelementit — Tehdasva
 
 type ImageCardOption = {
   name: string;
-  image: string;
+  image?: string;
+  imageAlt?: string;
   description: string;
   imagePosition?: string;
   beforeImage?: string;
@@ -33,10 +34,15 @@ const elementSolutions: ImageCardOption[] = [
       'Ulkoseinäelementit valmistetaan rakennesuunnitelmien mukaan. Valmiusasteeseen voidaan sisällyttää runko, eristeet, levytykset, aukotukset ja ulkoverhous.',
   },
   {
-    name: 'Väliseinäelementit',
+    name: 'Kantavat väliseinäelementit',
     image: '/images/puuelementit/elementti-valiseinaelementit.webp',
     description:
-      'Väliseinät voidaan valmistaa elementteinä aukotuksineen. Sähkörasiat, putkitukset ja levytykset tehdään piirustusten mukaan.',
+      'Kantavat väliseinäelementit valmistetaan rakennesuunnitelmien mukaan aukotuksineen. Sähkörasiat, putkitukset ja levytykset tehdään piirustusten mukaan.',
+  },
+  {
+    name: 'Huoneistonväliset seinäelementit (HVS)',
+    description:
+      'Huoneistojen väliset seinäelementit valmistetaan kohteen rakennesuunnitelmien sekä ääni- ja paloteknisten vaatimusten mukaan. Rakennekerrokset ja liittymät suunnitellaan osaksi huoneistojen välistä kokonaisuutta.',
   },
   {
     name: 'Välipohjaelementit',
@@ -46,9 +52,15 @@ const elementSolutions: ImageCardOption[] = [
   },
   {
     name: 'Kattoelementit',
-    image: '/images/puuelementit/elementti-kattoelementit.webp',
     description:
       'Kattoelementit mitoitetaan kohteen rakenteiden ja nostojärjestyksen mukaan. Esivalmistus nopeuttaa vesikaton rungon asennusta.',
+  },
+  {
+    name: 'Päätykolmioristikot',
+    image: '/images/puuelementit/elementti-kattoelementit.webp',
+    imageAlt: 'Päätykolmioristikko, johon räystäselementit on kiinnitetty valmiiksi maassa ennen nostoa',
+    description:
+      'Päätykolmioristikkoon voidaan kiinnittää räystäselementit valmiiksi maassa ennen nostoa. Kuvassa on tällainen esikoottu kokonaisuus. Kokoonpano ja nosto toteutetaan kohteen suunnitelmien mukaan.',
   },
   {
     name: 'Räystäselementit',
@@ -89,7 +101,7 @@ const elementSolutions: ImageCardOption[] = [
   },
 ];
 
-const claddingOptions: ImageCardOption[] = [
+const claddingOptions: (ImageCardOption & { image: string })[] = [
   {
     name: 'AQUAPANEL®-verhous',
     image: '/images/puuelementit/rappaus-pinnoite.webp',
@@ -143,7 +155,7 @@ export default function PuuelementitPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Ammattitaidolla viimeistelty</h2>
                 <p className="text-base text-gray-700 mb-6 md:text-lg">
-                  Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan seinä-, väliseinä-, välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
+                  Puuelementtitoimitus voidaan koostaa kohteen suunnitelmien mukaan ulkoseinäelementeistä, kantavista väliseinäelementeistä, huoneistonvälisistä seinäelementeistä (HVS) sekä välipohja-, katto-, räystäs-, katos-, porras-, terassi- ja parveke-elementeistä. Lisäksi toimitukseen voidaan sisällyttää päätykolmioristikot. Ulkoverhous voidaan toimittaa myös valmiiksi maalattuna — paneelit käsitellään homeenestopohjauksella sekä pohja- ja pintamaalataan tehtaallamme. Elementteihin voidaan asentaa myös sähkörasiat ja putkitukset valmiiksi toimittamiesi piirrosten mukaan.
                 </p>
               </div>
               <Link
@@ -176,8 +188,8 @@ export default function PuuelementitPage() {
               <h3 className="font-bold text-2xl mb-8">ELEMENTTIRATKAISUT</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {elementSolutions.map((option) => (
-                  <div key={option.name} className="h-full bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                    <div className="relative h-52">
+                  <div key={option.name} className="h-full flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    {option.image && <div className="relative h-52">
                       {option.beforeImage ? (
                         <ImageCompare
                           beforeSrc={option.beforeImage}
@@ -192,15 +204,15 @@ export default function PuuelementitPage() {
                       ) : (
                         <Image
                           src={option.image}
-                          alt={option.name}
+                          alt={option.imageAlt ?? option.name}
                           fill
                           className="object-cover"
                           style={{ objectPosition: option.imagePosition ?? 'center' }}
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       )}
-                    </div>
-                    <div className="p-4">
+                    </div>}
+                    <div className={option.image ? 'p-4' : 'flex flex-1 flex-col justify-center border-t-4 border-blue p-6 sm:p-8'}>
                       <p className="font-semibold text-text mb-2">{option.name}</p>
                       <p className="text-sm leading-relaxed text-gray-600">{option.description}</p>
                     </div>

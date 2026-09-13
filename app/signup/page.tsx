@@ -73,7 +73,7 @@ export default function SignupPage() {
   };
 
   const fieldClassName =
-    'mt-2 block w-full border border-black/20 bg-white px-4 py-3 text-[var(--text)] outline-none transition focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/20';
+    'mt-2 block w-full border border-black/20 bg-white px-4 py-3 text-base sm:text-sm text-[var(--text)] outline-none transition focus:border-[var(--blue)] focus:ring-2 focus:ring-[var(--blue)]/20';
 
   return (
     <main className="min-h-screen bg-[var(--sand)] px-4 py-16 sm:px-6 lg:px-8">
