@@ -6,6 +6,9 @@ import { keyMetricsByPage } from '@/lib/content/key-metrics';
 import TietopankkiContent from './TietopankkiContent';
 import { documents } from '@/lib/content/documents';
 import { requireAuth } from '@/lib/auth';
+import { isOpenPortalPreview } from '@/lib/portal-preview';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   robots: { index: false, follow: false },
@@ -14,7 +17,7 @@ export const metadata = {
 };
 
 export default async function TietopankkiPage() {
-  const session = await requireAuth();
+  const session = isOpenPortalPreview() ? null : await requireAuth();
 
   return (
     <>
@@ -28,7 +31,7 @@ export default async function TietopankkiPage() {
       <Section background="sand">
         <KeyMetrics metrics={keyMetricsByPage.tietopankki} />
       </Section>
-      <PortalAccount email={session.user.email} />
+      {session && <PortalAccount email={session.user.email} />}
       <TietopankkiContent />
     </>
   );

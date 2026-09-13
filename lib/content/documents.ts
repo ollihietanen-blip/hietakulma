@@ -8,7 +8,8 @@ export interface Document {
 }
 
 // Current review material, published as drafts at Olli's request on 13.9.2026.
-// Download routes authenticate every request; files are never placed in public/.
+// Downloads require login except in the explicitly opened review preview.
+// Files are never placed in public/.
 export const documents: Document[] = [
   {
     title: 'Dokumentit ja liitteet — muokattava Word-kooste',

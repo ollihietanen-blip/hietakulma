@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { auth } from '@/lib/auth-options';
+import { isOpenPortalPreview } from '@/lib/portal-preview';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -19,9 +20,11 @@ const files: Record<string, { path: string; name: string; type: string }> = {
 };
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
-  const headers = { 'Cache-Control': 'private, no-store', 'X-Content-Type-Options': 'nosniff' };
-  const session = await auth();
-  if (!session?.user) return new Response('Kirjaudu tietopankkiin ladataksesi aineiston.', { status: 401, headers });
+  const headers = { 'Cache-Control': 'private, no-store', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow' };
+  if (!isOpenPortalPreview()) {
+    const session = await auth();
+    if (!session?.user) return new Response('Kirjaudu tietopankkiin ladataksesi aineiston.', { status: 401, headers });
+  }
   const { id } = await params;
   const file = Object.hasOwn(files, id) ? files[id] : undefined;
   if (!file) return new Response('Aineistoa ei löytynyt.', { status: 404, headers });
