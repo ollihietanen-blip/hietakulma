@@ -229,3 +229,8 @@ Nämä ovat lähde-ehdokkaita tarkistuspakettiin. Niitä ei ole lisätty uusina 
 Nykyinen tarkistusversio on `valmistelu/tarkistuspaketti-0.3/` (projektin juuresta). Se yhdistää Clauden 0.2:n ja Ollin täsmennykset. Uudempi elementtien varmennustodistus 501-03 löytyi; voimassaolo asiakirjan ehdoin 10.10.2028 saakka. Kaikki uudet dokumentit ovat Hietakulman nimellä, ja ulkoasu perustuu markkinointikansion graafiseen ohjeistoon. Aiemmat versiot säilyvät historiassa.
 
 Word ja koko ZIP toimitetaan ensin Ollin tarkistettaviksi. Nykyiset Gmail-luonnokset sisältävät edelleen vanhan 0.1:n; ne on päivitettävä ennen lähettämistä. Mitään viestejä ei ole lähetetty. Villeltä, Jormalta ja Tapanilta pyydetään sisältöjen ja liitteiden päivitykset vasta lähetysvaiheessa. Jussi-Pekka Koiviston visuaalinen ja toiminnallinen katselmointi seuraa asiantuntijapäivitysten käsittelyä.
+
+
+### Dokumenttikierros 0.4 — 13.9.2026
+
+Nykyinen tarkistusversio on `valmistelu/tarkistuspaketti-0.4/`. Ollin nimeämien hk-ERP- ja Suunnittelu-kansioiden lisäkierros toi lähteet L35–L40, liitteen M4 työmaatoimitusten materiaaliluetteloon, kaapeloinnin kohdekohtaisen rajauksen sekä vuorilautamallien 1–2 valinnan. Tarkistuspyyntöjen luonnokset on päivitetty. Sertifiointien jatkuvuutta koskevat korjaukset säilyvät. ERP:tä ja OneDrive-lähteitä ei muutettu. Aiemmat sähköpostiluonnokset ovat edelleen vanhoilla liitteillä; ne päivitetään erikseen ennen lähettämistä. Villeltä, Jormalta ja Tapanilta pyydetään päivitykset ennen Jussi-Pekka Koiviston katselmointia. Mitään ei lähetetty eikä lisätty sivuston latauksiin.
