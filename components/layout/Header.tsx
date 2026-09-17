@@ -129,7 +129,7 @@ export default function Header() {
             aria-controls="mobile-navigation"
             aria-expanded={mobileMenuOpen}
           >
-            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 transition-colors group-hover:text-white">Valikko</span>
+            <span className="text-[18px] font-semibold leading-none tracking-[-0.035em] text-white transition-colors group-hover:text-blue sm:text-[22px]">Valikko</span>
             <span className="flex w-7 flex-col gap-1.5" aria-hidden="true">
               <span className="h-px w-full bg-current" />
               <span className="ml-auto h-px w-4/5 bg-current transition-[width] group-hover:w-full" />
@@ -183,7 +183,7 @@ export default function Header() {
                 className="group flex h-11 items-center gap-3 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
                 aria-label="Sulje valikko"
               >
-                <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/55 transition-colors group-hover:text-white">Sulje</span>
+                <span className="text-[18px] font-semibold leading-none tracking-[-0.035em] text-white transition-colors group-hover:text-blue sm:text-[22px]">Sulje</span>
                 <span className="relative h-6 w-6" aria-hidden="true">
                   <span className="absolute left-0 top-1/2 h-px w-full rotate-45 bg-current" />
                   <span className="absolute left-0 top-1/2 h-px w-full -rotate-45 bg-current" />

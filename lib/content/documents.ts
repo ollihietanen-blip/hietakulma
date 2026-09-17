@@ -117,9 +117,9 @@ export const documents: Document[] = [
     "id": "A7",
     "title": "Aukkojen pielet, elementtisaumat ja nurkat",
     "category": "rakennetyypit",
-    "status": "taydennettava",
+    "status": "lahde",
     "owner": "Ville",
-    "description": "Vuorilautamalleja löytynyt. Nurkka- ja elementtisaumadetaljit sekä hyväksytyt piirustustunnukset puuttuvat kartoituksesta."
+    "description": "Vuorilautamallit sekä US223:n nurkkakuvat UN223 ja SN223 löytyivät. Nykyiset yleisversiot, suoran elementtisauman ja aukkojen liittymädetaljit yksilöidään."
   },
   {
     "id": "A8",
@@ -181,9 +181,9 @@ export const documents: Document[] = [
     "id": "V3",
     "title": "Elementtien asennus- ja varastointiohje",
     "category": "ohjeet",
-    "status": "taydennettava",
+    "status": "luonnos",
     "owner": "Ville",
-    "description": "Vasta sisältöluettelo on luonnosteltu. Hyväksytty perusohje, tekninen sisältö sekä nosto-, tuenta- ja varastointiohjeet on nimettävä tai laadittava."
+    "description": "Asennussuunnitelmat ja tehtaan pakkausohje TO106 löytyivät. Ohjetekstin luonnos on koottu. Yleispohja, nykyiset revisiot ja kohdekohtaiset suunnitelmaviitteet vahvistetaan."
   },
   {
     "id": "T1",
@@ -237,9 +237,9 @@ export const documents: Document[] = [
     "id": "NR-OHJE",
     "title": "Kattoristikoiden asennus- ja tuentaohje",
     "category": "ohjeet",
-    "status": "selvitettava",
+    "status": "lahde",
     "owner": "Jorma",
-    "description": "RIL 248-2008 liite C löytynyt. Nykyinen käytettävä versio, mahdollinen korvaava ohje ja julkaisulaajuus vahvistetaan."
+    "description": "Asennus- ja tuentaohje on jo nykyisellä verkkosivulla ja lähdekansiossa. Jorma vahvistaa jatkokäyttöön tulevan version ja julkaisulaajuuden."
   },
   {
     "id": "D1-SERT",
