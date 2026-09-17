@@ -1,3 +1,4 @@
+import { draftFiles } from '@/lib/content/document-files';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { auth } from '@/lib/auth-options';
@@ -7,6 +8,12 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const files: Record<string, { path: string; name: string; type: string }> = {
+  ...draftFiles,
+  'liitteet-word': {
+    path: 'content/portal-drafts/Hietakulma-liitteet-LUONNOS-0.5.docx',
+    name: 'Hietakulma-liitteet-LUONNOS-0.5.docx',
+    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  },
   'tarkistuspaketti-word': {
     path: 'valmistelu/tarkistuspaketti-0.4/Hietakulma-tarkistuspaketti-LUONNOS-0.4.docx',
     name: 'Hietakulma-tarkistuspaketti-LUONNOS-0.4.docx',

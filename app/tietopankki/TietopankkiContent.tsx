@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import Section from '@/components/sections/Section';
 import { documents, documentStatuses } from '@/lib/content/documents';
@@ -34,7 +35,12 @@ export default function TietopankkiContent() {
           <p className="mb-2 text-sm font-semibold uppercase tracking-wide">Tietopankin sisältökartoitus</p>
           <h2 className="mb-4 text-2xl font-bold sm:text-3xl">Mitä aineistoja meiltä tarvitaan?</h2>
           <p className="mb-3 text-base leading-relaxed">Varsinaiset dokumentit ja liitteet on koottu alle omilla nimillään. Näet, mistä on jo luonnos tai lähde ja mitä pitää vielä täydentää tai selvittää.</p>
-          <p className="text-sm leading-relaxed text-gray-700">Tilanne päivitetty 17.9.2026: liiteluonnos 0.5 ja täydentävä lähdekartoitus. Lähteen löytyminen ei tarkoita julkaisuhyväksyntää. Tarkistajat ovat ehdotettuja vastuutahoja. Tästä luettelosta ei vielä avata tai ladata tiedostoja.</p>
+          <p className="text-sm leading-relaxed text-gray-700">Tilanne päivitetty 17.9.2026: liiteluonnos 0.5 ja täydentävä lähdekartoitus. Lähteen löytyminen ei tarkoita julkaisuhyväksyntää. Tarkistajat ovat ehdotettuja vastuutahoja. Voit lukea luonnokset selaimessa ja ladata Word-koosteet muokattaviksi. Luonnokset eivät ole hyväksyttyjä teknisiä ohjeita tai tuoteasiakirjoja.</p>
+        </div>
+
+        <div className="mb-8 flex flex-wrap gap-3" aria-label="Ladattavat luonnoskoosteet">
+          <a download href="/api/documents/liitteet-word" className="rounded-lg bg-blue px-5 py-3 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Lataa 25 liitteen Word-luonnos 0.5</a>
+          <a download href="/api/documents/tarkistuspaketti-word" className="rounded-lg border border-gray-300 px-5 py-3 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Lataa päädokumenttien Word-kooste 0.4</a>
         </div>
 
         <div className="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-4" aria-label="Aineistojen tilanne">
@@ -73,6 +79,7 @@ export default function TietopankkiContent() {
               </div>
               <h3 className="mb-2 text-lg font-bold text-gray-900">{doc.title}</h3>
               <p className="mb-4 text-base leading-relaxed text-gray-700">{doc.description}</p>
+              <Link href={`/tietopankki/${doc.id}`} className="mb-3 inline-block py-2 font-semibold text-blue underline">Lue {doc.id.startsWith('D') || doc.id === 'NR-OHJE' ? 'tarkistusluonnos' : 'luonnos'} →</Link>
               <p className="text-sm text-gray-600">Tarkistaja: <span className="font-semibold">{doc.owner}</span></p>
             </article>
           ))}

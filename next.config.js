@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingIncludes: {
+    '/tietopankki/[id]': ['./content/portal-drafts/*.md'],
     '/api/documents/[id]': [
+      './content/portal-drafts/*',
       './valmistelu/tarkistuspaketti-0.4/Hietakulma-tarkistuspaketti-LUONNOS-0.4.docx',
       './valmistelu/Hietakulma-tarkistuspaketti-LUONNOS-0.4.zip',
     ],

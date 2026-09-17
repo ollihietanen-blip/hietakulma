@@ -10,6 +10,8 @@ function load(file, env) {
   }).outputText;
   vm.runInNewContext(source, { exports, process: { env, cwd: () => process.cwd() }, Response, Uint8Array, Object,
     require(name) {
+      if (name === '@/lib/content/document-files') return load('lib/content/document-files.ts', env);
+      if (name === './documents') return load('lib/content/documents.ts', env);
       if (name === '@/lib/auth-options') return { auth: async () => null };
       if (name === '@/lib/portal-preview') return load('lib/portal-preview.ts', env);
       return require(name);
@@ -27,12 +29,12 @@ test('anonymous downloads open only on the approved Vercel preview branch', asyn
     [{}, 401],
   ]) {
     const { GET } = load('app/api/documents/[id]/route.ts', env);
-    for (const id of ['tarkistuspaketti-word', 'tarkistuspaketti-zip']) {
+    for (const id of ['tarkistuspaketti-word', 'tarkistuspaketti-zip', 'liitteet-word', ...Object.keys(load('lib/content/document-files.ts', env).draftFiles)]) {
       const result = await GET(null, { params: Promise.resolve({ id }) });
       assert.equal(result.status, expected, JSON.stringify(env));
       assert.equal(result.headers.get('cache-control'), 'private, no-store');
       assert.equal(result.headers.get('x-robots-tag'), 'noindex, nofollow');
-      if (expected === 200) assert.ok((await result.arrayBuffer()).byteLength > 1000);
+      if (expected === 200) assert.ok((await result.arrayBuffer()).byteLength > 100);
     }
     assert.equal((await GET(null, { params: Promise.resolve({ id: '__proto__' }) })).status, expected === 200 ? 404 : 401);
   }

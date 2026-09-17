@@ -14,8 +14,8 @@ export interface Document {
   owner: string;
 }
 
-// Inventory based on tarkistuspaketti-0.4 (13.9.2026), not new reviewer approvals.
-// Deliberately no file URLs: this catalogue is for mapping gaps before publication.
+// Source/approval status is separate from the availability of a review draft.
+// Main documents 0.4 and appendix review drafts 0.5 are readable in the portal.
 export const documents: Document[] = [
   {
     "id": "HK-TP-01",
