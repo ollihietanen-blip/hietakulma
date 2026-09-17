@@ -24,7 +24,7 @@ export default async function TietopankkiPage() {
       <Hero
         title="Tietopankki"
         subtitle={documents.length > 0
-          ? 'Dokumentit ja liiteluonnokset kommentoitavaksi. Lataa nykyinen aineisto ja tutustu sen avoimiin tarkistuskohtiin.'
+          ? 'Dokumentit ja liitteet yhdessä näkymässä. Kartoitetaan olemassa olevat aineistot, avoimet tarkistukset ja puuttuvat sisällöt.'
           : 'Ohjeet ja rakenneratkaisut rakentamisen tueksi. Autamme löytämään hankkeeseesi sopivat aineistot.'}
         backgroundImage="/images/hero/tehdas-drone-01.webp"
       />
