@@ -115,7 +115,7 @@ export default function Header() {
 
           <Link
             href="/ota-yhteytta"
-            className="hidden h-11 min-w-[180px] shrink-0 items-center justify-center bg-blue px-5 text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:inline-flex xl:px-6"
+            className="hidden h-11 min-w-[180px] shrink-0 items-center justify-center bg-blue px-5 text-sm font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white lg:inline-flex xl:px-6"
           >
             <span>Pyydä tarjous</span>
           </Link>
@@ -211,7 +211,7 @@ export default function Header() {
                 <Link
                   href="/ota-yhteytta"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex min-h-14 items-center justify-center bg-blue px-5 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  className="flex min-h-14 items-center justify-center bg-blue px-5 text-sm font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <span>Pyydä tarjous</span>
                 </Link>
