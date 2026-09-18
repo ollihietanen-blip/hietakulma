@@ -94,10 +94,10 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(item.href) ? 'page' : undefined}
-                className={`group relative flex h-10 items-center px-2 text-[13px] font-medium tracking-[0.01em] transition-colors hover:text-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-blue ${
+                className={`group relative flex h-10 items-center px-2 text-[14px] font-semibold tracking-[-0.02em] transition-colors hover:text-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-blue ${
                   isActive(item.href)
                     ? 'text-white'
-                    : 'text-white/70'
+                    : 'text-white/90'
                 }`}
               >
                 {item.label}
