@@ -44,15 +44,13 @@ export default function TarinaPage() {
             </div>
           </FadeIn>
           <FadeIn delay={250}>
-            <div className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg" style={{ containerType: 'size' }}>
+            <div className="relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/images/tehdas/elementtituotanto/IMG_4225.webp"
-                alt="Vaakapaneloitu seinäelementti ja asennettu ikkuna Hietakulman tehtaalla"
+                src="/images/tehdas/elementtituotanto/tuotantolinja-2026.webp"
+                alt="Seinäelementtien valmistusta Hietakulman tuotantolinjalla"
                 fill
                 className="object-cover"
-                // The source photo is sideways. Swap the display dimensions before
-                // rotating so the upright crop fills its container at every width.
-                style={{ width: '100cqh', height: '100cqw', top: '50%', left: '50%', right: 'auto', bottom: 'auto', transform: 'translate(-50%, -50%) rotate(90deg)' }}
+                style={{ objectPosition: 'center 65%' }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
