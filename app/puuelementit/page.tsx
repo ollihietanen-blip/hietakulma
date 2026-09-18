@@ -111,8 +111,9 @@ const claddingOptions: (ImageCardOption & { image: string })[] = [
     description: 'Työmaalla rapattavaa julkisivua varten elementtiin voidaan asentaa AQUAPANEL® Outdoor -julkisivulevy. Levy toimii veden- ja säänkestävänä rappausalustana.',
   },
   { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg', description: 'Kuvassa UTW 28×195 mm -vaakapaneeli tehdasmaalattuna. Vakiovalikoiman vaakaverhouksia on saatavilla 95–220 mm paneelileveyksillä.' },
+  { name: 'Leveä vaakaverhous', image: '/images/puuelementit/utw-erikoispaneeli-28x277.webp', imageAlt: 'Tumma 28 × 277 mm UTW-erikoispaneeli seinäelementin vaakaverhouksena tehtaalla', description: 'Kuvassa 28 × 277 mm UTW-erikoispaneeli. Leveä vaakapanelointi antaa julkisivulle rauhallisen, selkeälinjaisen ilmeen.' },
   { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg', description: 'Kuvassa UTS 120 mm -pystypaneeli tehdasmaalattuna. Paneelijako suunnitellaan elementtien ja aukotusten mukaan, 95–220 mm leveysvalikoimasta.' },
-  { name: 'Yhdistelmäverhoukset', image: '/images/puuelementit/yhdistelmaverhous-havainne.webp', imageAlt: 'Havainnekuva pysty- ja vaakapaneloinnin yhdistelmästä', illustration: true, description: 'Paneeleja voidaan yhdistellä samaan julkisivuun eri suuntiin ja leveyksiin. Suunnittelemme kohteeseen oman panelointijaon yhdessä asiakkaan kanssa.' },
+  { name: 'Yhdistelmäverhoukset', image: '/images/puuelementit/yhdistelmaverhous-toteutus.webp', imageAlt: 'Vaalea rivitalojulkisivu, jossa vaakapanelointiin yhdistyvät pystypaneloidut kentät ikkunoiden yläpuolella', imagePosition: 'center 45%', description: 'Paneeleja voidaan yhdistellä samaan julkisivuun eri suuntiin ja leveyksiin. Suunnittelemme kohteeseen oman panelointijaon yhdessä asiakkaan kanssa.' },
   { name: 'Verhoamattomat elementit', image: '/images/puuelementit/verhoamattomat-elementit.webp', description: 'Elementit voidaan toimittaa ilman ulkoverhousta, kun verhous asennetaan työmaalla tai kuljetus sitä edellyttää. Koolaukset tehdään suunnitelmien mukaan.' },
 ];
 
