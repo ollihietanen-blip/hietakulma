@@ -26,7 +26,8 @@ export default function KattoristikotPage() {
       <Hero
         title="Kattoristikot kokemuksella"
         subtitle="Valmistamme CE-merkittyjä NR-ristikoita valmiiden mallien tai kohteen mittatietojen pohjalta. Kolmen vuosikymmenen kokemus ja sertifioitu tuotanto takaavat kestävän lopputuloksen joka kohteeseen."
-        backgroundImage="/images/hero/tehdas-drone-02.webp"
+        backgroundImage="/images/hero/kattoristikot-nosto.webp"
+        altText="Kattoristikon nosto paikoilleen rakennustyömaalla"
         ctaText="LUE LISÄÄ"
         ctaLink="#content"
       />
