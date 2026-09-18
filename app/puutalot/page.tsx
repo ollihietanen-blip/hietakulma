@@ -1,3 +1,4 @@
+import ProductionFeature from '@/components/sections/ProductionFeature';
 import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
@@ -78,6 +79,16 @@ export default function PuutalotPage() {
               description: 'Elementtien toimitus ja asennus työmaalle, asennusohjeet ja tekninen tuki koko rakennusprojektin ajan.',
             },
           ]}
+        />
+      </Section>
+
+      <Section background="white" id="toimitus-tyomaalle" contentClassName="pt-0">
+        <ProductionFeature
+          title="Tehtaalta rakennuspaikalle"
+          description="Elementit valmistetaan tehtaalla ja toimitetaan työmaalle sovitun toimitussisällön mukaan. Asennuksen laajuus ja aikataulu sovitaan kohdekohtaisesti."
+          image="/images/puuelementit/elementtien-asennus.webp"
+          alt="Seinäelementtien asennusta rakennustyömaalla, nosturiauto rakennusrungon vieressä"
+          imagePosition="center 60%"
         />
       </Section>
 

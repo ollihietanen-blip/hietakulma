@@ -1,3 +1,4 @@
+import ProductionFeature from '@/components/sections/ProductionFeature';
 import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
@@ -92,6 +93,14 @@ export default function KattoristikotPage() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-16" id="ristikoiden-toimitus">
+            <ProductionFeature
+              title="Toimitus osana kokonaisuutta"
+              description="Kattoristikoiden kuljetuksesta työmaalle sovitaan tilauksen yhteydessä. Toimitus sovitetaan kohteen aikatauluun yhteistyössä asiakkaan ja kuljetuskumppanin kanssa."
+              image="/images/tehdas/ristikkotuotanto/ristikoiden-kuljetus.webp"
+              alt="Kattoristikkonippuja sinisellä kuljetuslavetilla tehtaan pihalla"
+            />
           </div>
           <div className="mt-12 p-8 rounded-lg" style={{ backgroundColor: 'var(--sand)' }}>
             <h3 className="text-2xl font-bold mb-4">CE-merkinnän merkitys</h3>

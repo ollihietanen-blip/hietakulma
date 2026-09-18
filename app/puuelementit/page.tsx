@@ -1,3 +1,4 @@
+import ProductionFeature from '@/components/sections/ProductionFeature';
 import { pageMetadata } from '@/lib/metadata';
 import Hero from '@/components/sections/Hero';
 import Section from '@/components/sections/Section';
@@ -19,6 +20,7 @@ type ImageCardOption = {
   imageAlt?: string;
   description: string;
   imagePosition?: string;
+  illustration?: boolean;
   beforeImage?: string;
   beforeLabel?: string;
   afterLabel?: string;
@@ -35,7 +37,6 @@ const elementSolutions: ImageCardOption[] = [
   },
   {
     name: 'Kantavat väliseinäelementit',
-    image: '/images/puuelementit/elementti-valiseinaelementit.webp',
     description:
       'Kantavat väliseinäelementit valmistetaan rakennesuunnitelmien mukaan aukotuksineen. Sähkörasiat, putkitukset ja levytykset tehdään piirustusten mukaan.',
   },
@@ -46,7 +47,6 @@ const elementSolutions: ImageCardOption[] = [
   },
   {
     name: 'Välipohjaelementit',
-    image: '/images/puuelementit/elementti-valipohjaelementit.webp',
     description:
       'Välipohjaelementit mitoitetaan kohteen kuormien, jännevälien ja talotekniikan mukaan. Esivalmistus nopeuttaa rungon etenemistä.',
   },
@@ -112,7 +112,7 @@ const claddingOptions: (ImageCardOption & { image: string })[] = [
   },
   { name: 'Vaakapanelointi', image: '/vaakapanelointi.jpg', description: 'Kuvassa UTW 28×195 mm -vaakapaneeli tehdasmaalattuna. Vakiovalikoiman vaakaverhouksia on saatavilla 95–220 mm paneelileveyksillä.' },
   { name: 'Pystypanelointi', image: '/Pystypanelointi.jpg', description: 'Kuvassa UTS 120 mm -pystypaneeli tehdasmaalattuna. Paneelijako suunnitellaan elementtien ja aukotusten mukaan, 95–220 mm leveysvalikoimasta.' },
-  { name: 'Yhdistelmäverhoukset', image: '/images/puuelementit/yhdistelmaverhous-laaja.webp', description: 'Paneeleja voidaan yhdistellä samaan julkisivuun eri suuntiin ja leveyksiin. Suunnittelemme kohteeseen oman panelointijaon yhdessä asiakkaan kanssa.' },
+  { name: 'Yhdistelmäverhoukset', image: '/images/puuelementit/yhdistelmaverhous-havainne.webp', imageAlt: 'Havainnekuva pysty- ja vaakapaneloinnin yhdistelmästä', illustration: true, description: 'Paneeleja voidaan yhdistellä samaan julkisivuun eri suuntiin ja leveyksiin. Suunnittelemme kohteeseen oman panelointijaon yhdessä asiakkaan kanssa.' },
   { name: 'Verhoamattomat elementit', image: '/images/puuelementit/verhoamattomat-elementit.webp', description: 'Elementit voidaan toimittaa ilman ulkoverhousta, kun verhous asennetaan työmaalla tai kuljetus sitä edellyttää. Koolaukset tehdään suunnitelmien mukaan.' },
 ];
 
@@ -213,12 +213,30 @@ export default function PuuelementitPage() {
                       )}
                     </div>}
                     <div className={option.image ? 'p-4' : 'flex flex-1 flex-col justify-center border-t-4 border-blue p-6 sm:p-8'}>
+                      {option.illustration && <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-600">Havainnekuva · muokattu kuvitus</p>}
                       <p className="font-semibold text-text mb-2">{option.name}</p>
                       <p className="text-sm leading-relaxed text-gray-600">{option.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-16 space-y-12" id="elementtien-valmistus">
+              <ProductionFeature
+                title="Elementti valmistuu tehtaalla"
+                description="Runko, eristeet, levytykset ja varaukset toteutetaan kohteen suunnitelmien ja sovitun valmiusasteen mukaan."
+                image="/images/puuelementit/elementin-valmistus.webp"
+                alt="Puurunkoinen elementti valmistusvaiheessa tuotantolinjalla"
+                imagePosition="center 65%"
+              />
+              <ProductionFeature
+                title="Talotekniikan varaukset valmiiksi"
+                description="Talotekniikan varaukset valmistellaan piirustusten mukaan. Sähkörasioiden ja putkitusten paikat sovitetaan elementin valmistukseen jo suunnitteluvaiheessa."
+                image="/images/puuelementit/talotekniikan-varaukset.webp"
+                alt="Elementin pinnasta nousevia talotekniikan putkituksia tuotantohallissa"
+                imagePosition="center 65%"
+              />
             </div>
 
             <div className="mt-12">
@@ -241,7 +259,7 @@ export default function PuuelementitPage() {
                       ) : (
                         <Image
                           src={option.image}
-                          alt={option.name}
+                          alt={option.imageAlt ?? option.name}
                           fill
                           className="object-cover"
                           style={{ objectPosition: option.imagePosition ?? 'center' }}
@@ -250,6 +268,7 @@ export default function PuuelementitPage() {
                       )}
                     </div>
                     <div className="p-4">
+                      {option.illustration && <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-600">Havainnekuva · muokattu kuvitus</p>}
                       <p className="font-semibold text-text mb-2">{option.name}</p>
                       <p className="text-sm leading-relaxed text-gray-600">{option.description}</p>
                     </div>
