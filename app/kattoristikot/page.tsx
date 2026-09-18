@@ -37,18 +37,18 @@ export default function KattoristikotPage() {
 
       <Section background="white" id="content">
         <FadeIn>
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">CE-Merkityt Kattoristikot</h2>
-            <p className="mb-6 max-w-4xl text-base text-gray-700 md:text-lg">
+          <div className="max-w-2xl mx-auto py-8 md:py-12 text-center">
+            <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-6 text-center" style={{ lineHeight: '1.2' }}>CE-merkityt kattoristikot</h2>
+            <p className="text-base leading-relaxed text-gray-700 md:text-lg">
               Ristikkomme valmistetaan Kankaanpäässä kotimaisesta, lujuuslajitellusta puusta. Toimitamme suoraan tehtaalta työmaan tarpeisiin — joko valmiista mallista tai kohdekohtaisesti mitoitettuna.
             </p>
           </div>
         </FadeIn>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="mt-12 grid items-center gap-10 md:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <FadeIn delay={100}>
             <div>
-              <h3 className="text-2xl font-bold mb-6">Valmiista mallista tai omista mitoista</h3>
+              <h2 className="text-3xl font-bold mb-6">Valmiista mallista tai omista mitoista</h2>
               <p className="mb-4 text-base text-gray-700 md:text-lg">
                 Toimitamme kattoristikoita omien kohteidemme lisäksi ammattirakentajille ympäri Suomen. Ristikot suunnitellaan ja valmistetaan aina kohteen tarpeen mukaan — oli kyseessä sitten vakiomalli tai täysin räätälöity ratkaisu.
               </p>
@@ -58,7 +58,7 @@ export default function KattoristikotPage() {
             </div>
           </FadeIn>
           <FadeIn delay={250}>
-            <div className="relative h-96 rounded-lg overflow-hidden">
+            <div className="relative min-h-[360px] overflow-hidden md:min-h-[460px]">
               <Image
                 src="/images/tehdas/ristikkotuotanto/IMG_4251.webp"
                 alt="Kattoristikot"
